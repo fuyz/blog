@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<header>
+    <a class="link" href="/nswbmw">
+        首页
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="">
+        Tech
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="">
+        Business
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="">
+        Other
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="">
+        About
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="/login">
+        登录/注册
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="add button-collapse" data-activates="slide-out" href="#">
+        <span></span><span></span><span></span><span></span>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </a>
+
+
+
+</header>
+
+<div class="main">
+    <% let supplies = ['mop', 'broom', 'duster'] %>
+    <ul>
+        <% for(var i=0; i<supplies.length; i++) {%>
+        <li><%= supplies[i] %></li>
+        <% } %>
+    </ul>
+</div>
+
+<script src="/js/jquery-3.1.0.min.js"></script>
+<!-- 引入组件库 -->
+<script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        console.log($('body'));
+
+    });
+
+
+
+</script>
+</body>
+</html>

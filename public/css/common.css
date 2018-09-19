@@ -1,0 +1,37 @@
+/**
+* 
+* @author 付颖志
+* @create 2018-08-10 下午4:10
+**/
+html,body {
+    margin: 0;
+    padding: 0;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.text-white{
+    color: white;
+}
+
+
+.errorTip {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*margin: -2rem 0 0 -4rem;*/
+    min-width: 200px;
+    /*height: 1.8rem;*/
+    padding: 5px 30px;
+    background: #666;
+    color: white;
+    z-index: 100;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 100;
+    transition: all 2s;
+}
+.errorTip.hide0 {
+    transform: translate(-50%, -50px);
+    opacity: 0;
+}
