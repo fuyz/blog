@@ -95,12 +95,16 @@ app.post('/login', function (req, res) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
         }
+        //用户不存在
+        if(user == null){
+            res.json({success: false, status: 200, error: '用户不存在!', data: null});
+            return;
+        }
         //检查密码是否一致
         if (user.password != password) {
             // req.flash('error', '密码错误!');
             res.json({success: false, status: 200, error: '密码错误', data: null});
             return;
-            // /return res.redirect('/login');//密码错误则跳转到登录页
         }
         //用户名密码都匹配后，将用户信息存入 session
         req.session.user = user;
