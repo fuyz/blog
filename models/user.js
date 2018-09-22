@@ -8,6 +8,7 @@ var mongodb = require('./db');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
 
+let ID = 10001;
 
 function User(user) {
     this.name = user.name;
@@ -21,6 +22,7 @@ module.exports = User;
 User.prototype.save = function(callback) {
     //要存入数据库的用户文档
     var user = {
+        id: ID,
         name: this.name,
         password: this.password,
         // email: this.email

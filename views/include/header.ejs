@@ -1,0 +1,144 @@
+<header>
+    <a class="link" href="/">
+        首页
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="">
+        帐号设置
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="">
+        消息中心
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="">
+        创作中心
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="">
+        帮助中心
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link logout" href="javascript:void(0)">
+        登出
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a id="menu" class="add button-collapse" data-activates="slide-out" href="#">
+        <span></span><span></span><span></span><span></span>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </a>
+</header>
+<aside class="user-aside">
+    <ul class="user-aside-list">
+        <li class="userWrap">
+            <div class="headWrap">
+                <img src="/images/head.jpeg" alt="">
+            </div>
+            <div class="userInfo text-primary">
+                <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span id="user-name">***</span>
+                </p>
+                <p class="email"><i class="fa fa-envelope-open" aria-hidden="true"></i><span id="user-email">***</span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-address-book-o text-primary" aria-hidden="true"></i>个人资料</a>
+        </li>
+        <li>
+            <a href="/blog"><i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>我的博客</a>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-heart text-red" aria-hidden="true"></i>我的关注</a>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-tags text-primary" aria-hidden="true"></i>我的收藏</a>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-star text-red" aria-hidden="true"></i>我的粉丝</a>
+        </li>
+        <li>
+            <a href=""><i class="fa fa-download" aria-hidden="true"></i>我的下载</a>
+        </li>
+
+    </ul>
+</aside>
+<script src="/lib/jquery-3.1.0.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        class HeadManage {
+            constructor() {
+                this.data = {
+                    showAside: false,
+
+                }
+            }
+
+            initial() {
+
+//                显示用户信息
+                let userInfo = JSON.parse(sessionStorage.getItem('user'));
+                $('#user-name').text(userInfo.name);
+                $('#user-email').text(userInfo.email);
+//                显示侧边栏
+                $('#menu').click(function () {
+                    if (headManage.data.showAside) {
+                        headManage.data.showAside = false;
+                        $('.user-aside').animate({right: '-310px'});
+                    } else {
+                        headManage.data.showAside = true;
+                        $('.user-aside').animate({right: 0});
+                    }
+                })
+//                登出
+                $('.logout').click(function () {
+                    swal({
+                        title: "退出登录",
+                        text: "确定退出吗？",
+                        icon: "warning",
+                        buttons: {
+                            cancel: true,
+                            default: true,
+                        },
+                    }).then(value => {
+                        switch (value) {
+                            case "default":
+                                window.location.href = '/logout';
+                                break;
+                            default:
+                                break;
+                        }
+                    })
+                });
+
+            }
+        }
+
+
+        let headManage = new HeadManage();
+        headManage.initial();
+
+
+    });
+
+
+</script>

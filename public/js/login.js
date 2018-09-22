@@ -80,9 +80,11 @@ $(document).ready(function () {
                 let password = $('#l-p').val().trim();
                 if (user == '') {
                     showErrorMsg('请输入用户名');
+                    $('#l-user').focus();
                     return;
                 } else if (password == '') {
                     showErrorMsg('请输入密码');
+                    $('#l-p').focus();
                     return;
                 }
                 ajaxData('post', '/login', {
@@ -90,6 +92,7 @@ $(document).ready(function () {
                     password: password,
                 }).then(function (res) {
                     if (res.success) {
+                        sessionStorage.setItem('user', JSON.stringify(res.data));
                         swal({
                             title: "Good job!",
                             text: "登录成功！2s后自动跳转",

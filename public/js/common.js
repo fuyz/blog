@@ -62,6 +62,7 @@ function ajaxDataJsonp(url, data, beforeSendFn) {
 //错误信息弹窗
 function showErrorMsg(err) {
     $('body').append('<div class="errorTip">' + err + '</div>').show();
+    // $('.errorTip').animate({top: '100px', opacity: 1}, 500);
     setTimeout(function () {
         $('.errorTip').addClass('hide0');
     }, 800);

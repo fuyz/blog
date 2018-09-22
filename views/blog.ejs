@@ -6,22 +6,15 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
     <%include ./include/header-res.ejs%>
-    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/index.css">
+
 </head>
 <body>
 <%include ./include/header.ejs%>
 
 <section class="main">
-    <% let supplies = ['mop', 'broom', 'duster'] %>
-    <ul>
-        <% for(var i = 0; i < supplies.length; i++) { %>
-        <li><%= supplies[i] %></li>
-        <% } %>
-    </ul>
+   博客
 </section>
-<aside>
-
-</aside>
 
 <%include ./include/footer-res.ejs%>
 
@@ -33,11 +26,14 @@
         class Manage {
             constructor() {
                 this.data = {
+                    showAside: false,
 
                 }
             }
 
             initial() {
+
+
 
             }
         }

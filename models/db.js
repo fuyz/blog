@@ -1,4 +1,4 @@
-var settings = require('../setting'),
+var settings = require('../database/setting'),
     Db = require('mongodb').Db,
     Connection = require('mongodb').Connection,
     Server = require('mongodb').Server;
