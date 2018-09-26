@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
     <%include ./include/header-res.ejs%>
-    <link rel="stylesheet" href="/css/common.css">
+    <!--<link rel="stylesheet" href="/css/common.css">-->
 </head>
 <body>
 <%include ./include/header.ejs%>
@@ -18,13 +18,16 @@
         <li><%= supplies[i] %></li>
         <% } %>
     </ul>
+
+    <textarea name="content" id="editor"></textarea>
+
 </section>
 <aside>
 
 </aside>
 
 <%include ./include/footer-res.ejs%>
-
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 <script>
 
 
@@ -38,6 +41,12 @@
             }
 
             initial() {
+
+                ClassicEditor
+                    .create( document.querySelector( '#editor' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
 
             }
         }

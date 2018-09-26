@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- 引入样式 -->
+    <% include ./include/header-res.ejs %>
+    <!--<link rel="stylesheet" href="/css/index.css">-->
+    <style>
+        .searchWrap {
+            margin: 10px 0 40px;
+        }
+
+        .tabWrap {
+            /*height: 450px;*/
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, .15);
+            /*padding: 10px;*/
+        }
+
+        .tabWrap table {
+            margin: 0;
+        }
+
+        .pagination {
+            margin-top: 40px;
+            float: right;
+        }
+
+        .popup{
+            position: fixed;
+            z-index: 20;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            /*height: 400px;*/
+            background: white;
+            padding:  0 40px;
+            display: none;
+        }
+        .popup-header{
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+        .popup-main{
+            margin: 40px auto;
+        }
+        .popup-row{
+            padding: 5px 0;
+        }
+        .popup-row span{
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .popup-footer{
+            text-align: center;
+            border-top: 1px solid #ccc;
+            padding: 20px 0;
+        }
+        .popup-footer button{
+            margin: 0 20px;
+        }
+
+    </style>
+</head>
+<body>
+<% include ./include/header.ejs %>
+
+<section class="main">
+    <div class="searchWrap">
+        <input class="btn btn-default" type="text" placeholder="请输入关键字">
+        <button type="submit" class="btn btn-primary">搜索</button>
+    </div>
+
+    <div class="tabWrap">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>用户ID</th>
+                <th>用户名</th>
+                <th>邮箱</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="userTemplate">
+            <!--template-->
+            </tbody>
+        </table>
+    </div>
+    <ul class="pagination" id="paginationTemplate">
+        <!--template-->
+    </ul>
+</section>
+
+<div class="popup">
+    <div class="popup-header">
+        <h3>修改信息</h3>
+    </div>
+    <div class="popup-main">
+        <div class="popup-row">
+            <span>用户名：</span><input class="btn btn-default disabled" disabled type="text" placeholder="" id="name">
+        </div>
+        <div class="popup-row">
+            <span>密  码：</span><input class="btn btn-default" type="password" placeholder="" id="pwd1">
+        </div>
+        <div class="popup-row">
+            <span>确认密码：</span><input class="btn btn-default" type="password" placeholder="" id="pwd2">
+        </div>
+        <div class="popup-row">
+            <span>邮  箱：</span><input class="btn btn-default" type="email" placeholder="" id="email">
+        </div>
+    </div>
+    <div class="popup-footer">
+        <button class="popup-close btn btn-default">取消</button>
+        <button class="popup-confirm btn btn-primary">确定</button>
+    </div>
+</div>
+
+<% include ./include/footer-res.ejs %>
+
+<script id="user_template" type="text/html">
+    {{ if list.length > 0 }}
+    {{each list }}
+    <tr >
+        <td>{{ $value.id }}</td>
+        <td>{{ $value.name }}</td>
+        <td>{{ $value.email }}</td>
+        <td data-name="{{ $value.name }}" data-email="{{ $value.email }}">
+            <i class="fa fa-pencil-square-o modify " aria-hidden="true" data-tip="编辑"></i>
+            <i class="fa fa-trash-o delete " aria-hidden="true" data-tip="详情" data-id="{{$value.id}}"></i>
+        </td>
+
+    </tr>
+    {{ /each }}
+    {{ else }}
+    <p>暂无用户信息</p>
+    {{ /if }}
+</script>
+<script id="pagination_template" type="text/html">
+    <li class="prePage">
+        <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    {{each list2 }}
+    <li class="pageItem {{$value}}"><a href="#">{{ $index + 1 }}</a></li>
+    {{ /each }}
+    <li class="nextPage">
+        <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        class UserManage {
+            constructor() {
+                this.data = {
+                    showAside: false,
+                    modifytUser: null
+
+                }
+            }
+
+            initial() {
+
+                $('.popup-close').click(function () {
+                    $('.popup, .loading-mask').hide();
+                });
+
+
+            }
+
+            getUsers(obj) {
+                ajaxData('post', '/getUsers', {
+                    pagesize: 10,
+                    currentPage: obj.currentPage,
+
+                }).then(function (res) {
+                    if (res.success) {
+                        let data = {
+                            list: res.data.pageData
+                        };
+                        let str = template('user_template', data);
+                        $('#userTemplate').html(str);
+
+                        let arr = new Array(res.data.totalPage);
+                        arr[res.data.currentPage - 1] = 'active';
+                        let data2 = {
+                            list2: arr
+                        };
+                        let str2 = template('pagination_template', data2);
+                        $('#paginationTemplate').html(str2);
+
+                        setTimeout(function () {
+
+                            $('.delete').unbind().click(function () {
+                                let id = $(this).data('id');
+                                swal({
+                                    title: "删除",
+                                    text: "确定删除该条数据吗？",
+                                    icon: "warning",
+                                    buttons: {
+                                        cancel: '取消',
+                                        default: '删除',
+                                    },
+                                }).then(value => {
+                                    switch (value) {
+                                        case "default":
+                                            ajaxData('post', '/deleteUsers', {
+                                                id: id
+                                            }).then(function (res) {
+                                                if(res.success){
+                                                    userManage.getUsers({});
+                                                }
+                                            })
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                })
+                            });
+
+                            $('.modify').unbind().click(function () {
+                                let name = $(this).parent('td').data('name');
+                                let email = $(this).parent('td').data('email');
+                                userManage.data.modifytUser = {
+                                    name: name,
+                                    email: email
+                                }
+                                $('.loading-mask, .popup').show();
+                                $('#name').val(name)
+                                $('#email').val(email)
+                            });
+
+                            $('.pageItem').unbind().click(function () {
+                                let index = Number($(this).text());
+                                if (res.data.currentPage != index) {
+                                    userManage.getUsers({currentPage: index})
+                                }
+                            });
+                            if (res.data.hasPrev) {
+                                $('.prePage').unbind().click(function () {
+                                    userManage.getUsers({currentPage: res.data.currentPage - 1})
+                                });
+                            } else {
+                                $('.prePage').addClass('disabled');
+                            }
+                            if (res.data.hasNext) {
+                                $('.nextPage').unbind().click(function () {
+                                    userManage.getUsers({currentPage: res.data.currentPage + 1})
+                                });
+                            } else {
+                                $('.nextPage').addClass('disabled');
+                            }
+                        }, 100)
+
+                    }
+                }, function (err) {
+                    console.log(err)
+                });
+            }
+        }
+
+
+        let userManage = new UserManage();
+        userManage.initial();
+        userManage.getUsers({});
+
+
+    });
+
+
+</script>
+</body>
+</html>

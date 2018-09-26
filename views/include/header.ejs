@@ -1,3 +1,13 @@
+
+<!--loading page-->
+<div class="loading-mask">
+    <div class="loading-spinner">
+        <svg viewBox="25 25 50 50" class="circular">
+            <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+        </svg>
+    </div>
+</div>
+
 <header>
     <a class="link" href="/">
         首页
@@ -29,6 +39,13 @@
     </a>
     <a class="link" href="">
         帮助中心
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </a>
+    <a class="link" href="/users">
+        用户管理
         <span></span>
         <span></span>
         <span></span>
@@ -80,6 +97,7 @@
 
     </ul>
 </aside>
+
 <script src="/lib/jquery-3.1.0.min.js"></script>
 <script>
 
@@ -116,8 +134,8 @@
                         text: "确定退出吗？",
                         icon: "warning",
                         buttons: {
-                            cancel: true,
-                            default: true,
+                            cancel: '取消',
+                            default: '退出',
                         },
                     }).then(value => {
                         switch (value) {

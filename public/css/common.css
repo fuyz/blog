@@ -9,20 +9,21 @@ html, body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 
 }
-body{
+
+body {
     width: 100%;
     height: auto;
+    min-height: 100vh;
     overflow-y: scroll;
     background-image: url("/images/bg.png");
     background-size: cover;
-
-
+    background-repeat: no-repeat;
 }
-ul {
-     list-style: none;
-     padding: 0;
- }
 
+ul {
+    list-style: none;
+    padding: 0;
+}
 
 .text-white {
     color: white;
@@ -54,6 +55,19 @@ ul {
     transition: all 1s;
     transform: translate(-50%, -50px);
     opacity: 0;
+}
+
+.modify{
+    color: #2aabd2;
+    padding: 2px 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.delete{
+    color: red;
+    padding: 2px 5px;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 /*导航*/
@@ -333,8 +347,90 @@ header > .link {
 .main {
     margin: 5px auto 0;
     width: 900px;
-    min-height: 2200px;
-    background: rgba(255, 255, 255, 1);
+    min-height: 1000px;
+    background: rgba(255, 255, 255, 0.6);
     padding: 20px;
 }
+
+/*loading*/
+.loading-mask {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    transition: opacity .3s;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*margin-top: -21px;*/
+    width: 100%;
+    text-align: center;
+}
+
+.loading-mask .circular {
+    height: 42px;
+    width: 42px;
+    animation: loading-rotate 2s linear infinite;
+}
+
+.loading-mask .path {
+    animation: loading-dash 1.5s ease-in-out infinite;
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: 0;
+    stroke-width: 2;
+    stroke: #409eff;
+    stroke-linecap: round;
+}
+
+@keyframes loading-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -40px
+    }
+    to {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -120px
+    }
+}
+
+@keyframes loading-rotate {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        -ms-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+
+
 

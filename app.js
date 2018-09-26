@@ -46,7 +46,11 @@ app.set('views', path.join(__dirname, 'views'));
 //设置视图模板引擎为 ejs。
 // app.set('view engine', 'jade');
 app.set('view engine', 'ejs');
-app.use(flash());
+//注册ejs模板为html页。原来以.ejs为后缀的模板页，现在的后缀名可以是.html了, 设置视图模板的默认后缀名为.html
+// app.engine('.html', require('ejs').__express);
+// app.set('view engine', 'html');
+
+// app.use(flash());
 //设置/public/favicon.ico为favicon图标。
 // app.use(favicon(__dirname + '/public/favicon.ico'))
 
@@ -72,12 +76,19 @@ app.get('/logout', function (req, res) {
 app.get('/error', function (req, res) {
     res.render('error', {title: '连接超时'});
 });
+app.get('/users', function (req, res) {
+    res.render('users', {title: 'users'});
+});
+app.get('/blog', function (req, res) {
+    res.render('blog', {title: '博客'});
+});
+
 
 //登录
 app.post('/login', function (req, res) {
     let name = req.body.name;
     let password = req.body.password;
-    if(name == '' || name == null){
+    if (name == '' || name == null) {
         res.json({success: false, status: 200, error: '用户名为空', data: null});
         return;
     }
@@ -91,7 +102,7 @@ app.post('/login', function (req, res) {
             return;
         }
         //用户不存在
-        if(user == null){
+        if (user == null) {
             res.json({success: false, status: 200, error: '用户不存在!', data: null});
             return;
         }
@@ -128,7 +139,7 @@ app.post('/reg', function (req, res) {
     });
     //检查用户名是否已经存在
     newUser.get(newUser.name, function (err, user) {
-        console.log(user);
+        console.log('注册前的查询：user: '+ user);
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
@@ -136,15 +147,12 @@ app.post('/reg', function (req, res) {
         if (user) {
             res.json({success: false, status: 200, error: '用户已存在!', data: null});
             return;
-            // res.status(500).send({ error: 'something blew up' });
-            // return res.redirect('/login');//返回注册页
         }
         //如果不存在则新增用户
         newUser.save(function (err, user) {
             if (err) {
                 res.json({success: false, status: 200, error: err, data: null});
                 return;
-                // return res.redirect('/login');//注册失败返回主册页
             }
             console.log(user);
             req.session.user = user;//用户信息存入 session
@@ -155,15 +163,78 @@ app.post('/reg', function (req, res) {
     });
 });
 
+//获取用户
+app.post('/getUsers', function (req, res) {
+    /*
+    currentIndex: 0
+    currentPage: 1
+    hasNext: true
+    hasPrev: false
+    nextPage: 2
+    pageData: [{id: 36, name: "广告投放系统", global: false, uri: "/echannel", viewLocation: "/web/advertising",…},…]
+    pageSize: 10
+    prevPage: 1
+    totalPage: 2
+    totalSize:
+    */
+    // if (currentPage == '' || currentPage == null || currentPage == undefined) {
+        // res.json({success: false, status: 200, error: '用户名为空', data: null});
+        // return;
+    // }
+    User.prototype.getAll({}, function (err, userArr) {
 
-app.get('/blog', function (req, res) {
-    res.render('blog', {title: '博客'});
+        let obj = {};
+        obj.currentIndex =  req.body.currentIndex || 1;
+        obj.currentPage =  Number(req.body.currentPage) || 1;
+
+        obj.pagesize = req.body.pageSize | 10;
+        obj.totalSize = userArr.length ;
+        obj.totalPage = Math.ceil(obj.totalSize / obj.pagesize);
+
+        if(obj.currentPage > 1){
+            obj.prevPage = obj.currentPage -1;
+            obj.hasPrev = true;
+        }else {
+            obj.hasPrev = false;
+        }
+        if(obj.currentPage < obj.totalPage){
+            obj.nextPage = obj.currentPage + 1;
+            obj.hasNext = true;
+        }else {
+            obj.hasNext = false;
+        }
+
+        if(obj.totalPage == 1) {
+            obj.pageData = userArr;
+        }else if(obj.currentPage == obj.totalPage){
+            obj.pageData = userArr.slice( (obj.currentPage -1) * 10, -1 );
+        }else {
+            obj.pageData = userArr.slice( (obj.currentPage -1) * 10, obj.currentPage * 10 );
+        }
+
+        // if(userArr.length / pageSize)
+        res.json({success: true, status: 200, data: obj});
+
+    })
 });
+app.post('/deleteUsers', function (req, res) {
+    User.prototype.delete(req.body.id, function (err, result) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        if(result.deletedCount == 1){
+            res.json({success: true, status: 200, data: null});
+        }else {
+            res.json({success: false, status: 200, error: '删除失败', data: null});
+        }
+
+    })
+});
+
 // 发博客
 app.post('/post', function (req, res) {
 });
-
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
