@@ -83,7 +83,6 @@ app.get('/blog', function (req, res) {
     res.render('blog', {title: '博客'});
 });
 
-
 //登录
 app.post('/login', function (req, res) {
     let name = req.body.name;
@@ -207,7 +206,7 @@ app.post('/getUsers', function (req, res) {
         if(obj.totalPage == 1) {
             obj.pageData = userArr;
         }else if(obj.currentPage == obj.totalPage){
-            obj.pageData = userArr.slice( (obj.currentPage -1) * 10, -1 );
+            obj.pageData = userArr.slice( (obj.currentPage -1) * 10);
         }else {
             obj.pageData = userArr.slice( (obj.currentPage -1) * 10, obj.currentPage * 10 );
         }
@@ -231,6 +230,21 @@ app.post('/deleteUsers', function (req, res) {
 
     })
 });
+app.post('/updateUsers', function (req, res) {
+    User.prototype.update(req.body, function (err, result) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        if(result.ok == 1){
+            res.json({success: true, status: 200, data: result.value});
+        }else {
+            res.json({success: false, status: 200, error: '修改失败', data: null});
+        }
+
+    })
+});
+
 
 // 发博客
 app.post('/post', function (req, res) {

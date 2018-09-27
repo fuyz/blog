@@ -133,3 +133,40 @@ User.prototype.delete = function (id, callback) {
     });
 
 };
+
+//更新
+User.prototype.update = function (obj, callback) {
+
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        console.log("数据库已连接!");
+        //读取 users 集合
+        //读取 users 集合
+        let dbase = db.db("myblog");
+        let index = Number(obj.id);
+        try {
+            dbase.collection("users").findOneAndUpdate(
+                {id: index},
+                {$set: {password: obj.password, email: obj.email}},
+                { returnNewDocument : true },
+                function (err, result) {
+                    if (err) {
+                        db.close();
+                        return callback(err);//失败！返回 err 信息
+                    }
+                    callback(null, result);//成功！返回查询的用户信息
+                }
+            );
+
+
+        }
+        catch (e) {
+            db.close();
+            return callback(err);//失败！返回 err 信息
+        }
+
+    })
+    ;
+
+}
+;
