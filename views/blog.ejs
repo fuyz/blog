@@ -14,9 +14,13 @@
 
 <section class="main">
    博客
+    <textarea name="content" id="editor"></textarea>
+
+
 </section>
 
 <%include ./include/footer-res.ejs%>
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 
 <script>
 
@@ -33,6 +37,12 @@
 
             initial() {
 
+                //富文本初始化
+                ClassicEditor
+                    .create( document.querySelector( '#editor' ) )
+                    .catch( error => {
+                        console.error( error );
+                    } );
 
 
             }

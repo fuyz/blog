@@ -19,7 +19,6 @@
         <% } %>
     </ul>
 
-    <textarea name="content" id="editor"></textarea>
 
 </section>
 <aside>
@@ -27,7 +26,6 @@
 </aside>
 
 <%include ./include/footer-res.ejs%>
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 <script>
 
 
@@ -42,11 +40,6 @@
 
             initial() {
 
-                ClassicEditor
-                    .create( document.querySelector( '#editor' ) )
-                    .catch( error => {
-                        console.error( error );
-                    } );
 
             }
         }
