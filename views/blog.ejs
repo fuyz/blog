@@ -5,31 +5,165 @@
     <title><%= title %></title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
-    <%include ./include/header-res.ejs%>
-    <link rel="stylesheet" href="/css/index.css">
+    <% include ./include/header-res.ejs %>
+    <!--<link rel="stylesheet" href="/css/index.css">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet"
+          type="text/css"/>
+    <style>
+
+        .main {
+            background: white;
+            min-height: auto;
+        }
+
+        .blogList {
+            height: 100%;
+            border-right: 1px solid #e9e9e9;
+        }
+
+        .blogList i {
+            color: #333;
+            margin-right: 5px;
+        }
+
+        .toolItem {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .toolItem a {
+            width: 100%;
+            padding: 10px 20px;
+            display: inline-block;
+            color: #333;
+        }
+
+        .toolItem:hover {
+            background: #2b669a;
+            color: white;
+        }
+
+        .toolItem:hover a {
+            color: white;
+        }
+
+        .toolItem:hover i {
+            color: white;
+        }
+
+        .titleWrap {
+            width: 100%;
+            padding: 5px 10px;
+            background: #eee;
+            margin-bottom: 20px;
+        }
+
+        #title {
+            border: 0;
+            width: 100%;
+            background: transparent;
+            padding: 5px 10px;
+            outline: none;
+        }
+
+        #submit {
+            border: 1px solid #2b669a;
+            border-radius: 5px;
+            padding: 5px 15px;
+            color: #2b669a;
+        }
+
+        #submit:hover {
+            background: #2b669a;
+            color: white;
+        }
+
+    </style>
 
 </head>
 <body>
-<%include ./include/header.ejs%>
+<% include ./include/header.ejs %>
 
-<section class="main">
-   博客
-    <textarea name="content" id="editor"></textarea>
+<section class="main container">
+    <div class="row">
+        <ul class="blogList col-6 col-md-2">
+            <li class="toolItem">
+                <a href="/blog"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
+            </li>
+            <li class="toolItem">
+                <a href=""><i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>文章管理</a>
+            </li>
+            <li class="toolItem">
+                <a href="">专栏管理</a>
+            </li>
+            <li class="toolItem">
+                <a href="">评论管理</a>
+            </li>
+            <li class="toolItem">
+                <a href="">个人分类管理</a>
+            </li>
+            <li class="toolItem"><a href="">设置</a></li>
+            <li class="toolItem"><a href="">博客设置</a></li>
+            <li class="toolItem"><a href="">栏目管理</a></li>
+            <li class="toolItem"><a href="">博客搬家</a></li>
 
+
+        </ul>
+        <div class="blogWrap col-6 col-md-10">
+            <div class="titleWrap">
+                <input id="title" type="text" placeholder="请输入文章标题">
+            </div>
+            <div class="editorWrap">
+                <textarea name="content" id="editor"></textarea>
+            </div>
+            <div class="editorTool container">
+                <div class="row">
+                    <div class="col-2">
+                        <span>文章标签：</span>
+                    </div>
+                    <div class="col-10">
+                        <button>添加标签</button>
+                        <p class="tip">最多添加5个标签</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <button id="submit">发表博客</button>
+
+            <div>
+                <span>文章类型</span>
+                <select name="" id="blogType">
+                    <option value="0">请选择分类</option>
+                    <option value="1">原创</option>
+                    <option value="1">转载</option>
+                    <option value="1">翻译</option>
+                </select>
+            </div>
+            个人分类：添加新分类
+            ：*博客分类：*
+        </div>
+    </div>
 
 </section>
 
-<%include ./include/footer-res.ejs%>
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+<% include ./include/footer-res.ejs %>
+
+<!-- Include Editor JS files. -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.pkgd.min.js"></script>
 
 <script>
-
 
     $(document).ready(function () {
 
         class Manage {
             constructor() {
                 this.data = {
+                    userInfo: null,
                     showAside: false,
 
                 }
@@ -37,14 +171,56 @@
 
             initial() {
 
-                //富文本初始化
-                ClassicEditor
-                    .create( document.querySelector( '#editor' ) )
-                    .catch( error => {
-                        console.error( error );
-                    } );
+                manage.userInfo = JSON.parse(sessionStorage.getItem('user'));
 
+                $('#editor').froalaEditor({
+                    height: 500,
+                    codeMirror: false,
+//                    toolbarButtons: [
+//                        'saveSelection', 'restoreSelection', 'clearSelection'
+//                    ]
+//                    colorsBackground: ['#61BD6D', '#1ABC9C', '#54ACD2', 'REMOVE']
+//                    colorsHEXInput: false
+//                    colorsStep: 14
+//                    autofocus: true
 
+                });
+
+                $('#submit').click(function () {
+                    let title = $('#title').val().trim();
+                    let content = $('#editor').froalaEditor('html.get');
+                    let createTime = new Date().getTime();
+                    let type = $('#blogType').val();
+
+                    if (title == '') {
+                        showErrorMsg('请输入文章标题');
+                        $('#title').focus();
+                        return;
+                    }
+                    if (content == '') {
+                        showErrorMsg('请输入文章内容');
+                        $('#editor').focus();
+                        return;
+                    }
+                    if (type == 0) {
+                        showErrorMsg('请选择文章类型');
+                        $('#blogType').focus();
+                        return;
+                    }
+
+                    ajaxData('post', '/blog', {
+                        title: title,
+                        content: content,
+                        type: type,
+                        createTime: createTime,
+                        author: manage.userInfo.name
+                    }).then(function (res) {
+                        if(res.success){
+
+                        }
+                    })
+
+                })
             }
         }
 

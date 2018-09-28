@@ -11,7 +11,8 @@ let bodyParser = require('body-parser');
 
 // 引入 crypto 模块和 user.js 用户模型文件，crypto 是 Node.js 的一个核心模块，我们用它生成散列值来加密密码。
 let crypto = require('crypto'),
-    User = require('./models/user.js');
+    User = require('./models/user.js'),
+    Blog = require('./models/blog.js');
 
 //数据库设置
 let settings = require('./database/setting');
@@ -138,7 +139,7 @@ app.post('/reg', function (req, res) {
     });
     //检查用户名是否已经存在
     newUser.get(newUser.name, function (err, user) {
-        console.log('注册前的查询：user: '+ user);
+        console.log('注册前的查询：user: ' + user);
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
@@ -161,7 +162,6 @@ app.post('/reg', function (req, res) {
         });
     });
 });
-
 //获取用户
 app.post('/getUsers', function (req, res) {
     /*
@@ -177,38 +177,38 @@ app.post('/getUsers', function (req, res) {
     totalSize:
     */
     // if (currentPage == '' || currentPage == null || currentPage == undefined) {
-        // res.json({success: false, status: 200, error: '用户名为空', data: null});
-        // return;
+    // res.json({success: false, status: 200, error: '用户名为空', data: null});
+    // return;
     // }
     User.prototype.getAll({}, function (err, userArr) {
 
         let obj = {};
-        obj.currentIndex =  req.body.currentIndex || 1;
-        obj.currentPage =  Number(req.body.currentPage) || 1;
+        obj.currentIndex = req.body.currentIndex || 1;
+        obj.currentPage = Number(req.body.currentPage) || 1;
 
         obj.pagesize = req.body.pageSize | 10;
-        obj.totalSize = userArr.length ;
+        obj.totalSize = userArr.length;
         obj.totalPage = Math.ceil(obj.totalSize / obj.pagesize);
 
-        if(obj.currentPage > 1){
-            obj.prevPage = obj.currentPage -1;
+        if (obj.currentPage > 1) {
+            obj.prevPage = obj.currentPage - 1;
             obj.hasPrev = true;
-        }else {
+        } else {
             obj.hasPrev = false;
         }
-        if(obj.currentPage < obj.totalPage){
+        if (obj.currentPage < obj.totalPage) {
             obj.nextPage = obj.currentPage + 1;
             obj.hasNext = true;
-        }else {
+        } else {
             obj.hasNext = false;
         }
 
-        if(obj.totalPage == 1) {
+        if (obj.totalPage == 1) {
             obj.pageData = userArr;
-        }else if(obj.currentPage == obj.totalPage){
-            obj.pageData = userArr.slice( (obj.currentPage -1) * 10);
-        }else {
-            obj.pageData = userArr.slice( (obj.currentPage -1) * 10, obj.currentPage * 10 );
+        } else if (obj.currentPage == obj.totalPage) {
+            obj.pageData = userArr.slice((obj.currentPage - 1) * 10);
+        } else {
+            obj.pageData = userArr.slice((obj.currentPage - 1) * 10, obj.currentPage * 10);
         }
 
         // if(userArr.length / pageSize)
@@ -222,9 +222,9 @@ app.post('/deleteUsers', function (req, res) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
         }
-        if(result.deletedCount == 1){
+        if (result.deletedCount == 1) {
             res.json({success: true, status: 200, data: null});
-        }else {
+        } else {
             res.json({success: false, status: 200, error: '删除失败', data: null});
         }
 
@@ -236,19 +236,91 @@ app.post('/updateUsers', function (req, res) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
         }
-        if(result.ok == 1){
+        if (result.ok == 1) {
             res.json({success: true, status: 200, data: result.value});
-        }else {
+        } else {
             res.json({success: false, status: 200, error: '修改失败', data: null});
         }
 
     })
 });
 
-
 // 发博客
-app.post('/post', function (req, res) {
+app.post('/blog', function (req, res) {
+    let obj = req.body;
+    if (obj.title == '') {
+        res.json({success: false, status: 200, error: '请输入文章标题!', data: null});
+        return;
+    }
+    if (obj.content == '') {
+        res.json({success: false, status: 200, error: '请输入文章内容!', data: null});
+        return;
+    }
+    if (obj.type == 0) {
+        res.json({success: false, status: 200, error: '请选择文章类型!', data: null});
+        return;
+    }
+
+    let newBlog = new Blog({
+        index: obj.index,
+        title: obj.title, //博客标题
+        content: obj.content, //博客内容
+        author: obj.author, //作者
+        createTime: obj.createTime,   //发表时间
+        type: obj.type
+    });
+
+    if(obj.index){
+        //修改博文
+
+
+    }else {
+        //新增加博文
+        newBlog.createOrModifyBlog('',function (err, blog) {
+            if (err) {
+                res.json({success: false, status: 200, error: err, data: null});
+                return;
+            }
+
+            if(blog.result.ok == 1){
+                res.json({success: true, status: 200, data: null});
+            }else {
+                res.json({success: false, status: 200, error: err, data: null});
+            }
+
+        })
+    }
+
+    return;
+    //检查用户名是否已经存在
+    newBlog.get(newBlog.index, function (err, blog) {
+        console.log('博客保存前查询：blog: ' + blog);
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        if (user) {
+            res.json({success: false, status: 200, error: '用户已存在!', data: null});
+            return;
+        }
+        //如果不存在则新增用户
+        newUser.save(function (err, user) {
+            if (err) {
+                res.json({success: false, status: 200, error: err, data: null});
+                return;
+            }
+            console.log(user);
+            req.session.user = user;//用户信息存入 session
+            res.json({success: true, status: 200, data: null});
+
+            // res.redirect('/');//注册成功后返回主页
+        });
+    });
+
+
 });
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));

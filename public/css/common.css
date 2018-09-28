@@ -57,6 +57,12 @@ ul {
     opacity: 0;
 }
 
+.tip{
+    font-size: 12px;
+    padding: 2px 10px;
+    color: #999;
+}
+
 .modify{
     color: #2aabd2;
     padding: 2px 5px;
@@ -342,11 +348,10 @@ header > .link {
 .user-aside i {
     margin-right: 8px;
 }
-
 /*主体部分*/
 .main {
     margin: 5px auto 0;
-    width: 900px;
+    width: 1100px;
     min-height: 1000px;
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;
