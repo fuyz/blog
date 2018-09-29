@@ -25,6 +25,18 @@ ul {
     padding: 0;
 }
 
+.clear:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
 .text-white {
     color: white;
 }

@@ -322,7 +322,60 @@ app.post('/blog', function (req, res) {
 
 
 });
+//获取所有博客
+app.post('/getBlogs', function (req, res) {
+    /*
+    currentIndex: 0
+    currentPage: 1
+    hasNext: true
+    hasPrev: false
+    nextPage: 2
+    pageData: [{id: 36, name: "广告投放系统", global: false, uri: "/echannel", viewLocation: "/web/advertising",…},…]
+    pageSize: 10
+    prevPage: 1
+    totalPage: 2
+    totalSize:
+    */
+    // if (currentPage == '' || currentPage == null || currentPage == undefined) {
+    // res.json({success: false, status: 200, error: '用户名为空', data: null});
+    // return;
+    // }
+    Blog.prototype.getAll({}, function (err, blogArr) {
 
+        let obj = {};
+        obj.currentIndex = req.body.currentIndex || 1;
+        obj.currentPage = Number(req.body.currentPage) || 1;
+
+        obj.pagesize = req.body.pageSize | 10;
+        obj.totalSize = blogArr.length;
+        obj.totalPage = Math.ceil(obj.totalSize / obj.pagesize);
+
+        if (obj.currentPage > 1) {
+            obj.prevPage = obj.currentPage - 1;
+            obj.hasPrev = true;
+        } else {
+            obj.hasPrev = false;
+        }
+        if (obj.currentPage < obj.totalPage) {
+            obj.nextPage = obj.currentPage + 1;
+            obj.hasNext = true;
+        } else {
+            obj.hasNext = false;
+        }
+
+        if (obj.totalPage == 1) {
+            obj.pageData = blogArr;
+        } else if (obj.currentPage == obj.totalPage) {
+            obj.pageData = blogArr.slice((obj.currentPage - 1) * 10);
+        } else {
+            obj.pageData = blogArr.slice((obj.currentPage - 1) * 10, obj.currentPage * 10);
+        }
+
+        // if(blogArr.length / pageSize)
+        res.json({success: true, status: 200, data: obj});
+
+    })
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

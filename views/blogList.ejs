@@ -53,6 +53,49 @@
             color: white;
         }
 
+        .main-search-box {
+            margin-top: 16px;
+            padding: 16px;
+            font-size: 14px;
+            background: #f2f5f7;
+        }
+
+        .listWrap {
+            width: 100%;
+        }
+
+        .item {
+            /*height: 100px;/*/
+            padding: 20px 0px;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .item-title {
+            font-size: 18px;
+        }
+
+        .item-info {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .item-info-oper a {
+            padding-right: 8px;
+            border-right: 1px solid #ccc;
+            margin-right: 8px;
+            color: #349EDF;
+        }
+
+        .item-info span {
+            margin-right: 25px;
+        }
+
+        .item-info .del {
+            color: #CA0C16;
+            border-right: 0;
+        }
+
     </style>
 
 </head>
@@ -91,106 +134,104 @@
             <div class="main-nav-tabs">
                 <ul class="nav nav-pills" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" href="https://mp.csdn.net/postlist" role="tab" aria-controls="pills-home" aria-selected="true">全部(40)</a>
+                        <a class="nav-link active" href="https://mp.csdn.net/postlist" role="tab"
+                           aria-controls="pills-home" aria-selected="true">全部(40)</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/enable" role="tab" aria-controls="pills-profile" aria-selected="false">已发表(40)</a>
+                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/enable" role="tab"
+                           aria-controls="pills-profile" aria-selected="false">已发表(40)</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/private" role="tab" aria-controls="pills-profile" aria-selected="false">私密(0)</a>
+                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/draft" role="tab"
+                           aria-controls="pills-contact" aria-selected="false">草稿箱(0)</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/draft" role="tab" aria-controls="pills-contact" aria-selected="false">草稿箱(0)</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/deleted" role="tab" aria-controls="pills-contact" aria-selected="false">
-                            <svg class="icon icon-trash">
-                                <use xlink:href="#trash"></use>
-                            </svg>
+                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/deleted" role="tab"
+                           aria-controls="pills-contact" aria-selected="false">
                             回收站(0)
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="main-search-box">
-                <form class="mt-2 mt-md-0 main-nav-tab-search search_input" action="https://mp.csdn.net/postlist/list/all">
+                <form class="mt-2 mt-md-0 main-nav-tab-search search_input"
+                      action="https://mp.csdn.net/postlist/list/all">
                     <div class="dropdown year float-left mr8 default-val">
                         <label>发布时间：</label>
-                        <button class="btn btn-sm btn-dropdown dropdown-toggle" type="button" id="droYear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">不限</button>
-                        <input type="hidden" value="" id="year" name="year">
-                        <div class="dropdown-menu" aria-labelledby="droYear">
-                            <a class="dropdown-item yearOption" data-val="">不限</a>
-                            <a class="dropdown-item yearOption" data-val="2018">2018</a>
-                            <a class="dropdown-item yearOption" data-val="2017">2017</a>
-                        </div>
-                    </div>
-                    <div class="dropdown month float-left default-val mr24">
-                        <button class="btn btn-sm btn-dropdown dropdown-toggle" type="button" id="droMonth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">不限</button>
-                        <input type="hidden" value="" id="month" name="month">
-                        <div class="dropdown-menu months-list" aria-labelledby="droMonth">
-                            <a class="dropdown-item" data-val="">不限</a>
-                        </div>
+                        <select class="" aria-labelledby="droYear">
+                            <option class="dropdown-item yearOption" data-val="">不限</option>
+                            <option class="dropdown-item yearOption" data-val="2018">2018</option>
+                            <option class="dropdown-item yearOption" data-val="2017">2017</option>
+                        </select>
                     </div>
                     <div class="dropdown type float-left default-val mr24">
-                        <button class="btn btn-sm btn-dropdown dropdown-toggle" type="button" id="droType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">不限类型</button>
-                        <input type="hidden" value="" id="type" name="type">
-                        <div class="dropdown-menu" aria-labelledby="droType">
-                            <a class="dropdown-item" data-val="">不限类型</a>
-                            <a class="dropdown-item" data-val="1">原创</a>
-                            <a class="dropdown-item" data-val="2">转载</a>
-                            <a class="dropdown-item" data-val="4">翻译</a>
-                        </div>
+                        <label>文章类型：</label>
+                        <select class="" aria-labelledby="droType">
+                            <option class="dropdown-item" data-val="">不限类型</option>
+                            <option class="dropdown-item" data-val="1">原创</option>
+                            <option class="dropdown-item" data-val="2">转载</option>
+                            <option class="dropdown-item" data-val="4">翻译</option>
+                        </select>
                     </div>
-                    <div class="dropdown categorie float-left default-val mr24">
-                        <button class="btn btn-sm btn-dropdown dropdown-toggle " type="button" id="droCategorie" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">选择个人分类</button>
-                        <input type="hidden" value="" id="categorie" name="cate">
-                        <div class="dropdown-menu" aria-labelledby="droCategorie">
-                            <a class="dropdown-item" data-val="">选择个人分类</a>
-                            <a class="dropdown-item" data-val="6697994">编译器</a>
-                            <a class="dropdown-item" data-val="6697995">GitHub</a>
-                            <a class="dropdown-item" data-val="6697996">html</a>
-                            <a class="dropdown-item" data-val="6697997">CSS</a>
-                            <a class="dropdown-item" data-val="6697998">javascript</a>
-                            <a class="dropdown-item" data-val="7477442">require.js</a>
-                            <a class="dropdown-item" data-val="7477447">webpack</a>
-                            <a class="dropdown-item" data-val="7501214">svn</a>
-                            <a class="dropdown-item" data-val="7501296">json</a>
-                            <a class="dropdown-item" data-val="7501524">工具</a>
-                            <a class="dropdown-item" data-val="7728789">fullPage.js</a>
-                            <a class="dropdown-item" data-val="7748954">Vue</a>
-                            <a class="dropdown-item" data-val="7838732">部署</a>
-                            <a class="dropdown-item" data-val="7839800">其他</a>
-                            <a class="dropdown-item" data-val="7912089">引入非模块化js'</a>
-                            <a class="dropdown-item" data-val="7927935">nodejs</a>
-                            <a class="dropdown-item" data-val="8056978">微信</a>
-                            <a class="dropdown-item" data-val="none">未分类</a>
-
-                        </div>
-                    </div>
-                    <input class="txt-keyword mr24" id="key" type="text" name="keyword" value="" placeholder="仅支持标题关键词搜索" aria-label="Search">
+                    <input class="txt-keyword mr24" id="key" type="text" name="keyword" value=""
+                           placeholder="仅支持标题关键词搜索" aria-label="Search">
                     <button type="button" class="btn btn-danger btn-search float-right">搜索</button>
                 </form>
             </div>
-            <ul>
-                <li>
-                    <p>安卓微信分享图标不显示的问题</p>
-                    <div>
-                        <div>
-                            翻译 2018年09月28日 11:19:28
-                        </div>
-                        <div>
-                            查看 禁止评论 置顶 删除
-                        </div>
-                    </div>
-                </li>
+            <ul class="listWrap">
+                <!--template-->
             </ul>
 
         </div>
+        <ul class="pagination" id="paginationTemplate">
+            <!--template-->
+        </ul>
     </div>
 
 </section>
 
 <% include ./include/footer-res.ejs %>
+
+<script id="blog_template" type="text/html">
+    {{ if list.length > 0 }}
+    {{each list }}
+    <li class="item">
+        <p class="item-title">{{ $value.title }}</p>
+        <div class="item-info clear">
+            <div class="left">
+                <span>{{ $value.type | typeFormat }}</span>
+                <span>{{ $value.createTime | dateFormat }}</span>
+                <span>阅读量</span>
+                <span>评论数</span>
+            </div>
+            <div class="right item-info-oper">
+                <a href="">查看</a>
+                <a href="">禁止评论</a>
+                <a href="">置顶 </a>
+                <a class="del" href="">删除</a>
+            </div>
+        </div>
+    </li>
+    {{ /each }}
+    {{ else }}
+    <p>暂无用户信息</p>
+    {{ /if }}
+</script>
+<script id="pagination_template" type="text/html">
+    <li class="prePage">
+        <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    {{each list2 }}
+    <li class="pageItem {{$value}}"><a href="#">{{ $index + 1 }}</a></li>
+    {{ /each }}
+    <li class="nextPage">
+        <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+</script>
 
 <!-- Include Editor JS files. -->
 <script type="text/javascript"
@@ -213,72 +254,52 @@
 
                 manage.userInfo = JSON.parse(sessionStorage.getItem('user'));
 
-                $('#editor').froalaEditor({
-                    height: 500,
-                    codeMirror: false,
-//                    toolbarButtons: [
-//                        'saveSelection', 'restoreSelection', 'clearSelection'
-//                    ]
-//                    colorsBackground: ['#61BD6D', '#1ABC9C', '#54ACD2', 'REMOVE']
-//                    colorsHEXInput: false
-//                    colorsStep: 14
-//                    autofocus: true
+                manage.getBlogList({});
+            }
 
+            getBlogList(obj) {
+                ajaxData('post', '/getBlogs', {
+                    pagesize: 10,
+                    currentPage: obj.currentPage,
+
+                }).then(function (res) {
+                    if (res.success) {
+                        let data = {
+                            list: res.data.pageData
+                        };
+                        let str = template('blog_template', data);
+                        $('.listWrap').html(str);
+
+                    }
                 });
 
-                $('#submit').click(function () {
-                    let title = $('#title').val().trim();
-                    let content = $('#editor').froalaEditor('html.get');
-                    let createTime = new Date().getTime();
-                    let type = $('#blogType').val();
-
-                    if (title == '') {
-                        showErrorMsg('请输入文章标题');
-                        $('#title').focus();
-                        return;
-                    }
-                    if (content == '') {
-                        showErrorMsg('请输入文章内容');
-                        $('#editor').focus();
-                        return;
-                    }
-                    if (type == 0) {
-                        showErrorMsg('请选择文章类型');
-                        $('#blogType').focus();
-                        return;
-                    }
-
-                    ajaxData('post', '/blog', {
-                        title: title,
-                        content: content,
-                        type: type,
-                        createTime: createTime,
-                        author: manage.userInfo.name
-                    }).then(function (res) {
-                        if (res.success) {
-                            swal({
-                                title: "Good job!",
-                                text: "发布成功！",
-                                icon: "success",
-                                button: "确定",
-                                // buttons: false,
-                                timer: 2000,
-                            }).then((value) => {
-
-                            });
-                        }
-                    })
-
-                })
             }
         }
 
 
         let manage = new Manage();
         manage.initial();
+        template.defaults.imports.dateFormat = function(val){
+            return new Date(Number(val)).toLocaleString();
+        };
+        template.defaults.imports.typeFormat = function(val) {
+            switch (val){
+                case '1':
+                    return '原创';
+                    break;
+                case '2':
+                    return '转载';
+                    break;
+                case '3':
+                    return '翻译';
+                    break;
+                default:
+                    return '不知道类型';
+            }
+        }
 
 
-    });
+        });
 
 
 </script>

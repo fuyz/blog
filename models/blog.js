@@ -91,7 +91,7 @@ Blog.prototype.get = function (name, callback) {
 };
 
 
-//读取所有用户信息
+//读取所有博客信息
 Blog.prototype.getAll = function ({}, callback) {
 
     //数据库客户端连接
@@ -105,7 +105,7 @@ Blog.prototype.getAll = function ({}, callback) {
         //连接数据库
         let dbase = db.db("myblog");
         //读取 users 集合
-        dbase.collection("users").find({}).toArray(function (err, data) {
+        dbase.collection("blogs").find({}).toArray(function (err, data) {
             if (err) {
                 db.close();
                 return callback(err);//错误，返回 err 信息
