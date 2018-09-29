@@ -83,6 +83,9 @@ app.get('/users', function (req, res) {
 app.get('/blog', function (req, res) {
     res.render('blog', {title: '博客'});
 });
+app.get('/blogList', function (req, res) {
+    res.render('blogList', {title: '博客列表'});
+});
 
 //登录
 app.post('/login', function (req, res) {

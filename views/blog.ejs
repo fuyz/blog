@@ -18,12 +18,12 @@
             min-height: auto;
         }
 
-        .blogList {
+        .sidebar {
             height: 100%;
             border-right: 1px solid #e9e9e9;
         }
 
-        .blogList i {
+        .sidebar i {
             color: #333;
             margin-right: 5px;
         }
@@ -88,7 +88,7 @@
 
 <section class="main container">
     <div class="row">
-        <ul class="blogList col-6 col-md-2">
+        <ul class="sidebar col-6 col-md-2">
             <li class="toolItem">
                 <a href="/blog"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
             </li>
@@ -139,8 +139,8 @@
                 <select name="" id="blogType">
                     <option value="0">请选择分类</option>
                     <option value="1">原创</option>
-                    <option value="1">转载</option>
-                    <option value="1">翻译</option>
+                    <option value="2">转载</option>
+                    <option value="3">翻译</option>
                 </select>
             </div>
             个人分类：添加新分类
@@ -216,7 +216,16 @@
                         author: manage.userInfo.name
                     }).then(function (res) {
                         if(res.success){
+                            swal({
+                                title: "Good job!",
+                                text: "发布成功！",
+                                icon: "success",
+                                button: "确定",
+                                // buttons: false,
+                                timer: 2000,
+                            }).then((value) => {
 
+                            });
                         }
                     })
 

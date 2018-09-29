@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- 引入样式 -->
+    <% include ./include/header-res.ejs %>
+    <!--<link rel="stylesheet" href="/css/index.css">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet"
+          type="text/css"/>
+    <style>
+
+        .main {
+            background: white;
+            min-height: auto;
+        }
+
+        .sidebar {
+            height: 100%;
+            border-right: 1px solid #e9e9e9;
+        }
+
+        .sidebar i {
+            color: #333;
+            margin-right: 5px;
+        }
+
+        .toolItem {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .toolItem a {
+            width: 100%;
+            padding: 10px 20px;
+            display: inline-block;
+            color: #333;
+        }
+
+        .toolItem:hover {
+            background: #2b669a;
+            color: white;
+        }
+
+        .toolItem:hover a {
+            color: white;
+        }
+
+        .toolItem:hover i {
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+<% include ./include/header.ejs %>
+
+<section class="main container">
+    <div class="row">
+
+        <ul class="sidebar col-6 col-md-2">
+            <li class="toolItem">
+                <a href="/blog"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
+            </li>
+            <li class="toolItem">
+                <a href=""><i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>文章管理</a>
+            </li>
+            <li class="toolItem">
+                <a href="">专栏管理</a>
+            </li>
+            <li class="toolItem">
+                <a href="">评论管理</a>
+            </li>
+            <li class="toolItem">
+                <a href="">个人分类管理</a>
+            </li>
+            <li class="toolItem"><a href="">设置</a></li>
+            <li class="toolItem"><a href="">博客设置</a></li>
+            <li class="toolItem"><a href="">栏目管理</a></li>
+            <li class="toolItem"><a href="">博客搬家</a></li>
+
+
+        </ul>
+
+        <div class="blogListWrap col-6 col-md-10">
+            <div class="main-crumbs">文章管理</div>
+            <div class="main-nav-tabs">
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="https://mp.csdn.net/postlist" role="tab" aria-controls="pills-home" aria-selected="true">全部(40)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/enable" role="tab" aria-controls="pills-profile" aria-selected="false">已发表(40)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/private" role="tab" aria-controls="pills-profile" aria-selected="false">私密(0)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/draft" role="tab" aria-controls="pills-contact" aria-selected="false">草稿箱(0)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/deleted" role="tab" aria-controls="pills-contact" aria-selected="false">
+                            <svg class="icon icon-trash">
+                                <use xlink:href="#trash"></use>
+                            </svg>
+                            回收站(0)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-search-box">
+                <form class="mt-2 mt-md-0 main-nav-tab-search search_input" action="https://mp.csdn.net/postlist/list/all">
+                    <div class="dropdown year float-left mr8 default-val">
+                        <label>发布时间：</label>
+                        <button class="btn btn-sm btn-dropdown dropdown-toggle" type="button" id="droYear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">不限</button>
+                        <input type="hidden" value="" id="year" name="year">
+                        <div class="dropdown-menu" aria-labelledby="droYear">
+                            <a class="dropdown-item yearOption" data-val="">不限</a>
+                            <a class="dropdown-item yearOption" data-val="2018">2018</a>
+                            <a class="dropdown-item yearOption" data-val="2017">2017</a>
+                        </div>
+                    </div>
+                    <div class="dropdown month float-left default-val mr24">
+                        <button class="btn btn-sm btn-dropdown dropdown-toggle" type="button" id="droMonth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">不限</button>
+                        <input type="hidden" value="" id="month" name="month">
+                        <div class="dropdown-menu months-list" aria-labelledby="droMonth">
+                            <a class="dropdown-item" data-val="">不限</a>
+                        </div>
+                    </div>
+                    <div class="dropdown type float-left default-val mr24">
+                        <button class="btn btn-sm btn-dropdown dropdown-toggle" type="button" id="droType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">不限类型</button>
+                        <input type="hidden" value="" id="type" name="type">
+                        <div class="dropdown-menu" aria-labelledby="droType">
+                            <a class="dropdown-item" data-val="">不限类型</a>
+                            <a class="dropdown-item" data-val="1">原创</a>
+                            <a class="dropdown-item" data-val="2">转载</a>
+                            <a class="dropdown-item" data-val="4">翻译</a>
+                        </div>
+                    </div>
+                    <div class="dropdown categorie float-left default-val mr24">
+                        <button class="btn btn-sm btn-dropdown dropdown-toggle " type="button" id="droCategorie" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">选择个人分类</button>
+                        <input type="hidden" value="" id="categorie" name="cate">
+                        <div class="dropdown-menu" aria-labelledby="droCategorie">
+                            <a class="dropdown-item" data-val="">选择个人分类</a>
+                            <a class="dropdown-item" data-val="6697994">编译器</a>
+                            <a class="dropdown-item" data-val="6697995">GitHub</a>
+                            <a class="dropdown-item" data-val="6697996">html</a>
+                            <a class="dropdown-item" data-val="6697997">CSS</a>
+                            <a class="dropdown-item" data-val="6697998">javascript</a>
+                            <a class="dropdown-item" data-val="7477442">require.js</a>
+                            <a class="dropdown-item" data-val="7477447">webpack</a>
+                            <a class="dropdown-item" data-val="7501214">svn</a>
+                            <a class="dropdown-item" data-val="7501296">json</a>
+                            <a class="dropdown-item" data-val="7501524">工具</a>
+                            <a class="dropdown-item" data-val="7728789">fullPage.js</a>
+                            <a class="dropdown-item" data-val="7748954">Vue</a>
+                            <a class="dropdown-item" data-val="7838732">部署</a>
+                            <a class="dropdown-item" data-val="7839800">其他</a>
+                            <a class="dropdown-item" data-val="7912089">引入非模块化js'</a>
+                            <a class="dropdown-item" data-val="7927935">nodejs</a>
+                            <a class="dropdown-item" data-val="8056978">微信</a>
+                            <a class="dropdown-item" data-val="none">未分类</a>
+
+                        </div>
+                    </div>
+                    <input class="txt-keyword mr24" id="key" type="text" name="keyword" value="" placeholder="仅支持标题关键词搜索" aria-label="Search">
+                    <button type="button" class="btn btn-danger btn-search float-right">搜索</button>
+                </form>
+            </div>
+            <ul>
+                <li>
+                    <p>安卓微信分享图标不显示的问题</p>
+                    <div>
+                        <div>
+                            翻译 2018年09月28日 11:19:28
+                        </div>
+                        <div>
+                            查看 禁止评论 置顶 删除
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</section>
+
+<% include ./include/footer-res.ejs %>
+
+<!-- Include Editor JS files. -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.pkgd.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        class Manage {
+            constructor() {
+                this.data = {
+                    userInfo: null,
+                    showAside: false,
+
+                }
+            }
+
+            initial() {
+
+                manage.userInfo = JSON.parse(sessionStorage.getItem('user'));
+
+                $('#editor').froalaEditor({
+                    height: 500,
+                    codeMirror: false,
+//                    toolbarButtons: [
+//                        'saveSelection', 'restoreSelection', 'clearSelection'
+//                    ]
+//                    colorsBackground: ['#61BD6D', '#1ABC9C', '#54ACD2', 'REMOVE']
+//                    colorsHEXInput: false
+//                    colorsStep: 14
+//                    autofocus: true
+
+                });
+
+                $('#submit').click(function () {
+                    let title = $('#title').val().trim();
+                    let content = $('#editor').froalaEditor('html.get');
+                    let createTime = new Date().getTime();
+                    let type = $('#blogType').val();
+
+                    if (title == '') {
+                        showErrorMsg('请输入文章标题');
+                        $('#title').focus();
+                        return;
+                    }
+                    if (content == '') {
+                        showErrorMsg('请输入文章内容');
+                        $('#editor').focus();
+                        return;
+                    }
+                    if (type == 0) {
+                        showErrorMsg('请选择文章类型');
+                        $('#blogType').focus();
+                        return;
+                    }
+
+                    ajaxData('post', '/blog', {
+                        title: title,
+                        content: content,
+                        type: type,
+                        createTime: createTime,
+                        author: manage.userInfo.name
+                    }).then(function (res) {
+                        if (res.success) {
+                            swal({
+                                title: "Good job!",
+                                text: "发布成功！",
+                                icon: "success",
+                                button: "确定",
+                                // buttons: false,
+                                timer: 2000,
+                            }).then((value) => {
+
+                            });
+                        }
+                    })
+
+                })
+            }
+        }
+
+
+        let manage = new Manage();
+        manage.initial();
+
+
+    });
+
+
+</script>
+</body>
+</html>
