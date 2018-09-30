@@ -25,6 +25,20 @@ ul {
     padding: 0;
 }
 
+article pre{
+    color: lime;
+    background: #282c34;
+    font-weight: 700;
+}
+/*富文本表情包*/
+.fr-emoticon{
+    background-size: 94%;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+
 .clear:after{
     display: block;
     content: '';
@@ -363,7 +377,7 @@ header > .link {
 /*主体部分*/
 .main {
     margin: 5px auto 0;
-    width: 1100px;
+    width: 1150px;
     min-height: 1000px;
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;

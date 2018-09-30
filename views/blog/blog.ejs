@@ -5,7 +5,7 @@
     <title><%= title %></title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
-    <% include ./include/header-res.ejs %>
+    <% include ../include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/index.css">-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css"
           rel="stylesheet" type="text/css"/>
@@ -26,31 +26,6 @@
         .sidebar i {
             color: #333;
             margin-right: 5px;
-        }
-
-        .toolItem {
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .toolItem a {
-            width: 100%;
-            padding: 10px 20px;
-            display: inline-block;
-            color: #333;
-        }
-
-        .toolItem:hover {
-            background: #2b669a;
-            color: white;
-        }
-
-        .toolItem:hover a {
-            color: white;
-        }
-
-        .toolItem:hover i {
-            color: white;
         }
 
         .titleWrap {
@@ -84,36 +59,15 @@
 
 </head>
 <body>
-<% include ./include/header.ejs %>
+<% include ../include/header.ejs %>
 
 <section class="main container">
     <div class="row">
-        <ul class="sidebar col-6 col-md-2">
-            <li class="toolItem">
-                <a href="/blog"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
-            </li>
-            <li class="toolItem">
-                <a href=""><i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>文章管理</a>
-            </li>
-            <li class="toolItem">
-                <a href="">专栏管理</a>
-            </li>
-            <li class="toolItem">
-                <a href="">评论管理</a>
-            </li>
-            <li class="toolItem">
-                <a href="">个人分类管理</a>
-            </li>
-            <li class="toolItem"><a href="">设置</a></li>
-            <li class="toolItem"><a href="">博客设置</a></li>
-            <li class="toolItem"><a href="">栏目管理</a></li>
-            <li class="toolItem"><a href="">博客搬家</a></li>
+        <% include ../include/blogAside.ejs %>
 
-
-        </ul>
         <div class="blogWrap col-6 col-md-10">
             <div class="titleWrap">
-                <input id="title" type="text" placeholder="请输入文章标题">
+                <input id="title" type="text" placeholder="请输入文章标题" value="<%= blogObj.title %>">
             </div>
             <div class="editorWrap">
                 <textarea name="content" id="editor"></textarea>
@@ -150,8 +104,7 @@
 
 </section>
 
-<% include ./include/footer-res.ejs %>
-
+<% include ../include/footer-res.ejs %>
 <!-- Include Editor JS files. -->
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.pkgd.min.js"></script>
@@ -171,8 +124,9 @@
 
             initial() {
 
+//              获取当前用户信息
                 manage.userInfo = JSON.parse(sessionStorage.getItem('user'));
-
+//              格式化富文本
                 $('#editor').froalaEditor({
                     height: 500,
                     codeMirror: false,
@@ -183,8 +137,13 @@
 //                    colorsHEXInput: false
 //                    colorsStep: 14
 //                    autofocus: true
-
                 });
+
+//              如果是查看编辑， 有blog id
+                if ('<%- blogObj.id %>') {
+                    $('#editor').froalaEditor('html.set', `<%- blogObj.content %>`);
+                    $('#blogType').val('<%- blogObj.type %>')
+                }
 
                 $('#submit').click(function () {
                     let title = $('#title').val().trim();
@@ -192,7 +151,6 @@
                     let createTime = new Date().getTime();
                     let type = $('#blogType').val();
 
-                    debugger
                     if (title == '') {
                         showErrorMsg('请输入文章标题');
                         $('#title').focus();
@@ -210,22 +168,47 @@
                     }
 
                     ajaxData('post', '/blog', {
+                        id: '<%- blogObj.id %>',
                         title: title,
                         content: content,
                         type: type,
                         createTime: createTime,
                         author: manage.userInfo.name
                     }).then(function (res) {
-                        if(res.success){
+                        if (res.success) {
                             swal({
                                 title: "Good job!",
-                                text: "发布成功！",
+                                text:  '<%- blogObj.id %>' ? "修改成功！" : "发布成功！",
                                 icon: "success",
-                                button: "确定",
-                                // buttons: false,
-                                timer: 2000,
+                                buttons: {
+                                    oper1: {
+                                        text: '写新文章',
+                                        value: 'write'
+                                    },
+                                    oper2: {
+                                        text: '管理博文',
+                                        value: 'back'
+                                    },
+                                    oper3: {
+                                        text: '查看文章',
+                                        value: "view"
+                                    }
+                                },
+//                                timer: 2000,
                             }).then((value) => {
-
+                                switch (value) {
+                                    case "write":
+                                        window.location.href = '/blog/index';
+                                        break;
+                                    case "view":
+                                        window.location.href = '/blogDetail/<%- blogObj.id %>';
+                                        break;
+                                    case "back":
+                                        window.location.href = '/blogList';
+                                        break;
+                                    default:
+                                        break;
+                                }
                             });
                         }
                     })
@@ -233,7 +216,6 @@
                 })
             }
         }
-
 
         let manage = new Manage();
         manage.initial();

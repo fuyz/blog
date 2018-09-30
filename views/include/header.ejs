@@ -83,7 +83,7 @@
             <a href="/blogList"><i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>我的博客</a>
         </li>
         <li>
-            <a href="/blog"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
+            <a href="/blog/index"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
         </li>
         <li>
             <a href=""><i class="fa fa-heart text-red" aria-hidden="true"></i>我的关注</a>
@@ -118,6 +118,7 @@
 
 //                显示用户信息
                 let userInfo = JSON.parse(sessionStorage.getItem('user'));
+                if(userInfo == null)  window.location.href = '/logout';
                 $('#user-name').text(userInfo.name);
                 $('#user-email').text(userInfo.email);
 //                显示侧边栏

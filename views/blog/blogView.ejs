@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- 引入样式 -->
+    <%include ../include/header-res.ejs%>
+    <!--<link rel="stylesheet" href="/css/common.css">-->
+    <style>
+        .main{
+            width: 1200px;
+            background: none;
+        }
+        .user-aside-info, .article-content-wrap{
+            background: white;
+        }
+        .user-aside-info{
+            height: 500px;
+            margin-right: 20px;
+        }
+        .article-content-wrap{
+            padding: 0 25px 15px;
+        }
+        .article-info-box{
+            color: #858585;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .article-author{
+            color: #78a5f1;
+            margin: 0 20px;
+        }
+        article{
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<%include ../include/header.ejs%>
+
+<section class="main">
+    <div class="user-aside-info col-lg-3">
+
+    </div>
+
+    <div class="article-content-wrap col-lg-8">
+
+        <div class="article-title-box">
+            <span></span>
+            <h3 class="article-title text-center"><%= blogObj.title %></h3>
+        </div>
+        <div class="article-info-box">
+            <span class="article-time"><%= blogObj.createTime %></span>
+            <span class="article-author"><%= blogObj.author %></span>
+            <a class="right" href="">编辑</a>
+        </div>
+        <article>
+            <%- blogObj.content %>
+        </article>
+
+    </div>
+
+</section>
+<aside>
+
+</aside>
+
+<%include ../include/footer-res.ejs%>
+<script>
+
+
+    $(document).ready(function () {
+
+        class Manage {
+            constructor() {
+                this.data = {
+
+                }
+            }
+
+            initial() {
+
+            }
+        }
+
+
+        let manage = new Manage();
+        manage.initial();
+
+
+    });
+
+
+</script>
+</body>
+</html>

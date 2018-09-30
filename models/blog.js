@@ -33,7 +33,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
         //读取 users 集合
         var dbase = db.db("myblog");
 
-        if(id == ''){
+        if (id == '') {
             //新增加博文
             dbase.collection("ID").find({}).toArray(function (err, ID) {
 
@@ -59,7 +59,34 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
 
                 });
             });
-        }else {
+        } else {
+
+            try {
+                dbase.collection("blogs").findOneAndUpdate(
+                    {id: Number(id)},
+                    {
+                        $set: {
+                            title: _this.title,
+                            content: _this.content,
+                            author: _this.author,
+                            createTime: _this.createTime,
+                            type: _this.type,
+                        }
+                    },
+                    {returnNewDocument: true},
+                    function (err, result) {
+                        if (err) {
+                            db.close();
+                            return callback(err);//失败！返回 err 信息
+                        }
+                        callback(null, result);//成功！返回查询的用户信息
+                    }
+                );
+            }
+            catch (e) {
+                db.close();
+                return callback(err);//失败！返回 err 信息
+            }
 
         }
 
@@ -69,7 +96,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
 };
 
 //读取用户信息
-Blog.prototype.get = function (name, callback) {
+Blog.prototype.getOne = function (id, callback) {
 
     MongoClient.connect(url, function (err, db) {
         if (err) {
@@ -79,7 +106,7 @@ Blog.prototype.get = function (name, callback) {
         }
         //读取 users 集合
         let dbase = db.db("myblog");
-        dbase.collection("users").findOne({name: name}, function (err, res) {
+        dbase.collection("blogs").findOne({id: Number(id)}, function (err, res) {
             if (err) {
                 db.close();
                 return callback(err);//失败！返回 err 信息
@@ -159,7 +186,7 @@ Blog.prototype.update = function (obj, callback) {
             dbase.collection("users").findOneAndUpdate(
                 {id: index},
                 {$set: {password: obj.password, email: obj.email}},
-                { returnNewDocument : true },
+                {returnNewDocument: true},
                 function (err, result) {
                     if (err) {
                         db.close();

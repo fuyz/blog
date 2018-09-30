@@ -80,12 +80,47 @@ app.get('/error', function (req, res) {
 app.get('/users', function (req, res) {
     res.render('users', {title: 'users'});
 });
-app.get('/blog', function (req, res) {
-    res.render('blog', {title: '博客'});
+app.get('/blog/:blogId', function (req, res) {
+    if (req.params.blogId == 'index') {
+        res.render('blog/blog', {title: '博客', blogObj: {}});
+    } else {
+        Blog.prototype.getOne(req.params.blogId, function (err, blog) {
+            if (err) {
+                res.json({success: false, status: 200, error: err, data: null});
+                return;
+            }
+            //用户不存在
+            if (blog == null) {
+                res.json({success: false, status: 200, error: '博客不存在!', data: null});
+                return;
+            }
+            res.render('blog/blog', {title: '博客', blogObj: blog});
+
+        });
+    }
+
 });
 app.get('/blogList', function (req, res) {
-    res.render('blogList', {title: '博客列表'});
+    res.render('blog/blogList', {title: '博客列表'});
 });
+app.get('/blogDetail/:blogId', function (req, res) {
+
+    console.log('url参数对象 :', req.params);
+    Blog.prototype.getOne(req.params.blogId, function (err, blog) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        //用户不存在
+        if (blog == null) {
+            res.json({success: false, status: 200, error: '博客不存在!', data: null});
+            return;
+        }
+        res.render('blog/blogView', {title: '博客详情', blogObj: blog});
+
+    });
+});
+
 
 //登录
 app.post('/login', function (req, res) {
@@ -265,7 +300,7 @@ app.post('/blog', function (req, res) {
     }
 
     let newBlog = new Blog({
-        index: obj.index,
+        index: obj.id,
         title: obj.title, //博客标题
         content: obj.content, //博客内容
         author: obj.author, //作者
@@ -273,51 +308,21 @@ app.post('/blog', function (req, res) {
         type: obj.type
     });
 
-    if(obj.index){
-        //修改博文
-
-
-    }else {
-        //新增加博文
-        newBlog.createOrModifyBlog('',function (err, blog) {
-            if (err) {
-                res.json({success: false, status: 200, error: err, data: null});
-                return;
-            }
-
-            if(blog.result.ok == 1){
-                res.json({success: true, status: 200, data: null});
-            }else {
-                res.json({success: false, status: 200, error: err, data: null});
-            }
-
-        })
-    }
-
-    return;
-    //检查用户名是否已经存在
-    newBlog.get(newBlog.index, function (err, blog) {
-        console.log('博客保存前查询：blog: ' + blog);
+    //新增加/修改博文
+    newBlog.createOrModifyBlog(obj.id, function (err, blog) {
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
         }
-        if (user) {
-            res.json({success: false, status: 200, error: '用户已存在!', data: null});
-            return;
-        }
-        //如果不存在则新增用户
-        newUser.save(function (err, user) {
-            if (err) {
-                res.json({success: false, status: 200, error: err, data: null});
-                return;
-            }
-            console.log(user);
-            req.session.user = user;//用户信息存入 session
-            res.json({success: true, status: 200, data: null});
 
-            // res.redirect('/');//注册成功后返回主页
-        });
+        if (blog.ok == 1) {
+            res.json({success: true, status: 200, data: '修改成功'});
+        }else if(blog.result.ok == 1){
+            res.json({success: true, status: 200, data: '发布成功'});
+        } else {
+            res.json({success: false, status: 200, error: err, data: null});
+        }
+
     });
 
 
@@ -375,6 +380,20 @@ app.post('/getBlogs', function (req, res) {
         res.json({success: true, status: 200, data: obj});
 
     })
+});
+app.post('/viewBlog', function (req, res) {
+    Blog.prototype.getOne(id, function (err, blog) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        //用户不存在
+        if (blog == null) {
+            res.json({success: false, status: 200, error: '博客不存在!', data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: user});
+    });
 });
 
 // catch 404 and forward to error handler

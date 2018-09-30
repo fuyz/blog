@@ -157,8 +157,6 @@ User.prototype.update = function (obj, callback) {
                     callback(null, result);//成功！返回查询的用户信息
                 }
             );
-
-
         }
         catch (e) {
             db.close();

@@ -1,0 +1,65 @@
+<style>
+    .sidebar {
+        height: 100%;
+    }
+    .toolItem {
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+        margin-bottom: 5px;
+    }
+    .toolItem.on {
+        background: #2b669a;
+        color: white;
+    }
+
+    .toolItem.on * {
+        color: white;
+    }
+
+    .toolItem a {
+        width: 100%;
+        padding: 10px 20px;
+        display: inline-block;
+        color: #333;
+    }
+
+    .toolItem:hover {
+        border: 1px solid #2e6da4;
+    }
+
+
+</style>
+<ul class="sidebar col-6 col-md-2">
+
+    <li class="toolItem" id="toEditBlog">
+        <a href="/blog/index"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
+    </li>
+    <li class="toolItem" id="toBlogList">
+        <a href="/blogList"><i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>文章管理</a>
+    </li>
+    <li class="toolItem">
+        <a href="">专栏管理</a>
+    </li>
+    <li class="toolItem">
+        <a href="">评论管理</a>
+    </li>
+    <li class="toolItem">
+        <a href="">个人分类管理</a>
+    </li>
+    <li class="toolItem"><a href="">设置</a></li>
+    <li class="toolItem"><a href="">博客设置</a></li>
+    <li class="toolItem"><a href="">栏目管理</a></li>
+    <li class="toolItem"><a href="">博客搬家</a></li>
+
+</ul>
+
+<script>
+    let pathname = window.location.pathname.split('/')[1];
+    $('li.toolItem').removeClass('on');
+    if(pathname == 'blog'){
+        $('#toEditBlog').addClass('on');
+    }else if(pathname == 'blogList'){
+        $('#toBlogList').addClass('on');
+    }
+</script>
