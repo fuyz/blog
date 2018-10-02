@@ -20,6 +20,9 @@ body {
     background-repeat: no-repeat;
 }
 
+label{
+    font-weight: 400;
+}
 ul {
     list-style: none;
     padding: 0;
@@ -37,7 +40,6 @@ article pre{
     height: 30px;
     display: inline-block;
 }
-
 
 .clear:after{
     display: block;
@@ -95,6 +97,7 @@ article pre{
     cursor: pointer;
     font-size: 15px;
 }
+
 .delete{
     color: red;
     padding: 2px 5px;
@@ -102,6 +105,12 @@ article pre{
     font-size: 15px;
 }
 
+.noData{
+    padding: 50px 0;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+}
 /*导航*/
 header {
     /*position: fixed;*/

@@ -19,7 +19,7 @@ function Blog(obj) {
 
 module.exports = Blog;
 
-//存储用户信息
+//存储、修改用户信息
 Blog.prototype.createOrModifyBlog = function (id, callback) {
 
     let _this = this;
@@ -104,7 +104,7 @@ Blog.prototype.getOne = function (id, callback) {
         } else {
             console.log("数据库已连接!");
         }
-        //读取 users 集合
+        //读取 myblog 集合
         let dbase = db.db("myblog");
         dbase.collection("blogs").findOne({id: Number(id)}, function (err, res) {
             if (err) {
@@ -117,7 +117,6 @@ Blog.prototype.getOne = function (id, callback) {
     });
 };
 
-
 //读取所有博客信息
 Blog.prototype.getAll = function ({}, callback) {
 
@@ -128,10 +127,9 @@ Blog.prototype.getAll = function ({}, callback) {
         } else {
             console.log("数据库已连接!");
         }
-
         //连接数据库
         let dbase = db.db("myblog");
-        //读取 users 集合
+        //读取 myblog 集合
         dbase.collection("blogs").find({}).toArray(function (err, data) {
             if (err) {
                 db.close();
@@ -139,53 +137,23 @@ Blog.prototype.getAll = function ({}, callback) {
             }
             callback(null, data);//成功！返回查询的用户信息
         });
-
-    })
-    ;
-
-};
-
-//删除
-Blog.prototype.delete = function (id, callback) {
-
-    MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        console.log("数据库已连接!");
-        //读取 users 集合
-        //读取 users 集合
-        let dbase = db.db("myblog");
-        let index = Number(id);
-        try {
-            dbase.collection("users").deleteOne({id: index}, function (err, result) {
-                if (err) {
-                    db.close();
-                    return callback(err);//失败！返回 err 信息
-                }
-                callback(null, result);//成功！返回查询的用户信息
-            });
-        } catch (e) {
-            db.close();
-            return callback(err);//失败！返回 err 信息
-        }
-
     });
 
 };
 
-//更新
-Blog.prototype.update = function (obj, callback) {
+//删除（返回回收站）
+Blog.prototype.delete = function (blogId, callback) {
 
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
         console.log("数据库已连接!");
-        //读取 users 集合
-        //读取 users 集合
+        //读取 myblog 集合
         let dbase = db.db("myblog");
-        let index = Number(obj.id);
+        let id = Number(blogId);
         try {
-            dbase.collection("users").findOneAndUpdate(
-                {id: index},
-                {$set: {password: obj.password, email: obj.email}},
+            dbase.collection("blogs").findOneAndUpdate(
+                {id: id},
+                {$set: {deleted: true}},
                 {returnNewDocument: true},
                 function (err, result) {
                     if (err) {
@@ -203,8 +171,59 @@ Blog.prototype.update = function (obj, callback) {
             return callback(err);//失败！返回 err 信息
         }
 
-    })
-    ;
+    });
 
-}
-;
+};
+
+//读取博客状态信息
+Blog.prototype.getStatus = function (callback) {
+
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        console.log("数据库已连接!");
+        //读取 myblog 集合
+        let dbase = db.db("myblog");
+        try {
+            //读取 myblog 集合
+            dbase.collection("blogs").find({}).toArray(function (err, data) {
+                if (err) {
+                    db.close();
+                    return callback(err);//错误，返回 err 信息
+                }
+                let obj = {};
+
+                obj.total = data.length;
+
+                //私密的
+                let privateArr = data.filter(function (e) {
+                    if(e.private)return e;
+                });
+                obj.private = privateArr.length;
+                //草稿箱的
+                let draftsArr = data.filter(function (e) {
+                    if(e.drafts)return e;
+                });
+                obj.drafts = draftsArr.length;
+                //回收站的
+                let trashArr = data.filter(function (e) {
+                    if(e.deleted)return e;
+                });
+                obj.trash = trashArr.length;
+
+                obj.published = obj.total - obj.private - obj.drafts - obj.trash;
+
+
+                callback(null, obj);//成功！返回查询的用户信息
+            });
+
+        }
+        catch (e) {
+            db.close();
+            return callback(err);//失败！返回 err 信息
+        }
+
+    });
+
+};
+
+

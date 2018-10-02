@@ -22,6 +22,21 @@
             border-left: 1px solid #e9e9e9;
         }
 
+        .main-crumbs{
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .main-crumbs:before{
+            margin-left: -6px;
+            margin-right: 8px;
+            content: '';
+            display: inline-block;
+            height: 18px;
+            width: 3px;
+            background-color: #2e6da4;
+            vertical-align: -4px;
+        }
+
         .sidebar i {
             color: #333;
             margin-right: 5px;
@@ -115,6 +130,20 @@
             border-right: 0;
         }
 
+        .dropdown{
+            /*padding: 2px 10px;*/
+            border-color: #ccc;
+            color: #ccc;
+            width: 100px;
+            height: 32px;
+        }
+        .dropdown.active{
+            color: #333;
+        }
+        #key{
+            border-color: #cccccc;
+            text-align: left;
+        }
     </style>
 
 </head>
@@ -131,41 +160,41 @@
             <div class="main-nav-tabs">
                 <ul class="nav nav-pills" id="pills-tab" >
                     <li class="nav-item">
-                        <a class="nav-link active" href="https://mp.csdn.net/postlist" >全部(40)</a>
+                        <a id="total" class="nav-link active" href="javascript:void(0)" >全部</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/enable" >已发表(40)</a>
+                        <a id="published" class="nav-link active" href="javascript:void(0)" >已发表</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/draft" >草稿箱(0)</a>
+                        <a id="drafts" class="nav-link active" href="javascript:void(0)" >草稿箱</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="https://mp.csdn.net/postlist/list/deleted" >回收站(0)</a>
+                        <a id="trash" class="nav-link active" href="javascript:void(0)" >回收站</a>
                     </li>
                 </ul>
             </div>
             <div class="main-search-box">
                 <div class="row" >
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-3 col-lg-3">
                         <label>发布时间：</label>
-                        <select class="" >
-                            <option class="dropdown-item yearOption" data-val="">不限</option>
-                            <option class="dropdown-item yearOption" data-val="2018">2018</option>
-                            <option class="dropdown-item yearOption" data-val="2017">2017</option>
+                        <select class="dropdown year " >
+                            <option class="dropdown-item yearOption" value="">不限</option>
+                            <option class="dropdown-item yearOption" value="2018">2018</option>
+                            <option class="dropdown-item yearOption" value="2017">2017</option>
                         </select>
                     </div>
-                    <div class="col-md-4 col-lg-3">
+                    <div class="col-md-3 col-lg-3">
                         <label>文章类型：</label>
-                        <select class="" >
-                            <option class="dropdown-item" data-val="">不限类型</option>
-                            <option class="dropdown-item" data-val="1">原创</option>
-                            <option class="dropdown-item" data-val="2">转载</option>
-                            <option class="dropdown-item" data-val="4">翻译</option>
+                        <select class="dropdown type " >
+                            <option class="dropdown-item" value="">不限类型</option>
+                            <option class="dropdown-item" value="1">原创</option>
+                            <option class="dropdown-item" value="2">转载</option>
+                            <option class="dropdown-item" value="3">翻译</option>
                         </select>
                     </div>
                     <div class="col-md-4 col-lg-5">
                         <input class="btn" id="key" type="text" value="" placeholder="仅支持标题关键词搜索" >
-                        <button type="button" class="btn btn-primary btn-search ">搜索</button>
+                        <button type="button" class="btn btn-primary btn-search">搜索</button>
                     </div>
                 </div>
             </div>
@@ -204,17 +233,17 @@
                 <span>阅读量</span>
                 <span>评论数</span>
             </div>
-            <div class="right item-info-oper">
+            <div class="right item-info-oper" data-id="{{$value.id}}">
                 <a href="/blogDetail/{{$value.id}}" target="_blank">查看</a>
                 <a href="">禁止评论</a>
                 <a href="">置顶 </a>
-                <a class="del" href="">删除</a>
+                <a class="del" href="javascript:void(0)">删除</a>
             </div>
         </div>
     </li>
     {{ /each }}
     {{ else }}
-    <p>暂无用户信息</p>
+    <p class="noData">暂无相关信息</p>
     {{ /if }}
 </script>
 <script id="pagination_template" type="text/html">
@@ -252,13 +281,35 @@
             initial() {
 
                 manage.userInfo = JSON.parse(sessionStorage.getItem('user'));
+                
+//              搜索框
+                $('.dropdown').change(function () {
+                    let $this = $(this);
+                    if($this.val() != '') {
+                        $this.addClass('active')
+                    }else{
+                        $this.removeClass('active')
+                    }
+                });
+                $('.btn-search').click(function () {
 
+                    manage.getBlogList({ })
+                })
+
+                manage.getBlogStatus();
                 manage.getBlogList({});
             }
 
             getBlogList(obj) {
 
+                let time = $('.year').val();
+                let type = $('.type').val();
+                let searchKey = $('#key').val().trim();
                 ajaxData('post', '/getBlogs', {
+                    time: time,
+                    type: type,
+                    keyword: searchKey,
+
                     pagesize: 10,
                     currentPage: obj.currentPage
                 }).then(function (res) {
@@ -279,12 +330,12 @@
 
                         setTimeout(function () {
 
-                            $('.delete').unbind().click(function () {
+                            $('.del').unbind().click(function () {
                                 let _this = this;
-                                let id = $(this).parent('td').data('id');
+                                let id = $(this).parent('.item-info-oper').data('id');
                                 swal({
                                     title: "删除",
-                                    text: "确定删除该条数据吗？",
+                                    text: "确定删除该博客吗？",
                                     icon: "warning",
                                     buttons: {
                                         cancel: '取消',
@@ -293,7 +344,7 @@
                                 }).then(value => {
                                     switch (value) {
                                         case "default":
-                                            ajaxData('post', '/deleteUsers', {
+                                            ajaxData('post', '/deleteBlog', {
                                                 id: id
                                             }).then(function (res) {
                                                 if(res.success){
@@ -344,6 +395,17 @@
                     }
                 });
 
+            }
+
+            getBlogStatus(){
+                ajaxData('post', '/getBlogStatus', {}).then(function (res) {
+                    if (res.success) {
+                        $('#total').text(`全部(${res.data.total})`);
+                        $('#published').text(`已发表(${res.data.published})`);
+                        $('#drafts').text(`草稿箱(${res.data.drafts})`);
+                        $('#trash').text(`回收站(${res.data.trash})`);
+                    }
+                });
             }
         }
 

@@ -22,7 +22,6 @@ let MongoStore = require('connect-mongo')(session);
 //session处理封装函数
 let sessionConfig = require('./database/session');
 
-
 let indexRouter = require('./routes/index');
 let loginRouter = require('./routes/login');
 
@@ -345,7 +344,34 @@ app.post('/getBlogs', function (req, res) {
     // res.json({success: false, status: 200, error: '用户名为空', data: null});
     // return;
     // }
+    let type = req.body.type;
+    let time = req.body.time;
+    let keyword = req.body.keyword;
+
     Blog.prototype.getAll({}, function (err, blogArr) {
+        //是否删除筛选
+        blogArr = blogArr.filter(function (e) {
+            if(e.deleted != true)return e
+        });
+
+        //类型筛选
+        if(type != ''){
+            blogArr = blogArr.filter(function (e) {
+                if(e.type == req.body.type)return e
+            });
+        }
+        //搜索筛选
+        if(keyword != ''){
+            blogArr = blogArr.filter(function (e) {
+                if(e.title.indexOf(keyword) != -1)return e
+            });
+        }
+        //时间筛选
+        if(time != ''){
+            blogArr = blogArr.filter(function (e) {
+                if( new Date(1538187363727).getFullYear() == time)return e
+            });
+        }
 
         let obj = {};
         obj.currentIndex = req.body.currentIndex || 1;
@@ -393,6 +419,35 @@ app.post('/viewBlog', function (req, res) {
             return;
         }
         res.json({success: true, status: 200, data: user});
+    });
+});
+app.post('/deleteBlog', function (req, res) {
+    Blog.prototype.delete(req.body.id, function (err, blog) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        //用户不存在
+        if (blog == null) {
+            res.json({success: false, status: 200, error: '博客不存在!', data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: blog});
+    });
+});
+//获取博客状态
+app.post('/getBlogStatus', function (req, res) {
+    Blog.prototype.getStatus(function (err, blog) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        //用户不存在
+        if (blog == null) {
+            res.json({success: false, status: 200, error: '博客不存在!', data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: blog});
     });
 });
 

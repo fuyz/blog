@@ -93,21 +93,21 @@ $(document).ready(function () {
                 }).then(function (res) {
                     if (res.success) {
                         sessionStorage.setItem('user', JSON.stringify(res.data));
-                        swal({
-                            title: "Good job!",
-                            text: "登录成功！2s后自动跳转",
-                            icon: "success",
-                            button: "去首页",
-                            // buttons: false,
-                            timer: 2000,
-                        }).then((value) => {
-                            $('.loginBtn').val('Loading...').animate({width: '100px'}, 1000, function () {
-                                $('.main').slideUp(300);
-                                setTimeout(function () {
-                                    window.location.href = '/';
-                                }, 1000);
-                            });
+                        // swal({
+                        //     title: "Good job!",
+                        //     text: "登录成功！2s后自动跳转",
+                        //     icon: "success",
+                        //     button: "去首页",
+                        //     // buttons: false,
+                        //     timer: 2000,
+                        // }).then((value) => {
+                        $('.loginBtn').val('Loading...').animate({width: '100px'}, 1000, function () {
+                            $('.main').slideUp(300);
+                            setTimeout(function () {
+                                window.location.href = '/';
+                            }, 1000);
                         });
+                        // });
                     } else {
                         showErrorMsg(res.error);
                         if (res.error.indexOf('用户不存在') != -1) {
