@@ -192,13 +192,11 @@ Blog.prototype.getStatus = function (callback) {
                 }
                 let obj = {};
 
-                obj.total = data.length;
-
                 //私密的
                 let privateArr = data.filter(function (e) {
                     if(e.private)return e;
                 });
-                obj.private = privateArr.length;
+                obj.privated = privateArr.length;
                 //草稿箱的
                 let draftsArr = data.filter(function (e) {
                     if(e.drafts)return e;
@@ -210,7 +208,8 @@ Blog.prototype.getStatus = function (callback) {
                 });
                 obj.trash = trashArr.length;
 
-                obj.published = obj.total - obj.private - obj.drafts - obj.trash;
+                obj.published = data.length - obj.privated - obj.drafts - obj.trash;
+                obj.total = data.length - obj.trash;
 
 
                 callback(null, obj);//成功！返回查询的用户信息

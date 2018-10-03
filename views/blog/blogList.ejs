@@ -54,6 +54,16 @@
             width: 100%;
         }
 
+        .nav-item.on{
+            border-bottom: 2px solid #2e6da4;
+        }
+        .nav-link{
+            color: #aaaaaa;
+        }
+        .nav-item.on .nav-link{
+            color: #2e6da4;
+        }
+
         .blog-item {
             /*height: 100px;/*/
             padding: 20px 0 10px;
@@ -158,18 +168,21 @@
         <div class="main-content col-6 col-md-10">
             <div class="main-crumbs">文章管理</div>
             <div class="main-nav-tabs">
-                <ul class="nav nav-pills" id="pills-tab" >
-                    <li class="nav-item">
-                        <a id="total" class="nav-link active" href="javascript:void(0)" >全部</a>
+                <ul class="nav nav-pills" id="blog-tab" >
+                    <li class="nav-item" data-status="total">
+                        <a id="total" class="nav-link " href="javascript:void(0)" >全部</a>
                     </li>
-                    <li class="nav-item">
-                        <a id="published" class="nav-link active" href="javascript:void(0)" >已发表</a>
+                    <li class="nav-item on" data-status="published">
+                        <a id="published" class="nav-link " href="javascript:void(0)" >已发表</a>
                     </li>
-                    <li class="nav-item">
-                        <a id="drafts" class="nav-link active" href="javascript:void(0)" >草稿箱</a>
+                    <li class="nav-item " data-status="privated">
+                        <a id="privated" class="nav-link " href="javascript:void(0)" >私有的</a>
                     </li>
-                    <li class="nav-item">
-                        <a id="trash" class="nav-link active" href="javascript:void(0)" >回收站</a>
+                    <li class="nav-item" data-status="drafts">
+                        <a id="drafts" class="nav-link " href="javascript:void(0)" >草稿箱</a>
+                    </li>
+                    <li class="nav-item" data-status="deleted">
+                        <a id="trash" class="nav-link " href="javascript:void(0)" >回收站</a>
                     </li>
                 </ul>
             </div>
@@ -243,7 +256,7 @@
     </li>
     {{ /each }}
     {{ else }}
-    <p class="noData">暂无相关信息</p>
+    <p class="noData">没有符合条件的文章</p>
     {{ /if }}
 </script>
 <script id="pagination_template" type="text/html">
@@ -274,7 +287,7 @@
                 this.data = {
                     userInfo: null,
                     showAside: false,
-
+                    status: 'total'
                 }
             }
 
@@ -292,12 +305,23 @@
                     }
                 });
                 $('.btn-search').click(function () {
-
-                    manage.getBlogList({ })
+                    manage.getBlogList({})
                 })
 
                 manage.getBlogStatus();
-                manage.getBlogList({});
+                manage.getBlogList({status: 'published'});
+
+                $('#blog-tab').delegate('li', 'click', function () {
+                    $('.year').val('');
+                    $('.type').val('');
+                    $('#key').val('');
+                    $('.dropdown').removeClass('active');
+                    $('.nav-item').removeClass('on');
+                    let status = $(this).data('status');
+                    $(this).addClass('on');
+                    manage.getBlogList({status: status});
+                })
+
             }
 
             getBlogList(obj) {
@@ -309,7 +333,7 @@
                     time: time,
                     type: type,
                     keyword: searchKey,
-
+                    status: obj.status || '',
                     pagesize: 10,
                     currentPage: obj.currentPage
                 }).then(function (res) {
@@ -348,8 +372,9 @@
                                                 id: id
                                             }).then(function (res) {
                                                 if(res.success){
-                                                    $(_this).parents('tr').fadeOut(1000, function () {
-                                                        userManage.getUsers({});
+                                                    $(_this).parents('li').fadeOut(1000, function () {
+                                                        manage.getBlogList({});
+                                                        manage.getBlogStatus({});
                                                     })
                                                 }
                                             })
@@ -402,6 +427,7 @@
                     if (res.success) {
                         $('#total').text(`全部(${res.data.total})`);
                         $('#published').text(`已发表(${res.data.published})`);
+                        $('#privated').text(`私有的(${res.data.privated})`);
                         $('#drafts').text(`草稿箱(${res.data.drafts})`);
                         $('#trash').text(`回收站(${res.data.trash})`);
                     }

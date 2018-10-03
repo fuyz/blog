@@ -349,10 +349,32 @@ app.post('/getBlogs', function (req, res) {
     let keyword = req.body.keyword;
 
     Blog.prototype.getAll({}, function (err, blogArr) {
+
+        if(req.body.status == 'total'){
+            blogArr = blogArr.filter(function (e) {
+                if(e.deleted != true )return e
+            });
+        }else if(req.body.status == 'published'){
+            blogArr = blogArr.filter(function (e) {
+                if(e.deleted != true && e.drafts != true && e.privated != true)return e
+            });
+        }else if(req.body.status == 'deleted'){
+            blogArr = blogArr.filter(function (e) {
+                if(e.deleted == true)return e
+            });
+        }else if(req.body.status == 'drafts'){
+            blogArr = blogArr.filter(function (e) {
+                if(e.drafts == true)return e
+            });
+        }else if(req.body.status == 'privated'){
+            blogArr = blogArr.filter(function (e) {
+                if(e.privated == true && e.deleted != true)return e
+            });
+        }
         //是否删除筛选
-        blogArr = blogArr.filter(function (e) {
-            if(e.deleted != true)return e
-        });
+        // blogArr = blogArr.filter(function (e) {
+        //     if(e.deleted != true)return e
+        // });
 
         //类型筛选
         if(type != ''){
