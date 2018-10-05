@@ -56,6 +56,16 @@
         <div class="article-info-box">
             <span class="article-time"><%= blogObj.createTime %></span>
             <span class="article-author"><%= blogObj.author %></span>
+            <p><%= blogObj.tags %></p>
+            <div class="tags">
+                标签：
+                <% let supplies = blogObj.tags %>
+                <p>
+                    <% for(var i = 0; i < supplies; i++) { %>
+                    <span><%= supplies[i] %></span>
+                    <% } %>
+                </p>
+            </div>
             <a class="right" href="">编辑</a>
         </div>
         <article>

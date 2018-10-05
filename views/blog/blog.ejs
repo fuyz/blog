@@ -43,16 +43,71 @@
             outline: none;
         }
 
-        #submit {
+        #submit, #saveToDrafts {
             border: 1px solid #2b669a;
             border-radius: 5px;
             padding: 5px 15px;
             color: #2b669a;
+            margin-right: 20px;
         }
 
-        #submit:hover {
+        #submit:hover, #saveToDrafts:hover {
             background: #2b669a;
             color: white;
+        }
+
+        .editorTool{
+            margin: 20px 0;
+        }
+        .editorTool .row{
+            width: 100%;
+            margin: 0 0 15px;
+        }
+        .editorTool .row span{
+            margin-right: 10px;
+        }
+
+        .tagWrap{
+            vertical-align: top;
+        }
+        .tagWrap .tip{
+            margin: 10px 0;
+        }
+        .addTagBtn{
+            color: #349EDF;
+            border: none;
+            outline: none;
+        }
+        .addTagBtn i{
+            margin-right: 5px;
+        }
+        .tag{
+            margin-right: 5px;
+            display: inline-block;
+        }
+        .tag .tagName{
+            min-width: 20px;
+            max-width: 300px;
+            overflow: hidden;
+            background: #e9e9e9;
+            padding: 3px 8px;
+            border-radius: 2px;
+            font-size: 12px;
+            margin-right: 0 !important;
+            outline: none;
+            box-sizing: border-box;
+            white-space: nowrap;
+            display: inline-block;
+            vertical-align: -5px;
+        }
+        .tag i{
+            cursor: pointer;
+            padding: 5px 2px;
+            color: #aaa;
+            font-weight: 100;
+        }
+        .tag i:hover {
+            color: red;
         }
 
     </style>
@@ -72,34 +127,40 @@
             <div class="editorWrap">
                 <textarea name="content" id="editor"></textarea>
             </div>
-            <div class="editorTool container">
+            <div class="editorTool ">
                 <div class="row">
-                    <div class="col-2">
+                    <div class="inlineBlock">
                         <span>文章标签：</span>
                     </div>
-                    <div class="col-10">
-                        <button>添加标签</button>
-                        <p class="tip">最多添加5个标签</p>
+                    <div class="inlineBlock tagWrap">
+                        <div class="tagList">
+                            <button class="addTagBtn"><i class="fa fa-plus" aria-hidden="true"></i>添加标签</button>
+                        </div>
+                        <div class="">
+                            <p class="tip">最多添加5个标签</p>
+                        </div>
                     </div>
 
                 </div>
+                <div class="row">
+                    <span>文章类型:</span>
+                    <select name="" id="blogType">
+                        <option value="0">请选择分类</option>
+                        <option value="1">原创</option>
+                        <option value="2">转载</option>
+                        <option value="3">翻译</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <span>私密文章:</span><input type="checkbox">
+                </div>
+                <div class="row">
+                    <button id="submit">发表博客</button>
+                    <button id="saveToDrafts">保存为草稿</button>
+                </div>
             </div>
-            <div>
-                <button id="submit">发表博客</button>
-                <button id="saveToDrafts">保存为草稿</button>
-            </div>
-            <div>
-                <span>文章类型</span>
-                <select name="" id="blogType">
-                    <option value="0">请选择分类</option>
-                    <option value="1">原创</option>
-                    <option value="2">转载</option>
-                    <option value="3">翻译</option>
-                </select>
-            </div>
-            个人分类：添加新分类
-            ：*博客分类：*
         </div>
+
     </div>
 
 </section>
@@ -139,6 +200,18 @@
 //                    autofocus: true
                 });
 
+                $('.addTagBtn').click(function () {
+                    $(this).before(` <div class="tag">
+                                        <span class="tagName" contenteditable="true"> </span>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                     </div>`);
+                    $('.tagName:last').focus();
+                    $('.tag i').unbind().click(function () {
+                        $(this).parent('.tag').remove();
+                    })
+                })
+
+
 //              如果是查看编辑， 有blog id
                 if ('<%- blogObj.id %>') {
                     $('#editor').froalaEditor('html.set', `<%- blogObj.content %>`);
@@ -150,7 +223,10 @@
                     let content = $('#editor').froalaEditor('html.get');
                     let createTime = new Date().getTime();
                     let type = $('#blogType').val();
-
+                    let tags = [];
+                    $.each($('.tagList .tagName') ,function (i, e) {
+                        tags.push($(e).text().trim());
+                    })
                     if (title == '') {
                         showErrorMsg('请输入文章标题');
                         $('#title').focus();
@@ -167,18 +243,20 @@
                         return;
                     }
 
-                    ajaxData('post', '/blog', {
+
+                    ajaxDataStringify('/blog', {
                         id: '<%- blogObj.id %>',
                         title: title,
                         content: content,
                         type: type,
                         createTime: createTime,
-                        author: manage.userInfo.name
+                        author: manage.userInfo.name,
+                        tags: tags
                     }).then(function (res) {
                         if (res.success) {
                             swal({
                                 title: "Good job!",
-                                text:  '<%- blogObj.id %>' ? "修改成功！" : "发布成功！",
+                                text: '<%- blogObj.id %>' ? "修改成功！" : "发布成功！",
                                 icon: "success",
                                 buttons: {
                                     oper1: {

@@ -14,7 +14,7 @@ function Blog(obj) {
     this.author = obj.author;   //作者
     this.createTime = obj.createTime;   //发表时间
     this.type = obj.type;   //文章类型(原创：1，转载：2，翻译：3)
-
+    this.tags = obj.tags
 }
 
 module.exports = Blog;
@@ -46,6 +46,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                     author: _this.author,
                     createTime: _this.createTime,
                     type: _this.type,
+                    tags: _this.tags
                 };
 
                 dbase.collection("blogs").insert(blogObj, function (err, blog) {
@@ -71,6 +72,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                             author: _this.author,
                             createTime: _this.createTime,
                             type: _this.type,
+                            tags: _this.tags,
                         }
                     },
                     {returnNewDocument: true},

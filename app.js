@@ -304,7 +304,8 @@ app.post('/blog', function (req, res) {
         content: obj.content, //博客内容
         author: obj.author, //作者
         createTime: obj.createTime,   //发表时间
-        type: obj.type
+        type: obj.type,
+        tags: obj.tags
     });
 
     //新增加/修改博文
