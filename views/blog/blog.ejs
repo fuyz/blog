@@ -201,6 +201,11 @@
                 });
 
                 $('.addTagBtn').click(function () {
+                    let tag = $('.tagName:last').text().trim();
+                    if($('.tagName').length != 0 && tag == ''){
+                        $('.tagName:last').focus();
+                        return;
+                    }
                     $(this).before(` <div class="tag">
                                         <span class="tagName" contenteditable="true"> </span>
                                         <i class="fa fa-times" aria-hidden="true"></i>
@@ -225,7 +230,8 @@
                     let type = $('#blogType').val();
                     let tags = [];
                     $.each($('.tagList .tagName') ,function (i, e) {
-                        tags.push($(e).text().trim());
+                        let tag = $(e).text().trim();
+                        if(tag != '')tags.push(tag);
                     })
                     if (title == '') {
                         showErrorMsg('请输入文章标题');
