@@ -31,7 +31,9 @@ let app = express();
 app.use(session({
     secret: settings.cookieSecret, //防止篡改 cookie
     key: settings.db,//cookie name
-    cookie: {maxAge: 1000 * 60 * 60 * 24},//30 days
+    resave: false,
+    saveUninitialized: false,
+    cookie: {maxAge: 1000 * 60 * 5},//30 days
     store: new MongoStore({
         db: settings.db,
         host: settings.host,
@@ -67,6 +69,18 @@ app.use(cookieParser());
 /* 设置了静态文件目录为 public 文件夹，所以在index.ejs代码中的: href='/stylesheets/style.css' 就相当于 href='public/stylesheets/style.css' 。*/
 app.use(express.static(path.join(__dirname, 'public')));
 
+//检查session是否过期
+let checkSession = function (req, res, next) {
+    let url = req.originalUrl;
+    if (!/login/.test(url) && !/logout/.test(url) && !/error/.test(url)) {
+        if (!sessionConfig.checkUser(req)) {
+            res.render('error', {title: '连接超时'});
+        }
+    }
+    console.log('------------------------hi, I have checked session!!!');
+    next()
+};
+app.use(checkSession);
 /*路由控制器。*/
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
@@ -103,7 +117,6 @@ app.get('/blogList', function (req, res) {
     res.render('blog/blogList', {title: '博客列表'});
 });
 app.get('/blogDetail/:blogId', function (req, res) {
-
     console.log('url参数对象 :', req.params);
     Blog.prototype.getOne(req.params.blogId, function (err, blog) {
         if (err) {
@@ -317,7 +330,7 @@ app.post('/blog', function (req, res) {
 
         if (blog.ok == 1) {
             res.json({success: true, status: 200, data: '修改成功'});
-        }else if(blog.result.ok == 1){
+        } else if (blog.result.ok == 1) {
             res.json({success: true, status: 200, data: '发布成功'});
         } else {
             res.json({success: false, status: 200, error: err, data: null});
@@ -351,25 +364,25 @@ app.post('/getBlogs', function (req, res) {
 
     Blog.prototype.getAll({}, function (err, blogArr) {
 
-        if(req.body.status == 'total'){
+        if (req.body.status == 'total') {
             blogArr = blogArr.filter(function (e) {
-                if(e.deleted != true )return e
+                if (e.deleted != true) return e
             });
-        }else if(req.body.status == 'published'){
+        } else if (req.body.status == 'published') {
             blogArr = blogArr.filter(function (e) {
-                if(e.deleted != true && e.drafts != true && e.privated != true)return e
+                if (e.deleted != true && e.drafts != true && e.privated != true) return e
             });
-        }else if(req.body.status == 'deleted'){
+        } else if (req.body.status == 'deleted') {
             blogArr = blogArr.filter(function (e) {
-                if(e.deleted == true)return e
+                if (e.deleted == true) return e
             });
-        }else if(req.body.status == 'drafts'){
+        } else if (req.body.status == 'drafts') {
             blogArr = blogArr.filter(function (e) {
-                if(e.drafts == true)return e
+                if (e.drafts == true) return e
             });
-        }else if(req.body.status == 'privated'){
+        } else if (req.body.status == 'privated') {
             blogArr = blogArr.filter(function (e) {
-                if(e.privated == true && e.deleted != true)return e
+                if (e.privated == true && e.deleted != true) return e
             });
         }
         //是否删除筛选
@@ -378,21 +391,21 @@ app.post('/getBlogs', function (req, res) {
         // });
 
         //类型筛选
-        if(type != ''){
+        if (type != '') {
             blogArr = blogArr.filter(function (e) {
-                if(e.type == req.body.type)return e
+                if (e.type == req.body.type) return e
             });
         }
         //搜索筛选
-        if(keyword != ''){
+        if (keyword != '') {
             blogArr = blogArr.filter(function (e) {
-                if(e.title.indexOf(keyword) != -1)return e
+                if (e.title.indexOf(keyword) != -1) return e
             });
         }
         //时间筛选
-        if(time != ''){
+        if (time != '') {
             blogArr = blogArr.filter(function (e) {
-                if( new Date(1538187363727).getFullYear() == time)return e
+                if (new Date(1538187363727).getFullYear() == time) return e
             });
         }
 
