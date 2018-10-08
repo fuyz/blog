@@ -14,7 +14,8 @@ function Blog(obj) {
     this.author = obj.author;   //作者
     this.createTime = obj.createTime;   //发表时间
     this.type = obj.type;   //文章类型(原创：1，转载：2，翻译：3)
-    this.tags = obj.tags
+    this.tags = obj.tags,
+    this.privated = obj.privated
 }
 
 module.exports = Blog;
@@ -46,7 +47,8 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                     author: _this.author,
                     createTime: _this.createTime,
                     type: _this.type,
-                    tags: _this.tags
+                    tags: _this.tags,
+                    privated: _this.privated
                 };
 
                 dbase.collection("blogs").insert(blogObj, function (err, blog) {
@@ -61,7 +63,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                 });
             });
         } else {
-
+            //修改
             try {
                 dbase.collection("blogs").findOneAndUpdate(
                     {id: Number(id)},
@@ -73,6 +75,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                             createTime: _this.createTime,
                             type: _this.type,
                             tags: _this.tags,
+                            privated: _this.privated
                         }
                     },
                     {returnNewDocument: true},
@@ -196,7 +199,7 @@ Blog.prototype.getStatus = function (callback) {
 
                 //私密的
                 let privateArr = data.filter(function (e) {
-                    if(e.private)return e;
+                    if(e.privated && !e.deleted)return e;
                 });
                 obj.privated = privateArr.length;
                 //草稿箱的

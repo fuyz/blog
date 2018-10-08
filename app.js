@@ -318,7 +318,9 @@ app.post('/blog', function (req, res) {
         author: obj.author, //作者
         createTime: obj.createTime,   //发表时间
         type: obj.type,
-        tags: obj.tags
+        tags: obj.tags,
+        privated: obj.privated,
+
     });
 
     //新增加/修改博文

@@ -275,8 +275,8 @@
     </li>
 </script>
 <!-- Include Editor JS files. -->
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.pkgd.min.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.pkgd.min.js"></script>-->
+<script src="/lib/froala_editor.2.8.5.min.js"></script>
 
 <script>
 
@@ -320,6 +320,7 @@
                     let status = $(this).data('status');
                     $(this).addClass('on');
                     manage.getBlogList({status: status});
+                    manage.data.status = status;
                 })
 
             }
@@ -329,13 +330,14 @@
                 let time = $('.year').val();
                 let type = $('.type').val();
                 let searchKey = $('#key').val().trim();
+
                 ajaxData('post', '/getBlogs', {
                     time: time,
                     type: type,
                     keyword: searchKey,
-                    status: obj.status || '',
+                    status: obj.status || manage.data.status || '',
                     pagesize: 10,
-                    currentPage: obj.currentPage
+                    currentPage: obj.currentPage || 1
                 }).then(function (res) {
                     if (res.success) {
                         let data = {

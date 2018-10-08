@@ -152,7 +152,7 @@
                     </select>
                 </div>
                 <div class="row">
-                    <span>私密文章:</span><input type="checkbox">
+                    <span>私密文章:</span><input type="checkbox" id="privateSwitch" >
                 </div>
                 <div class="row">
                     <button id="submit">发表博客</button>
@@ -167,8 +167,8 @@
 
 <% include ../include/footer-res.ejs %>
 <!-- Include Editor JS files. -->
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.pkgd.min.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/js/froala_editor.pkgd.min.js"></script>-->
+<script src="/lib/froala_editor.2.8.5.min.js"></script>
 
 <script>
 
@@ -199,7 +199,7 @@
 //                    colorsStep: 14
 //                    autofocus: true
                 });
-
+//                绑定tag事件
                 $('.addTagBtn').click(function () {
                     let tag = $('.tagName:last').text().trim();
                     if($('.tagName').length != 0 && tag == ''){
@@ -220,7 +220,8 @@
 //              如果是查看编辑， 有blog id
                 if ('<%- blogObj.id %>') {
                     $('#editor').froalaEditor('html.set', `<%- blogObj.content %>`);
-                    $('#blogType').val('<%- blogObj.type %>')
+                    $('#blogType').val('<%- blogObj.type %>');
+                    $('#privateSwitch').prop({checked: "<%= blogObj.privated %>"});
                 }
 
                 $('#submit').click(function () {
@@ -257,7 +258,9 @@
                         type: type,
                         createTime: createTime,
                         author: manage.userInfo.name,
-                        tags: tags
+                        tags: tags,
+                        privated: $('#privateSwitch')[0].checked,
+
                     }).then(function (res) {
                         if (res.success) {
                             swal({
