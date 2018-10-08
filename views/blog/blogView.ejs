@@ -57,13 +57,7 @@
             margin: 0 5px;
         }
     </style>
-    <script>
 
-        function dateFormat(val) {
-            return new Date(Number(val)).toLocaleString();
-        }
-        
-    </script>
 </head>
 <body>
 <% include ../include/header.ejs %>
@@ -80,11 +74,11 @@
             <h3 class="article-title text-center"><%= blogObj.title %></h3>
         </div>
         <div class="article-info-box">
-            <span class="article-time"><%= dateFormat(blogObj.createTime) %></span>
+            <span class="article-time"><%= blogObj.createTime %></span>
             <span class="article-author"><%= blogObj.author %></span>
             <div class="tags">
                 标签：
-                <% let tags = blogObj.tags %>
+                <% let tags = blogObj.tags || [] %>
                 <div class="tagWrap">
                     <% for(var i = 0; i < tags.length; i++) { %>
                     <span class="tag"><%= tags[i] %></span>
@@ -105,6 +99,13 @@
 </aside>
 
 <% include ../include/footer-res.ejs %>
+<script>
+
+    function dateFormat(val) {
+        return new Date(Number(val)).toLocaleString();
+    }
+
+</script>
 <script>
 
 

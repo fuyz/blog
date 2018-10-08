@@ -33,7 +33,7 @@ app.use(session({
     key: settings.db,//cookie name
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 1000 * 60 * 60},//30 days
+    cookie: {maxAge: 1000 * 60 *60},//30 days
     store: new MongoStore({
         db: settings.db,
         host: settings.host,
@@ -93,9 +93,9 @@ app.get('/error', function (req, res) {
 app.get('/users', function (req, res) {
     res.render('users', {title: 'users'});
 });
-app.get('/blog/:blogId', function (req, res) {
+app.get('/blog/:blogId', function (req, res, next) {
     if (req.params.blogId == 'index') {
-        res.render('blog/blog', {title: '博客', blogObj: {}});
+        res.render('blog/blog', {title: '写博客', blogObj: {}});
     } else {
         Blog.prototype.getOne(req.params.blogId, function (err, blog) {
             if (err) {
@@ -107,7 +107,7 @@ app.get('/blog/:blogId', function (req, res) {
                 res.json({success: false, status: 200, error: '博客不存在!', data: null});
                 return;
             }
-            res.render('blog/blog', {title: '博客', blogObj: blog});
+            res.render('blog/blog', {title: '编辑博客', blogObj: blog});
 
         });
     }
@@ -132,6 +132,7 @@ app.get('/blogDetail/:blogId', function (req, res) {
 
     });
 });
+
 
 //登录
 app.post('/login', function (req, res) {

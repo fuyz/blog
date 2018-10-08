@@ -134,9 +134,10 @@
                     </div>
                     <div class="inlineBlock tagWrap">
                         <div class="tagList">
-                            <% for(var i = 0; i < blogObj.tags.length ; i++) { %>
+                            <% let tags = blogObj.tags || [] %>
+                            <% for(var i = 0; i < tags.length ; i++) { %>
                             <div class="tag">
-                                <span class="tagName" contenteditable="true"><%=  blogObj.tags[i] %> </span>
+                                <span class="tagName" contenteditable="true"><%= tags[i] %> </span>
                                 <i class="fa fa-times" aria-hidden="true"></i>
                             </div>
                             <% } %>
@@ -205,6 +206,12 @@
 //                    colorsStep: 14
 //                    autofocus: true
                 });
+
+
+//                渲染时：修改博客界面
+                $('.tag i').unbind().click(function () {
+                    $(this).parent('.tag').remove();
+                })
 //                绑定tag事件
                 $('.addTagBtn').click(function () {
                     let tag = $('.tagName:last').text().trim();
@@ -227,7 +234,7 @@
                 if ('<%- blogObj.id %>') {
                     $('#editor').froalaEditor('html.set', `<%- blogObj.content %>`);
                     $('#blogType').val('<%- blogObj.type %>');
-                    $('#privateSwitch').prop({checked: "<%= blogObj.privated %>"});
+                    $('#privateSwitch').prop({checked: "<%- blogObj.privated %>"});
                 }
 
                 $('#submit').click(function () {
