@@ -33,7 +33,7 @@ app.use(session({
     key: settings.db,//cookie name
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 1000 * 60 * 5},//30 days
+    cookie: {maxAge: 1000 * 60 * 60},//30 days
     store: new MongoStore({
         db: settings.db,
         host: settings.host,
@@ -132,7 +132,6 @@ app.get('/blogDetail/:blogId', function (req, res) {
 
     });
 });
-
 
 //登录
 app.post('/login', function (req, res) {

@@ -36,7 +36,9 @@
             background-color: #2e6da4;
             vertical-align: -4px;
         }
-
+        #blog-tab{
+            border-bottom: 1px solid #ddd;
+        }
         .sidebar i {
             color: #333;
             margin-right: 5px;
@@ -47,6 +49,7 @@
             padding: 16px;
             font-size: 14px;
             background: #f2f5f7;
+            display: none;
         }
 
         .blog-listWrap {
@@ -70,8 +73,11 @@
             margin-bottom: 10px;
             border-bottom: 1px dotted #aaa;
         }
-        .item-title:hover{
+        .item-title a:hover{
             color: #2e6da4;
+        }
+        .item-title span{
+            color: #999;
         }
 
         .item-title-box{
@@ -81,7 +87,6 @@
         .item-title {
             font-size: 18px;
             font-weight: 600;
-            cursor: pointer;
         }
 
         .item-title-type{
@@ -237,7 +242,13 @@
             {{ else if $value.type == 3 }}
             <span class="item-title-type type-3">译</span>
             {{ /if }}
-            <span class="item-title"><a href="/blog/{{$value.id}}">{{ $value.title }}</a></span>
+            <span class="item-title">
+                {{ if status == 'deleted' }}
+                <span >{{ $value.title }}</span>
+                {{ else }}
+                <a href="/blog/{{$value.id}}">{{ $value.title }}</a>
+                {{ /if }}
+            </span>
         </div>
         <!--<div class="item-abstract">{{@ $value.content.slice(0, 70) }}</div>-->
         <div class="item-info clear">
@@ -326,6 +337,11 @@
                     $(this).addClass('on');
                     manage.getBlogList({status: status});
                     manage.data.status = status;
+                    if(status == 'total'){
+                        $('.main-search-box').show();
+                    }else {
+                        $('.main-search-box').hide();
+                    }
                 });
 
             }

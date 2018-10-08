@@ -5,42 +5,68 @@
     <title><%= title %></title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
-    <%include ../include/header-res.ejs%>
+    <% include ../include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/common.css">-->
     <style>
-        .main{
+        .main {
             width: 1200px;
             background: none;
         }
-        .article-content-wrap{
+
+        .article-content-wrap {
             min-height: 800px;
         }
-        .user-aside-info, .article-content-wrap{
+
+        .user-aside-info, .article-content-wrap {
             background: white;
         }
-        .user-aside-info{
+
+        .user-aside-info {
             height: 500px;
             margin-right: 20px;
         }
-        .article-content-wrap{
+
+        .article-content-wrap {
             padding: 0 25px 15px;
         }
-        .article-info-box{
+
+        .article-info-box {
             color: #858585;
             padding-bottom: 15px;
             border-bottom: 1px solid #e0e0e0;
         }
-        .article-author{
+
+        .article-author {
             color: #78a5f1;
             margin: 0 20px;
         }
-        article{
+
+        article {
             padding-top: 15px;
         }
+
+        .tagWrap {
+            display: inline-block;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 0px 10px;
+            border-radius: 100px;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+        }
     </style>
+    <script>
+
+        function dateFormat(val) {
+            return new Date(Number(val)).toLocaleString();
+        }
+        
+    </script>
 </head>
 <body>
-<%include ../include/header.ejs%>
+<% include ../include/header.ejs %>
 
 <section class="main">
     <div class="user-aside-info col-lg-3">
@@ -54,32 +80,31 @@
             <h3 class="article-title text-center"><%= blogObj.title %></h3>
         </div>
         <div class="article-info-box">
-            <span class="article-time"><%= blogObj.createTime %></span>
+            <span class="article-time"><%= dateFormat(blogObj.createTime) %></span>
             <span class="article-author"><%= blogObj.author %></span>
-            <p><%= blogObj.tags %></p>
             <div class="tags">
                 标签：
-                <% let supplies = blogObj.tags %>
-                <p>
-                    <% for(var i = 0; i < supplies; i++) { %>
-                    <span><%= supplies[i] %></span>
+                <% let tags = blogObj.tags %>
+                <div class="tagWrap">
+                    <% for(var i = 0; i < tags.length; i++) { %>
+                    <span class="tag"><%= tags[i] %></span>
                     <% } %>
-                </p>
+                    </span>
+                </div>
+                <a class="right" href="">编辑</a>
             </div>
-            <a class="right" href="">编辑</a>
-        </div>
-        <article>
-            <%- blogObj.content %>
-        </article>
+            <article>
+                <%- blogObj.content %>
+            </article>
 
-    </div>
+        </div>
 
 </section>
 <aside>
 
 </aside>
 
-<%include ../include/footer-res.ejs%>
+<% include ../include/footer-res.ejs %>
 <script>
 
 
@@ -87,9 +112,7 @@
 
         class Manage {
             constructor() {
-                this.data = {
-
-                }
+                this.data = {}
             }
 
             initial() {
