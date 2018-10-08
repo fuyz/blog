@@ -285,7 +285,11 @@
                                         window.location.href = '/blog/index';
                                         break;
                                     case "view":
-                                        window.location.href = '/blogDetail/<%- blogObj.id %>';
+                                        if('<%- blogObj.id %>'){
+                                            window.location.href = '/blogDetail/<%- blogObj.id %>';
+                                        }else {
+                                            window.location.href = '/blogDetail/'+ res.data.blogId;
+                                        }
                                         break;
                                     case "back":
                                         window.location.href = '/blogList';

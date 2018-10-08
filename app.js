@@ -331,7 +331,7 @@ app.post('/blog', function (req, res) {
         if (blog.ok == 1) {
             res.json({success: true, status: 200, data: '修改成功'});
         } else if (blog.result.ok == 1) {
-            res.json({success: true, status: 200, data: '发布成功'});
+            res.json({success: true, status: 200, data: {msg:'发布成功', blogId: blog.ops[0].id}});
         } else {
             res.json({success: false, status: 200, error: err, data: null});
         }
