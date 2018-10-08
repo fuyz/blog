@@ -169,6 +169,36 @@ Blog.prototype.delete = function (blogId, callback) {
                 }
             );
 
+        }
+        catch (e) {
+            db.close();
+            return callback(err);//失败！返回 err 信息
+        }
+
+    });
+
+};
+//彻底删除
+Blog.prototype.deepDelete = function (blogId, callback) {
+
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        console.log("数据库已连接!");
+        //读取 myblog 集合
+        let dbase = db.db("myblog");
+        let id = Number(blogId);
+        try {
+            dbase.collection("blogs").deleteOne(
+                {id: id},
+                function (err, result) {
+                    if (err) {
+                        db.close();
+                        return callback(err);//失败！返回 err 信息
+                    }
+                    callback(null, result);//成功！返回查询的用户信息
+                }
+            );
+
 
         }
         catch (e) {

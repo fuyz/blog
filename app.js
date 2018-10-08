@@ -473,6 +473,20 @@ app.post('/deleteBlog', function (req, res) {
         res.json({success: true, status: 200, data: blog});
     });
 });
+app.post('/deepDeleteBlog', function (req, res) {
+    Blog.prototype.deepDelete(req.body.id, function (err, blog) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        //用户不存在
+        if (blog == null) {
+            res.json({success: false, status: 200, error: '博客不存在!', data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: '删除成功'});
+    });
+});
 //获取博客状态
 app.post('/getBlogStatus', function (req, res) {
     Blog.prototype.getStatus(function (err, blog) {

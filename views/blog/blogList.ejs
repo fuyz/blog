@@ -135,7 +135,7 @@
             margin-right: 25px;
         }
 
-        .item-info .del {
+        .item-info .del, .item-info .deepdel {
             color: #CA0C16;
             border-right: 0;
         }
@@ -242,15 +242,21 @@
         <!--<div class="item-abstract">{{@ $value.content.slice(0, 70) }}</div>-->
         <div class="item-info clear">
             <div class="left">
-                <span>{{ $value.createTime |  dateFormat }}</span>
+                <span>{{ $value.createTime | dateFormat }}</span>
                 <span>阅读量</span>
                 <span>评论数</span>
             </div>
             <div class="right item-info-oper" data-id="{{$value.id}}">
                 <a href="/blogDetail/{{$value.id}}" target="_blank">查看</a>
+                {{ if status == 'total' || status == 'published' }}
                 <a href="">禁止评论</a>
                 <a href="">置顶 </a>
+                {{ /if }}
+                {{ if status == 'deleted' }}
+                <a class="deepdel" href="javascript:void(0)">彻底删除</a>
+                {{ else }}
                 <a class="del" href="javascript:void(0)">删除</a>
+                {{ /if }}
             </div>
         </div>
     </li>
@@ -294,7 +300,6 @@
             initial() {
 
                 manage.userInfo = JSON.parse(sessionStorage.getItem('user'));
-                
 //              搜索框
                 $('.dropdown').change(function () {
                     let $this = $(this);
@@ -321,7 +326,7 @@
                     $(this).addClass('on');
                     manage.getBlogList({status: status});
                     manage.data.status = status;
-                })
+                });
 
             }
 
@@ -341,7 +346,8 @@
                 }).then(function (res) {
                     if (res.success) {
                         let data = {
-                            list: res.data.pageData
+                            list: res.data.pageData,
+                            status: manage.data.status
                         };
                         let str = template('blog_template', data);
                         $('.blog-listWrap').html(str);
@@ -361,7 +367,7 @@
                                 let id = $(this).parent('.item-info-oper').data('id');
                                 swal({
                                     title: "删除",
-                                    text: "确定删除该博客吗？",
+                                    text: "确定删除该文章吗？",
                                     icon: "warning",
                                     buttons: {
                                         cancel: '取消',
@@ -386,6 +392,36 @@
                                     }
                                 })
                             });
+                            $('.deepdel').unbind().click(function () {
+                                let _this = this;
+                                let id = $(this).parent('.item-info-oper').data('id');
+                                swal({
+                                    title: "删除",
+                                    text: "确定彻底删除该文章吗？",
+                                    icon: "warning",
+                                    buttons: {
+                                        cancel: '取消',
+                                        default: '删除',
+                                    },
+                                }).then(value => {
+                                    switch (value) {
+                                        case "default":
+                                            ajaxData('post', '/deepDeleteBlog', {
+                                                id: id
+                                            }).then(function (res) {
+                                                if(res.success){
+                                                    $(_this).parents('li').fadeOut(1000, function () {
+                                                        manage.getBlogList({});
+                                                        manage.getBlogStatus({});
+                                                    })
+                                                }
+                                            })
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                })
+                            });
 
                             $('.modify').unbind().click(function () {
                                 $('.loading-mask, .popup').show();
@@ -394,7 +430,6 @@
                                 let email = $(this).parent('td').data('email');
                                 $('#name').val(name);
                                 $('#email').val(email);
-
                             });
 
                             $('.pageItem').unbind().click(function () {
@@ -436,7 +471,6 @@
                 });
             }
         }
-
 
         let manage = new Manage();
         manage.initial();
