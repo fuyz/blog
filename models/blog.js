@@ -135,7 +135,7 @@ Blog.prototype.getAll = function ({}, callback) {
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
-        dbase.collection("blogs").find({}).toArray(function (err, data) {
+        dbase.collection("blogs").find({}).sort({"_id": -1}).toArray(function (err, data) {
             if (err) {
                 db.close();
                 return callback(err);//错误，返回 err 信息
