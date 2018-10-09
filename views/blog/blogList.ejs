@@ -81,6 +81,7 @@
         }
 
         .item-title-box{
+            padding: 0px;
             margin-bottom: 10px;
         }
 
@@ -99,7 +100,8 @@
             border: 1px solid;
             font-size: 12px;
             font-weight: 500;
-            margin-right: 10px;
+            margin-right: 5px;
+            vertical-align: 2px;
         }
 
         .type-1{
@@ -397,7 +399,7 @@
                                             }).then(function (res) {
                                                 if(res.success){
                                                     $(_this).parents('li').fadeOut(1000, function () {
-                                                        manage.getBlogList({});
+//                                                        manage.getBlogList({});
                                                         manage.getBlogStatus({});
                                                     })
                                                 }

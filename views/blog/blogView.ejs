@@ -26,9 +26,37 @@
 
         .asideNewArticle{
             margin-top: 10px;
+            padding: 10px;
+        }
+        .aside-title{
+            font-size: 15px;
+        }
+        .aside-title:before{
+            display: inline-block;
+            margin-right: 8px;
+            content: '';
+            width: 4px;
+            height: 22px;
+            vertical-align: -6px;
+            background-color: #2e6da4;
         }
         .asideNewArticle, .user-aside-info {
-            height: 400px;
+            /*height: 400px;*/
+        }
+
+        .newArticleList{
+            padding: 10px;
+        }
+        .newArticleList li{
+            margin-top: 10px;
+        }
+        .newArticleList li:hover a{
+            color: #2e6da4;
+        }
+
+        .newArticleList a{
+            display: block;
+            color: #333;
         }
 
         .data-info {
@@ -44,7 +72,6 @@
             color: #666;
             padding: 2px 0;
         }
-
 
         .article-content-wrap {
             padding: 10px 25px 15px;
@@ -124,7 +151,10 @@ function dateFormat(val) {
             </div>
         </div>
         <div class="asideNewArticle">
-
+            <div class="aside-title">最新文章</div>
+            <ul class="newArticleList">
+                <!---->
+            </ul>
         </div>
     </div>
     <div class="col-lg-9">
@@ -132,7 +162,7 @@ function dateFormat(val) {
 
             <div class="article-title-box">
                 <span></span>
-                <h3 class="article-title text-center"><%= blogObj.title %></h3>
+                <h3 class="article-title "><%= blogObj.title %></h3>
             </div>
             <div class="article-info-box">
                 <span class="article-time"><%- dateFormat(blogObj.createTime) %></span>
@@ -167,6 +197,13 @@ function dateFormat(val) {
 
 <% include ../include/footer-res.ejs %>
 
+<script type="text/html" id="new_blog_template">
+    {{ if list.length > 0 }}
+    {{each list }}
+    <li><a href="{{ '/blogDetail/'+ $value.id }}">{{ $value.title }}</a></li>
+    {{ /each }}
+    {{ /if }}
+</script>
 <script>
 
     $(document).ready(function () {
@@ -178,6 +215,20 @@ function dateFormat(val) {
 
             initial() {
 
+                manage.getNewArticleList()
+
+            }
+
+            getNewArticleList() {
+                ajaxData('post', '/getNewBlogs').then(function (res) {
+                    if(res.success){
+                        let data = {
+                            list: res.data,
+                        };
+                        let str = template('new_blog_template', data);
+                        $('.newArticleList').html(str);
+                    }
+                })
             }
         }
 

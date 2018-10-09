@@ -33,7 +33,7 @@ app.use(session({
     key: settings.db,//cookie name
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 1000 * 60 *60},//30 days
+    cookie: {maxAge: 1000 * 60 * 60},//30 days
     store: new MongoStore({
         db: settings.db,
         host: settings.host,
@@ -333,7 +333,7 @@ app.post('/blog', function (req, res) {
         if (blog.ok == 1) {
             res.json({success: true, status: 200, data: '修改成功'});
         } else if (blog.result.ok == 1) {
-            res.json({success: true, status: 200, data: {msg:'发布成功', blogId: blog.ops[0].id}});
+            res.json({success: true, status: 200, data: {msg: '发布成功', blogId: blog.ops[0].id}});
         } else {
             res.json({success: false, status: 200, error: err, data: null});
         }
@@ -502,6 +502,13 @@ app.post('/getBlogStatus', function (req, res) {
         res.json({success: true, status: 200, data: blog});
     });
 });
+//获取最新博客
+app.post('/getNewBlogs', function (req, res) {
+    Blog.prototype.getNew({}, function (err, blogArr) {
+        res.json({success: true, status: 200, data: blogArr});
+    })
+});
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -15,7 +15,7 @@ function Blog(obj) {
     this.createTime = obj.createTime;   //发表时间
     this.type = obj.type;   //文章类型(原创：1，转载：2，翻译：3)
     this.tags = obj.tags,
-    this.privated = obj.privated
+        this.privated = obj.privated
 }
 
 module.exports = Blog;
@@ -146,6 +146,30 @@ Blog.prototype.getAll = function ({}, callback) {
 
 };
 
+//读取最新博客信息
+Blog.prototype.getNew = function ({}, callback) {
+
+    //数据库客户端连接
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            throw err
+        } else {
+            console.log("数据库已连接!");
+        }
+        //连接数据库
+        let dbase = db.db("myblog");
+        //读取 myblog 集合
+        dbase.collection("blogs").find({ "deleted": {$ne :true}, "drafts": { $ne: true }, "privated": { $ne: true }}).sort({"_id": -1}).limit(5).toArray(function (err, data) {
+            if (err) {
+                db.close();
+                return callback(err);//错误，返回 err 信息
+            }
+            callback(null, data);//成功！返回查询的用户信息
+        });
+    });
+
+};
+
 //删除（返回回收站）
 Blog.prototype.delete = function (blogId, callback) {
 
@@ -229,17 +253,17 @@ Blog.prototype.getStatus = function (callback) {
 
                 //私密的
                 let privateArr = data.filter(function (e) {
-                    if(e.privated && !e.deleted)return e;
+                    if (e.privated && !e.deleted) return e;
                 });
                 obj.privated = privateArr.length;
                 //草稿箱的
                 let draftsArr = data.filter(function (e) {
-                    if(e.drafts)return e;
+                    if (e.drafts) return e;
                 });
                 obj.drafts = draftsArr.length;
                 //回收站的
                 let trashArr = data.filter(function (e) {
-                    if(e.deleted)return e;
+                    if (e.deleted) return e;
                 });
                 obj.trash = trashArr.length;
 
