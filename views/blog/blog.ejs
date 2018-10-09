@@ -43,10 +43,11 @@
             outline: none;
         }
 
-        .editorWrap{
+        .editorWrap {
             min-height: 500px;
         }
-        #editor{
+
+        #editor {
             width: 100%;
             min-height: 500px;
             background: #eee;
@@ -65,36 +66,43 @@
             color: white;
         }
 
-        .editorTool{
+        .editorTool {
             margin: 20px 0;
         }
-        .editorTool .row{
+
+        .editorTool .row {
             width: 100%;
             margin: 0 0 15px;
         }
-        .editorTool .row span{
+
+        .editorTool .row span {
             margin-right: 10px;
         }
 
-        .tagWrap{
+        .tagWrap {
             vertical-align: top;
         }
-        .tagWrap .tip{
+
+        .tagWrap .tip {
             margin: 10px 0;
         }
-        .addTagBtn{
+
+        .addTagBtn {
             color: #349EDF;
             border: none;
             outline: none;
         }
-        .addTagBtn i{
+
+        .addTagBtn i {
             margin-right: 5px;
         }
-        .tag{
+
+        .tag {
             margin-right: 5px;
             display: inline-block;
         }
-        .tag .tagName{
+
+        .tag .tagName {
             min-width: 20px;
             max-width: 300px;
             overflow: hidden;
@@ -109,12 +117,14 @@
             display: inline-block;
             vertical-align: -5px;
         }
-        .tag i{
+
+        .tag i {
             cursor: pointer;
             padding: 5px 2px;
             color: #aaa;
             font-weight: 100;
         }
+
         .tag i:hover {
             color: red;
         }
@@ -168,11 +178,11 @@
                     </select>
                 </div>
                 <div class="row">
-                    <span>私密文章:</span><input type="checkbox" id="privateSwitch" >
+                    <span>私密文章:</span><input type="checkbox" id="privateSwitch">
                 </div>
                 <div class="row">
                     <button id="submit">发表博客</button>
-                    <button id="saveToDrafts">保存为草稿</button>
+                    <button id="saveToDrafts" data-type="drafts">保存为草稿</button>
                 </div>
             </div>
         </div>
@@ -224,7 +234,7 @@
 //                绑定tag事件
                 $('.addTagBtn').click(function () {
                     let tag = $('.tagName:last').text().trim();
-                    if($('.tagName').length != 0 && tag == ''){
+                    if ($('.tagName').length != 0 && tag == '') {
                         $('.tagName:last').focus();
                         return;
                     }
@@ -246,15 +256,16 @@
                     $('#privateSwitch').prop({checked: "<%- blogObj.privated %>"});
                 }
 
-                $('#submit').click(function () {
+                $('#submit, #saveToDrafts').click(function () {
+
                     let title = $('#title').val().trim();
                     let content = $('#editor').froalaEditor('html.get');
                     let createTime = new Date().getTime();
                     let type = $('#blogType').val();
                     let tags = [];
-                    $.each($('.tagList .tagName') ,function (i, e) {
+                    $.each($('.tagList .tagName'), function (i, e) {
                         let tag = $(e).text().trim();
-                        if(tag != '')tags.push(tag);
+                        if (tag != '') tags.push(tag);
                     })
                     if (title == '') {
                         showErrorMsg('请输入文章标题');
@@ -273,56 +284,80 @@
                     }
 
 
-                    ajaxDataStringify('/blog', {
-                        id: '<%- blogObj.id %>',
-                        title: title,
-                        content: content,
-                        type: type,
-                        createTime:  '<%- blogObj.id %>' ? createTime : "",
-                        author: manage.userInfo.name,
-                        tags: tags,
-                        privated: $('#privateSwitch')[0].checked,
+                    let obj = null;
+                    let key = Boolean($(this).data('type') == 'drafts');
+                    if (key) {
+                        obj = {
+                            id: '<%- blogObj.id %>',
+                            title: title,
+                            content: content,
+                            type: type,
+                            createTime: createTime ,
+                            author: manage.userInfo.name,
+                            tags: tags,
+                            privated: $('#privateSwitch')[0].checked,
+                            drafts: true
+                        }
+                    }else {
+                        obj = {
+                            id: '<%- blogObj.id %>',
+                            title: title,
+                            content: content,
+                            type: type,
+                            createTime: '<%- blogObj.id %>' ? '' : createTime ,
+                            author: manage.userInfo.name,
+                            tags: tags,
+                            privated: $('#privateSwitch')[0].checked,
+                        }
+                    }
 
-                    }).then(function (res) {
+                    $('.loading-mask').show();
+                    ajaxDataStringify('/blog', obj).then(function (res) {
+                        $('.loading-mask').hide();
                         if (res.success) {
-                            swal({
-                                title: "Good job!",
-                                text: '<%- blogObj.id %>' ? "修改成功！" : "发布成功！",
-                                icon: "success",
-                                buttons: {
-                                    oper1: {
-                                        text: '写新文章',
-                                        value: 'write'
-                                    },
-                                    oper2: {
-                                        text: '管理博文',
-                                        value: 'back'
-                                    },
-                                    oper3: {
-                                        text: '查看文章',
-                                        value: "view"
-                                    }
-                                },
-//                                timer: 2000,
-                            }).then((value) => {
-                                switch (value) {
-                                    case "write":
-                                        window.location.href = '/blog/index';
-                                        break;
-                                    case "view":
-                                        if('<%- blogObj.id %>'){
-                                            window.location.href = '/blogDetail/<%- blogObj.id %>';
-                                        }else {
-                                            window.location.href = '/blogDetail/'+ res.data.blogId;
+                            if(key){
+                                showTipsMsg('已保存到草稿箱！！！');
+                            }else{
+                                swal({
+                                    title: "Good job!",
+                                    text: '<%- blogObj.id %>' ? "修改成功！" : "发布成功！",
+                                    icon: "success",
+                                    buttons: {
+                                        oper1: {
+                                            text: '写新文章',
+                                            value: 'write'
+                                        },
+                                        oper2: {
+                                            text: '管理博文',
+                                            value: 'back'
+                                        },
+                                        oper3: {
+                                            text: '查看文章',
+                                            value: "view"
                                         }
-                                        break;
-                                    case "back":
-                                        window.location.href = '/blogList';
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            });
+                                    },
+//                                timer: 2000,
+                                }).then((value) => {
+                                    switch (value) {
+                                        case "write":
+                                            window.location.href = '/blog/index';
+                                            break;
+                                        case "view":
+                                            if ('<%- blogObj.id %>') {
+                                                window.location.href = '/blogDetail/<%- blogObj.id %>';
+                                            } else {
+                                                window.location.href = '/blogDetail/' + res.data.blogId;
+                                            }
+                                            break;
+                                        case "back":
+                                            window.location.href = '/blogList';
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                });
+                            }
+
                         }
                     })
 

@@ -14,8 +14,9 @@ function Blog(obj) {
     this.author = obj.author;   //作者
     this.createTime = obj.createTime;   //发表时间
     this.type = obj.type;   //文章类型(原创：1，转载：2，翻译：3)
-    this.tags = obj.tags,
-        this.privated = obj.privated
+    this.tags = obj.tags;   //标签数组
+    this.privated = obj.privated;  //s是否私有
+    this.drafts = obj.drafts  //是否保存在草稿箱
 }
 
 module.exports = Blog;
@@ -48,7 +49,8 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                     createTime: _this.createTime,
                     type: _this.type,
                     tags: _this.tags,
-                    privated: _this.privated
+                    privated: _this.privated,
+                    drafts: _this.drafts
                 };
 
                 dbase.collection("blogs").insert(blogObj, function (err, blog) {
@@ -65,28 +67,59 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
         } else {
             //修改
             try {
-                dbase.collection("blogs").findOneAndUpdate(
-                    {id: Number(id)},
-                    {
-                        $set: {
-                            title: _this.title,
-                            content: _this.content,
-                            author: _this.author,
-                            // createTime: _this.createTime,
-                            type: _this.type,
-                            tags: _this.tags,
-                            privated: _this.privated
+                if(_this.drafts){
+                    //草稿箱 的修改
+                    dbase.collection("blogs").findOneAndUpdate(
+                        {id: Number(id)},
+                        {
+                            $set: {
+                                title: _this.title,
+                                content: _this.content,
+                                author: _this.author,
+                                createTime: _this.createTime,
+                                type: _this.type,
+                                tags: _this.tags,
+                                privated: _this.privated,
+                                drafts: _this.drafts
+
+                            }
+                        },
+                        {returnNewDocument: true},
+                        function (err, result) {
+                            if (err) {
+                                db.close();
+                                return callback(err);//失败！返回 err 信息
+                            }
+                            callback(null, result);//成功！返回查询的用户信息
                         }
-                    },
-                    {returnNewDocument: true},
-                    function (err, result) {
-                        if (err) {
-                            db.close();
-                            return callback(err);//失败！返回 err 信息
+                    );
+                }else {
+                    dbase.collection("blogs").findOneAndUpdate(
+                        {id: Number(id)},
+                        {
+                            $set: {
+                                title: _this.title,
+                                content: _this.content,
+                                author: _this.author,
+                                // createTime: _this.createTime,
+                                type: _this.type,
+                                tags: _this.tags,
+                                privated: _this.privated,
+                                drafts: _this.drafts
+
+                            }
+                        },
+                        {returnNewDocument: true},
+                        function (err, result) {
+                            if (err) {
+                                db.close();
+                                return callback(err);//失败！返回 err 信息
+                            }
+                            callback(null, result);//成功！返回查询的用户信息
                         }
-                        callback(null, result);//成功！返回查询的用户信息
-                    }
-                );
+                    );
+                }
+
             }
             catch (e) {
                 db.close();
@@ -159,7 +192,11 @@ Blog.prototype.getNew = function ({}, callback) {
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
-        dbase.collection("blogs").find({ "deleted": {$ne :true}, "drafts": { $ne: true }, "privated": { $ne: true }}).sort({"_id": -1}).limit(5).toArray(function (err, data) {
+        dbase.collection("blogs").find({
+            "deleted": {$ne: true},
+            "drafts": {$ne: true},
+            "privated": {$ne: true}
+        }).sort({"_id": -1}).limit(5).toArray(function (err, data) {
             if (err) {
                 db.close();
                 return callback(err);//错误，返回 err 信息
@@ -253,7 +290,7 @@ Blog.prototype.getStatus = function (callback) {
 
                 //私密的
                 let privateArr = data.filter(function (e) {
-                    if (e.privated && !e.deleted) return e;
+                    if (e.privated && !e.deleted && !e.drafts) return e;
                 });
                 obj.privated = privateArr.length;
                 //草稿箱的

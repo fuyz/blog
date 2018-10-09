@@ -76,9 +76,16 @@ article pre{
     display: inline-block;
 }
 
+.errorTip.tip{
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+}
 .errorTip {
     position: fixed;
-    top: 10%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, 0);
     /*margin: -2rem 0 0 -4rem;*/
@@ -434,6 +441,12 @@ header > .link {
     height: 42px;
     width: 42px;
     animation: loading-rotate 2s linear infinite;
+}
+.loading-mask .circular-txt {
+    color: #fff;
+    font-size: 14px;
+    vertical-align: 16px;
+    margin-left: 10px;
 }
 
 .loading-mask .path {

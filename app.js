@@ -320,6 +320,7 @@ app.post('/blog', function (req, res) {
         type: obj.type,
         tags: obj.tags,
         privated: obj.privated,
+        drafts: obj.drafts
 
     });
 
@@ -339,7 +340,6 @@ app.post('/blog', function (req, res) {
         }
 
     });
-
 
 });
 //获取所有博客
@@ -384,13 +384,9 @@ app.post('/getBlogs', function (req, res) {
             });
         } else if (req.body.status == 'privated') {
             blogArr = blogArr.filter(function (e) {
-                if (e.privated == true && e.deleted != true) return e
+                if (e.privated == true && e.deleted != true && e.drafts != true) return e
             });
         }
-        //是否删除筛选
-        // blogArr = blogArr.filter(function (e) {
-        //     if(e.deleted != true)return e
-        // });
 
         //类型筛选
         if (type != '') {
