@@ -72,7 +72,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                             title: _this.title,
                             content: _this.content,
                             author: _this.author,
-                            createTime: _this.createTime,
+                            // createTime: _this.createTime,
                             type: _this.type,
                             tags: _this.tags,
                             privated: _this.privated

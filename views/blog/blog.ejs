@@ -43,6 +43,15 @@
             outline: none;
         }
 
+        .editorWrap{
+            min-height: 500px;
+        }
+        #editor{
+            width: 100%;
+            min-height: 500px;
+            background: #eee;
+        }
+
         #submit, #saveToDrafts {
             border: 1px solid #2b669a;
             border-radius: 5px;
@@ -269,7 +278,7 @@
                         title: title,
                         content: content,
                         type: type,
-                        createTime: createTime,
+                        createTime:  '<%- blogObj.id %>' ? createTime : "",
                         author: manage.userInfo.name,
                         tags: tags,
                         privated: $('#privateSwitch')[0].checked,

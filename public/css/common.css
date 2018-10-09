@@ -27,7 +27,9 @@ ul {
     list-style: none;
     padding: 0;
 }
-
+dl{
+    margin: 0;
+}
 button, select{
     outline: none;
 }
@@ -362,12 +364,13 @@ header > .link {
 }
 
 .userWrap {
-    padding: 30px;
+    padding: 20px 30px;
+    border-bottom: 1px solid #ddd;
 }
 
 .headWrap {
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;

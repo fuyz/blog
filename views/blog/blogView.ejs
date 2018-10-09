@@ -9,28 +9,49 @@
     <!--<link rel="stylesheet" href="/css/common.css">-->
     <style>
         .main {
-            width: 1200px;
+            width: 1300px;
             background: none;
+            padding: 0;
         }
 
         .article-content-wrap {
             min-height: 800px;
         }
 
-        .user-aside-info, .article-content-wrap {
+        .asideNewArticle, .user-aside-info, .article-content-wrap {
             background: white;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
         }
 
-        .user-aside-info {
-            height: 500px;
-            margin-right: 20px;
+        .asideNewArticle{
+            margin-top: 10px;
         }
+        .asideNewArticle, .user-aside-info {
+            height: 400px;
+        }
+
+        .data-info {
+            padding: 15px 10px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            font-size: 13px;
+            border-bottom: 1px solid #e0e0e0;
+
+        }
+        .data-info dt{
+            color: #666;
+            padding: 2px 0;
+        }
+
 
         .article-content-wrap {
-            padding: 0 25px 15px;
+            padding: 10px 25px 15px;
         }
 
         .article-info-box {
+            margin-top: 20px;
             color: #858585;
             padding-bottom: 15px;
             border-bottom: 1px solid #e0e0e0;
@@ -45,7 +66,7 @@
             padding-top: 15px;
         }
 
-        .tagWrap {
+        .tagWrap, .tagList {
             display: inline-block;
         }
 
@@ -54,60 +75,99 @@
             padding: 0px 10px;
             border-radius: 100px;
             border: 1px solid #ccc;
-            margin: 0 5px;
+            margin: 0 3px;
         }
     </style>
 
 </head>
+<%
+function dateFormat(val) {
+    return new Date(Number(val)).toLocaleDateString();
+}
+%>
 <body>
 <% include ../include/header.ejs %>
 
-<section class="main">
-    <div class="user-aside-info col-lg-3">
-
-    </div>
-
-    <div class="article-content-wrap col-lg-8">
-
-        <div class="article-title-box">
-            <span></span>
-            <h3 class="article-title text-center"><%= blogObj.title %></h3>
-        </div>
-        <div class="article-info-box">
-            <span class="article-time"><%= blogObj.createTime %></span>
-            <span class="article-author"><%= blogObj.author %></span>
-            <div class="tags">
-                标签：
-                <% let tags = blogObj.tags || [] %>
-                <div class="tagWrap">
-                    <% for(var i = 0; i < tags.length; i++) { %>
-                    <span class="tag"><%= tags[i] %></span>
-                    <% } %>
-                    </span>
+<section class="main row">
+    <div class="col-lg-3">
+        <div class="user-aside-info ">
+            <div class="userWrap">
+                <div class="headWrap">
+                    <img src="/images/head.jpeg" alt="">
                 </div>
-                <a class="right" href="">编辑</a>
+                <div class="userInfo text-primary">
+                    <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span
+                                id="user-name">***</span>
+                    </p>
+                    <p class="email"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
+                                id="user-email">***</span>
+                    </p>
+                </div>
             </div>
-            <article>
-                <%- blogObj.content %>
-            </article>
+            <div class="data-info">
+                <dl>
+                    <dt>原创</dt>
+                    <dd><b>1</b></dd>
+                </dl>
+                <dl>
+                    <dt>粉丝</dt>
+                    <dd><b>2</b></dd>
+                </dl>
+                <dl>
+                    <dt>喜欢</dt>
+                    <dd><b>123</b></dd>
+                </dl>
+                <dl>
+                    <dt>评论</dt>
+                    <dd><b>232</b></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="asideNewArticle">
 
         </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="article-content-wrap ">
 
+            <div class="article-title-box">
+                <span></span>
+                <h3 class="article-title text-center"><%= blogObj.title %></h3>
+            </div>
+            <div class="article-info-box">
+                <span class="article-time"><%- dateFormat(blogObj.createTime) %></span>
+                <span class="article-author"><%= blogObj.author %></span>
+                <div class="tagWrap">
+                    <% if( blogObj.tags != null && blogObj.tags.length != 0){ %>
+                    <% let tags = blogObj.tags || [] %>
+                    <label>标签：</label>
+                    <div class="tagList">
+                        <% for(var i = 0; i < tags.length; i++) { %>
+                        <span class="tag"><%= tags[i] %></span>
+                        <% } %>
+                    </div>
+                    <% } %>
+                </div>
+                <a class="right" href="/blog/<%= blogObj.id %>">编辑</a>
+
+            </div>
+            <div>
+                <article>
+                    <%- blogObj.content %>
+                </article>
+
+            </div>
+
+        </div>
+    </div>
 </section>
 <aside>
 
 </aside>
 
 <% include ../include/footer-res.ejs %>
+
 <script>
-
-    function dateFormat(val) {
-        return new Date(Number(val)).toLocaleString();
-    }
-
-</script>
-<script>
-
 
     $(document).ready(function () {
 
