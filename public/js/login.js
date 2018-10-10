@@ -102,7 +102,7 @@ $(document).ready(function () {
                         //     timer: 2000,
                         // }).then((value) => {
                         $('.loginBtn').val('Loading...').animate({width: '100px'}, 1000, function () {
-                            $('.main').slideUp(300);
+                            $('.login_main').slideUp(300);
                             setTimeout(function () {
                                 window.location.href = '/';
                             }, 1000);

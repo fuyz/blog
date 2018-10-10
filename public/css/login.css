@@ -1,4 +1,10 @@
-
+body{
+    /*background-image: url("/images/bg.png");*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    background: #000;
+    overflow: hidden;
+}
 .login_main {
     width: 900px;
     height: 500px;
@@ -14,16 +20,18 @@
 }
 
 .login_L {
-    background-image: url("/images/logo.png");
+    background-image: url("/images/logo.jpg");
     background-size: cover;
+    /*background-position: 55%;*/
     width: 550px;
     height: inherit;
+    opacity: 0.8;
 }
 
 .login_R {
     width: 350px;
     /*text-align: center;*/
-    background: rgba(1, 1, 1, 0.4);
+    background: rgba(255, 255, 255, 0.1);
     height: inherit;
     box-sizing: border-box;
     /*background: white;*/

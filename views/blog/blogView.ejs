@@ -24,14 +24,16 @@
 
         }
 
-        .asideNewArticle{
+        .asideNewArticle {
             margin-top: 10px;
             padding: 10px;
         }
-        .aside-title{
+
+        .aside-title {
             font-size: 15px;
         }
-        .aside-title:before{
+
+        .aside-title:before {
             display: inline-block;
             margin-right: 8px;
             content: '';
@@ -40,21 +42,24 @@
             vertical-align: -6px;
             background-color: #2e6da4;
         }
+
         .asideNewArticle, .user-aside-info {
             /*height: 400px;*/
         }
 
-        .newArticleList{
+        .newArticleList {
             padding: 10px;
         }
-        .newArticleList li{
+
+        .newArticleList li {
             margin-top: 10px;
         }
-        .newArticleList li:hover a{
+
+        .newArticleList li:hover a {
             color: #2e6da4;
         }
 
-        .newArticleList a{
+        .newArticleList a {
             display: block;
             color: #333;
         }
@@ -68,13 +73,20 @@
             border-bottom: 1px solid #e0e0e0;
 
         }
-        .data-info dt{
+
+        .data-info dt {
             color: #666;
             padding: 2px 0;
         }
 
         .article-content-wrap {
             padding: 10px 25px 15px;
+            margin-bottom: 50px;
+        }
+
+        #btn-readmore {
+            color: #2e6da4;
+            border: 1px solid #2e6da4;
         }
 
         .article-info-box {
@@ -90,7 +102,19 @@
         }
 
         article {
+            position: relative;
             padding-top: 15px;
+            height: 1000px;
+            overflow: hidden;
+        }
+
+        .hide-article-box {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-top: 160px;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(70%, #fff));
+            background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, #fff 70%);
         }
 
         .tagWrap, .tagList {
@@ -184,6 +208,11 @@ function dateFormat(val) {
             <div>
                 <article>
                     <%- blogObj.content %>
+
+                    <div class="hide-article-box text-center">
+                        <a class="btn" id="btn-readmore">阅读更多</a>
+                    </div>
+
                 </article>
 
             </div>
@@ -215,18 +244,23 @@ function dateFormat(val) {
 
             initial() {
 
-                manage.getNewArticleList()
+                $('#btn-readmore').click(function () {
+                    $('article').css({height: 'auto'});
+                    $('.hide-article-box').hide();
+                });
+                manage.getNewArticleList();
 
             }
 
             getNewArticleList() {
                 ajaxData('post', '/getNewBlogs').then(function (res) {
-                    if(res.success){
+                    if (res.success) {
                         let data = {
                             list: res.data,
                         };
                         let str = template('new_blog_template', data);
                         $('.newArticleList').html(str);
+
                     }
                 })
             }

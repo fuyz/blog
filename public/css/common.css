@@ -15,9 +15,7 @@ body {
     height: auto;
     min-height: 100vh;
     overflow-y: scroll;
-    background-image: url("/images/bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #f4f4f4;
 }
 
 label{
@@ -132,7 +130,13 @@ article pre{
     color: #ccc;
     font-size: 14px;
 }
+
+
 /*导航*/
+.headNav{
+    width: 100%;
+    background-color: #2b669a;
+}
 header {
     /*position: fixed;*/
     /*top: 0;*/
@@ -407,10 +411,10 @@ header > .link {
 }
 /*主体部分*/
 .main {
-    margin: 5px auto 0;
+    margin: 10px auto 0;
     width: 1150px;
     min-height: 1000px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 1);
     padding: 20px;
 }
 
