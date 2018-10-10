@@ -33,10 +33,10 @@
 <ul class="sidebar col-6 col-md-2">
 
     <li class="toolItem" id="toEditBlog">
-        <a href="/blog/index"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
+        <a href="/manage/blog/index"><i class="fa fa-pencil text-primary" aria-hidden="true"></i>写博客</a>
     </li>
     <li class="toolItem" id="toBlogList">
-        <a href="/blogList"><i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>文章管理</a>
+        <a href="/manage/blogList"><i class="fa fa-file-text-o text-primary" aria-hidden="true"></i>文章管理</a>
     </li>
     <li class="toolItem">
         <a href="">专栏管理</a>
@@ -55,7 +55,7 @@
 </ul>
 
 <script>
-    let pathname = window.location.pathname.split('/')[1];
+    let pathname = window.location.pathname.split('/')[2];
     $('li.toolItem').removeClass('on');
     if(pathname == 'blog'){
         $('#toEditBlog').addClass('on');

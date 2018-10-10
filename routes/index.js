@@ -1,4 +1,5 @@
 let Blog = require('../models/blog.js');
+let sessionConfig = require('../database/session');
 
 module.exports = function (app) {
     app.get('/', function (req, res) {
@@ -22,10 +23,13 @@ module.exports = function (app) {
     app.get('/error', function (req, res) {
         res.render('error', {title: '连接超时'});
     });
-    app.get('/users', function (req, res) {
+    app.get('/manage/users', function (req, res) {
+        sessionConfig.checkUser(req, res);
         res.render('users', {title: 'users'});
     });
-    app.get('/blog/:blogId', function (req, res, next) {
+    app.get('/manage/blog/:blogId', function (req, res, next) {
+        sessionConfig.checkUser(req, res);
+
         if (req.params.blogId == 'index') {
             res.render('blog/blog', {title: '写博客', blogObj: {}});
         } else {
@@ -45,10 +49,12 @@ module.exports = function (app) {
         }
 
     });
-    app.get('/blogList', function (req, res, next) {
+    app.get('/manage/blogList', function (req, res, next) {
+        sessionConfig.checkUser(req, res);
+
         res.render('blog/blogList', {title: '博客列表'});
     });
-    app.get('/blogDetail/:blogId', function (req, res) {
+    app.get('/common/blogDetail/:blogId', function (req, res) {
         console.log('url参数对象 :', req.params);
         Blog.prototype.getOne(req.params.blogId, function (err, blog) {
             if (err) {

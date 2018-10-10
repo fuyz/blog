@@ -68,18 +68,6 @@ app.use(cookieParser());
 /* 设置了静态文件目录为 public 文件夹，所以在index.ejs代码中的: href='/stylesheets/style.css' 就相当于 href='public/stylesheets/style.css' 。*/
 app.use(express.static(path.join(__dirname, 'public')));
 
-//检查session是否过期
-let checkSession = function (req, res, next) {
-    console.log('------------------------hi, I have checked session!!!');
-    let url = req.originalUrl;
-    if (!/login/.test(url) && !/logout/.test(url) && !/error/.test(url)) {
-        if (!sessionConfig.checkUser(req)) {
-            res.render('error', {title: '连接超时'});
-        }
-    }
-    next()
-};
-app.use(checkSession);
 
 // app.all('/*', function (req, res, next) {
 //     console.log('------------------------hi, I have checked session!!!');

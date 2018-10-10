@@ -202,7 +202,7 @@ function dateFormat(val) {
                     </div>
                     <% } %>
                 </div>
-                <a class="right" href="/blog/<%= blogObj.id %>">编辑</a>
+                <a class="right" href="/manage/blog/<%= blogObj.id %>">编辑</a>
 
             </div>
             <div>
@@ -229,7 +229,7 @@ function dateFormat(val) {
 <script type="text/html" id="new_blog_template">
     {{ if list.length > 0 }}
     {{each list }}
-    <li><a href="{{ '/blogDetail/'+ $value.id }}">{{ $value.title }}</a></li>
+    <li><a href="{{ '/common/blogDetail/'+ $value.id }}">{{ $value.title }}</a></li>
     {{ /each }}
     {{ /if }}
 </script>
