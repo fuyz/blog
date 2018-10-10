@@ -239,6 +239,7 @@ Blog.prototype.delete = function (blogId, callback) {
     });
 
 };
+
 //彻底删除
 Blog.prototype.deepDelete = function (blogId, callback) {
 
