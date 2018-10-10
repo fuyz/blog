@@ -22,13 +22,15 @@ let MongoStore = require('connect-mongo')(session);
 //session处理封装函数
 let sessionConfig = require('./database/session');
 
-let indexRouter = require('./routes/index');
-let loginRouter = require('./routes/login');
+// let indexRouter = require('./routes/index');
+// let loginRouter = require('./routes/login');
 
 let app = express();
+let routes = require('./routes/index');
 
 //实现了将会话信息存储到mongoldb中
 app.use(session({
+    name: 'skey',
     secret: settings.cookieSecret, //防止篡改 cookie
     key: settings.db,//cookie name
     resave: false,
@@ -40,10 +42,8 @@ app.use(session({
         port: settings.port
     })
 }));
-
 // view engine setup
-/*在 Express 中使用模板引擎需要在应用中进行如下设置才能让 Express 渲染模板文件：设置 views 文件夹为存放视图文件的目录, 即存放模板文件的地方,__dirname 为全局变量,存储当前正在执行的脚本所在的目录。
-*/
+//在 Express 中使用模板引擎需要在应用中进行如下设置才能让 Express 渲染模板文件：设置 views 文件夹为存放视图文件的目录, 即存放模板文件的地方,__dirname 为全局变量,存储当前正在执行的脚本所在的目录。
 app.set('views', path.join(__dirname, 'views'));
 //设置视图模板引擎为 ejs。
 // app.set('view engine', 'jade');
@@ -51,7 +51,6 @@ app.set('view engine', 'ejs');
 //注册ejs模板为html页。原来以.ejs为后缀的模板页，现在的后缀名可以是.html了, 设置视图模板的默认后缀名为.html
 // app.engine('.html', require('ejs').__express);
 // app.set('view engine', 'html');
-
 // app.use(flash());
 //设置/public/favicon.ico为favicon图标。
 // app.use(favicon(__dirname + '/public/favicon.ico'))
@@ -71,68 +70,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //检查session是否过期
 let checkSession = function (req, res, next) {
+    console.log('------------------------hi, I have checked session!!!');
     let url = req.originalUrl;
     if (!/login/.test(url) && !/logout/.test(url) && !/error/.test(url)) {
         if (!sessionConfig.checkUser(req)) {
             res.render('error', {title: '连接超时'});
         }
     }
-    console.log('------------------------hi, I have checked session!!!');
     next()
 };
 app.use(checkSession);
-/*路由控制器。*/
-app.use('/', indexRouter);
-app.use('/login', loginRouter);
-app.get('/logout', function (req, res) {
-    res.render('login', {title: '登录注册'});
-});
-app.get('/error', function (req, res) {
-    res.render('error', {title: '连接超时'});
-});
-app.get('/users', function (req, res) {
-    res.render('users', {title: 'users'});
-});
-app.get('/blog/:blogId', function (req, res, next) {
-    if (req.params.blogId == 'index') {
-        res.render('blog/blog', {title: '写博客', blogObj: {}});
-    } else {
-        Blog.prototype.getOne(req.params.blogId, function (err, blog) {
-            if (err) {
-                res.json({success: false, status: 200, error: err, data: null});
-                return;
-            }
-            //用户不存在
-            if (blog == null) {
-                res.json({success: false, status: 200, error: '博客不存在!', data: null});
-                return;
-            }
-            res.render('blog/blog', {title: '编辑博客', blogObj: blog});
 
-        });
-    }
+// app.all('/*', function (req, res, next) {
+//     console.log('------------------------hi, I have checked session!!!');
+//     let url = req.originalUrl;
+//     if (!/login/.test(url) && !/logout/.test(url) && !/error/.test(url)) {
+//         if (!sessionConfig.checkUser(req)) {
+//             res.render('error', {title: '连接超时'});
+//         }
+//     }
+// });
 
-});
-app.get('/blogList', function (req, res) {
-    res.render('blog/blogList', {title: '博客列表'});
-});
-app.get('/blogDetail/:blogId', function (req, res) {
-    console.log('url参数对象 :', req.params);
-    Blog.prototype.getOne(req.params.blogId, function (err, blog) {
-        if (err) {
-            res.json({success: false, status: 200, error: err, data: null});
-            return;
-        }
-        //用户不存在
-        if (blog == null) {
-            res.json({success: false, status: 200, error: '博客不存在!', data: null});
-            return;
-        }
-        res.render('blog/blogView', {title: '博客详情', blogObj: blog});
-
-    });
-});
-
+//路由控制器
+routes(app);
 
 //登录
 app.post('/login', function (req, res) {
@@ -262,7 +222,7 @@ app.post('/getUsers', function (req, res) {
         }
 
         // if(userArr.length / pageSize)
-        res.json({success: true, status: 200, data: obj});
+        return res.json({success: true, status: 200, data: obj});
 
     })
 });
