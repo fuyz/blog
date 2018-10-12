@@ -15,7 +15,7 @@
 
         .main {
             background: white;
-            min-height: auto;
+            /*min-height: auto;*/
         }
 
         .sidebar {
@@ -214,6 +214,10 @@
                 $('#editor').froalaEditor({
                     height: 500,
                     codeMirror: false,
+                    // Set the image upload URL.
+                    imageUploadURL: '/upload_image',
+                    // Allow to upload PNG and JPG.
+                    imageAllowedTypes: ['jpeg', 'jpg', 'png']
 //                    toolbarButtons: [
 //                        'saveSelection', 'restoreSelection', 'clearSelection'
 //                    ]
@@ -221,32 +225,13 @@
 //                    colorsHEXInput: false
 //                    colorsStep: 14
 //                    autofocus: true
-                });
-                $('.selector')
-                    .froalaeditor({
-                        // Set the image upload parameter.
-                        imageUploadParam: 'image_param',
-
-                        // Set the image upload URL.
-                        imageUploadURL: '/upload_image',
-
-                        // Additional upload params.
-                        imageUploadParams: {id: 'my_editor'},
-
-                        // Set request type.
-                        imageUploadMethod: 'POST',
-
-                        // Set max image size to 5MB.
-                        imageMaxSize: 5 * 1024 * 1024,
-
-                        // Allow to upload PNG and JPG.
-                        imageAllowedTypes: ['jpeg', 'jpg', 'png']
-                    })
+                })
                     .on('froalaEditor.image.beforeUpload', function (e, editor, images) {
                         // Return false if you want to stop the image upload.
                     })
                     .on('froalaEditor.image.uploaded', function (e, editor, response) {
                         // Image was uploaded to the server.
+                        console.log(e, editor, response)
                     })
                     .on('froalaEditor.image.inserted', function (e, editor, $img, response) {
                         // Image was inserted in the editor.
@@ -256,29 +241,95 @@
                     })
                     .on('froalaEditor.image.error', function (e, editor, error, response) {
                         // Bad link.
-                        if (error.code == 1) {  }
+                        console.log(e, editor, error, response)
+                        if (error.code == 1) {
+                        }
 
                         // No link in upload response.
-                        else if (error.code == 2) {  }
+                        else if (error.code == 2) {
+                        }
 
                         // Error during image upload.
-                        else if (error.code == 3) {  }
+                        else if (error.code == 3) {
+                        }
 
                         // Parsing response failed.
-                        else if (error.code == 4) {  }
+                        else if (error.code == 4) {
+                        }
 
                         // Image too text-large.
-                        else if (error.code == 5) {  }
+                        else if (error.code == 5) {
+                        }
 
                         // Invalid image type.
-                        else if (error.code == 6) {  }
+                        else if (error.code == 6) {
+                        }
 
                         // Image can be uploaded only to same domain in IE 8 and IE 9.
-                        else if (error.code == 7) {  }
+                        else if (error.code == 7) {
+                        }
 
                         // Response contains the original server response to the request if available.
                     });
 
+
+//                $('.selector').froalaeditor({
+//                    // Set the image upload parameter.
+//                    imageUploadParam: 'image_param',
+//                    // Set the image upload URL.
+//                    imageUploadURL: '/upload_image',
+//                    // Additional upload params.
+//                    imageUploadParams: {id: 'my_editor'},
+//                    // Set request type.
+//                    imageUploadMethod: 'POST',
+//                    // Set max image size to 5MB.
+//                    imageMaxSize: 5 * 1024 * 1024,
+//                    // Allow to upload PNG and JPG.
+//                    imageAllowedTypes: ['jpeg', 'jpg', 'png']
+//                })
+//                    .on('froalaEditor.image.beforeUpload', function (e, editor, images) {
+//                        // Return false if you want to stop the image upload.
+//                    })
+//                    .on('froalaEditor.image.uploaded', function (e, editor, response) {
+//                        // Image was uploaded to the server.
+//                    })
+//                    .on('froalaEditor.image.inserted', function (e, editor, $img, response) {
+//                        // Image was inserted in the editor.
+//                    })
+//                    .on('froalaEditor.image.replaced', function (e, editor, $img, response) {
+//                        // Image was replaced in the editor.
+//                    })
+//                    .on('froalaEditor.image.error', function (e, editor, error, response) {
+//                        // Bad link.
+//                        if (error.code == 1) {
+//                        }
+//
+//                        // No link in upload response.
+//                        else if (error.code == 2) {
+//                        }
+//
+//                        // Error during image upload.
+//                        else if (error.code == 3) {
+//                        }
+//
+//                        // Parsing response failed.
+//                        else if (error.code == 4) {
+//                        }
+//
+//                        // Image too text-large.
+//                        else if (error.code == 5) {
+//                        }
+//
+//                        // Invalid image type.
+//                        else if (error.code == 6) {
+//                        }
+//
+//                        // Image can be uploaded only to same domain in IE 8 and IE 9.
+//                        else if (error.code == 7) {
+//                        }
+//
+//                        // Response contains the original server response to the request if available.
+//                    });
 
 
 //                渲染时：修改博客界面
@@ -307,7 +358,11 @@
                 if ('<%- blogObj.id %>') {
                     $('#editor').froalaEditor('html.set', `<%- blogObj.content %>`);
                     $('#blogType').val('<%- blogObj.type %>');
-                    $('#privateSwitch').prop({checked: "<%- blogObj.privated %>"});
+                    if('<%- blogObj.privated %>' == 'false'){
+                        $('#privateSwitch').prop({checked: false});
+                    }else {
+                        $('#privateSwitch').prop({checked: true});
+                    }
                 }
 
                 $('#submit, #saveToDrafts').click(function () {
@@ -346,19 +401,19 @@
                             title: title,
                             content: content,
                             type: type,
-                            createTime: createTime ,
+                            createTime: createTime,
                             author: '<%= user.name %>',
                             tags: tags,
                             privated: $('#privateSwitch')[0].checked,
                             drafts: true
                         }
-                    }else {
+                    } else {
                         obj = {
                             id: '<%- blogObj.id %>',
                             title: title,
                             content: content,
                             type: type,
-                            createTime: '<%- blogObj.id %>' ? '' : createTime ,
+                            createTime: '<%- blogObj.id %>' ? '' : createTime,
                             author: '<%= user.name %>',
                             tags: tags,
                             privated: $('#privateSwitch')[0].checked,
@@ -369,9 +424,9 @@
                     ajaxDataStringify('/blog', obj).then(function (res) {
                         $('.loading-mask').hide();
                         if (res.success) {
-                            if(key){
+                            if (key) {
                                 showTipsMsg('已保存到草稿箱！！！');
-                            }else{
+                            } else {
                                 swal({
                                     title: "Good job!",
                                     text: '<%- blogObj.id %>' ? "修改成功！" : "发布成功！",
@@ -416,7 +471,6 @@
                     })
 
                 });
-
 
 
             }

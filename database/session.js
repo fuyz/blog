@@ -16,7 +16,6 @@ module.exports = {
         if (user == undefined) {
             // return false
             res.redirect('/error');
-
         } else {
             return user;
         }

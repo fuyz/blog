@@ -6,6 +6,9 @@ let logger = require('morgan');
 // flash 是一个在 session 中用于存储信息的特定区域。信息写入 flash ，下一次显示完毕后即被清除。典型的应用是结合重定向的功能，确保信息是提供给下一个被渲染的页面。
 let flash = require('connect-flash');
 
+//富文本依赖包
+var FroalaEditor = require('wysiwyg-editor-node-sdk/lib/froalaEditor.js');
+
 //解析请求的body中的内容[必须]
 let bodyParser = require('body-parser');
 
@@ -21,9 +24,6 @@ let session = require('express-session');
 let MongoStore = require('connect-mongo')(session);
 //session处理封装函数
 let sessionConfig = require('./database/session');
-
-// let indexRouter = require('./routes/index');
-// let loginRouter = require('./routes/login');
 
 let app = express();
 let routes = require('./routes/index');
@@ -73,10 +73,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     console.log('------------------------hi, I have checked session!!!');
 //     let url = req.originalUrl;
 //     if (!/login/.test(url) && !/logout/.test(url) && !/error/.test(url)) {
+//         // sessionConfig.checkUser(req)
 //         if (!sessionConfig.checkUser(req)) {
 //             res.render('error', {title: '连接超时'});
 //         }
 //     }
+//     // next();
 // });
 
 //路由控制器
@@ -452,6 +454,19 @@ app.post('/getNewBlogs', function (req, res) {
     })
 });
 
+
+// Path to upload image.
+app.post('/upload_image', function (req, res) {
+    // Store image.
+    FroalaEditor.Image.upload(req, '../public/uploadImg/', function(err, data) {
+        // Return data.
+        if (err) {
+            return res.send(JSON.stringify(err));
+        }
+        // res.send(data);
+        res.send({link: '../../uploadImg/'+ data.link.split('/')[3]})
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

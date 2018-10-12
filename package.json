@@ -6,7 +6,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-basic-styles": "^10.0.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "^2.6.1",
@@ -16,10 +15,10 @@
     "morgan": "~1.9.0"
   },
   "devDependencies": {
-    "@ckeditor/ckeditor5-alignment": "^10.0.2",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^0.8.2",
     "express-session": "^1.15.6",
-    "mongodb": "^3.1.6"
+    "mongodb": "^3.1.6",
+    "wysiwyg-editor-node-sdk": "^2.3.4"
   }
 }
