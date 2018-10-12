@@ -7,10 +7,8 @@
     <!-- 引入样式 -->
     <% include ../include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/index.css">-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css"
-          rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet"
-          type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet" type="text/css"/>
     <style>
 
         .main {
@@ -453,9 +451,9 @@
                                             break;
                                         case "view":
                                             if ('<%- blogObj.id %>') {
-                                                window.location.href = '/manage/blogDetail/<%- blogObj.id %>';
+                                                window.location.href = '/common/blogDetail/<%- blogObj.id %>';
                                             } else {
-                                                window.location.href = '/manage/blogDetail/' + res.data.blogId;
+                                                window.location.href = '/common/blogDetail/' + res.data.blogId;
                                             }
                                             break;
                                         case "back":

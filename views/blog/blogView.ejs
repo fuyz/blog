@@ -7,6 +7,8 @@
     <!-- 引入样式 -->
     <% include ../include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/common.css">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet" type="text/css"/>
     <style>
         .main {
             width: 1300px;
@@ -203,13 +205,15 @@ function dateFormat(val) {
                     </div>
                     <% } %>
                 </div>
+
+                <% if(blogObj.author.name == user.name){ %>
                 <a class="right" href="/manage/blog/<%= blogObj.id %>">编辑</a>
+                <% } %>
 
             </div>
             <div>
-                <article>
+                <article class="fr-view">
                     <%- blogObj.content %>
-
                     <div class="hide-article-box text-center">
                         <a class="btn" id="btn-readmore">阅读更多</a>
                     </div>
