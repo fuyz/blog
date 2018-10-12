@@ -144,15 +144,16 @@ function dateFormat(val) {
         <div class="user-aside-info ">
             <div class="userWrap">
                 <div class="headWrap">
+                    <% if( !authorInfo._id ){ %>
+                    <img src="" alt="">
+                    <% }else {%>
                     <img src="/images/head.jpeg" alt="">
+                    <% } %>
                 </div>
                 <div class="userInfo text-primary">
-                    <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span
-                                id="user-name">***</span>
+                    <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span id="user-name"><%= authorInfo.name %></span>
                     </p>
-                    <p class="email"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
-                                id="user-email">***</span>
-                    </p>
+                    <!--<p class="email"><i class="fa fa-envelope-open" aria-hidden="true"></i><span id="user-email"><%# user.email %></span></p>-->
                 </div>
             </div>
             <div class="data-info">
@@ -253,7 +254,9 @@ function dateFormat(val) {
             }
 
             getNewArticleList() {
-                ajaxData('post', '/getNewBlogs').then(function (res) {
+                ajaxData('post', '/getNewBlogs',{
+                    author: '<%= authorInfo.name %>',
+                }).then(function (res) {
                     if (res.success) {
                         let data = {
                             list: res.data,

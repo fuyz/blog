@@ -47,6 +47,7 @@
         <!--<span></span>-->
         <!--<span></span>-->
         <!--</a>-->
+        <% if( user.name == 'admin' ){ %>
         <a class="link" href="/manage/users">
             用户管理
             <span></span>
@@ -54,21 +55,23 @@
             <span></span>
             <span></span>
         </a>
-
-        <a class="link logout" href="javascript:void(0)">
+        <% } %>
+        <% if( !user._id ){ %>
+        <a class="link toLogin" href="javascript:void(0)">
             登录
             <span></span>
             <span></span>
             <span></span>
             <span></span>
         </a>
-        <a class="link logout" href="javascript:void(0)">
+        <a class="link toRegister" href="javascript:void(0)">
             注册
             <span></span>
             <span></span>
             <span></span>
             <span></span>
         </a>
+        <% } %>
 
         <a id="menu" class="add button-collapse" data-activates="slide-out" href="#">
             <span></span><span></span><span></span><span></span>
@@ -77,20 +80,19 @@
     </header>
 </div>
 
-
 <aside class="user-aside">
     <ul class="user-aside-list">
         <li class="userWrap">
             <div class="headWrap">
+                <% if( !user._id ){ %>
+                <img src="" alt="">
+                <% }else {%>
                 <img src="/images/head.jpeg" alt="">
+                <% } %>
             </div>
             <div class="userInfo text-primary">
-                <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span
-                            id="user-name">***</span>
-                </p>
-                <p class="email"><i class="fa fa-envelope-open" aria-hidden="true"></i><span
-                            id="user-email">***</span>
-                </p>
+                <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span id="user-name"><%= user.name %></span></p>
+                <p class="email"><i class="fa fa-envelope-open" aria-hidden="true"></i><span id="user-email"><%= user.email %></span></p>
             </div>
         </li>
         <li>
@@ -123,7 +125,6 @@
     </ul>
 </aside>
 
-
 <script src="/lib/jquery-3.1.0.min.js"></script>
 <script>
 
@@ -141,9 +142,14 @@
 
 //                显示用户信息
                 let userInfo = JSON.parse(sessionStorage.getItem('user'));
-                if (userInfo == null) window.location.href = '/logout';
-                $('#user-name').text(userInfo.name);
-                $('#user-email').text(userInfo.email);
+                if (userInfo == null) {
+                    $('.toRegister, .toLogin').show()
+                } else {
+                    $('.toRegister, .toLogin').hide()
+                    $('#user-name').text(userInfo.name);
+                    $('#user-email').text(userInfo.email);
+                }
+
 //                显示侧边栏
                 $('#menu').click(function () {
                     if (headManage.data.showAside) {
@@ -155,6 +161,12 @@
                     }
                 })
 //                登出
+                $('.toLogin').click(function () {
+                    window.location.href = '/logout#login';
+                });
+                $('.toRegister').click(function () {
+                    window.location.href = '/logout#register';
+                })
                 $('.logout').click(function () {
                     swal({
                         title: "退出登录",

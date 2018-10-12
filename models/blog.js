@@ -156,7 +156,7 @@ Blog.prototype.getOne = function (id, callback) {
 };
 
 //读取所有博客信息
-Blog.prototype.getAll = function ({}, callback) {
+Blog.prototype.getAll = function (obj, callback) {
 
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
@@ -168,7 +168,7 @@ Blog.prototype.getAll = function ({}, callback) {
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
-        dbase.collection("blogs").find({}).sort({"_id": -1}).toArray(function (err, data) {
+        dbase.collection("blogs").find({author: obj.author}).sort({"_id": -1}).toArray(function (err, data) {
             if (err) {
                 db.close();
                 return callback(err);//错误，返回 err 信息
@@ -180,7 +180,7 @@ Blog.prototype.getAll = function ({}, callback) {
 };
 
 //读取最新博客信息
-Blog.prototype.getNew = function ({}, callback) {
+Blog.prototype.getNew = function (obj, callback) {
 
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
@@ -193,6 +193,7 @@ Blog.prototype.getNew = function ({}, callback) {
         let dbase = db.db("myblog");
         //读取 myblog 集合
         dbase.collection("blogs").find({
+            'author': obj.author,
             "deleted": {$ne: true},
             "drafts": {$ne: true},
             "privated": {$ne: true}
@@ -273,7 +274,7 @@ Blog.prototype.deepDelete = function (blogId, callback) {
 };
 
 //读取博客状态信息
-Blog.prototype.getStatus = function (callback) {
+Blog.prototype.getStatus = function (obj, callback) {
 
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
@@ -282,7 +283,7 @@ Blog.prototype.getStatus = function (callback) {
         let dbase = db.db("myblog");
         try {
             //读取 myblog 集合
-            dbase.collection("blogs").find({}).toArray(function (err, data) {
+            dbase.collection("blogs").find({author: obj.author}).toArray(function (err, data) {
                 if (err) {
                     db.close();
                     return callback(err);//错误，返回 err 信息

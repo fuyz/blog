@@ -94,7 +94,6 @@ app.post('/login', function (req, res) {
     User.prototype.get(name, function (err, user) {
 
         console.log(user);
-        console.log(req.session)
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
@@ -312,7 +311,7 @@ app.post('/getBlogs', function (req, res) {
     let time = req.body.time;
     let keyword = req.body.keyword;
 
-    Blog.prototype.getAll({}, function (err, blogArr) {
+    Blog.prototype.getAll({author: req.body.author}, function (err, blogArr) {
 
         if (req.body.status == 'total') {
             blogArr = blogArr.filter(function (e) {
@@ -433,7 +432,7 @@ app.post('/deepDeleteBlog', function (req, res) {
 });
 //获取博客状态
 app.post('/getBlogStatus', function (req, res) {
-    Blog.prototype.getStatus(function (err, blog) {
+    Blog.prototype.getStatus({author: req.body.author},function (err, blog) {
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
@@ -448,7 +447,7 @@ app.post('/getBlogStatus', function (req, res) {
 });
 //获取最新博客
 app.post('/getNewBlogs', function (req, res) {
-    Blog.prototype.getNew({}, function (err, blogArr) {
+    Blog.prototype.getNew({author: req.body.author}, function (err, blogArr) {
         res.json({success: true, status: 200, data: blogArr});
     })
 });

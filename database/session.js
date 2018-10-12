@@ -15,10 +15,10 @@ module.exports = {
         let user = req.session.user;
         if (user == undefined) {
             // return false
-            res.redirect('/login');
+            res.redirect('/error');
 
         } else {
-            return true;
+            return user;
         }
     },
 

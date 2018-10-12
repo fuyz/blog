@@ -248,7 +248,7 @@
                 {{ if status == 'deleted' }}
                 <span >{{ $value.title }}</span>
                 {{ else }}
-                <a href="/blog/{{$value.id}}">{{ $value.title }}</a>
+                <a href="/manage/blog/{{$value.id}}">{{ $value.title }}</a>
                 {{ /if }}
             </span>
         </div>
@@ -360,7 +360,8 @@
                     keyword: searchKey,
                     status: obj.status || manage.data.status || '',
                     pagesize: 10,
-                    currentPage: obj.currentPage || 1
+                    currentPage: obj.currentPage || 1,
+                    author: '<%= user.name %>'
                 }).then(function (res) {
                     if (res.success) {
                         let data = {
@@ -478,7 +479,9 @@
             }
 
             getBlogStatus(){
-                ajaxData('post', '/getBlogStatus', {}).then(function (res) {
+                ajaxData('post', '/getBlogStatus', {
+                    author: '<%= user.name %>',
+                }).then(function (res) {
                     if (res.success) {
                         $('#total').text(`全部(${res.data.total})`);
                         $('#published').text(`已发表(${res.data.published})`);

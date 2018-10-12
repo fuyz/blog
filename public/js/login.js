@@ -32,6 +32,11 @@ $(document).ready(function () {
                 $('.itform-groupem input').val('');
             });
 
+            let hashKey = location.hash;
+            if(hashKey.indexOf('register') != -1){
+                $('.toRegister').click();
+            }
+
             //注册
             $('.registerBtn').click(function () {
                 let user = $('#r-user').val().trim();
@@ -92,7 +97,7 @@ $(document).ready(function () {
                     password: password,
                 }).then(function (res) {
                     if (res.success) {
-                        sessionStorage.setItem('user', JSON.stringify(res.data));
+                        // localStorage.setItem('user', JSON.stringify(res.data));
                         // swal({
                         //     title: "Good job!",
                         //     text: "登录成功！2s后自动跳转",

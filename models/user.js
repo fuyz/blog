@@ -11,7 +11,7 @@ var url = "mongodb://localhost:27017";
 function User(user) {
     this.name = user.name;
     this.password = user.password;
-    // this.email = user.email;
+    this.email = user.email;
 }
 
 module.exports = User;
@@ -166,5 +166,4 @@ User.prototype.update = function (obj, callback) {
     })
     ;
 
-}
-;
+};

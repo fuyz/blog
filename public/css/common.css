@@ -156,7 +156,7 @@ header > .link {
     margin: 7px 2px 0;
     color: white;
     text-decoration: none;
-    display: inline-block !important;
+    display: inline-block ;
     position: relative;
     width: 130px;
     height: 40px;
@@ -216,6 +216,10 @@ header > .link {
 
 .link:hover > span:nth-of-type(4) {
     height: 40px;
+}
+
+.toRegister, .toLogin{
+    display: none;
 }
 
 .add {
@@ -390,10 +394,12 @@ header > .link {
     display: inline-block;
     vertical-align: top;
     margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #eee;
 }
 
 .headWrap img {
-    border-radius: 50%;
     width: 100%;
 }
 
