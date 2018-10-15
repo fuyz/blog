@@ -19,7 +19,27 @@
         }
 
         .article-list-wrap {
-            padding: 20px;
+        }
+
+        .article-list-filter{
+            border-bottom: 1px solid #eee;
+            padding: 15px 20px 10px;
+
+        }
+
+        .article-list{
+            padding: 0 20px;
+        }
+
+        .abstract{
+            /*height: 53px;*/
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;/*必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。*/
+            -webkit-line-clamp: 2;/*用来限制在一个块元素显示的文本的行数*/
+            -webkit-box-orient: vertical;
+            color: #999;
+            margin: 10px 0;
         }
 
         .typeSwitchWrap{
@@ -278,6 +298,7 @@
             <span class="item-title">
                 <span>{{ $value.title }}</span>
             </span>
+            <p class="abstract">{{ $value.content.replace(/<[^>]+>/g, "").slice(0, 150) }}</p>
         </div>
         <!--<div class="item-abstract">{{@ $value.content.slice(0, 70) }}</div>-->
         <div class="item-info clear">
@@ -289,7 +310,7 @@
             <% if(authorInfo.name == user.name){ %>
             <div class="right item-info-oper">
                 <a href="">置顶 </a>
-                <a href="">编辑</a>
+                <a class="edit" href="javascript:void(0)">编辑</a>
                 <a class="del" href="javascript:void(0)">删除</a>
             </div>
             <% } %>
@@ -426,6 +447,11 @@
                                     }
                                 })
                             });
+
+                            $('.edit').unbind().click(function () {
+                                let id = $(this).parents('li').data('articleid');
+                                window.open('http://' + location.host + '/manage/blog/' + id);
+                            })
 
                             $('.pageItem').unbind().click(function () {
                                 let index = Number($(this).text());
