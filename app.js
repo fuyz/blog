@@ -244,6 +244,7 @@ app.post('/updateUsers', function (req, res) {
     })
 });
 
+
 // 发博客
 app.post('/blog', function (req, res) {
     let obj = req.body;
@@ -338,19 +339,19 @@ app.post('/getBlogs', function (req, res) {
         }
 
         //类型筛选
-        if (type != '') {
+        if (type != '' && type != undefined) {
             blogArr = blogArr.filter(function (e) {
                 if (e.type == req.body.type) return e
             });
         }
         //搜索筛选
-        if (keyword != '') {
+        if (keyword != '' && keyword != undefined) {
             blogArr = blogArr.filter(function (e) {
                 if (e.title.indexOf(keyword) != -1) return e
             });
         }
         //时间筛选
-        if (time != '') {
+        if (time != '' && time != undefined) {
             blogArr = blogArr.filter(function (e) {
                 if (new Date(1538187363727).getFullYear() == time) return e
             });
@@ -434,7 +435,7 @@ app.post('/deepDeleteBlog', function (req, res) {
 });
 //获取博客状态
 app.post('/getBlogStatus', function (req, res) {
-    Blog.prototype.getStatus({author: req.body.author},function (err, blog) {
+    Blog.prototype.getStatus({author: req.body.author}, function (err, blog) {
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
@@ -453,20 +454,19 @@ app.post('/getNewBlogs', function (req, res) {
         res.json({success: true, status: 200, data: blogArr});
     })
 });
-
-
 // Path to upload image.
 app.post('/upload_image', function (req, res) {
     // Store image.
-    FroalaEditor.Image.upload(req, '../public/uploadImg/', function(err, data) {
+    FroalaEditor.Image.upload(req, '../public/uploadImg/', function (err, data) {
         // Return data.
         if (err) {
             return res.send(JSON.stringify(err));
         }
         // res.send(data);
-        res.send({link: '../../uploadImg/'+ data.link.split('/')[3]})
+        res.send({link: '../../uploadImg/' + data.link.split('/')[3]})
     });
 });
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

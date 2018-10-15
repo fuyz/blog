@@ -53,9 +53,10 @@ module.exports = function (app) {
         }
 
     });
+    //博客管理
     app.get('/manage/blogList', function (req, res, next) {
         let userInfo = sessionConfig.checkUser(req, res);
-        res.render('blog/blogList', {title: '博客列表', user: userInfo});
+        res.render('blog/m-blogList', {title: '博客列表', user: userInfo});
 
     });
     app.get('/common/blogDetail/:blogId', function (req, res) {
@@ -91,5 +92,27 @@ module.exports = function (app) {
 
         });
     });
+    //我的博客
+    app.get('/common/u-blogList', function (req, res, next) {
+        console.log('url参数对象 :', req.query);
+        let userInfo = sessionConfig.getUser(req, res);
+        //查询作者信息
+        User.prototype.get(req.query.author, function (err, user) {
+            if (err) {
+                res.json({success: false, status: 200, error: err, data: null});
+                return;
+            }
+            //用户不存在
+            if (user == null) {
+                res.json({success: false, status: 200, error: '用户不存在!', data: null});
+                return;
+            }
+
+            res.render('blog/u-blogList', {title: '我的博客', authorInfo: user, user: userInfo ? userInfo : {} });
+
+        });
+
+    });
+
 
 };

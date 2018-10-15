@@ -218,7 +218,7 @@ header > .link {
     height: 40px;
 }
 
-.toRegister, .toLogin{
+.link-toRegister, .link-toLogin{
     display: none;
 }
 

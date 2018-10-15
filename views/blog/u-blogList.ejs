@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- 引入样式 -->
+    <% include ../include/header-res.ejs %>
+    <!--<link rel="stylesheet" href="/css/common.css">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .main {
+            width: 1300px;
+            background: none;
+            padding: 0;
+        }
+
+        .article-list-wrap{
+            padding: 20px;
+        }
+        .asideNewArticle, .user-aside-info, .article-list-wrap {
+            background: white;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+        }
+
+        .asideNewArticle {
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        .aside-title {
+            font-size: 15px;
+        }
+
+        .aside-title:before {
+            display: inline-block;
+            margin-right: 8px;
+            content: '';
+            width: 4px;
+            height: 22px;
+            vertical-align: -6px;
+            background-color: #2e6da4;
+        }
+
+        .newArticleList {
+            padding: 10px;
+        }
+
+        .newArticleList li {
+            margin-top: 10px;
+        }
+
+        .newArticleList li:hover a {
+            color: #2e6da4;
+        }
+
+        .newArticleList a {
+            display: block;
+            color: #333;
+        }
+
+        .data-info {
+            padding: 15px 10px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            font-size: 13px;
+            border-bottom: 1px solid #e0e0e0;
+
+        }
+
+        .data-info dt {
+            color: #666;
+            padding: 2px 0;
+        }
+        .blog-item {
+            /*height: 100px;/*/
+            padding: 20px 0 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted #aaa;
+            cursor: pointer;
+        }
+        .blog-item:hover .item-info-oper{
+            display: block;
+        }
+        .item-title a:hover{
+            color: #2e6da4;
+        }
+        .item-title span{
+            color: #333;
+        }
+
+        .item-title-box{
+            padding: 0px;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .item-title-type{
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+            border-radius: 50%;
+            border: 1px solid;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 5px;
+            vertical-align: 2px;
+        }
+
+        .type-1{
+            color: #ca0c16;
+            border-color: #f4ced0;
+        }
+        .type-2{
+            color: #86ca5e;
+            border-color: #e7f4df;
+        }
+        .type-3{
+            color: #79a5e5;
+            border-color: #e4edfa;
+        }
+
+        .item-info {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .item-info-oper{
+            display: none;
+        }
+        .item-info-oper a {
+            padding-right: 8px;
+            border-right: 1px solid #ccc;
+            margin-right: 8px;
+            color: #349EDF;
+        }
+
+        .item-info span {
+            margin-right: 25px;
+        }
+
+        .item-info .del {
+            color: #CA0C16;
+            border-right: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+<% include ../include/header.ejs %>
+
+<section class="main row">
+    <div class="col-lg-3">
+        <div class="user-aside-info ">
+            <div class="userWrap">
+                <div class="headWrap">
+                    <% if( !authorInfo._id ){ %>
+                    <img src="" alt="">
+                    <% }else {%>
+                    <img src="/images/head.jpeg" alt="">
+                    <% } %>
+                </div>
+                <div class="userInfo text-primary">
+                    <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span id="user-name"><%= authorInfo.name %></span></p>
+                    <!--<p class="email"><i class="fa fa-envelope-open" aria-hidden="true"></i><span id="user-email"><%# user.email %></span></p>-->
+                </div>
+            </div>
+            <div class="data-info">
+                <dl>
+                    <dt>原创</dt>
+                    <dd><b>1</b></dd>
+                </dl>
+                <dl>
+                    <dt>粉丝</dt>
+                    <dd><b>2</b></dd>
+                </dl>
+                <dl>
+                    <dt>喜欢</dt>
+                    <dd><b>123</b></dd>
+                </dl>
+                <dl>
+                    <dt>评论</dt>
+                    <dd><b>232</b></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="asideNewArticle">
+            <div class="aside-title">最新文章</div>
+            <ul class="newArticleList">
+                <!---->
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="article-list-wrap">
+            <div class="article-list-filter">
+                <label><input type="checkbox">只看原创</label>
+                <div class="right">排序：
+                    默认
+                    按更新时间
+                    按访问量</div>
+            </div>
+            <ul class="article-list">
+                <!---->
+            </ul>
+            <div class="pagination"></div>
+        </div>
+    </div>
+</section>
+<aside>
+
+</aside>
+
+<% include ../include/footer-res.ejs %>
+
+<!--最近的文章列表-->
+<script type="text/html" id="new_blog_template">
+    {{ if list.length > 0 }}
+    {{each list }}
+    <li><a href="{{ '/common/blogDetail/'+ $value.id }}" target="_blank">{{ $value.title }}</a></li>
+    {{ /each }}
+    {{ /if }}
+</script>
+<!--全部文章列表-->
+<script id="blog_template" type="text/html">
+    {{ if list.length > 0 }}
+    {{each list }}
+    <li class="blog-item" data-articleid="{{ $value.id }}">
+        <div class="item-title-box">
+            {{ if $value.type == 1 }}
+            <span class="item-title-type type-1">原</span>
+            {{ else if $value.type == 2 }}
+            <span class="item-title-type type-2">转</span>
+            {{ else if $value.type == 3 }}
+            <span class="item-title-type type-3">译</span>
+            {{ /if }}
+            <span class="item-title">
+                <span >{{ $value.title }}</span>
+            </span>
+        </div>
+        <!--<div class="item-abstract">{{@ $value.content.slice(0, 70) }}</div>-->
+        <div class="item-info clear" >
+            <div class="left">
+                <span>{{ $value.createTime | dateFormat }}</span>
+                <span>阅读量</span>
+                <span>评论数</span>
+            </div>
+            <% if(authorInfo.name == user.name){ %>
+            <div class="right item-info-oper" >
+                <a href="">置顶 </a>
+                <a href="">编辑</a>
+                <a class="del" href="javascript:void(0)">删除</a>
+            </div>
+            <% } %>
+        </div>
+    </li>
+    {{ /each }}
+    {{ else }}
+    <p class="noData">没有符合条件的文章</p>
+    {{ /if }}
+</script>
+<!--分页-->
+<script id="pagination_template" type="text/html">
+    <li class="prePage">
+        <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    {{each list2 }}
+    <li class="pageItem {{$value}}"><a href="#">{{ $index + 1 }}</a></li>
+    {{ /each }}
+    <li class="nextPage">
+        <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        class Manage {
+            constructor() {
+                this.data = {}
+            }
+
+            initial() {
+
+                let author = location.search.split('=')[1];
+
+                manage.getNewArticleList();
+
+                manage.getBlogList({status: 'published', author: author});
+
+
+            }
+
+            getNewArticleList() {
+                ajaxData('post', '/getNewBlogs',{
+                    author: '<%= authorInfo.name %>',
+                }).then(function (res) {
+                    if (res.success) {
+                        let data = {
+                            list: res.data,
+                        };
+                        let str = template('new_blog_template', data);
+                        $('.newArticleList').html(str);
+
+                    }
+                })
+            }
+
+            getBlogList(obj) {
+
+//                let time = $('.year').val();
+//                let type = $('.type').val();
+//                let searchKey = $('#key').val().trim();
+
+                ajaxData('post', '/getBlogs', {
+//                    time: time,
+//                    type: type,
+//                    keyword: searchKey,
+                    status: obj.status || manage.data.status || '',
+                    pagesize: 10,
+                    currentPage: obj.currentPage || 1,
+                    author: obj.author
+                }).then(function (res) {
+                    if (res.success) {
+                        let data = {
+                            list: res.data.pageData,
+                            status: manage.data.status
+                        };
+                        let str = template('blog_template', data);
+                        $('.article-list').html(str);
+
+//                        let arr = new Array(res.data.totalPage);
+//                        arr[res.data.currentPage - 1] = 'active';
+//                        let data2 = {
+//                            list2: arr
+//                        };
+//                        let str2 = template('pagination_template', data2);
+//                        $('#paginationTemplate').html(str2);
+
+                        setTimeout(function () {
+
+                            $('.blog-item').click(function () {
+                                let id = $(this).data('articleid');
+                                window.open('http://'+location.host + '/common/blogDetail/'+ id );
+                            })
+
+                            $('.del').unbind().click(function (e) {
+                                e.stopPropagation();
+                                let _this = this;
+                                let id = $(this).parents('li').data('articleid');
+                                swal({
+                                    title: "删除",
+                                    text: "确定删除该文章吗？",
+                                    icon: "warning",
+                                    buttons: {
+                                        cancel: '取消',
+                                        default: '删除',
+                                    },
+                                }).then(value => {
+                                    switch (value) {
+                                        case "default":
+                                            ajaxData('post', '/deleteBlog', {
+                                                id: id
+                                            }).then(function (res) {
+                                                if(res.success){
+                                                    $(_this).parents('li').fadeOut(1000, function () {
+//                                                        manage.getBlogList({});
+                                                        manage.getBlogStatus({});
+                                                    })
+                                                }
+                                            })
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                })
+                            });
+
+                            $('.pageItem').unbind().click(function () {
+                                let index = Number($(this).text());
+                                if (res.data.currentPage != index) {
+                                    manage.getBlogList({currentPage: index})
+                                }
+                            });
+                            if (res.data.hasPrev) {
+                                $('.prePage').unbind().click(function () {
+                                    manage.getBlogList({currentPage: res.data.currentPage - 1})
+                                });
+                            } else {
+                                $('.prePage').addClass('disabled');
+                            }
+                            if (res.data.hasNext) {
+                                $('.nextPage').unbind().click(function () {
+                                    manage.getBlogList({currentPage: res.data.currentPage + 1})
+                                });
+                            } else {
+                                $('.nextPage').addClass('disabled');
+                            }
+
+                        }, 100)
+
+                    }
+                });
+
+            }
+
+        }
+
+
+        let manage = new Manage();
+        manage.initial();
+        template.defaults.imports.dateFormat = function(val){
+            return new Date(Number(val)).toLocaleString();
+        };
+        template.defaults.imports.typeFormat = function(val) {
+            switch (val){
+                case '1':
+                    return '原';
+                    break;
+                case '2':
+                    return '转';
+                    break;
+                case '3':
+                    return '译';
+                    break;
+                default:
+                    return '不知道类型';
+            }
+        }
+
+
+
+    });
+
+
+</script>
+</body>
+</html>
