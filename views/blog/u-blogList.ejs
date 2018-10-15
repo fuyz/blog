@@ -15,11 +15,19 @@
         .main {
             width: 1300px;
             background: none;
-            padding-bottom: 100px;
+            /*padding-bottom: 100px;*/
         }
 
         .article-list-wrap {
             padding: 20px;
+        }
+
+        .typeSwitchWrap{
+            cursor: pointer;
+        }
+        #typeSwitch{
+            margin-right: 5px;
+            vertical-align: 1px;
         }
 
         .asideNewArticle, .user-aside-info, .article-list-wrap {
@@ -224,7 +232,7 @@
     <div class="col-lg-9">
         <div class="article-list-wrap">
             <div class="article-list-filter">
-                <label><input type="checkbox">只看原创</label>
+                <label class="typeSwitchWrap"><input type="checkbox" id="typeSwitch">只看原创</label>
                 <div class="right">排序：
                     默认
                     按更新时间
@@ -319,9 +327,16 @@
                 let author = location.search.split('=')[1];
                 manage.data.author = author;
 
+                $('#typeSwitch').change(function () {
+                    let key = $(this).prop('checked');
+                    if(key){
+                        manage.getBlogList({type: 1})
+                    }else {
+                        manage.getBlogList({})
+                    }
+                });
+
                 manage.getNewArticleList();
-
-
                 manage.getBlogList({});
 
 
@@ -350,7 +365,7 @@
 
                 ajaxData('post', '/getBlogs', {
 //                    time: time,
-//                    type: type,
+                    type: obj.type ? obj.type : "",
 //                    keyword: searchKey,
                     status: 'published',
                     pagesize: 10,
@@ -401,7 +416,7 @@
                                                 if (res.success) {
                                                     $(_this).parents('li').fadeOut(1000, function () {
 //                                                        manage.getBlogList({});
-                                                        manage.getBlogStatus({});
+//                                                        manage.getBlogStatus({});
                                                     })
                                                 }
                                             })

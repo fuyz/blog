@@ -13,7 +13,7 @@ html, body {
 body {
     width: 100%;
     height: auto;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     overflow-y: scroll;
     background-color: #f4f4f4;
 }
@@ -419,9 +419,10 @@ header > .link {
 .main {
     margin: 10px auto 0;
     width: 1150px;
-    min-height: 1000px;
+    /*min-height: 1000px;*/
     background: rgba(255, 255, 255, 1);
     padding: 20px;
+    margin-bottom: 100px;
 }
 
 /*loading*/
