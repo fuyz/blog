@@ -155,35 +155,6 @@ Blog.prototype.getOne = function (id, callback) {
     });
 };
 
-//添加PV数据
-Blog.prototype.addPV = function (id, callback) {
-
-    MongoClient.connect(url, function (err, db) {
-        if (err) {
-            throw err
-        } else {
-            console.log("数据库已连接!");
-        }
-        //读取 myblog 集合
-        let dbase = db.db("myblog");
-        dbase.collection("blogs").findOneAndUpdate(
-            {id: Number(id)},
-            {
-                $inc: {"PV": 1},
-            },
-            {returnNewDocument: true},
-            function (err, result) {
-                if (err) {
-                    db.close();
-                    return callback(err);//失败！返回 err 信息
-                }
-                callback(null, result);//成功！返回查询的用户信息
-            }
-        );
-
-    });
-};
-
 //读取所有博客信息
 Blog.prototype.getAll = function (obj, callback) {
 
@@ -346,6 +317,98 @@ Blog.prototype.getStatus = function (obj, callback) {
         catch (e) {
             db.close();
             return callback(err);//失败！返回 err 信息
+        }
+
+    });
+
+};
+
+//添加PV数据
+Blog.prototype.addPV = function (id, callback) {
+
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            throw err
+        } else {
+            console.log("数据库已连接!");
+        }
+        //读取 myblog 集合
+        let dbase = db.db("myblog");
+        dbase.collection("blogs").findOneAndUpdate(
+            {id: Number(id)},
+            {
+                $inc: {"PV": 1},
+            },
+            {returnNewDocument: true},
+            function (err, result) {
+                if (err) {
+                    db.close();
+                    return callback(err);//失败！返回 err 信息
+                }
+                callback(null, result);//成功！返回查询的用户信息
+            }
+        );
+
+    });
+};
+
+//置顶文章
+Blog.prototype.toTop = function (obj, callback) {
+
+    //打开数据库
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            throw err
+        } else {
+            console.log("数据库已连接!");
+        }
+        //读取 users 集合
+        var dbase = db.db("myblog");
+
+        if (Number(obj.toTop)) {
+            //置顶
+            dbase.collection("ID").find({}).toArray(function (err, ID) {
+                let toTopId = Number(ID[2].toTopId);
+                dbase.collection("blogs").findOneAndUpdate(
+                    {id: Number(obj.id)},
+                    {
+                        $set: {"toTop": toTopId},
+                    },
+                    {returnNewDocument: true},
+                    function (err, result) {
+                        if (err) {
+                            db.close();
+                            return callback(err);//失败！返回 err 信息
+                        }
+                        //更新配置
+                        dbase.collection("ID").update({id: 3}, {"id": 3, "toTopId": ++toTopId, "des": "﻿作为记录当前置顶数值的参照物"});
+                        callback(null, result);//成功信息！
+                    }
+                );
+            });
+        } else {
+            //取消置顶
+            try {
+                dbase.collection("blogs").findOneAndUpdate(
+                    {id: Number(obj.id)},
+                    {
+                        $set: {"toTop": 0},
+                    },
+                    {returnNewDocument: true},
+                    function (err, result) {
+                        if (err) {
+                            db.close();
+                            return callback(err);//失败！返回 err 信息
+                        }
+                        //更新配置
+                        callback(null, result);//成功信息！
+                    }
+                );
+            }
+            catch (e) {
+                db.close();
+                return callback(err);//失败！返回 err 信息
+            }
         }
 
     });

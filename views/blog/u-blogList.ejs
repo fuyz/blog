@@ -18,17 +18,13 @@
             /*padding-bottom: 100px;*/
         }
 
-        .article-list-wrap {
-        }
-
         .article-list-filter{
             border-bottom: 1px solid #eee;
             padding: 15px 20px 10px;
-
         }
 
         .article-list{
-            padding: 0 20px;
+            /*padding: 0 20px;*/
         }
 
         .abstract{
@@ -109,9 +105,23 @@
 
         .blog-item {
             /*height: 100px;/*/
-            padding: 20px 0 10px;
-            margin-bottom: 10px;
+            padding: 20px 20px 10px;
+            /*margin-bottom: 10px;*/
             border-bottom: 1px dotted #aaa;
+            position: relative;
+            overflow: hidden;
+        }
+        .topIcon{
+            position: absolute;
+            right: 0px;
+            top: 0;
+            background: rgb(126, 211, 33);
+            color: white;
+            width: 70px;
+            height: 40px;
+            line-height: 64px;
+            transform: translate(25px, -10px) rotate(45deg);
+            text-align: center;
         }
 
         .blog-item:hover .item-info-oper {
@@ -287,6 +297,9 @@
     {{ if list.length > 0 }}
     {{each list }}
     <li class="blog-item" data-articleid="{{ $value.id }}">
+        {{ if $value.toTop }}
+        <div class="topIcon">置顶</div>
+        {{ /if }}
         <div class="item-title-box">
             {{ if $value.type == 1 }}
             <span class="item-title-type type-1">原</span>
@@ -305,12 +318,16 @@
         <div class="item-info clear">
             <div class="left">
                 <span>{{ $value.createTime | dateFormat }}</span>
-                <span>阅读量：{{ $value.PV }}</span>
-                <span>评论数</span>
+                <span>阅读数：{{ $value.PV ? $value.PV : 0 }}</span>
+                <span>评论数：{{ $value.commentNum ? $value.commentNum : 0 }}</span>
             </div>
             <% if(authorInfo.name == user.name){ %>
             <div class="right item-info-oper">
-                <a href="">置顶 </a>
+                {{ if $value.toTop }}
+                <a class="toTop" data-key="0" href="javascript:void(0)">取消置顶</a>
+                {{ else }}
+                <a class="toTop" data-key="1" href="javascript:void(0)">置顶</a>
+                {{ /if }}
                 <a class="edit" href="javascript:void(0)">编辑</a>
                 <a class="del" href="javascript:void(0)">删除</a>
             </div>
@@ -452,6 +469,36 @@
                             $('.edit').unbind().click(function () {
                                 let id = $(this).parents('li').data('articleid');
                                 window.open('http://' + location.host + '/manage/blog/' + id);
+                            });
+
+                            $('.toTop').unbind().click(function () {
+                                let key = $(this).data('key');
+                                swal({
+                                    title: key ? "置顶" : "取消置顶",
+                                    text: "确定"+ (key ? "置顶" : "取消置顶") +"该文章吗？",
+                                    icon: "info",
+                                    buttons: {
+                                        cancel: '取消',
+                                        default: '确定',
+                                    },
+                                }).then(value => {
+                                    switch (value) {
+                                        case "default":
+                                            let id = $(this).parents('li').data('articleid');
+                                            ajaxData('post', '/setOrCancelToTop',{
+                                                id: id,
+                                                toTop: key
+                                            }).then(function (res) {
+                                                if(res.success){
+                                                    manage.getBlogList({})
+                                                }
+                                            })
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                })
+
                             })
 
                             $('.pageItem').unbind().click(function () {

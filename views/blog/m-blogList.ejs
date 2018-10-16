@@ -128,7 +128,7 @@
         }
         .item-info {
             color: #aaa;
-            font-size: 12px;
+            font-size: 13px;
         }
 
         .item-info-oper a {
@@ -258,8 +258,8 @@
         <div class="item-info clear">
             <div class="left">
                 <span>{{ $value.createTime | dateFormat }}</span>
-                <span>阅读量：{{ $value.PV }}</span>
-                <span>评论数</span>
+                <span><i class="fa fa-eye" aria-hidden="true"></i> {{ $value.PV ? $value.PV : 0 }}</span>
+                <span><i class="fa fa-commenting-o" aria-hidden="true"></i> {{ $value.commentNum ? $value.commentNum : 0 }}</span>
             </div>
             <div class="right item-info-oper" data-id="{{$value.id}}">
                 <a href="/common/blogDetail/{{$value.id}}" target="_blank">查看</a>

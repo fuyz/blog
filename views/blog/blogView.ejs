@@ -284,7 +284,6 @@ function dateFormat(val) {
             countPV() {
                 ajaxData('post', '/countPv',{
                     id: '<%= blogObj.id %>',
-                    userId: ''
                 }).then(function (res) {
                     if(res.success){
 

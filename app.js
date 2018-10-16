@@ -457,7 +457,7 @@ app.post('/getNewBlogs', function (req, res) {
         res.json({success: true, status: 200, data: blogArr});
     })
 });
-// Path to upload image.
+// 上传图片Path to upload image.
 app.post('/upload_image', function (req, res) {
     // Store image.
     FroalaEditor.Image.upload(req, '../public/uploadImg/', function (err, data) {
@@ -469,6 +469,7 @@ app.post('/upload_image', function (req, res) {
         res.send({link: '../../uploadImg/' + data.link.split('/')[3]})
     });
 });
+
 /*count PV,
  通过 电脑的ip 地址和时间差来判断是否增加浏览量
  此次只通过一个变量简单记录一下；
@@ -485,7 +486,7 @@ app.post('/countPv', function (req, res) {
     let networkInterfaces = os.networkInterfaces();
     let address = networkInterfaces.en0[1].address;
     let now = new Date().getTime();
-    if(now - lastViewTime < 1000 * 60 * 2 && address == lastAddress){
+    if(now - lastViewTime < 1000 * 60 * 2 && address === lastAddress){
         res.json({success: false, status: 200, data: ''});
         return;
     }else{
@@ -500,6 +501,19 @@ app.post('/countPv', function (req, res) {
         }
         res.json({success: true, status: 200, data: ''});
 
+    })
+});
+
+//设置置顶
+app.post('/setOrCancelToTop', function (req, res) {
+    Blog.prototype.toTop(req.body, function (err, result) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        if(result.ok === 1){
+            res.json({success: true, status: 200, data: Number(req.body.toTop) ? '置顶成功' : "取消置顶成功"});
+        }
     })
 });
 
