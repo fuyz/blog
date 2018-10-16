@@ -298,7 +298,8 @@
             <span class="item-title">
                 <span>{{ $value.title }}</span>
             </span>
-            <p class="abstract">{{ $value.content.replace(/<[^>]+>/g, "").slice(0, 150) }}</p>
+            <!--<p class="abstract">{{ $value.content.replace(/<[^>]+>/g, "").slice(0, 200) }}</p>-->
+            <p class="abstract">{{ $value.content.replace(/(<\/?.+?\/?>|&nbsp;|&ldquo;|&rdquo;|&quot;)/g, "").slice(0, 200) }}</p>
         </div>
         <!--<div class="item-abstract">{{@ $value.content.slice(0, 70) }}</div>-->
         <div class="item-info clear">

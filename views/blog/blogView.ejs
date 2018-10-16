@@ -207,8 +207,8 @@ function dateFormat(val) {
                     <% } %>
                 </div>
 
-                <% if(blogObj.author.name == user.name){ %>
-                <a class="right" href="/manage/blog/<%= blogObj.id %>">编辑</a>
+                <% if(authorInfo.name == user.name){ %>
+                <a class="right" href="/manage/blog/<%= blogObj.id %>" target="_blank">编辑</a>
                 <% } %>
 
             </div>
