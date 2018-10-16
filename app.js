@@ -6,6 +6,9 @@ let logger = require('morgan');
 // flash 是一个在 session 中用于存储信息的特定区域。信息写入 flash ，下一次显示完毕后即被清除。典型的应用是结合重定向的功能，确保信息是提供给下一个被渲染的页面。
 let flash = require('connect-flash');
 
+//通过os模块获取networkInterface 用户端电脑系统信息
+let os = require('os');
+
 //富文本依赖包
 var FroalaEditor = require('wysiwyg-editor-node-sdk/lib/froalaEditor.js');
 
@@ -466,8 +469,29 @@ app.post('/upload_image', function (req, res) {
         res.send({link: '../../uploadImg/' + data.link.split('/')[3]})
     });
 });
-//count PV
+/*count PV,
+ 通过 电脑的ip 地址和时间差来判断是否增加浏览量
+ 此次只通过一个变量简单记录一下；
+ 更好的解决方案是新建一个表：
+ {
+    ip1: {lastTime: ***, mac: ***},
+    ip2: {lastTime: ***, mac: ***},
+    ip3: {lastTime: ***, mac: ***},
+ }
+*/
+let lastViewTime = 0;
+let lastAddress = '';
 app.post('/countPv', function (req, res) {
+    let networkInterfaces = os.networkInterfaces();
+    let address = networkInterfaces.en0[1].address;
+    let now = new Date().getTime();
+    if(now - lastViewTime < 1000 * 60 * 2 && address == lastAddress){
+        res.json({success: false, status: 200, data: ''});
+        return;
+    }else{
+        lastViewTime = now;
+        lastAddress = address;
+    }
     let id = req.body.id;
     Blog.prototype.addPV(id, function (err, result) {
         if (err) {

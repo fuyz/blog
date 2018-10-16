@@ -261,14 +261,8 @@ function dateFormat(val) {
                     $('.hide-article-box').hide();
                 });
                 manage.getNewArticleList();
+                manage.countPV();
 
-                ajaxData('post', '/countPv',{
-                    id: '<%= blogObj.id %>'
-                }).then(function (res) {
-                    if(res.success){
-
-                    }
-                })
 
             }
 
@@ -282,6 +276,17 @@ function dateFormat(val) {
                         };
                         let str = template('new_blog_template', data);
                         $('.newArticleList').html(str);
+
+                    }
+                })
+            }
+
+            countPV() {
+                ajaxData('post', '/countPv',{
+                    id: '<%= blogObj.id %>',
+                    userId: ''
+                }).then(function (res) {
+                    if(res.success){
 
                     }
                 })

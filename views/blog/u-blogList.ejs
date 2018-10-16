@@ -112,15 +112,15 @@
             padding: 20px 0 10px;
             margin-bottom: 10px;
             border-bottom: 1px dotted #aaa;
-            cursor: pointer;
         }
 
         .blog-item:hover .item-info-oper {
             display: block;
         }
 
-        .item-title a:hover {
+        .item-title:hover span{
             color: #2e6da4;
+            cursor: pointer;
         }
 
         .item-title span {
@@ -412,8 +412,8 @@
 
                         setTimeout(function () {
 
-                            $('.blog-item').click(function () {
-                                let id = $(this).data('articleid');
+                            $('.item-title').click(function () {
+                                let id = $(this).parents('li').data('articleid');
                                 window.open('http://' + location.host + '/common/blogDetail/' + id);
                             })
 
