@@ -305,7 +305,7 @@
         <div class="item-info clear">
             <div class="left">
                 <span>{{ $value.createTime | dateFormat }}</span>
-                <span>阅读量</span>
+                <span>阅读量：{{ $value.PV }}</span>
                 <span>评论数</span>
             </div>
             <% if(authorInfo.name == user.name){ %>

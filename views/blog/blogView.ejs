@@ -262,6 +262,14 @@ function dateFormat(val) {
                 });
                 manage.getNewArticleList();
 
+                ajaxData('post', '/countPv',{
+                    id: '<%= blogObj.id %>'
+                }).then(function (res) {
+                    if(res.success){
+
+                    }
+                })
+
             }
 
             getNewArticleList() {

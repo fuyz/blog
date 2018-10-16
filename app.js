@@ -466,6 +466,18 @@ app.post('/upload_image', function (req, res) {
         res.send({link: '../../uploadImg/' + data.link.split('/')[3]})
     });
 });
+//count PV
+app.post('/countPv', function (req, res) {
+    let id = req.body.id;
+    Blog.prototype.addPV(id, function (err, result) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: ''});
+
+    })
+});
 
 
 // catch 404 and forward to error handler

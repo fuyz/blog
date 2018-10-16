@@ -251,14 +251,14 @@
                 <a href="/manage/blog/{{$value.id}}">{{ $value.title }}</a>
                 {{ /if }}
             </span>
-            <p class="abstract">{{ $value.content.replace(/<[^>]+>/g, "").slice(0, 200) }}</p>
+            <!--<p class="abstract">{{ $value.content.replace(/<[^>]+>/g, "").slice(0, 200) }}</p>-->
 
         </div>
         <!--<div class="item-abstract">{{@ $value.content.slice(0, 70) }}</div>-->
         <div class="item-info clear">
             <div class="left">
                 <span>{{ $value.createTime | dateFormat }}</span>
-                <span>阅读量</span>
+                <span>阅读量：{{ $value.PV }}</span>
                 <span>评论数</span>
             </div>
             <div class="right item-info-oper" data-id="{{$value.id}}">

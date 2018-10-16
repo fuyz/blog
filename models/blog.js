@@ -67,7 +67,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
         } else {
             //修改
             try {
-                if(_this.drafts){
+                if (_this.drafts) {
                     //草稿箱 的修改
                     dbase.collection("blogs").findOneAndUpdate(
                         {id: Number(id)},
@@ -93,7 +93,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                             callback(null, result);//成功！返回查询的用户信息
                         }
                     );
-                }else {
+                } else {
                     dbase.collection("blogs").findOneAndUpdate(
                         {id: Number(id)},
                         {
@@ -151,6 +151,35 @@ Blog.prototype.getOne = function (id, callback) {
             }
             callback(null, res);//成功！返回查询的用户信息
         });
+
+    });
+};
+
+//添加PV数据
+Blog.prototype.addPV = function (id, callback) {
+
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            throw err
+        } else {
+            console.log("数据库已连接!");
+        }
+        //读取 myblog 集合
+        let dbase = db.db("myblog");
+        dbase.collection("blogs").findOneAndUpdate(
+            {id: Number(id)},
+            {
+                $inc: {"PV": 1},
+            },
+            {returnNewDocument: true},
+            function (err, result) {
+                if (err) {
+                    db.close();
+                    return callback(err);//失败！返回 err 信息
+                }
+                callback(null, result);//成功！返回查询的用户信息
+            }
+        );
 
     });
 };
