@@ -1,5 +1,5 @@
 # blog博客系统
-link: https://github.com/fuyz/blog
+link: https://fuyz.github.io/blog/
 
 blog 是一款基于express 框架的个人博客系统，
 主要技术栈：express(4.16.0)、node(8.9.1)、MongoDB、bootstrap、jQuery等，
