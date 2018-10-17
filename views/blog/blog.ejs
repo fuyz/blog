@@ -9,6 +9,7 @@
     <!--<link rel="stylesheet" href="/css/index.css">-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet" type="text/css"/>
+
     <style>
 
         .main {
@@ -215,7 +216,25 @@
                     // Set the image upload URL.
                     imageUploadURL: '/upload_image',
                     // Allow to upload PNG and JPG.
-                    imageAllowedTypes: ['jpeg', 'jpg', 'png']
+                    imageAllowedTypes: ['jpeg', 'jpg', 'png', 'gif', 'svg'],
+                    // Set max image size to 5MB.
+                    imageMaxSize: 5 * 1024 * 1024,
+                    imageDefaultAlign: 'left',
+
+                    // Set the file upload URL.
+                    fileUploadURL: '/upload_file',
+                    fileAllowedTypes: ['*'],
+                    // Set max file size to 20MB.
+                    fileMaxSize: 20 * 1024 * 1024,
+
+                    // Set the video upload URL.
+                    videoUploadURL: '/upload_video',
+                    // Allow to upload MP4, WEBM and OGG
+                    videoAllowedTypes: ['webm', 'mp4', 'ogg'],
+                    // Set max video size to 50MB.
+                    videoMaxSize: 50 * 1024 * 1024,
+                    videoDefaultAlign: 'left',
+
 //                    toolbarButtons: [
 //                        'saveSelection', 'restoreSelection', 'clearSelection'
 //                    ]
@@ -269,7 +288,6 @@
 
                         // Response contains the original server response to the request if available.
                     });
-
 
 //                $('.selector').froalaeditor({
 //                    // Set the image upload parameter.

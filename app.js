@@ -510,13 +510,48 @@ app.post('/getNewBlogs', function (req, res) {
 // 上传图片Path to upload image.
 app.post('/upload_image', function (req, res) {
     // Store image.
-    FroalaEditor.Image.upload(req, '../public/uploadImg/', function (err, data) {
+    let options = {
+        validation: {
+            'allowedExts': ['gif', 'jpeg', 'jpg', 'png', 'svg', 'blob'],
+            'allowedMimeTypes': ['image/gif', 'image/jpeg', 'image/jpg', 'image/x-png', 'image/png', 'image/svg+xml']
+        }
+    };
+    FroalaEditor.Image.upload(req, '../public/uploadImg/', options, function (err, data) {
         // Return data.
         if (err) {
             return res.send(JSON.stringify(err));
         }
         // res.send(data);
         res.send({link: '../../uploadImg/' + data.link.split('/')[3]})
+    });
+});
+// 上传文件Path to upload file.
+app.post('/upload_file', function (req, res) {
+    // Store image.
+    let options = {
+        validation: {
+            'allowedExts': ['txt', 'doc', 'pdf', 'ppt', 'html', 'css', 'js', 'xls'],
+            'allowedMimeTypes': ['text/plain', 'application/msword', 'application/x-pdf', 'application/pdf', 'application/vnd.ms-powerpoint', 'text/html', 'text/css', 'application/x-javascript', 'application/vnd.ms-excel']
+        }
+    };
+    FroalaEditor.File.upload(req, '../public/uploadImg/', options, function (err, data) {
+        // Return data.
+        if (err) {
+            return res.json({success: false, msg: err});
+        }
+        // res.send(data);
+        res.json({success: true, link: '../../uploadImg/' + data.link.split('/')[3]})
+    });
+});
+// 上传视频Path to upload file.
+app.post('/upload_video', function (req, res) {
+    FroalaEditor.Video.upload(req, '../public/uploadImg/', function (err, data) {
+        // Return data.
+        if (err) {
+            return res.json({success: false, msg: err});
+        }
+        // res.send(data);
+        res.json({success: true, link: '../../uploadImg/' + data.link.split('/')[3]})
     });
 });
 
