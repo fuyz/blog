@@ -84,6 +84,16 @@
             padding: 0px;
             margin-bottom: 10px;
         }
+        .topIcon{
+            display: inline-block;
+            border: 1px solid rgb(126, 211, 33);
+            padding: 2px 8px;
+            color: green;
+            font-size: 12px;
+            vertical-align: 1px;
+            /*float: right;*/
+            margin-right: 10px;
+        }
 
         .item-title {
             font-size: 18px;
@@ -237,6 +247,9 @@
     {{each list }}
     <li class="blog-item">
         <div class="item-title-box">
+            {{ if $value.toTop }}
+            <div class="topIcon">置顶</div>
+            {{ /if }}
             {{ if $value.type == 1 }}
             <span class="item-title-type type-1">原</span>
             {{ else if $value.type == 2 }}
@@ -265,7 +278,11 @@
                 <a href="/common/blogDetail/{{$value.id}}" target="_blank">查看</a>
                 {{ if status == 'total' || status == 'published' }}
                 <a href="">禁止评论</a>
-                <a href="">置顶 </a>
+                {{ if $value.toTop }}
+                <a class="toTop" data-key="0" href="javascript:void(0)">取消置顶</a>
+                {{ else }}
+                <a class="toTop" data-key="1" href="javascript:void(0)">置顶</a>
+                {{ /if }}
                 {{ /if }}
                 {{ if status == 'deleted' }}
                 <a class="deepdel" href="javascript:void(0)">彻底删除</a>
@@ -413,6 +430,7 @@
                                     }
                                 })
                             });
+
                             $('.deepdel').unbind().click(function () {
                                 let _this = this;
                                 let id = $(this).parent('.item-info-oper').data('id');
@@ -452,6 +470,40 @@
                                 $('#name').val(name);
                                 $('#email').val(email);
                             });
+
+                            $('.toTop').unbind().click(function () {
+//                                let _this = this;
+                                let key = $(this).data('key');
+                                swal({
+                                    title: key ? "置顶" : "取消置顶",
+                                    text: "确定"+ (key ? "置顶" : "取消置顶") +"该文章吗？",
+                                    icon: "info",
+                                    buttons: {
+                                        cancel: '取消',
+                                        default: '确定',
+                                    },
+                                }).then(value => {
+                                    switch (value) {
+                                        case "default":
+                                            let id = $(this).parents('.item-info-oper').data('id');
+                                            ajaxData('post', '/setOrCancelToTop',{
+                                                id: id,
+                                                toTop: key
+                                            }).then(function (res) {
+                                                if(res.success){
+//                                                    let cloneEle = $(_this).parents('li').clone();
+//                                                    $(_this).parents('li').fadeOut();
+//                                                    $('.article-list').prepend(cloneEle);
+                                                    manage.getBlogList({})
+                                                }
+                                            })
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                })
+
+                            })
 
                             $('.pageItem').unbind().click(function () {
                                 let index = Number($(this).text());

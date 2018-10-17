@@ -319,6 +319,7 @@ app.post('/getBlogs', function (req, res) {
 
     Blog.prototype.getAll({author: req.body.author}, function (err, blogArr) {
 
+        //筛选文章状态
         if (req.body.status == 'total') {
             blogArr = blogArr.filter(function (e) {
                 if (e.deleted != true) return e
@@ -340,14 +341,13 @@ app.post('/getBlogs', function (req, res) {
                 if (e.privated == true && e.deleted != true && e.drafts != true) return e
             });
         }
-
         //类型筛选
         if (type != '' && type != undefined) {
             blogArr = blogArr.filter(function (e) {
                 if (e.type == req.body.type) return e
             });
         }
-        //搜索筛选
+        //搜索关键字筛选
         if (keyword != '' && keyword != undefined) {
             blogArr = blogArr.filter(function (e) {
                 if (e.title.indexOf(keyword) != -1) return e
@@ -360,14 +360,34 @@ app.post('/getBlogs', function (req, res) {
             });
         }
 
+        let topArticleArr = [], otherArr = [];
+        //排版置顶文章
+        blogArr.forEach(function (e, i) {
+            if(e.toTop){
+                topArticleArr.push(e);
+            }else {
+                otherArr.push(e);
+            }
+        });
+        //置顶key值越大越靠上
+        topArticleArr.sort(function (v1, v2) {
+           if(v1.toTop > v2.toTop){
+               return -1
+           }else if( v1.toTop < v2.toTop ){
+               return 1
+           }else if( v1.toTop == v2.toTop){
+               return 0
+           }
+        });
+        blogArr = topArticleArr.concat(otherArr);
+
+        //设置分页信息
         let obj = {};
         obj.currentIndex = req.body.currentIndex || 1;
         obj.currentPage = Number(req.body.currentPage) || 1;
-
         obj.pagesize = req.body.pageSize | 10;
         obj.totalSize = blogArr.length;
         obj.totalPage = Math.ceil(obj.totalSize / obj.pagesize);
-
         if (obj.currentPage > 1) {
             obj.prevPage = obj.currentPage - 1;
             obj.hasPrev = true;
@@ -380,7 +400,6 @@ app.post('/getBlogs', function (req, res) {
         } else {
             obj.hasNext = false;
         }
-
         if (obj.totalPage == 1) {
             obj.pageData = blogArr;
         } else if (obj.currentPage == obj.totalPage) {

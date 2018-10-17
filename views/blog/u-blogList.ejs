@@ -105,7 +105,7 @@
 
         .blog-item {
             /*height: 100px;/*/
-            padding: 20px 20px 10px;
+            padding: 15px 20px 15px;
             /*margin-bottom: 10px;*/
             border-bottom: 1px dotted #aaa;
             position: relative;
@@ -298,7 +298,7 @@
     {{each list }}
     <li class="blog-item" data-articleid="{{ $value.id }}">
         {{ if $value.toTop }}
-        <div class="topIcon">置顶</div>
+            <div class="topIcon">置顶</div>
         {{ /if }}
         <div class="item-title-box">
             {{ if $value.type == 1 }}
@@ -472,6 +472,7 @@
                             });
 
                             $('.toTop').unbind().click(function () {
+//                                let _this = this;
                                 let key = $(this).data('key');
                                 swal({
                                     title: key ? "置顶" : "取消置顶",
@@ -490,6 +491,9 @@
                                                 toTop: key
                                             }).then(function (res) {
                                                 if(res.success){
+//                                                    let cloneEle = $(_this).parents('li').clone();
+//                                                    $(_this).parents('li').fadeOut();
+//                                                    $('.article-list').prepend(cloneEle);
                                                     manage.getBlogList({})
                                                 }
                                             })
