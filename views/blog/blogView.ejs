@@ -207,7 +207,9 @@ function dateFormat(val) {
                     <% } %>
                 </div>
 
-                <% if(authorInfo.name == user.name){ %>
+                <% if( blogObj.deleted ){ %>
+                <span class="text-red right" href="JavaScript:void(0)" >已删除</span>
+                <% }else if (authorInfo.name == user.name){ %>
                 <a class="right" href="/manage/blog/<%= blogObj.id %>" target="_blank">编辑</a>
                 <% } %>
 

@@ -16,7 +16,8 @@ function Blog(obj) {
     this.type = obj.type;   //文章类型(原创：1，转载：2，翻译：3)
     this.tags = obj.tags;   //标签数组
     this.privated = obj.privated;  //s是否私有
-    this.drafts = obj.drafts  //是否保存在草稿箱
+    this.drafts = obj.drafts;  //是否保存在草稿箱
+    this.updatedTime = obj.updatedTime;  //修改时间
 }
 
 module.exports = Blog;
@@ -50,7 +51,8 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                     type: _this.type,
                     tags: _this.tags,
                     privated: _this.privated,
-                    drafts: _this.drafts
+                    drafts: _this.drafts,
+                    updatedTime: _this.updatedTime
                 };
 
                 dbase.collection("blogs").insert(blogObj, function (err, blog) {
@@ -80,7 +82,8 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                                 type: _this.type,
                                 tags: _this.tags,
                                 privated: _this.privated,
-                                drafts: _this.drafts
+                                drafts: _this.drafts,
+                                updatedTime: _this.updatedTime
 
                             }
                         },
@@ -105,7 +108,8 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                                 type: _this.type,
                                 tags: _this.tags,
                                 privated: _this.privated,
-                                drafts: _this.drafts
+                                drafts: _this.drafts,
+                                updatedTime: _this.updatedTime
 
                             }
                         },

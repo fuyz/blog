@@ -273,7 +273,8 @@ app.post('/blog', function (req, res) {
         type: obj.type,
         tags: obj.tags,
         privated: obj.privated,
-        drafts: obj.drafts
+        drafts: obj.drafts,
+        updatedTime: obj.updatedTime
 
     });
 
@@ -363,23 +364,53 @@ app.post('/getBlogs', function (req, res) {
         let topArticleArr = [], otherArr = [];
         //排版置顶文章
         blogArr.forEach(function (e, i) {
-            if(e.toTop){
+            if (e.toTop) {
                 topArticleArr.push(e);
-            }else {
+            } else {
                 otherArr.push(e);
             }
         });
         //置顶key值越大越靠上
         topArticleArr.sort(function (v1, v2) {
-           if(v1.toTop > v2.toTop){
-               return -1
-           }else if( v1.toTop < v2.toTop ){
-               return 1
-           }else if( v1.toTop == v2.toTop){
-               return 0
-           }
+            if (v1.toTop > v2.toTop) {
+                return -1
+            } else if (v1.toTop < v2.toTop) {
+                return 1
+            } else if (v1.toTop == v2.toTop) {
+                return 0
+            }
         });
         blogArr = topArticleArr.concat(otherArr);
+
+        //排序方式
+        /*
+        * default  、time  、 pv
+        * */
+        if (req.body.sort == 'pv') {
+            blogArr.sort(function (v1, v2) {
+                if(v1.PV == undefined)v1.PV = 0;
+                if(v2.PV == undefined)v2.PV = 0;
+                if (v1.PV > v2.PV) {
+                    return -1
+                } else if (v1.PV < v2.PV) {
+                    return 1
+                } else if (v1.PV == v2.PV) {
+                    return 0
+                }
+            });
+        }else if (req.body.sort == 'updatedTime') {
+            blogArr.sort(function (v1, v2) {
+                if(v1.updatedTime == undefined)v1.updatedTime = 0;
+                if(v2.updatedTime == undefined)v2.updatedTime = 0;
+                if (v1.updatedTime > v2.updatedTime) {
+                    return -1
+                } else if (v1.updatedTime < v2.updatedTime) {
+                    return 1
+                } else if (v1.updatedTime == v2.updatedTime) {
+                    return 0
+                }
+            });
+        }
 
         //设置分页信息
         let obj = {};
@@ -505,10 +536,10 @@ app.post('/countPv', function (req, res) {
     let networkInterfaces = os.networkInterfaces();
     let address = networkInterfaces.en0[1].address;
     let now = new Date().getTime();
-    if(now - lastViewTime < 1000 * 60 * 2 && address === lastAddress){
+    if (now - lastViewTime < 1000 * 60 * 2 && address === lastAddress) {
         res.json({success: false, status: 200, data: ''});
         return;
-    }else{
+    } else {
         lastViewTime = now;
         lastAddress = address;
     }
@@ -530,7 +561,7 @@ app.post('/setOrCancelToTop', function (req, res) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
         }
-        if(result.ok === 1){
+        if (result.ok === 1) {
             res.json({success: true, status: 200, data: Number(req.body.toTop) ? '置顶成功' : "取消置顶成功"});
         }
     })

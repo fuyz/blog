@@ -18,32 +18,47 @@
             /*padding-bottom: 100px;*/
         }
 
-        .article-list-filter{
+        .article-list-filter {
             border-bottom: 1px solid #eee;
             padding: 15px 20px 10px;
         }
 
-        .article-list{
+        .article-list {
             /*padding: 0 20px;*/
         }
 
-        .abstract{
+        .abstract {
             /*height: 53px;*/
             overflow: hidden;
             text-overflow: ellipsis;
-            display: -webkit-box;/*必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。*/
-            -webkit-line-clamp: 2;/*用来限制在一个块元素显示的文本的行数*/
+            display: -webkit-box; /*必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。*/
+            -webkit-line-clamp: 2; /*用来限制在一个块元素显示的文本的行数*/
             -webkit-box-orient: vertical;
             color: #999;
             margin: 10px 0;
         }
 
-        .typeSwitchWrap{
+        .typeSwitchWrap {
             cursor: pointer;
         }
-        #typeSwitch{
+
+        #typeSwitch {
             margin-right: 5px;
             vertical-align: 1px;
+        }
+
+        .filter-item {
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .filter-item:hover {
+            color: #d9534f;
+        }
+
+        .filter-item.on {
+            color: #d9534f;
+            font-weight: 700;
         }
 
         .asideNewArticle, .user-aside-info, .article-list-wrap {
@@ -107,11 +122,12 @@
             /*height: 100px;/*/
             padding: 15px 20px 15px;
             /*margin-bottom: 10px;*/
-            border-bottom: 1px dotted #aaa;
+            border-bottom: 1px solid #eee;
             position: relative;
             overflow: hidden;
         }
-        .topIcon{
+
+        .topIcon {
             position: absolute;
             right: 0px;
             top: 0;
@@ -128,7 +144,7 @@
             display: block;
         }
 
-        .item-title:hover span{
+        .item-title:hover span {
             color: #2e6da4;
             cursor: pointer;
         }
@@ -178,7 +194,7 @@
 
         .item-info {
             color: #666;
-            font-size: 12px;
+            font-size: 13px;
         }
 
         .item-info-oper {
@@ -263,10 +279,10 @@
         <div class="article-list-wrap">
             <div class="article-list-filter">
                 <label class="typeSwitchWrap"><input type="checkbox" id="typeSwitch">只看原创</label>
-                <div class="right">排序：
-                    默认
-                    按更新时间
-                    按访问量
+                <div class="right filterWrap">排序：
+                    <span class="filter-item on" data-key="default">默认</span>
+                    <span class="filter-item" data-key="updatedTime">按更新时间</span>
+                    <span class="filter-item" data-key="pv">按访问量</span>
                 </div>
             </div>
             <ul class="article-list">
@@ -298,7 +314,7 @@
     {{each list }}
     <li class="blog-item" data-articleid="{{ $value.id }}">
         {{ if $value.toTop }}
-            <div class="topIcon">置顶</div>
+        <div class="topIcon">置顶</div>
         {{ /if }}
         <div class="item-title-box">
             {{ if $value.type == 1 }}
@@ -312,7 +328,8 @@
                 <span>{{ $value.title }}</span>
             </span>
             <!--<p class="abstract">{{ $value.content.replace(/<[^>]+>/g, "").slice(0, 200) }}</p>-->
-            <p class="abstract">{{ $value.content.replace(/(<\/?.+?\/?>|&nbsp;|&ldquo;|&rdquo;|&quot;)/g, "").slice(0, 200) }}</p>
+            <p class="abstract">{{ $value.content.replace(/(<\/?.+?\/?>|&nbsp;|&ldquo;|&rdquo;|&quot;)/g, "").slice(0,
+                200) }}</p>
         </div>
         <!--<div class="item-abstract">{{@ $value.content.slice(0, 70) }}</div>-->
         <div class="item-info clear">
@@ -358,7 +375,10 @@
 
         class Manage {
             constructor() {
-                this.data = {}
+                this.data = {
+                    type: '',
+                    sort: 'default'
+                }
             }
 
             initial() {
@@ -366,13 +386,24 @@
                 let author = location.search.split('=')[1];
                 manage.data.author = author;
 
+//                只看原创
                 $('#typeSwitch').change(function () {
                     let key = $(this).prop('checked');
-                    if(key){
-                        manage.getBlogList({type: 1})
-                    }else {
-                        manage.getBlogList({})
+                    if (key) {
+                        manage.data.type = 1;
+                        manage.getBlogList({type: 1, sort: manage.data.sort})
+                    } else {
+                        manage.data.type = '';
+                        manage.getBlogList({sort: manage.data.sort})
                     }
+                });
+//                排序方式
+                $('.filter-item').click(function () {
+                    $('.filter-item').removeClass('on');
+                    $(this).addClass('on');
+                    let key = $(this).data('key');
+                    manage.data.sort = key;
+                    manage.getBlogList({sort: key, type: manage.data.type});
                 });
 
                 manage.getNewArticleList();
@@ -397,11 +428,9 @@
             }
 
             getBlogList(obj) {
-
 //                let time = $('.year').val();
 //                let type = $('.type').val();
 //                let searchKey = $('#key').val().trim();
-
                 ajaxData('post', '/getBlogs', {
 //                    time: time,
                     type: obj.type ? obj.type : "",
@@ -409,7 +438,8 @@
                     status: 'published',
                     pagesize: 10,
                     currentPage: obj.currentPage || 1,
-                    author: manage.data.author
+                    author: manage.data.author,
+                    sort: obj.sort
                 }).then(function (res) {
                     if (res.success) {
                         let data = {
@@ -476,7 +506,7 @@
                                 let key = $(this).data('key');
                                 swal({
                                     title: key ? "置顶" : "取消置顶",
-                                    text: "确定"+ (key ? "置顶" : "取消置顶") +"该文章吗？",
+                                    text: "确定" + (key ? "置顶" : "取消置顶") + "该文章吗？",
                                     icon: "info",
                                     buttons: {
                                         cancel: '取消',
@@ -486,11 +516,11 @@
                                     switch (value) {
                                         case "default":
                                             let id = $(this).parents('li').data('articleid');
-                                            ajaxData('post', '/setOrCancelToTop',{
+                                            ajaxData('post', '/setOrCancelToTop', {
                                                 id: id,
                                                 toTop: key
                                             }).then(function (res) {
-                                                if(res.success){
+                                                if (res.success) {
 //                                                    let cloneEle = $(_this).parents('li').clone();
 //                                                    $(_this).parents('li').fadeOut();
 //                                                    $('.article-list').prepend(cloneEle);
@@ -508,19 +538,19 @@
                             $('.pageItem').unbind().click(function () {
                                 let index = Number($(this).text());
                                 if (res.data.currentPage != index) {
-                                    manage.getBlogList({currentPage: index})
+                                    manage.getBlogList({currentPage: index, sort: manage.data.sort, type: manage.data.type})
                                 }
                             });
                             if (res.data.hasPrev) {
                                 $('.prePage').unbind().click(function () {
-                                    manage.getBlogList({currentPage: res.data.currentPage - 1})
+                                    manage.getBlogList({currentPage: res.data.currentPage - 1, sort: manage.data.sort, type: manage.data.type })
                                 });
                             } else {
                                 $('.prePage').addClass('disabled');
                             }
                             if (res.data.hasNext) {
                                 $('.nextPage').unbind().click(function () {
-                                    manage.getBlogList({currentPage: res.data.currentPage + 1})
+                                    manage.getBlogList({currentPage: res.data.currentPage + 1, sort: manage.data.sort, type: manage.data.type })
                                 });
                             } else {
                                 $('.nextPage').addClass('disabled');
