@@ -160,21 +160,29 @@ function dateFormat(val) {
                 </div>
             </div>
             <div class="data-info">
-                <dl>
+                <dl class="author-type1">
                     <dt>原创</dt>
-                    <dd><b>1</b></dd>
+                    <dd><b></b></dd>
                 </dl>
-                <dl>
+                <dl class="author-type2">
+                    <dt>转载</dt>
+                    <dd><b></b></dd>
+                </dl>
+                <dl class="author-type3">
+                    <dt>翻译</dt>
+                    <dd><b></b></dd>
+                </dl>
+                <dl class="author-fans">
                     <dt>粉丝</dt>
-                    <dd><b>2</b></dd>
+                    <dd><b>0</b></dd>
                 </dl>
-                <dl>
+                <dl class="author-like">
                     <dt>喜欢</dt>
-                    <dd><b>123</b></dd>
+                    <dd><b>0</b></dd>
                 </dl>
-                <dl>
+                <dl class="author-comment">
                     <dt>评论</dt>
-                    <dd><b>232</b></dd>
+                    <dd><b>0</b></dd>
                 </dl>
             </div>
         </div>
@@ -264,6 +272,7 @@ function dateFormat(val) {
                 });
                 manage.getNewArticleList();
                 manage.countPV();
+                manage.getTypeCount();
 
 
             }
@@ -289,6 +298,18 @@ function dateFormat(val) {
                 }).then(function (res) {
                     if(res.success){
 
+                    }
+                })
+            }
+
+            getTypeCount() {
+                ajaxData('post', '/getTypeCount', {
+                    author: '<%= authorInfo.name %>',
+                }).then(function (res) {
+                    if (res.success) {
+                        $('.author-type1 b').text(res.data.type1);
+                        $('.author-type2 b').text(res.data.type2);
+                        $('.author-type3 b').text(res.data.type3);
                     }
                 })
             }

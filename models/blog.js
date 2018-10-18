@@ -183,10 +183,6 @@ Blog.prototype.getAll = function (obj, callback) {
 
 };
 
-dbase.collection("blogs").find({***}).count(function (err, result) {
-    // 对返回值result做你想做的操作
-});
-
 //获取文章类型总数
 Blog.prototype.getType = function (obj, callback) {
 
