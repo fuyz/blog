@@ -131,7 +131,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
             }
 
         }
-
+        db.close();
 
     });
 
@@ -154,6 +154,8 @@ Blog.prototype.getOne = function (id, callback) {
                 return callback(err);//失败！返回 err 信息
             }
             callback(null, res);//成功！返回查询的用户信息
+            db.close();
+
         });
 
     });
@@ -178,6 +180,8 @@ Blog.prototype.getAll = function (obj, callback) {
                 return callback(err);//错误，返回 err 信息
             }
             callback(null, data);//成功！返回查询的用户信息
+            db.close();
+
         });
     });
 
@@ -185,7 +189,6 @@ Blog.prototype.getAll = function (obj, callback) {
 
 //获取文章类型总数
 Blog.prototype.getType = function (obj, callback) {
-
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
         if (err) {
@@ -198,7 +201,13 @@ Blog.prototype.getType = function (obj, callback) {
         let data = {};
         //读取 myblog 集合
         let promise1 = new Promise((resolve, reject) => {
-            dbase.collection("blogs").find({author: obj.author, type: '1'}).count(function (err, result) {
+            dbase.collection("blogs").find({
+                "author": obj.author,
+                "type": '1',
+                "deleted": {$ne: true},
+                "drafts": {$ne: true},
+                "privated": {$ne: true}
+            }).count(function (err, result) {
                 if (err) {
                     reject();
                 }
@@ -207,7 +216,13 @@ Blog.prototype.getType = function (obj, callback) {
             });
         });
         let promise2 = new Promise((resolve, reject) => {
-            dbase.collection("blogs").find({author: obj.author, type: '2'}).count(function (err, result) {
+            dbase.collection("blogs").find({
+                "author": obj.author,
+                "type": '2',
+                "deleted": {$ne: true},
+                "drafts": {$ne: true},
+                "privated": {$ne: true}
+            }).count(function (err, result) {
                 if (err) {
                     reject();
                 }
@@ -216,7 +231,13 @@ Blog.prototype.getType = function (obj, callback) {
             });
         });
         let promise3 = new Promise((resolve, reject) => {
-            dbase.collection("blogs").find({author: obj.author, type: '3'}).count(function (err, result) {
+            dbase.collection("blogs").find({
+                "author": obj.author,
+                "type": '3',
+                "deleted": {$ne: true},
+                "drafts": {$ne: true},
+                "privated": {$ne: true}
+            }).count(function (err, result) {
                 if (err) {
                     reject();
                 }
@@ -226,6 +247,8 @@ Blog.prototype.getType = function (obj, callback) {
         });
         Promise.all([promise1, promise2, promise3]).then(function () {
             callback(null, data);//成功！返回查询的用户信息
+            db.close();
+
         });
 
     });
@@ -255,6 +278,7 @@ Blog.prototype.getNew = function (obj, callback) {
                 return callback(err);//错误，返回 err 信息
             }
             callback(null, data);//成功！返回查询的用户信息
+            db.close();
         });
     });
 
@@ -280,6 +304,7 @@ Blog.prototype.delete = function (blogId, callback) {
                         return callback(err);//失败！返回 err 信息
                     }
                     callback(null, result);//成功！返回查询的用户信息
+                    db.close();
                 }
             );
 
@@ -311,6 +336,7 @@ Blog.prototype.deepDelete = function (blogId, callback) {
                         return callback(err);//失败！返回 err 信息
                     }
                     callback(null, result);//成功！返回查询的用户信息
+                    db.close();
                 }
             );
 
@@ -361,8 +387,8 @@ Blog.prototype.getStatus = function (obj, callback) {
                 obj.published = data.length - obj.privated - obj.drafts - obj.trash;
                 obj.total = data.length - obj.trash;
 
-
                 callback(null, obj);//成功！返回查询的用户信息
+                db.close();
             });
 
         }
@@ -398,6 +424,7 @@ Blog.prototype.addPV = function (id, callback) {
                     return callback(err);//失败！返回 err 信息
                 }
                 callback(null, result);//成功！返回查询的用户信息
+                db.close();
             }
         );
 
@@ -439,6 +466,7 @@ Blog.prototype.toTop = function (obj, callback) {
                             "des": "﻿作为记录当前置顶数值的参照物"
                         });
                         callback(null, result);//成功信息！
+
                     }
                 );
             });
@@ -458,6 +486,7 @@ Blog.prototype.toTop = function (obj, callback) {
                         }
                         //更新配置
                         callback(null, result);//成功信息！
+
                     }
                 );
             }
@@ -466,6 +495,8 @@ Blog.prototype.toTop = function (obj, callback) {
                 return callback(err);//失败！返回 err 信息
             }
         }
+        db.close();
+
 
     });
 
