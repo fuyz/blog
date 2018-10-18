@@ -400,7 +400,7 @@
             initial() {
 
                 let author = location.search.split('=')[1];
-                manage.data.author = author;
+                manage.data.author = decodeURIComponent(author);
 
 //                只看原创
                 $('#typeSwitch').change(function () {

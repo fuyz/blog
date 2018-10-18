@@ -6,7 +6,7 @@ function ajaxData(type, url, data, beforeSendFn) {
             url: url,
             type: type,
             data: data,
-            // contentType: "application/x-www-form-urlencoded",//发送给服务器的数据格式
+            contentType: "application/x-www-form-urlencoded",//发送给服务器的数据格式
             dataType: 'json',
             beforeSend: function(request) {
                 if(typeof beforeSendFn == 'function'){

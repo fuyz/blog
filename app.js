@@ -10,7 +10,7 @@ let flash = require('connect-flash');
 let os = require('os');
 
 //富文本依赖包
-var FroalaEditor = require('wysiwyg-editor-node-sdk/lib/froalaEditor.js');
+let FroalaEditor = require('wysiwyg-editor-node-sdk/lib/froalaEditor.js');
 
 //解析请求的body中的内容[必须]
 let bodyParser = require('body-parser');
@@ -30,6 +30,7 @@ let sessionConfig = require('./database/session');
 
 let app = express();
 let routes = require('./routes/index');
+
 
 //实现了将会话信息存储到mongoldb中
 app.use(session({
@@ -317,9 +318,7 @@ app.post('/getBlogs', function (req, res) {
     let type = req.body.type;
     let time = req.body.time;
     let keyword = req.body.keyword;
-
     Blog.prototype.getAll({author: req.body.author}, function (err, blogArr) {
-
         //筛选文章状态
         if (req.body.status == 'total') {
             blogArr = blogArr.filter(function (e) {
@@ -388,8 +387,8 @@ app.post('/getBlogs', function (req, res) {
         * */
         if (req.body.sort == 'pv') {
             blogArr.sort(function (v1, v2) {
-                if(v1.PV == undefined)v1.PV = 0;
-                if(v2.PV == undefined)v2.PV = 0;
+                if (v1.PV == undefined) v1.PV = 0;
+                if (v2.PV == undefined) v2.PV = 0;
                 if (v1.PV > v2.PV) {
                     return -1
                 } else if (v1.PV < v2.PV) {
@@ -398,10 +397,10 @@ app.post('/getBlogs', function (req, res) {
                     return 0
                 }
             });
-        }else if (req.body.sort == 'updatedTime') {
+        } else if (req.body.sort == 'updatedTime') {
             blogArr.sort(function (v1, v2) {
-                if(v1.updatedTime == undefined)v1.updatedTime = 0;
-                if(v2.updatedTime == undefined)v2.updatedTime = 0;
+                if (v1.updatedTime == undefined) v1.updatedTime = 0;
+                if (v2.updatedTime == undefined) v2.updatedTime = 0;
                 if (v1.updatedTime > v2.updatedTime) {
                     return -1
                 } else if (v1.updatedTime < v2.updatedTime) {

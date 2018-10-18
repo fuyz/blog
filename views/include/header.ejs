@@ -20,7 +20,7 @@
             <span></span>
         </a>
         <% if( user._id ){ %>
-        <a class="link" href="/common/u-blogList?author=<%= user.name %>">
+        <a class="link" href="/common/u-blogList?author=<%= encodeURIComponent(user.name) %>">
             我的博客
             <span></span>
             <span></span>

@@ -63,6 +63,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                     //更新配置
                     dbase.collection("ID").update({id: 2}, {"id": 2, "index": ++blogIndex, "des": "记录博客的ID号"});
                     callback(null, blog);//成功！err 为 null，并返回存储后的用户文档
+                    db.close();
 
                 });
             });
@@ -94,6 +95,8 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                                 return callback(err);//失败！返回 err 信息
                             }
                             callback(null, result);//成功！返回查询的用户信息
+                            db.close();
+
                         }
                     );
                 } else {
@@ -120,18 +123,18 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                                 return callback(err);//失败！返回 err 信息
                             }
                             callback(null, result);//成功！返回查询的用户信息
+                            db.close();
+
                         }
                     );
                 }
 
-            }
-            catch (e) {
+            } catch (e) {
                 db.close();
                 return callback(err);//失败！返回 err 信息
             }
 
         }
-        db.close();
 
     });
 
@@ -466,6 +469,7 @@ Blog.prototype.toTop = function (obj, callback) {
                             "des": "﻿作为记录当前置顶数值的参照物"
                         });
                         callback(null, result);//成功信息！
+                        db.close();
 
                     }
                 );
@@ -486,6 +490,7 @@ Blog.prototype.toTop = function (obj, callback) {
                         }
                         //更新配置
                         callback(null, result);//成功信息！
+                        db.close();
 
                     }
                 );
@@ -495,7 +500,6 @@ Blog.prototype.toTop = function (obj, callback) {
                 return callback(err);//失败！返回 err 信息
             }
         }
-        db.close();
 
 
     });
