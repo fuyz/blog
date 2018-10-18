@@ -108,6 +108,7 @@ module.exports = function (app) {
                 return;
             }
 
+
             res.render('blog/u-blogList', {title: '我的博客', authorInfo: user, user: userInfo ? userInfo : {} });
 
         });

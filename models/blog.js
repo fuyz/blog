@@ -183,6 +183,58 @@ Blog.prototype.getAll = function (obj, callback) {
 
 };
 
+dbase.collection("blogs").find({***}).count(function (err, result) {
+    // 对返回值result做你想做的操作
+});
+
+//获取文章类型总数
+Blog.prototype.getType = function (obj, callback) {
+
+    //数据库客户端连接
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            throw err
+        } else {
+            console.log("数据库已连接!");
+        }
+        //连接数据库
+        let dbase = db.db("myblog");
+        let data = {};
+        //读取 myblog 集合
+        let promise1 = new Promise((resolve, reject) => {
+            dbase.collection("blogs").find({author: obj.author, type: '1'}).count(function (err, result) {
+                if (err) {
+                    reject();
+                }
+                data.type1 = result;
+                resolve();
+            });
+        });
+        let promise2 = new Promise((resolve, reject) => {
+            dbase.collection("blogs").find({author: obj.author, type: '2'}).count(function (err, result) {
+                if (err) {
+                    reject();
+                }
+                data.type2 = result;
+                resolve()
+            });
+        });
+        let promise3 = new Promise((resolve, reject) => {
+            dbase.collection("blogs").find({author: obj.author, type: '3'}).count(function (err, result) {
+                if (err) {
+                    reject();
+                }
+                data.type3 = result;
+                resolve()
+            });
+        });
+        Promise.all([promise1, promise2, promise3]).then(function () {
+            callback(null, data);//成功！返回查询的用户信息
+        });
+
+    });
+};
+
 //读取最新博客信息
 Blog.prototype.getNew = function (obj, callback) {
 
@@ -385,7 +437,11 @@ Blog.prototype.toTop = function (obj, callback) {
                             return callback(err);//失败！返回 err 信息
                         }
                         //更新配置
-                        dbase.collection("ID").update({id: 3}, {"id": 3, "toTopId": ++toTopId, "des": "﻿作为记录当前置顶数值的参照物"});
+                        dbase.collection("ID").update({id: 3}, {
+                            "id": 3,
+                            "toTopId": ++toTopId,
+                            "des": "﻿作为记录当前置顶数值的参照物"
+                        });
                         callback(null, result);//成功信息！
                     }
                 );

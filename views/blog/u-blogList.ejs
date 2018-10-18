@@ -406,25 +406,10 @@
                     manage.getBlogList({sort: key, type: manage.data.type});
                 });
 
-                manage.getNewArticleList();
                 manage.getBlogList({});
+                manage.getNewArticleList();
+                manage.getTypeCount();
 
-
-            }
-
-            getNewArticleList() {
-                ajaxData('post', '/getNewBlogs', {
-                    author: '<%= authorInfo.name %>',
-                }).then(function (res) {
-                    if (res.success) {
-                        let data = {
-                            list: res.data,
-                        };
-                        let str = template('new_blog_template', data);
-                        $('.newArticleList').html(str);
-
-                    }
-                })
             }
 
             getBlogList(obj) {
@@ -562,6 +547,33 @@
                 });
 
             }
+
+            getNewArticleList() {
+                ajaxData('post', '/getNewBlogs', {
+                    author: '<%= authorInfo.name %>',
+                }).then(function (res) {
+                    if (res.success) {
+                        let data = {
+                            list: res.data,
+                        };
+                        let str = template('new_blog_template', data);
+                        $('.newArticleList').html(str);
+
+                    }
+                })
+            }
+
+            getTypeCount() {
+                ajaxData('post', '/getTypeCount', {
+                    author: '<%= authorInfo.name %>',
+                }).then(function (res) {
+                    if (res.success) {
+
+
+                    }
+                })
+            }
+
 
         }
 

@@ -164,7 +164,7 @@ app.post('/reg', function (req, res) {
         });
     });
 });
-//获取用户
+//获取、删除、更新用户
 app.post('/getUsers', function (req, res) {
     /*
     currentIndex: 0
@@ -444,20 +444,21 @@ app.post('/getBlogs', function (req, res) {
 
     })
 });
-app.post('/viewBlog', function (req, res) {
-    Blog.prototype.getOne(id, function (err, blog) {
-        if (err) {
-            res.json({success: false, status: 200, error: err, data: null});
-            return;
-        }
-        //用户不存在
-        if (blog == null) {
-            res.json({success: false, status: 200, error: '博客不存在!', data: null});
-            return;
-        }
-        res.json({success: true, status: 200, data: user});
-    });
-});
+// app.post('/viewBlog', function (req, res) {
+//     Blog.prototype.getOne(id, function (err, blog) {
+//         if (err) {
+//             res.json({success: false, status: 200, error: err, data: null});
+//             return;
+//         }
+//         //用户不存在
+//         if (blog == null) {
+//             res.json({success: false, status: 200, error: '博客不存在!', data: null});
+//             return;
+//         }
+//         res.json({success: true, status: 200, data: user});
+//     });
+// });
+//放回回收站
 app.post('/deleteBlog', function (req, res) {
     Blog.prototype.delete(req.body.id, function (err, blog) {
         if (err) {
@@ -472,6 +473,7 @@ app.post('/deleteBlog', function (req, res) {
         res.json({success: true, status: 200, data: blog});
     });
 });
+//彻底删除
 app.post('/deepDeleteBlog', function (req, res) {
     Blog.prototype.deepDelete(req.body.id, function (err, blog) {
         if (err) {
@@ -504,9 +506,24 @@ app.post('/getBlogStatus', function (req, res) {
 //获取最新博客
 app.post('/getNewBlogs', function (req, res) {
     Blog.prototype.getNew({author: req.body.author}, function (err, blogArr) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
         res.json({success: true, status: 200, data: blogArr});
     })
 });
+//获取博客类型分类总数
+app.post('/getTypeCount', function (req, res) {
+    Blog.prototype.getType({author: req.body.author}, function (err, data) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: data});
+    })
+});
+
 // 上传图片Path to upload image.
 app.post('/upload_image', function (req, res) {
     // Store image.
