@@ -7,8 +7,10 @@
     <!-- 引入样式 -->
     <% include ../include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/common.css">-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet"
+          type="text/css"/>
     <style>
         .main {
             width: 1300px;
@@ -17,7 +19,8 @@
         }
 
         .article-content-wrap {
-            /*min-height: 800px;*/
+            padding: 10px 25px 15px;
+            margin-bottom: 30px;
         }
 
         .asideNewArticle, .user-aside-info, .article-content-wrap {
@@ -81,11 +84,6 @@
             padding: 2px 0;
         }
 
-        .article-content-wrap {
-            padding: 10px 25px 15px;
-            margin-bottom: 50px;
-        }
-
         #btn-readmore {
             color: #2e6da4;
             border: 1px solid #2e6da4;
@@ -131,6 +129,118 @@
             border: 1px solid #ccc;
             margin: 0 3px;
         }
+
+        /*评论*/
+        .comment-wrap {
+            /*height: 400px;*/
+            background: white;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+            padding: 10px 20px;
+
+        }
+
+        #comment-content {
+            width: 100%;
+            height: 80px;
+            display: block;
+            padding: 7px 8px;
+            margin-bottom: 10px;
+            background: #fff;
+            border: 1px solid #dedede;
+            border-radius: 4px;
+            resize: none;
+            outline: none;
+            font-size: 14px;
+            line-height: 22px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: height .3s ease-in-out;
+            transition: height .3s ease-in-out;
+        }
+
+        #comment-content:focus {
+            /*height: 120px;*/
+        }
+
+        .btn{
+            padding: 4px 15px;
+            border-radius: 4px;
+        }
+        .btn-small {
+            padding: 0 15px;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        .btn-comment {
+            background: #2e6da4;
+            color: white;
+        }
+        .btn-cancel {
+            background: #aaa;
+            color: white;
+        }
+
+        .comment-list-box{
+            margin-top: 20px;
+        }
+        .comment-item{
+            border-bottom: 1px dashed #ccc;
+            padding: 10px 10px 15px;
+            line-height: 25px;
+        }
+        .comment-item:hover .opt-box{
+            display: block;
+        }
+        .c-name{
+            font-size: 15px;
+        }
+        .c-content{
+            color: #666;
+            font-size: 14px;
+        }
+        .c-time{
+            color: #999;
+            font-size: 12px;
+            margin-left: 20px;
+        }
+
+        .opt-box{
+            color: #79a5e5;
+            font-size: 12px;
+            display: none;
+        }
+        .opt-box span{
+            margin-right: 5px;
+
+        }
+        .btn-report:hover{
+            color: #f44;
+            cursor: pointer;
+        }
+        .btn-reply:hover{
+            cursor: pointer;
+            color: #2e6da4;
+        }
+
+        .reply-box{
+            margin-top: 10px;
+            display: none;
+        }
+        .input-reply{
+            width: 100%;
+            height: 80px;
+            padding: 5px 10px;
+            border: 1px solid #dedede;
+            border-radius: 4px;
+            resize: none;
+            font-size: 14px;
+            transition: height .3s ease;
+        }
+        .input-reply:focus{
+            /*height: 80px;*/
+        }
+
+
     </style>
 
 </head>
@@ -149,12 +259,13 @@ function dateFormat(val) {
                 <div class="headWrap">
                     <% if( !authorInfo._id ){ %>
                     <img src="" alt="">
-                    <% }else {%>
+                    <% }else { %>
                     <img src="/images/head.jpeg" alt="">
                     <% } %>
                 </div>
                 <div class="userInfo text-primary">
-                    <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span id="user-name"><%= authorInfo.name %></span>
+                    <p class="name"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span
+                                id="user-name"><%= authorInfo.name %></span>
                     </p>
                     <!--<p class="email"><i class="fa fa-envelope-open" aria-hidden="true"></i><span id="user-email"><%# user.email %></span></p>-->
                 </div>
@@ -216,7 +327,7 @@ function dateFormat(val) {
                 </div>
 
                 <% if( blogObj.deleted ){ %>
-                <span class="text-red right" href="JavaScript:void(0)" >已删除</span>
+                <span class="text-red right" href="JavaScript:void(0)">已删除</span>
                 <% }else if (authorInfo.name == user.name){ %>
                 <a class="right" href="/manage/blog/<%= blogObj.id %>" target="_blank">编辑</a>
                 <% } %>
@@ -234,11 +345,36 @@ function dateFormat(val) {
             </div>
 
         </div>
+
+        <div class="comment-wrap">
+            <div class="comment-edit-wrap clear">
+                <textarea name="" id="comment-content" placeholder="想对作者说点什么..."></textarea>
+                <div class="right">
+                    <span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+                    <input type="submit" class="btn btn-comment" value="发表评论">
+                </div>
+            </div>
+            <div class="comment-list-box">
+               <!---->
+            </div>
+        </div>
+
     </div>
 </section>
-<aside>
 
-</aside>
+<ul class="meau-gotop-box">
+    <li id="reportContent">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    </li>
+
+    <li id="toPageTop">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </li>
+    <li id="shareContent">
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+    </li>
+
+</ul>
 
 <% include ../include/footer-res.ejs %>
 
@@ -261,24 +397,41 @@ function dateFormat(val) {
             initial() {
 
                 let articleH = $('article').height();
-                if(articleH > 1000){
+                if (articleH > 1000) {
                     $('article').height(1000);
                     $('.hide-article-box').show();
                 }
 
+//                展开更多
                 $('#btn-readmore').click(function () {
                     $('article').css({height: 'auto'});
                     $('.hide-article-box').hide();
                 });
+//                发布评论
+                $('.btn-comment').click(function () {
+                    if (!'<%= user.id %>') {
+                        showWarningMsg('请先登录！');
+                        return;
+                    }
+                    let comment = $('#comment-content').val().trim();
+                    if (comment === '') {
+                        showWarningMsg('请输入评论内容！');
+                        $('#comment-content').focus();
+                        return;
+                    }
+                    manage.setComment(comment);
+                });
+
                 manage.getNewArticleList();
                 manage.countPV();
                 manage.getTypeCount();
+                manage.getComment();
 
 
             }
 
             getNewArticleList() {
-                ajaxData('post', '/getNewBlogs',{
+                ajaxData('post', '/getNewBlogs', {
                     author: '<%= authorInfo.name %>',
                 }).then(function (res) {
                     if (res.success) {
@@ -293,10 +446,10 @@ function dateFormat(val) {
             }
 
             countPV() {
-                ajaxData('post', '/countPv',{
+                ajaxData('post', '/countPv', {
                     id: '<%= blogObj.id %>',
                 }).then(function (res) {
-                    if(res.success){
+                    if (res.success) {
 
                     }
                 })
@@ -313,8 +466,66 @@ function dateFormat(val) {
                     }
                 })
             }
-        }
 
+            setComment(comment) {
+
+                ajaxData('post', '/comment', {
+                    articleId: '<%= blogObj.id %>',
+                    content: comment,
+                    userId: '<%= user.id %>',
+                    userName: '<%= user.name %>',
+                    createTime: new Date().getTime(),
+                }).then(function (res) {
+                    if (res.success) {
+                        $('#comment-content').val('');
+                    }
+                })
+
+            }
+
+            getComment() {
+                ajaxData('post', '/getComments',{
+                    articleId: '<%= blogObj.id %>'
+                }).then(function (res) {
+                    if(res.success){
+                        let commentArr = res.data;
+                        let commentStr = '';
+                        for(let i = 0; i < commentArr.length; i++){
+                            commentStr += `
+                                     <div class="comment-item">
+                                        <b class="c-name">${ commentArr[i].userName }：</b>
+                                        <span class="c-content">${ commentArr[i].content }</span>
+                                        <span class="c-time">(${ new Date(Number(commentArr[i].createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ commentArr.length - i }楼</b>)</span>
+                                        <div class="right opt-box">
+                                            <span class="btn-report ">举报</span>
+                                            <span class="btn-reply">回复</span>
+                                        </div>
+                                        <div class="reply-box clear">
+                                            <textarea class="input-reply" placeholder="请输入回复内容..."></textarea>
+                                            <div class="right">
+                                                <input type="submit" class="btn-cancel btn-small" value="取消">
+                                                <input type="submit" class="btn-comment btn-small" value="回复">
+                                            </div>
+                                        </div>
+                                    </div>`;
+
+                        }
+                        $('.comment-list-box').html(commentStr);
+
+                        $('.btn-reply').unbind().click(function () {
+                            $(this).parent().siblings('.reply-box').slideDown();
+                        })
+                        $('.btn-cancel').unbind().click(function () {
+                            $('.input-reply').val('');
+                            $('.reply-box').hide();
+
+                        })
+
+                    }
+                })
+            }
+
+        }
 
         let manage = new Manage();
         manage.initial();

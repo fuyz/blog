@@ -8,6 +8,10 @@
     <% include ./include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/index.css">-->
     <style>
+        .main-userTab{
+            min-height: 800px;
+            position: relative;
+        }
         .searchWrap {
             margin: 10px 0 40px;
         }
@@ -28,6 +32,9 @@
 
 
         .pagination {
+            position: absolute;
+            right: 20px;
+            bottom: 0;
             margin-top: 40px;
             float: right;
         }
@@ -75,7 +82,7 @@
 <body>
 <% include ./include/header.ejs %>
 
-<section class="main">
+<section class="main main-userTab">
     <div class="searchWrap">
         <input class="btn btn-default" type="text" placeholder="请输入关键字">
         <button type="submit" class="btn btn-primary">搜索</button>

@@ -3,10 +3,10 @@
  * @author 付颖志
  * @create 2018-09-17 下午5:24
  **/
-var mongodb = require('./db');
+let mongodb = require('./db');
 //打开数据库
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017";
+let MongoClient = require('mongodb').MongoClient;
+let url = "mongodb://localhost:27017";
 
 function Blog(obj) {
     this.title = obj.title; //博客标题
@@ -34,7 +34,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
             console.log("数据库已连接!");
         }
         //读取 users 集合
-        var dbase = db.db("myblog");
+        let dbase = db.db("myblog");
 
         if (id == '') {
             //新增加博文
@@ -445,7 +445,7 @@ Blog.prototype.toTop = function (obj, callback) {
             console.log("数据库已连接!");
         }
         //读取 users 集合
-        var dbase = db.db("myblog");
+        let dbase = db.db("myblog");
 
         if (Number(obj.toTop)) {
             //置顶

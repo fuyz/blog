@@ -70,6 +70,17 @@ function showErrorMsg(err) {
         $('.errorTip').remove();
     });
 }
+//错误信息弹窗
+function showWarningMsg(err) {
+    $('body').append('<div class="errorTip warning"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="margin-right: 10px;font-size: 20px; color: wheat"></i> ' + err + '</div>').show();
+    // $('.errorTip').animate({top: '100px', opacity: 1}, 500);
+    setTimeout(function () {
+        $('.errorTip').addClass('hide0');
+    }, 800);
+    document.getElementsByClassName('errorTip')[0].addEventListener('transitionend', function () {
+        $('.errorTip').remove();
+    });
+}
 //提示信息弹窗
 function showTipsMsg(err) {
     $('body').append('<div class="errorTip tip"><i class="fa fa-angellist" aria-hidden="true" style="margin-right: 10px;font-size: 20px"></i>' + err + '</div>').show();

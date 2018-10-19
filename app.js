@@ -18,6 +18,7 @@ let bodyParser = require('body-parser');
 // 引入 crypto 模块和 user.js 用户模型文件，crypto 是 Node.js 的一个核心模块，我们用它生成散列值来加密密码。
 let crypto = require('crypto'),
     User = require('./models/user.js'),
+    Comment = require('./models/comment.js'),
     Blog = require('./models/blog.js');
 
 //数据库设置
@@ -604,7 +605,6 @@ app.post('/countPv', function (req, res) {
 
     })
 });
-
 //设置置顶
 app.post('/setOrCancelToTop', function (req, res) {
     Blog.prototype.toTop(req.body, function (err, result) {
@@ -618,12 +618,45 @@ app.post('/setOrCancelToTop', function (req, res) {
     })
 });
 
+//评论文章
+app.post('/comment', function (req, res) {
+    let obj = req.body;
+    let newComment = new Comment({
+        articleId: obj.articleId, //被评论文章id
+        content: obj.content, //评论内容
+        userId: obj.userId,  //评论者id
+        userName: obj.userName,   //作者
+        createTime: obj.createTime,   //评论时间
+        replyList: obj.replyList,  //回复列表（按盖楼顺序）
+        isDelete: obj.isDelete   //是否已经删除
+    });
+
+    newComment.writeComment(function (err, result) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        if (result.result.ok === 1) {
+            res.json({success: true, status: 200, data: "评论成功"});
+        }
+    })
+});
+//获取文章评论
+app.post('/getComments', function (req, res) {
+    Comment.prototype.getComments({articleId: req.body.articleId}, function (err, arr) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: arr});
+    })
+});
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
 });
-
 // error handler
 /*错误处理: 错误处理器，将错误信息渲染error模版并显示到浏览器中
 定义错误处理中间件和定义其他中间件一样，除了需要 4 个参数，而不是 3 个，*/
