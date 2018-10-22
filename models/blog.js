@@ -72,33 +72,33 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
             try {
                 if (_this.drafts) {
                     //草稿箱 的修改
-                    dbase.collection("blogs").findOneAndUpdate(
-                        {id: Number(id)},
-                        {
-                            $set: {
-                                title: _this.title,
-                                content: _this.content,
-                                author: _this.author,
-                                createTime: _this.createTime,
-                                type: _this.type,
-                                tags: _this.tags,
-                                privated: _this.privated,
-                                drafts: _this.drafts,
-                                updatedTime: _this.updatedTime
+                        dbase.collection("blogs").findOneAndUpdate(
+                            {id: Number(id)},
+                            {
+                                $set: {
+                                    title: _this.title,
+                                    content: _this.content,
+                                    author: _this.author,
+                                    createTime: _this.createTime,
+                                    type: _this.type,
+                                    tags: _this.tags,
+                                    privated: _this.privated,
+                                    drafts: _this.drafts,
+                                    updatedTime: _this.updatedTime
 
-                            }
-                        },
-                        {returnNewDocument: true},
-                        function (err, result) {
-                            if (err) {
+                                }
+                            },
+                            {returnNewDocument: true},
+                            function (err, result) {
+                                if (err) {
+                                    db.close();
+                                    return callback(err);//失败！返回 err 信息
+                                }
+                                callback(null, result);//成功！返回查询的用户信息
                                 db.close();
-                                return callback(err);//失败！返回 err 信息
-                            }
-                            callback(null, result);//成功！返回查询的用户信息
-                            db.close();
 
-                        }
-                    );
+                            }
+                        );
                 } else {
                     dbase.collection("blogs").findOneAndUpdate(
                         {id: Number(id)},

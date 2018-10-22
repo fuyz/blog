@@ -162,71 +162,83 @@
             /*height: 120px;*/
         }
 
-        .btn{
+        .btn {
             padding: 4px 15px;
             border-radius: 4px;
         }
+
         .btn-small {
             padding: 0 15px;
             font-size: 12px;
             border-radius: 4px;
         }
-        .btn-comment {
+
+        .btn-comment, .btn-sec-comment {
             background: #2e6da4;
             color: white;
         }
+
         .btn-cancel {
             background: #aaa;
             color: white;
         }
 
-        .comment-list-box{
+        .comment-list-box {
             margin-top: 20px;
         }
-        .comment-item{
-            border-bottom: 1px dashed #ccc;
-            padding: 10px 10px 15px;
+
+        .comment-item {
+            border-bottom: 1px dashed #666;
+            padding: 10px 10px 25px;
             line-height: 25px;
         }
-        .comment-item:hover .opt-box{
+
+        .comment-item:hover .opt-box {
             display: block;
         }
-        .c-name{
+
+        .c-name {
             font-size: 15px;
         }
-        .c-content{
+
+        .c-content {
             color: #666;
             font-size: 14px;
         }
-        .c-time{
+
+        .c-time {
             color: #999;
             font-size: 12px;
             margin-left: 20px;
         }
 
-        .opt-box{
+        .opt-box {
             color: #79a5e5;
             font-size: 12px;
             display: none;
         }
-        .opt-box span{
+
+        .opt-box span {
             margin-right: 5px;
 
         }
-        .btn-report:hover{
+
+        .btn-report:hover {
             color: #f44;
             cursor: pointer;
         }
-        .btn-reply:hover{
+
+        .btn-reply:hover {
             cursor: pointer;
             color: #2e6da4;
         }
 
-        .reply-box{
+        .reply-box {
             margin-top: 10px;
             display: none;
         }
-        .input-reply{
+
+        .input-reply {
             width: 100%;
             height: 80px;
             padding: 5px 10px;
@@ -236,8 +248,14 @@
             font-size: 14px;
             transition: height .3s ease;
         }
-        .input-reply:focus{
+
+        .input-reply:focus {
             /*height: 80px;*/
+        }
+
+        .sec-comment-item {
+            border: 1px solid #ddd;
+            padding: 1px 0 0 10px;
         }
 
 
@@ -355,7 +373,7 @@ function dateFormat(val) {
                 </div>
             </div>
             <div class="comment-list-box">
-               <!---->
+                <!---->
             </div>
         </div>
 
@@ -409,18 +427,21 @@ function dateFormat(val) {
                 });
 //                发布评论
                 $('.btn-comment').click(function () {
+                    debugger
                     if (!'<%= user.id %>') {
                         showWarningMsg('请先登录！');
                         return;
                     }
                     let comment = $('#comment-content').val().trim();
-                    if (comment === '') {
+                    if (comment == '') {
                         showWarningMsg('请输入评论内容！');
                         $('#comment-content').focus();
                         return;
                     }
-                    manage.setComment(comment);
+                    let id = $(this).parents('.comment-item').data('id');
+                    manage.setComment({comment: comment, commentId: id});
                 });
+
 
                 manage.getNewArticleList();
                 manage.countPV();
@@ -467,32 +488,39 @@ function dateFormat(val) {
                 })
             }
 
-            setComment(comment) {
-
+            setComment(obj) {
                 ajaxData('post', '/comment', {
                     articleId: '<%= blogObj.id %>',
-                    content: comment,
+                    content: obj.comment,
                     userId: '<%= user.id %>',
                     userName: '<%= user.name %>',
                     createTime: new Date().getTime(),
+                    replyId: obj.commentId ? obj.commentId : ''
                 }).then(function (res) {
                     if (res.success) {
                         $('#comment-content').val('');
+                        manage.getComment();
+
                     }
                 })
-
             }
 
             getComment() {
-                ajaxData('post', '/getComments',{
+                ajaxData('post', '/getComments', {
                     articleId: '<%= blogObj.id %>'
                 }).then(function (res) {
-                    if(res.success){
+                    if (res.success) {
                         let commentArr = res.data;
                         let commentStr = '';
-                        for(let i = 0; i < commentArr.length; i++){
+                        for (let i = 0; i < commentArr.length; i++) {
+                            let replyList = commentArr[i].replyList;
+                            let renderStr = '';
+                            if (replyList && replyList.length != 0) {
+                                renderStr = renderReplyList(findEle(replyList[0]));
+                            }
                             commentStr += `
-                                     <div class="comment-item">
+                                     <div class="comment-item" data-id="${ commentArr[i].commentId }">
+                                            ${ renderStr }
                                         <b class="c-name">${ commentArr[i].userName }：</b>
                                         <span class="c-content">${ commentArr[i].content }</span>
                                         <span class="c-time">(${ new Date(Number(commentArr[i].createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ commentArr.length - i }楼</b>)</span>
@@ -504,12 +532,47 @@ function dateFormat(val) {
                                             <textarea class="input-reply" placeholder="请输入回复内容..."></textarea>
                                             <div class="right">
                                                 <input type="submit" class="btn-cancel btn-small" value="取消">
-                                                <input type="submit" class="btn-comment btn-small" value="回复">
+                                                <input type="submit" class="btn-sec-comment  btn-small" value="回复">
                                             </div>
                                         </div>
                                     </div>`;
+                        }
+
+                        function findEle(replyId) {
+                            let ele = {};
+                            commentArr.forEach(function (e, i) {
+                                if (e.commentId == Number(replyId)) {
+                                    ele.e = e;
+                                    ele.i = i;
+                                    ele.length = commentArr.length;
+                                }
+                            });
+                            return ele;
+                        }
+
+                        function renderReplyList(eleAndI) {
+                            let obj = eleAndI.e;
+                            if (obj.replyList && obj.replyList.length != 0) {
+                                let secStr = renderReplyList(findEle(obj.replyList[0]));
+                                let str = `<div class="sec-comment-item">
+                                                ${ secStr }
+                                                <b class="c-name">${ obj.userName }：</b>
+                                                <span class="c-content">${ obj.content }</span>
+                                                <span class="c-time">(${ new Date(Number(obj.createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ eleAndI.length - eleAndI.i }楼</b>)</span>
+                                            </div>`;
+                                return str;
+                            } else {
+
+                                let str = `<div class="sec-comment-item">
+                                            <b class="c-name">${ obj.userName }：</b>
+                                            <span class="c-content">${ obj.content }</span>
+                                            <span class="c-time">(${ new Date(Number(obj.createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ eleAndI.length - eleAndI.i }楼</b>)</span>
+                                        </div>`;
+                                return str;
+                            }
 
                         }
+
                         $('.comment-list-box').html(commentStr);
 
                         $('.btn-reply').unbind().click(function () {
@@ -518,8 +581,22 @@ function dateFormat(val) {
                         $('.btn-cancel').unbind().click(function () {
                             $('.input-reply').val('');
                             $('.reply-box').hide();
-
-                        })
+                        });
+                        $('.btn-sec-comment').unbind().click(function () {
+                            if (!'<%= user.id %>') {
+                                showWarningMsg('请先登录！');
+                                return;
+                            }
+                            let $textarea = $(this).parents('.reply-box').find('.input-reply');
+                            let comment = $textarea.val().trim();
+                            if (comment === '') {
+                                showWarningMsg('请输入评论内容！');
+                                $textarea.focus();
+                                return;
+                            }
+                            let id = $(this).parents('.comment-item').data('id');
+                            manage.setComment({comment: comment, commentId: id});
+                        });
 
                     }
                 })

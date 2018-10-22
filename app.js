@@ -621,25 +621,57 @@ app.post('/setOrCancelToTop', function (req, res) {
 //评论文章
 app.post('/comment', function (req, res) {
     let obj = req.body;
-    let newComment = new Comment({
-        articleId: obj.articleId, //被评论文章id
-        content: obj.content, //评论内容
-        userId: obj.userId,  //评论者id
-        userName: obj.userName,   //作者
-        createTime: obj.createTime,   //评论时间
-        replyList: obj.replyList,  //回复列表（按盖楼顺序）
-        isDelete: obj.isDelete   //是否已经删除
-    });
+    let newComment;
+    if(obj.replyId){
+        Comment.prototype.getOneComment({commentId: Number(obj.replyId)}, function (err, data) {
+            if (err) {
+                res.json({success: false, status: 200, error: err, data: null});
+                return;
+            }
+            let replyIdList = data[0].replyList ? data[0].replyList : [] ;
+            replyIdList.unshift(obj.replyId);
+            newComment = new Comment({
+                articleId: obj.articleId, //被评论文章id
+                content: obj.content, //评论内容
+                userId: obj.userId,  //评论者id
+                userName: obj.userName,   //作者
+                createTime: obj.createTime,   //评论时间
+                replyList: replyIdList,  //回复列表（按盖楼顺序）
+                isDelete: obj.isDelete   //是否已经删除
+            });
+            newComment.writeComment(function (err, result) {
+                if (err) {
+                    res.json({success: false, status: 200, error: err, data: null});
+                    return;
+                }
+                if (result.result.ok === 1) {
+                    res.json({success: true, status: 200, data: "评论成功"});
+                }
+            })
 
-    newComment.writeComment(function (err, result) {
-        if (err) {
-            res.json({success: false, status: 200, error: err, data: null});
-            return;
-        }
-        if (result.result.ok === 1) {
-            res.json({success: true, status: 200, data: "评论成功"});
-        }
-    })
+        })
+    }else {
+        newComment = new Comment({
+            articleId: obj.articleId, //被评论文章id
+            content: obj.content, //评论内容
+            userId: obj.userId,  //评论者id
+            userName: obj.userName,   //作者
+            createTime: obj.createTime,   //评论时间
+            replyList: [],  //回复列表（按盖楼顺序）
+            isDelete: obj.isDelete   //是否已经删除
+        });
+        newComment.writeComment(function (err, result) {
+            if (err) {
+                res.json({success: false, status: 200, error: err, data: null});
+                return;
+            }
+            if (result.result.ok === 1) {
+                res.json({success: true, status: 200, data: "评论成功"});
+            }
+        })
+
+    }
+
 });
 //获取文章评论
 app.post('/getComments', function (req, res) {

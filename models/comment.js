@@ -34,26 +34,38 @@ Comment.prototype.writeComment = function (callback) {
         }
         //读取  集合
         let dbase = db.db("myblog");
+        dbase.collection("ID").find({}).toArray(function (err, ID) {
+            let commentId = Number(ID[3].commentId);
+            //要存入数据库的用户文档
+            let commentObj = {
+                commentId: commentId,
+                articleId: _this.articleId,
+                content: _this.content,
+                userId: _this.userId,
+                userName: _this.userName,
+                createTime: _this.createTime,
+                replyList: _this.replyList,
+                isDelete: _this.isDelete,
+            };
 
-        //要存入数据库的用户文档
-        let commentObj = {
-            articleId: _this.articleId,
-            content: _this.content,
-            userId: _this.userId,
-            userName: _this.userName,
-            createTime: _this.createTime,
-            replyList: _this.replyList,
-            isDelete: _this.isDelete,
-        };
-
-        dbase.collection("comments").insert(commentObj, function (err, result) {
-            if (err) {
+            dbase.collection("comments").insert(commentObj, function (err, result) {
+                if (err) {
+                    db.close();
+                    return callback(err);//错误，返回 err 信息
+                }
+                dbase.collection("ID").findOneAndUpdate(
+                    {id: 4},
+                    {
+                        $set: {
+                            commentId: ++commentId
+                        }
+                    },
+                    {returnNewDocument: true}
+                );
+                callback(null, result);//成功！err 为 null，并返回存储后的用户文档
                 db.close();
-                return callback(err);//错误，返回 err 信息
-            }
-            callback(null, result);//成功！err 为 null，并返回存储后的用户文档
-            db.close();
 
+            });
         });
 
     });
@@ -84,4 +96,29 @@ Comment.prototype.getComments = function (obj, callback) {
     });
 
 };
+
+//
+Comment.prototype.getOneComment = function (obj, callback) {
+    //数据库客户端连接
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            throw err
+        } else {
+            console.log("数据库已连接!");
+        }
+        //连接数据库
+        let dbase = db.db("myblog");
+        //读取 myblog 集合
+        dbase.collection("comments").find({commentId: obj.commentId}).toArray(function (err, data) {
+            if (err) {
+                db.close();
+                return callback(err);//错误，返回 err 信息
+            }
+            callback(null, data);//成功！返回查询的用户信息
+
+        });
+    });
+
+};
+
 
