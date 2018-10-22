@@ -84,7 +84,7 @@
             padding: 2px 0;
         }
 
-        #btn-readmore {
+        #btn-readmore, #btn-readmore-comment {
             color: #2e6da4;
             border: 1px solid #2e6da4;
         }
@@ -108,11 +108,12 @@
             overflow: hidden;
         }
 
-        .hide-article-box {
+        .hide-article-box, .hide-comment-box {
             position: absolute;
             bottom: 0;
             width: 100%;
             padding-top: 160px;
+            padding-bottom: 10px;
             background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(70%, #fff));
             background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, #fff 70%);
             display: none;
@@ -136,7 +137,8 @@
             background: white;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
             padding: 10px 20px;
-
+            overflow: hidden;
+            position: relative;
         }
 
         #comment-content {
@@ -188,8 +190,8 @@
         }
 
         .comment-item {
-            border-bottom: 1px dashed #666;
-            padding: 10px 10px 25px;
+            border-bottom: 1px dashed #999;
+            padding: 20px 10px 25px;
             line-height: 25px;
         }
 
@@ -204,6 +206,7 @@
         .c-content {
             color: #666;
             font-size: 14px;
+            display: inline;
         }
 
         .c-time {
@@ -375,6 +378,9 @@ function dateFormat(val) {
             <div class="comment-list-box">
                 <!---->
             </div>
+            <div class="hide-comment-box text-center">
+                <a class="btn" id="btn-readmore-comment">更多评论</a>
+            </div>
         </div>
 
     </div>
@@ -419,15 +425,17 @@ function dateFormat(val) {
                     $('article').height(1000);
                     $('.hide-article-box').show();
                 }
-
-//                展开更多
+//                展开更多文章
                 $('#btn-readmore').click(function () {
                     $('article').css({height: 'auto'});
                     $('.hide-article-box').hide();
                 });
+                $('#btn-readmore-comment').click(function () {
+                    $('.comment-wrap').css({height: 'auto'});
+                    $('.hide-comment-box').hide();
+                });
 //                发布评论
                 $('.btn-comment').click(function () {
-                    debugger
                     if (!'<%= user.id %>') {
                         showWarningMsg('请先登录！');
                         return;
@@ -557,7 +565,7 @@ function dateFormat(val) {
                                 let str = `<div class="sec-comment-item">
                                                 ${ secStr }
                                                 <b class="c-name">${ obj.userName }：</b>
-                                                <span class="c-content">${ obj.content }</span>
+                                                <p class="c-content">${ obj.content }</p>
                                                 <span class="c-time">(${ new Date(Number(obj.createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ eleAndI.length - eleAndI.i }楼</b>)</span>
                                             </div>`;
                                 return str;
@@ -574,14 +582,21 @@ function dateFormat(val) {
                         }
 
                         $('.comment-list-box').html(commentStr);
-
+                        let commentH = $('.comment-wrap').height();
+                        if (commentH > 1000) {
+                            $('.comment-wrap').height(600);
+                            $('.hide-comment-box').show();
+                        }
+//                        回复
                         $('.btn-reply').unbind().click(function () {
                             $(this).parent().siblings('.reply-box').slideDown();
                         })
+//                        取消评论
                         $('.btn-cancel').unbind().click(function () {
                             $('.input-reply').val('');
                             $('.reply-box').hide();
                         });
+//                        二级回复
                         $('.btn-sec-comment').unbind().click(function () {
                             if (!'<%= user.id %>') {
                                 showWarningMsg('请先登录！');
