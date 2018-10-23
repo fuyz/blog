@@ -684,7 +684,21 @@ app.post('/getComments', function (req, res) {
         res.json({success: true, status: 200, data: arr});
     })
 });
-
+//删除评论
+app.post('/deleteComment', function (req, res) {
+    Comment.prototype.delete(req.body.id, function (err, result) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        //用户不存在
+        if (result == null) {
+            res.json({success: false, status: 200, error: '评论不存在!', data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: '删除成功'});
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

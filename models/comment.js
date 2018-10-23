@@ -86,7 +86,10 @@ Comment.prototype.getComments = function (obj, callback) {
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
-        dbase.collection("comments").find({articleId: obj.articleId}).sort({"_id": -1}).toArray(function (err, data) {
+        dbase.collection("comments").find({
+            "articleId": obj.articleId,
+            "isDelete": {$ne: 1},
+        }).sort({"_id": -1}).toArray(function (err, data) {
             if (err) {
                 db.close();
                 return callback(err);//错误，返回 err 信息
@@ -98,7 +101,6 @@ Comment.prototype.getComments = function (obj, callback) {
     });
 
 };
-
 //
 Comment.prototype.getOneComment = function (obj, callback) {
     //数据库客户端连接
@@ -162,6 +164,39 @@ Comment.prototype.setCommentLength = function (obj, callback) {
 
         });
         
+    });
+
+};
+
+//删除评论
+Comment.prototype.delete = function (commentId, callback) {
+
+    MongoClient.connect(url, function (err, db) {
+        if (err) throw err;
+        console.log("数据库已连接!");
+        //读取 myblog 集合
+        let dbase = db.db("myblog");
+        try {
+            dbase.collection("comments").findOneAndUpdate(
+                {commentId: Number(commentId)},
+                {$set: {isDelete: 1}},
+                {returnNewDocument: true},
+                function (err, result) {
+                    if (err) {
+                        db.close();
+                        return callback(err);//失败！返回 err 信息
+                    }
+                    callback(null, result);//成功！返回查询的用户信息
+                    db.close();
+                }
+            );
+
+        }
+        catch (e) {
+            db.close();
+            return callback(err);//失败！返回 err 信息
+        }
+
     });
 
 };

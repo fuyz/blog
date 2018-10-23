@@ -226,7 +226,7 @@
 
         }
 
-        .btn-report:hover {
+        .btn-report:hover, .btn-delete:hover {
             color: #f44;
             cursor: pointer;
         }
@@ -415,7 +415,9 @@ function dateFormat(val) {
 
         class Manage {
             constructor() {
-                this.data = {}
+                this.data = {
+                    replyDeleted: false
+                }
             }
 
             initial() {
@@ -518,22 +520,36 @@ function dateFormat(val) {
                     articleId: '<%= blogObj.id %>'
                 }).then(function (res) {
                     if (res.success) {
+
+                        /*渲染*/
                         let commentArr = res.data;
                         let commentStr = '';
                         for (let i = 0; i < commentArr.length; i++) {
                             let replyList = commentArr[i].replyList;
-                            let renderStr = '';
+//                            每次初始化回复字符串
+                            let renderReplyStr = '';
+//                            每次遍历初始化回复key值
+                            manage.data.replyDeleted = false;
                             if (replyList && replyList.length != 0) {
-                                renderStr = renderReplyList(findEle(replyList[0]));
+                                let ele = findEle(replyList[0]);
+                                if (ele.e) {
+//                                    如果相邻被回复未被删除
+                                    renderReplyStr = renderReplyList(ele);
+                                } else {
+//                                    如果相邻被回复的评论已经删除，直接跳过当前评论
+                                    continue;
+                                }
                             }
-                            commentStr += `
+//                            当前评论
+                            let commentStrItem = `
                                      <div class="comment-item" data-id="${ commentArr[i].commentId }">
-                                            ${ renderStr }
+                                            ${ renderReplyStr }
                                         <b class="c-name">${ commentArr[i].userName }：</b>
                                         <span class="c-content">${ commentArr[i].content }</span>
                                         <span class="c-time">(${ new Date(Number(commentArr[i].createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ commentArr.length - i }楼</b>)</span>
                                         <div class="right opt-box">
-                                            <span class="btn-report ">举报</span>
+                                            ${ '<%= user.id %>' == commentArr[i].userId ? '' : '<span class="btn-report">举报</span>' }
+                                            ${ '<%= user.id %>' == commentArr[i].userId ? '<span class="btn-delete">删除</span>' : '' }
                                             <span class="btn-reply">回复</span>
                                         </div>
                                         <div class="reply-box clear">
@@ -544,8 +560,14 @@ function dateFormat(val) {
                                             </div>
                                         </div>
                                     </div>`;
+                            if (manage.data.replyDeleted) {
+//                                如果回复列表里面有删除项,则该评论不再展示
+                                commentStrItem = '';
+                            }
+//                            拼接评论
+                            commentStr += commentStrItem;
                         }
-
+//                        查询该评论
                         function findEle(replyId) {
                             let ele = {};
                             commentArr.forEach(function (e, i) {
@@ -557,12 +579,21 @@ function dateFormat(val) {
                             });
                             return ele;
                         }
-
+//                        拼接回复字符串方法
                         function renderReplyList(eleAndI) {
-                            let obj = eleAndI.e;
+                            let obj, str;
+                            if (eleAndI.e) {
+//                              如果非相邻回复未被删除
+                                obj = eleAndI.e;
+                            } else {
+//                              如果非相邻回复有被删除项
+                                manage.data.replyDeleted = true;
+                                return false;
+                            }
                             if (obj.replyList && obj.replyList.length != 0) {
+//                                有回复中有回复，调用递归
                                 let secStr = renderReplyList(findEle(obj.replyList[0]));
-                                let str = `<div class="sec-comment-item">
+                                str = `<div class="sec-comment-item">
                                                 ${ secStr }
                                                 <b class="c-name">${ obj.userName }：</b>
                                                 <p class="c-content">${ obj.content }</p>
@@ -570,8 +601,8 @@ function dateFormat(val) {
                                             </div>`;
                                 return str;
                             } else {
-
-                                let str = `<div class="sec-comment-item">
+//                                有回复没有有回复，直接拼接
+                                str = `<div class="sec-comment-item">
                                             <b class="c-name">${ obj.userName }：</b>
                                             <span class="c-content">${ obj.content }</span>
                                             <span class="c-time">(${ new Date(Number(obj.createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ eleAndI.length - eleAndI.i }楼</b>)</span>
@@ -580,8 +611,11 @@ function dateFormat(val) {
                             }
 
                         }
-
+//                        渲染
                         $('.comment-list-box').html(commentStr);
+
+
+                        /*渲染后的一项事件绑定*/
                         let commentH = $('.comment-wrap').height();
                         if (commentH > 1000) {
                             $('.comment-wrap').height(600);
@@ -612,6 +646,37 @@ function dateFormat(val) {
                             let id = $(this).parents('.comment-item').data('id');
                             manage.setComment({comment: comment, commentId: id});
                         });
+//                        删除评论
+                        $('.btn-delete').unbind().click(function () {
+                            let _this = this;
+                            swal({
+                                title: "删除",
+                                text: "确定删除该评论吗？",
+                                icon: "warning",
+                                buttons: {
+                                    cancel: '取消',
+                                    default: '删除',
+                                },
+                            }).then(value => {
+                                switch (value) {
+                                    case "default":
+                                        let id = $(this).parents('.comment-item').data('id');
+                                        ajaxData('post', '/deleteComment', {
+                                            id: id
+                                        }).then(function (res) {
+                                            if (res.success) {
+                                                $(_this).parents('.comment-item').fadeOut(function () {
+                                                    manage.getComment();
+                                                });
+                                            }
+                                        })
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            })
+                        });
+                        
 
                     }
                 })
