@@ -660,9 +660,10 @@ function dateFormat(val) {
                             }).then(value => {
                                 switch (value) {
                                     case "default":
-                                        let id = $(this).parents('.comment-item').data('id');
+                                        let commentId = $(this).parents('.comment-item').data('id');
                                         ajaxData('post', '/deleteComment', {
-                                            id: id
+                                            commentId: commentId,
+                                            articleId: '<%= blogObj.id %>'
                                         }).then(function (res) {
                                             if (res.success) {
                                                 $(_this).parents('.comment-item').fadeOut(function () {

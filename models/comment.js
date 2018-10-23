@@ -137,7 +137,10 @@ Comment.prototype.setCommentLength = function (obj, callback) {
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
-        dbase.collection("comments").find({articleId: obj.articleId}).count(function (err, result) {
+        dbase.collection("comments").find({
+            articleId: obj.articleId,
+            isDelete: {$ne: 1}
+        }).count(function (err, result) {
             if (err) {
                 db.close();
                 return callback(err);//错误，返回 err 信息
@@ -169,7 +172,7 @@ Comment.prototype.setCommentLength = function (obj, callback) {
 };
 
 //删除评论
-Comment.prototype.delete = function (commentId, callback) {
+Comment.prototype.delete = function (obj, callback) {
 
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
@@ -178,7 +181,7 @@ Comment.prototype.delete = function (commentId, callback) {
         let dbase = db.db("myblog");
         try {
             dbase.collection("comments").findOneAndUpdate(
-                {commentId: Number(commentId)},
+                {commentId: Number(obj.commentId)},
                 {$set: {isDelete: 1}},
                 {returnNewDocument: true},
                 function (err, result) {
@@ -187,6 +190,9 @@ Comment.prototype.delete = function (commentId, callback) {
                         return callback(err);//失败！返回 err 信息
                     }
                     callback(null, result);//成功！返回查询的用户信息
+
+                    //设置更新文章评论数
+                    Comment.prototype.setCommentLength({articleId: obj.articleId});
                     db.close();
                 }
             );

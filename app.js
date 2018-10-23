@@ -585,18 +585,21 @@ app.post('/upload_video', function (req, res) {
 */
 let lastViewTime = 0;
 let lastAddress = '';
+let lastArticleId = '';
 app.post('/countPv', function (req, res) {
+    let id = req.body.id;
     let networkInterfaces = os.networkInterfaces();
     let address = networkInterfaces.en0[1].address;
     let now = new Date().getTime();
-    if (now - lastViewTime < 1000 * 60 * 2 && address === lastAddress) {
+    if (lastArticleId == id && now - lastViewTime < 1000 * 60 * 2 && address === lastAddress) {
         res.json({success: false, status: 200, data: ''});
         return;
     } else {
         lastViewTime = now;
         lastAddress = address;
+        lastArticleId = id;
     }
-    let id = req.body.id;
+
     Blog.prototype.addPV(id, function (err, result) {
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
@@ -686,7 +689,7 @@ app.post('/getComments', function (req, res) {
 });
 //删除评论
 app.post('/deleteComment', function (req, res) {
-    Comment.prototype.delete(req.body.id, function (err, result) {
+    Comment.prototype.delete(req.body, function (err, result) {
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
