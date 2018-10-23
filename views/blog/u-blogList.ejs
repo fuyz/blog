@@ -352,7 +352,7 @@
             <div class="left">
                 <span>{{ $value.createTime | dateFormat }}</span>
                 <span>阅读数：{{ $value.PV ? $value.PV : 0 }}</span>
-                <span>评论数：{{ $value.commentNum ? $value.commentNum : 0 }}</span>
+                <span>评论数：{{ $value.commentCount ? $value.commentCount : 0 }}</span>
             </div>
             <% if(authorInfo.name == user.name){ %>
             <div class="right item-info-oper">

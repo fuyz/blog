@@ -48,7 +48,7 @@ Comment.prototype.writeComment = function (callback) {
                 isDelete: _this.isDelete,
             };
 
-            dbase.collection("comments").insert(commentObj, function (err, result) {
+            dbase.collection("comments").insertOne(commentObj, function (err, result) {
                 if (err) {
                     db.close();
                     return callback(err);//错误，返回 err 信息
@@ -63,7 +63,9 @@ Comment.prototype.writeComment = function (callback) {
                     {returnNewDocument: true}
                 );
                 callback(null, result);//成功！err 为 null，并返回存储后的用户文档
-                db.close();
+
+                //设置更新文章评论数
+                Comment.prototype.setCommentLength({articleId: _this.articleId});
 
             });
         });
@@ -120,5 +122,49 @@ Comment.prototype.getOneComment = function (obj, callback) {
     });
 
 };
+
+//设置评论总数到文章信息里
+Comment.prototype.setCommentLength = function (obj, callback) {
+    //数据库客户端连接
+    MongoClient.connect(url, function (err, db) {
+        if (err) {
+            throw err
+        } else {
+            console.log("数据库已连接!");
+        }
+        //连接数据库
+        let dbase = db.db("myblog");
+        //读取 myblog 集合
+        dbase.collection("comments").find({articleId: obj.articleId}).count(function (err, result) {
+            if (err) {
+                db.close();
+                return callback(err);//错误，返回 err 信息
+            }
+            dbase.collection("blogs").findOneAndUpdate(
+                {id: Number(obj.articleId)},
+                {
+                    $set: {
+                        commentCount: result,
+                    }
+                },
+                {returnNewDocument: true},
+                function (err, result) {
+                    if (err) {
+                        db.close();
+                        return callback(err);//失败！返回 err 信息
+                    }
+                    // callback(null, result);//成功！返回查询的用户信息
+                    db.close();
+                }
+            );
+            // callback(null, result);//成功！返回查询的用户信息
+            // db.close();
+
+        });
+        
+    });
+
+};
+
 
 

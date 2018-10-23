@@ -364,6 +364,8 @@ app.post('/getBlogs', function (req, res) {
         let topArticleArr = [], otherArr = [];
         //排版置顶文章
         blogArr.forEach(function (e, i) {
+
+
             if (e.toTop) {
                 topArticleArr.push(e);
             } else {
@@ -439,7 +441,6 @@ app.post('/getBlogs', function (req, res) {
             obj.pageData = blogArr.slice((obj.currentPage - 1) * 10, obj.currentPage * 10);
         }
 
-        // if(blogArr.length / pageSize)
         res.json({success: true, status: 200, data: obj});
 
     })
