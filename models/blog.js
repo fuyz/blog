@@ -270,19 +270,35 @@ Blog.prototype.getNew = function (obj, callback) {
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
-        dbase.collection("blogs").find({
-            'author': obj.author,
-            "deleted": {$ne: true},
-            "drafts": {$ne: true},
-            "privated": {$ne: true}
-        }).sort({"_id": -1}).limit(5).toArray(function (err, data) {
-            if (err) {
+        if(obj){
+            dbase.collection("blogs").find({
+                'author': obj.author,
+                "deleted": {$ne: true},
+                "drafts": {$ne: true},
+                "privated": {$ne: true}
+            }).sort({"_id": -1}).limit(5).toArray(function (err, data) {
+                if (err) {
+                    db.close();
+                    return callback(err);//错误，返回 err 信息
+                }
+                callback(null, data);//成功！返回查询的用户信息
                 db.close();
-                return callback(err);//错误，返回 err 信息
-            }
-            callback(null, data);//成功！返回查询的用户信息
-            db.close();
-        });
+            });
+        }else {
+            dbase.collection("blogs").find({
+                "deleted": {$ne: true},
+                "drafts": {$ne: true},
+                "privated": {$ne: true}
+            }).sort({"_id": -1}).limit(15).toArray(function (err, data) {
+                if (err) {
+                    db.close();
+                    return callback(err);//错误，返回 err 信息
+                }
+                callback(null, data);//成功！返回查询的用户信息
+                db.close();
+            });
+        }
+
     });
 
 };

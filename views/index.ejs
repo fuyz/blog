@@ -5,38 +5,153 @@
     <title><%= title %></title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
-    <%include ./include/header-res.ejs%>
+    <% include ./include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/common.css">-->
+    <style>
+        .main {
+            background: none;
+            font-size: 0;
+        }
+
+        .main-nav, .main-content {
+            font-size: 14px;
+            background: white;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .main-nav {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .nav-item {
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            color: #707070;
+            margin-bottom: 1px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background: #2e6da4;
+            color: white;
+        }
+
+        .main-content {
+            width: 1000px;
+            height: 800px;
+        }
+
+        .article-item{
+            padding: 18px 24px;
+            background: #fff;
+            border-bottom: 1px solid #f4f4f4;
+            position: relative;
+            -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+        }
+        .article-title a{
+            font-size: 18px;
+            line-height: 28px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .article-title a:hover{
+            color: #2e6da4;
+        }
+
+        .article-abstract{
+            margin-bottom: 4px;
+            color: #8a8a8a;
+            font-size: 14px;
+            line-height: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .article-author{
+            color: #333;
+            /*margin-right: 50px;*/
+        }
+
+
+        .article-time, .article-comment, .article-pv{
+            color: #999;
+            /*margin-right: 50px;*/
+        }
+        .article-author:hover, .article-comment:hover, .article-pv:hover{
+            color: #3399ea;
+            cursor: pointer;
+        }
+
+        .article-comment i, .article-pv i{
+            color: #3399ea;
+            margin-right: 1px;
+            padding: 2px 5px;
+
+        }
+        .interval{
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background-color: #adadad;
+            margin-top: 10px;
+            margin-left: 8px;
+            margin-right: 8px;
+            vertical-align: 4px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
-<%include ./include/header.ejs%>
+<% include ./include/header.ejs %>
 
 <section class="main">
 
-    <% let supplies = ['mop', 'broom', 'duster'] %>
-    <ul>
-        <% for(var i = 0; i < supplies.length; i++) { %>
-        <li><%= supplies[i] %></li>
-        <% } %>
-    </ul>
+    <div class="main-nav">
+        <div class="nav-item">推荐</div>
+        <div class="nav-item">最新文章</div>
+        <div class="nav-item">主题</div>
+        <div class="nav-item">主题</div>
+        <div class="nav-item">主题</div>
+        <div class="nav-item">主题</div>
+        <div class="nav-item">主题</div>
+    </div>
+    <div class="main-content">
 
-    <ul>
-        <% supplies.forEach(function(item){ %>
-        <li><%= item %></li>
-        <% }) %>
-    </ul>
+        <div class="articleListWrap">
+          <!---->
+        </div>
 
-    <h1>我是h1</h1>
-    <h1>我是h1，<%= '<span>我是span</span>' %></h1>
-    <h1>我是h1，<%- '<span>我是span</span>' %></h1>
-    <h1>我是h1，<%# '<span>我是span</span>' %></h1>
+    </div>
 
 </section>
 <aside>
 
 </aside>
 
-<%include ./include/footer-res.ejs%>
+<script type="text/html" id="new_blog_template">
+    {{ if list.length > 0 }}
+    {{each list }}
+    <div class="article-item">
+        <div class="article-title"><a href="{{ '/common/blogDetail/'+ $value.id }}" target="_blank">{{ $value.title }}</a></div>
+        <p class="article-abstract">{{ $value.content.replace(/(<\/?.+?\/?>|&nbsp;|&ldquo;|&rdquo;|&quot;)/g, "").slice(0, 200) }}</p>
+        <span class="article-author">{{ $value.author }}</span>
+        <div class="interval"></div>
+        <span class="article-time">{{ $value.createTime | dateFormat }}</span>
+        <div class="interval"></div>
+        <span class="article-pv"><i>{{ $value.PV ? $value.PV : 0 }}</i>阅读</span>
+        <div class="interval"></div>
+        <span class="article-comment"><i>{{ $value.commentCount ? $value.commentCount : 0 }}</i>评论</span>
+    </div>
+    {{ /each }}
+    {{ /if }}
+</script>
+<% include ./include/footer-res.ejs %>
 <script>
 
 
@@ -44,19 +159,36 @@
 
         class Manage {
             constructor() {
-                this.data = {
-
-                }
+                this.data = {}
             }
 
             initial() {
 
+                manage.getNewArticleList()
 
             }
+
+            getNewArticleList() {
+                ajaxData('post', '/getNewBlogs-all', {}).then(function (res) {
+                    if (res.success) {
+                        let data = {
+                            list: res.data,
+                        };
+                        let str = template('new_blog_template', data);
+                        $('.articleListWrap').html(str);
+
+                    }
+                })
+            }
+
+
         }
 
 
         let manage = new Manage();
+        template.defaults.imports.dateFormat = function (val) {
+            return new Date(Number(val)).toLocaleString();
+        };
         manage.initial();
 
 

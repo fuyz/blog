@@ -514,6 +514,16 @@ app.post('/getNewBlogs', function (req, res) {
         res.json({success: true, status: 200, data: blogArr});
     })
 });
+//获取最新博客---首页
+app.post('/getNewBlogs-all', function (req, res) {
+    Blog.prototype.getNew(null, function (err, blogArr) {
+        if (err) {
+            res.json({success: false, status: 200, error: err, data: null});
+            return;
+        }
+        res.json({success: true, status: 200, data: blogArr});
+    })
+});
 //获取博客类型分类总数
 app.post('/getTypeCount', function (req, res) {
     Blog.prototype.getType({author: req.body.author}, function (err, data) {
