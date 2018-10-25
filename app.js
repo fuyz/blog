@@ -36,7 +36,7 @@ let app = express();
 log4js.configure({
     appenders: {
         out: {type: 'console'},
-        app: {type: 'file', filename: 'application.log'}
+        app: {type: 'file', filename: 'logs/application.log'}
     },
     categories: {
         default: {appenders: ['out', 'app'], level: 'info'}
