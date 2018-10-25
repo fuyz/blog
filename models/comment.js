@@ -8,6 +8,9 @@ let mongodb = require('./db');
 let MongoClient = require('mongodb').MongoClient;
 let url = "mongodb://localhost:27017";
 
+let log4js = require('log4js');
+let logger = log4js.getLogger('blog.js');
+
 function Comment(obj) {
     this.articleId = obj.articleId; //被评论文章id
     this.content = obj.content; //评论内容
@@ -28,9 +31,10 @@ Comment.prototype.writeComment = function (callback) {
     //打开数据库
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //读取  集合
         let dbase = db.db("myblog");
@@ -50,6 +54,7 @@ Comment.prototype.writeComment = function (callback) {
 
             dbase.collection("comments").insertOne(commentObj, function (err, result) {
                 if (err) {
+                    logger.error(err);
                     db.close();
                     return callback(err);//错误，返回 err 信息
                 }
@@ -79,9 +84,10 @@ Comment.prototype.getComments = function (obj, callback) {
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //连接数据库
         let dbase = db.db("myblog");
@@ -91,6 +97,7 @@ Comment.prototype.getComments = function (obj, callback) {
             "isDelete": {$ne: 1},
         }).sort({"_id": -1}).toArray(function (err, data) {
             if (err) {
+                logger.error(err);
                 db.close();
                 return callback(err);//错误，返回 err 信息
             }
@@ -106,15 +113,17 @@ Comment.prototype.getOneComment = function (obj, callback) {
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
         dbase.collection("comments").find({commentId: obj.commentId}).toArray(function (err, data) {
             if (err) {
+                logger.error(err);
                 db.close();
                 return callback(err);//错误，返回 err 信息
             }
@@ -130,9 +139,10 @@ Comment.prototype.setCommentLength = function (obj, callback) {
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //连接数据库
         let dbase = db.db("myblog");
@@ -142,6 +152,7 @@ Comment.prototype.setCommentLength = function (obj, callback) {
             isDelete: {$ne: 1}
         }).count(function (err, result) {
             if (err) {
+                logger.error(err);
                 db.close();
                 return callback(err);//错误，返回 err 信息
             }
@@ -155,6 +166,7 @@ Comment.prototype.setCommentLength = function (obj, callback) {
                 {returnNewDocument: true},
                 function (err, result) {
                     if (err) {
+                        logger.error(err);
                         db.close();
                         return callback(err);//失败！返回 err 信息
                     }
@@ -175,8 +187,11 @@ Comment.prototype.setCommentLength = function (obj, callback) {
 Comment.prototype.delete = function (obj, callback) {
 
     MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        console.log("数据库已连接!");
+        if (err) {
+            logger.error(err);
+            return;
+        }
+        logger.info("数据库已连接!");
         //读取 myblog 集合
         let dbase = db.db("myblog");
         try {
@@ -186,6 +201,7 @@ Comment.prototype.delete = function (obj, callback) {
                 {returnNewDocument: true},
                 function (err, result) {
                     if (err) {
+                        logger.error(err);
                         db.close();
                         return callback(err);//失败！返回 err 信息
                     }

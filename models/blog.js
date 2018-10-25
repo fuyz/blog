@@ -8,6 +8,9 @@ let mongodb = require('./db');
 let MongoClient = require('mongodb').MongoClient;
 let url = "mongodb://localhost:27017";
 
+let log4js = require('log4js');
+let logger = log4js.getLogger('blog.js');
+
 function Blog(obj) {
     this.title = obj.title; //博客标题
     this.content = obj.content; //博客内容
@@ -29,9 +32,10 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
     //打开数据库
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //读取 users 集合
         let dbase = db.db("myblog");
@@ -57,6 +61,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
 
                 dbase.collection("blogs").insert(blogObj, function (err, blog) {
                     if (err) {
+                        logger.error(err);
                         db.close();
                         return callback(err);//错误，返回 err 信息
                     }
@@ -72,33 +77,34 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
             try {
                 if (_this.drafts) {
                     //草稿箱 的修改
-                        dbase.collection("blogs").findOneAndUpdate(
-                            {id: Number(id)},
-                            {
-                                $set: {
-                                    title: _this.title,
-                                    content: _this.content,
-                                    author: _this.author,
-                                    createTime: _this.createTime,
-                                    type: _this.type,
-                                    tags: _this.tags,
-                                    privated: _this.privated,
-                                    drafts: _this.drafts,
-                                    updatedTime: _this.updatedTime
-
-                                }
-                            },
-                            {returnNewDocument: true},
-                            function (err, result) {
-                                if (err) {
-                                    db.close();
-                                    return callback(err);//失败！返回 err 信息
-                                }
-                                callback(null, result);//成功！返回查询的用户信息
-                                db.close();
+                    dbase.collection("blogs").findOneAndUpdate(
+                        {id: Number(id)},
+                        {
+                            $set: {
+                                title: _this.title,
+                                content: _this.content,
+                                author: _this.author,
+                                createTime: _this.createTime,
+                                type: _this.type,
+                                tags: _this.tags,
+                                privated: _this.privated,
+                                drafts: _this.drafts,
+                                updatedTime: _this.updatedTime
 
                             }
-                        );
+                        },
+                        {returnNewDocument: true},
+                        function (err, result) {
+                            if (err) {
+                                logger.error(err);
+                                db.close();
+                                return callback(err);//失败！返回 err 信息
+                            }
+                            callback(null, result);//成功！返回查询的用户信息
+                            db.close();
+
+                        }
+                    );
                 } else {
                     dbase.collection("blogs").findOneAndUpdate(
                         {id: Number(id)},
@@ -119,6 +125,7 @@ Blog.prototype.createOrModifyBlog = function (id, callback) {
                         {returnNewDocument: true},
                         function (err, result) {
                             if (err) {
+                                logger.error(err);
                                 db.close();
                                 return callback(err);//失败！返回 err 信息
                             }
@@ -145,14 +152,16 @@ Blog.prototype.getOne = function (id, callback) {
 
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //读取 myblog 集合
         let dbase = db.db("myblog");
         dbase.collection("blogs").findOne({id: Number(id)}, function (err, res) {
             if (err) {
+                logger.error(err);
                 db.close();
                 return callback(err);//失败！返回 err 信息
             }
@@ -170,15 +179,17 @@ Blog.prototype.getAll = function (obj, callback) {
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
         dbase.collection("blogs").find({author: obj.author}).sort({"_id": -1}).toArray(function (err, data) {
             if (err) {
+                logger.error(err);
                 db.close();
                 return callback(err);//错误，返回 err 信息
             }
@@ -195,9 +206,10 @@ Blog.prototype.getType = function (obj, callback) {
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //连接数据库
         let dbase = db.db("myblog");
@@ -212,6 +224,7 @@ Blog.prototype.getType = function (obj, callback) {
                 "privated": {$ne: true}
             }).count(function (err, result) {
                 if (err) {
+                    logger.error(err);
                     reject();
                 }
                 data.type1 = result;
@@ -227,6 +240,7 @@ Blog.prototype.getType = function (obj, callback) {
                 "privated": {$ne: true}
             }).count(function (err, result) {
                 if (err) {
+                    logger.error(err);
                     reject();
                 }
                 data.type2 = result;
@@ -242,6 +256,7 @@ Blog.prototype.getType = function (obj, callback) {
                 "privated": {$ne: true}
             }).count(function (err, result) {
                 if (err) {
+                    logger.error(err);
                     reject();
                 }
                 data.type3 = result;
@@ -263,14 +278,15 @@ Blog.prototype.getNew = function (obj, callback) {
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
-        if(obj){
+        if (obj) {
             dbase.collection("blogs").find({
                 'author': obj.author,
                 "deleted": {$ne: true},
@@ -278,19 +294,21 @@ Blog.prototype.getNew = function (obj, callback) {
                 "privated": {$ne: true}
             }).sort({"_id": -1}).limit(5).toArray(function (err, data) {
                 if (err) {
+                    logger.error(err);
                     db.close();
                     return callback(err);//错误，返回 err 信息
                 }
                 callback(null, data);//成功！返回查询的用户信息
                 db.close();
             });
-        }else {
+        } else {
             dbase.collection("blogs").find({
                 "deleted": {$ne: true},
                 "drafts": {$ne: true},
                 "privated": {$ne: true}
             }).sort({"_id": -1}).limit(15).toArray(function (err, data) {
                 if (err) {
+                    logger.error(err);
                     db.close();
                     return callback(err);//错误，返回 err 信息
                 }
@@ -307,8 +325,12 @@ Blog.prototype.getNew = function (obj, callback) {
 Blog.prototype.delete = function (blogId, callback) {
 
     MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        console.log("数据库已连接!");
+        if (err) {
+            logger.error(err);
+            return;
+        }else{
+            logger.info("数据库已连接!");
+        }
         //读取 myblog 集合
         let dbase = db.db("myblog");
         let id = Number(blogId);
@@ -319,6 +341,7 @@ Blog.prototype.delete = function (blogId, callback) {
                 {returnNewDocument: true},
                 function (err, result) {
                     if (err) {
+                        logger.error(err);
                         db.close();
                         return callback(err);//失败！返回 err 信息
                     }
@@ -341,8 +364,11 @@ Blog.prototype.delete = function (blogId, callback) {
 Blog.prototype.deepDelete = function (blogId, callback) {
 
     MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        console.log("数据库已连接!");
+        if (err){
+            logger.error(err);
+            return;
+        }
+        logger.info("数据库已连接!");
         //读取 myblog 集合
         let dbase = db.db("myblog");
         let id = Number(blogId);
@@ -351,6 +377,7 @@ Blog.prototype.deepDelete = function (blogId, callback) {
                 {id: id},
                 function (err, result) {
                     if (err) {
+                        logger.error(err);
                         db.close();
                         return callback(err);//失败！返回 err 信息
                     }
@@ -374,8 +401,11 @@ Blog.prototype.deepDelete = function (blogId, callback) {
 Blog.prototype.getStatus = function (obj, callback) {
 
     MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        console.log("数据库已连接!");
+        if (err){
+            logger.error(err);
+            return;
+        }
+        logger.info("数据库已连接!");
         //读取 myblog 集合
         let dbase = db.db("myblog");
         try {
@@ -425,9 +455,10 @@ Blog.prototype.addPV = function (id, callback) {
 
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //读取 myblog 集合
         let dbase = db.db("myblog");
@@ -439,6 +470,7 @@ Blog.prototype.addPV = function (id, callback) {
             {returnNewDocument: true},
             function (err, result) {
                 if (err) {
+                    logger.error(err);
                     db.close();
                     return callback(err);//失败！返回 err 信息
                 }
@@ -456,9 +488,10 @@ Blog.prototype.toTop = function (obj, callback) {
     //打开数据库
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //读取 users 集合
         let dbase = db.db("myblog");
@@ -475,6 +508,7 @@ Blog.prototype.toTop = function (obj, callback) {
                     {returnNewDocument: true},
                     function (err, result) {
                         if (err) {
+                            logger.error(err);
                             db.close();
                             return callback(err);//失败！返回 err 信息
                         }
@@ -501,6 +535,7 @@ Blog.prototype.toTop = function (obj, callback) {
                     {returnNewDocument: true},
                     function (err, result) {
                         if (err) {
+                            logger.error(err);
                             db.close();
                             return callback(err);//失败！返回 err 信息
                         }

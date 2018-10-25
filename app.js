@@ -1,8 +1,10 @@
 let createError = require('http-errors');
 let express = require('express'); //生成一个express实例 app。
+var favicon = require('serve-favicon');
 let path = require('path');
 let cookieParser = require('cookie-parser');
-let logger = require('morgan');
+let log4js = require('log4js');
+
 // flash 是一个在 session 中用于存储信息的特定区域。信息写入 flash ，下一次显示完毕后即被清除。典型的应用是结合重定向的功能，确保信息是提供给下一个被渲染的页面。
 let flash = require('connect-flash');
 
@@ -30,8 +32,29 @@ let MongoStore = require('connect-mongo')(session);
 let sessionConfig = require('./database/session');
 
 let app = express();
-let routes = require('./routes/index');
+//日志包配置
+log4js.configure({
+    appenders: {
+        out: {type: 'console'},
+        app: {type: 'file', filename: 'application.log'}
+    },
+    categories: {
+        default: {appenders: ['out', 'app'], level: 'info'}
+    }
+});
+// logger.warn('i an the test warn!!')
+// logger.info('i an the test info!!')
+// logger.error('i an the test error!!')
+// logger.fatal('i an the test fatal!!')
+// logger.trace('Entering cheese testing');
+// logger.debug('Got cheese.');
 
+let logger = log4js.getLogger('app.js');
+app.use(log4js.connectLogger(logger, {level: log4js.levels.INFO, format: ':method :url'}));
+
+// let logger = require('morgan');
+// 加载日志中间件。
+// app.use(logger('dev'));
 
 //实现了将会话信息存储到mongoldb中
 app.use(session({
@@ -52,17 +75,15 @@ app.use(session({
 app.set('views', path.join(__dirname, 'views'));
 //设置视图模板引擎为 ejs。
 // app.set('view engine', 'jade');
+
 app.set('view engine', 'ejs');
 //注册ejs模板为html页。原来以.ejs为后缀的模板页，现在的后缀名可以是.html了, 设置视图模板的默认后缀名为.html
 // app.engine('.html', require('ejs').__express);
 // app.set('view engine', 'html');
 // app.use(flash());
 //设置/public/favicon.ico为favicon图标。
-// app.use(favicon(__dirname + '/public/favicon.ico'))
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
-
-// 加载日志中间件。
-app.use(logger('dev'));
 // 加载解析json的中间件。
 app.use(bodyParser.json());
 // 加载解析urlencoded请求体的中间件。
@@ -75,7 +96,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // app.all('/*', function (req, res, next) {
-//     console.log('------------------------hi, I have checked session!!!');
+//     logger.info('------------------------hi, I have checked session!!!');
 //     let url = req.originalUrl;
 //     if (!/login/.test(url) && !/logout/.test(url) && !/error/.test(url)) {
 //         // sessionConfig.checkUser(req)
@@ -85,7 +106,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     }
 //     // next();
 // });
-
+let routes = require('./routes/index');
 //路由控制器
 routes(app);
 
@@ -100,7 +121,6 @@ app.post('/login', function (req, res) {
     //检查用户名是否已经存在
     User.prototype.get(name, function (err, user) {
 
-        console.log(user);
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
@@ -143,7 +163,7 @@ app.post('/reg', function (req, res) {
     });
     //检查用户名是否已经存在
     newUser.get(newUser.name, function (err, user) {
-        console.log('注册前的查询：user: ' + user);
+        logger.info('注册前的查询：user: ' + user);
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
@@ -158,7 +178,7 @@ app.post('/reg', function (req, res) {
                 res.json({success: false, status: 200, error: err, data: null});
                 return;
             }
-            console.log(user);
+            logger.info(user);
             req.session.user = user;//用户信息存入 session
             res.json({success: true, status: 200, data: null});
 
@@ -597,27 +617,32 @@ let lastViewTime = 0;
 let lastAddress = '';
 let lastArticleId = '';
 app.post('/countPv', function (req, res) {
-    let id = req.body.id;
-    let networkInterfaces = os.networkInterfaces();
-    let address = networkInterfaces.en0[1].address;
-    let now = new Date().getTime();
-    if (lastArticleId == id && now - lastViewTime < 1000 * 60 * 2 && address === lastAddress) {
-        res.json({success: false, status: 200, data: ''});
-        return;
-    } else {
-        lastViewTime = now;
-        lastAddress = address;
-        lastArticleId = id;
+    try {
+        let id = req.body.id;
+        let networkInterfaces = os.networkInterfaces();
+        let address = networkInterfaces.en0[1].address;
+        let now = new Date().getTime();
+        if (lastArticleId == id && now - lastViewTime < 1000 * 60 * 2 && address === lastAddress) {
+            res.json({success: false, status: 200, data: ''});
+            return;
+        } else {
+            lastViewTime = now;
+            lastAddress = address;
+            lastArticleId = id;
+        }
+
+        Blog.prototype.addPV(id, function (err, result) {
+            if (err) {
+                res.json({success: false, status: 200, error: err, data: null});
+                return;
+            }
+            res.json({success: true, status: 200, data: ''});
+
+        })
+    }catch (err){
+        logger.error(err);
     }
 
-    Blog.prototype.addPV(id, function (err, result) {
-        if (err) {
-            res.json({success: false, status: 200, error: err, data: null});
-            return;
-        }
-        res.json({success: true, status: 200, data: ''});
-
-    })
 });
 //设置置顶
 app.post('/setOrCancelToTop', function (req, res) {
@@ -636,13 +661,13 @@ app.post('/setOrCancelToTop', function (req, res) {
 app.post('/comment', function (req, res) {
     let obj = req.body;
     let newComment;
-    if(obj.replyId){
+    if (obj.replyId) {
         Comment.prototype.getOneComment({commentId: Number(obj.replyId)}, function (err, data) {
             if (err) {
                 res.json({success: false, status: 200, error: err, data: null});
                 return;
             }
-            let replyIdList = data[0].replyList ? data[0].replyList : [] ;
+            let replyIdList = data[0].replyList ? data[0].replyList : [];
             replyIdList.unshift(obj.replyId);
             newComment = new Comment({
                 articleId: obj.articleId, //被评论文章id
@@ -664,7 +689,7 @@ app.post('/comment', function (req, res) {
             })
 
         })
-    }else {
+    } else {
         newComment = new Comment({
             articleId: obj.articleId, //被评论文章id
             content: obj.content, //评论内容
@@ -730,7 +755,9 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
+
 module.exports = app;
+
 
 
 

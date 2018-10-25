@@ -2,27 +2,38 @@ let Blog = require('../models/blog.js');
 let User = require('../models/user.js');
 let sessionConfig = require('../database/session');
 
+let log4js = require('log4js');
+let logger = log4js.getLogger('blog.js');
+
 module.exports = function (app) {
     app.get('/', function (req, res) {
-        let userInfo = sessionConfig.getUser(req, res);
-        res.render('index', {title: '首页', user: userInfo ? userInfo : {}});
+        try {
+            let userInfo = sessionConfig.getUser(req, res);
+            res.render('index', {title: '首页', user: userInfo ? userInfo : {}});
+        }catch (err){
+            logger.error(err);
+        }
+
     });
     app.get('/login', function (req, res) {
         res.render('login', {title: '登录注册'});
     });
     app.get('/logout', function (req, res) {
-        req.session.destroy(function(err) {
-            if(err){
-                res.json({success: false, error:'退出登录失败', data: null, status: 200});
-                return;
-            }
-            // req.session.loginUser = null;
-            res.clearCookie('skey');
-            res.render('login', {title: '登录注册'});
+        try {
+            req.session.destroy(function(err) {
+                if(err){
+                    logger.error(err);
+                    res.json({success: false, error:'退出登录失败', data: null, status: 200});
+                    return;
+                }
+                // req.session.loginUser = null;
+                res.clearCookie('skey');
+                res.render('login', {title: '登录注册'});
 
-        });
-
-        // res.render('login', {title: '登录注册'});
+            });
+        }catch (err){
+            logger.error(err);
+        }
 
     });
     app.get('/error', function (req, res) {
@@ -39,6 +50,7 @@ module.exports = function (app) {
         } else {
             Blog.prototype.getOne(req.params.blogId, function (err, blog) {
                 if (err) {
+                    logger.error(err);
                     res.json({success: false, status: 200, error: err, data: null});
                     return;
                 }
@@ -60,11 +72,12 @@ module.exports = function (app) {
 
     });
     app.get('/common/blogDetail/:blogId', function (req, res) {
-        console.log('url参数对象 :', req.params);
+        logger.info('url参数对象 :', req.params);
         let userInfo = sessionConfig.getUser(req, res);
         //博客查询
         Blog.prototype.getOne(req.params.blogId, function (err, blog) {
             if (err) {
+                logger.error(err);
                 res.json({success: false, status: 200, error: err, data: null});
                 return;
             }
@@ -77,6 +90,7 @@ module.exports = function (app) {
             //查询作者信息
             User.prototype.get(blog.author, function (err, user) {
                 if (err) {
+                    logger.error(err);
                     res.json({success: false, status: 200, error: err, data: null});
                     return;
                 }
@@ -94,11 +108,12 @@ module.exports = function (app) {
     });
     //我的博客
     app.get('/common/u-blogList', function (req, res, next) {
-        console.log('url参数对象 :', req.query);
+        logger.info('url参数对象 :', req.query);
         let userInfo = sessionConfig.getUser(req, res);
         //查询作者信息
         User.prototype.get(req.query.author, function (err, user) {
             if (err) {
+                logger.error(err);
                 res.json({success: false, status: 200, error: err, data: null});
                 return;
             }

@@ -8,6 +8,9 @@ let mongodb = require('./db');
 let MongoClient = require('mongodb').MongoClient;
 let url = "mongodb://localhost:27017";
 
+let log4js = require('log4js');
+let logger = log4js.getLogger('blog.js');
+
 function User(user) {
     this.name = user.name;
     this.password = user.password;
@@ -23,9 +26,10 @@ User.prototype.save = function (callback) {
     //打开数据库
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //读取 users 集合
         let dbase = db.db("myblog");
@@ -43,6 +47,7 @@ User.prototype.save = function (callback) {
 
             dbase.collection("users").insert(user, function (err, user) {
                 if (err) {
+                    logger.error(err);
                     db.close();
                     return callback(err);//错误，返回 err 信息
                 }
@@ -62,14 +67,16 @@ User.prototype.get = function (name, callback) {
 
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return;
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
         //读取 users 集合
         let dbase = db.db("myblog");
         dbase.collection("users").findOne({name: name}, function (err, res) {
             if (err) {
+                logger.error(err);
                 db.close();
                 return callback(err);//失败！返回 err 信息
             }
@@ -86,9 +93,10 @@ User.prototype.getAll = function ({}, callback) {
     //数据库客户端连接
     MongoClient.connect(url, function (err, db) {
         if (err) {
-            throw err
+            logger.error(err);
+            return
         } else {
-            console.log("数据库已连接!");
+            logger.info("数据库已连接!");
         }
 
         //连接数据库
@@ -96,6 +104,7 @@ User.prototype.getAll = function ({}, callback) {
         //读取 users 集合
         dbase.collection("users").find({}).toArray(function (err, data) {
             if (err) {
+                logger.error(err);
                 db.close();
                 return callback(err);//错误，返回 err 信息
             }
@@ -111,8 +120,12 @@ User.prototype.getAll = function ({}, callback) {
 User.prototype.delete = function (id, callback) {
 
     MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        console.log("数据库已连接!");
+        if (err) {
+            logger.error(err);
+            return
+        } else {
+            logger.info("数据库已连接!");
+        }
         //读取 users 集合
         //读取 users 集合
         let dbase = db.db("myblog");
@@ -120,12 +133,14 @@ User.prototype.delete = function (id, callback) {
         try {
             dbase.collection("users").deleteOne({id: index}, function (err, result) {
                 if (err) {
+                    logger.error(err);
                     db.close();
                     return callback(err);//失败！返回 err 信息
                 }
                 callback(null, result);//成功！返回查询的用户信息
             });
         } catch (e) {
+            logger.error(err);
             db.close();
             return callback(err);//失败！返回 err 信息
         }
@@ -138,8 +153,12 @@ User.prototype.delete = function (id, callback) {
 User.prototype.update = function (obj, callback) {
 
     MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        console.log("数据库已连接!");
+        if (err) {
+            logger.error(err);
+            return;
+        } else {
+            logger.info("数据库已连接!");
+        }
         //读取 users 集合
         //读取 users 集合
         let dbase = db.db("myblog");
@@ -148,9 +167,10 @@ User.prototype.update = function (obj, callback) {
             dbase.collection("users").findOneAndUpdate(
                 {id: index},
                 {$set: {password: obj.password, email: obj.email}},
-                { returnNewDocument : true },
+                {returnNewDocument: true},
                 function (err, result) {
                     if (err) {
+                        logger.error(err);
                         db.close();
                         return callback(err);//失败！返回 err 信息
                     }
@@ -160,6 +180,7 @@ User.prototype.update = function (obj, callback) {
         }
         catch (e) {
             db.close();
+            logger.error(err);
             return callback(err);//失败！返回 err 信息
         }
 
