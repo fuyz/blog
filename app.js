@@ -620,7 +620,13 @@ app.post('/countPv', function (req, res) {
     try {
         let id = req.body.id;
         let networkInterfaces = os.networkInterfaces();
-        let address = networkInterfaces.en0[1].address;
+        logger.warn(networkInterfaces); 
+        let address;
+        if(networkInterfaces.en0){
+            address = networkInterfaces.en0[1].address;
+        }else if(networkInterfaces.eth0){
+            address = networkInterfaces.eth0[0].address;
+        }
         let now = new Date().getTime();
         if (lastArticleId == id && now - lastViewTime < 1000 * 60 * 2 && address === lastAddress) {
             res.json({success: false, status: 200, data: ''});
