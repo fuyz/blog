@@ -1,6 +1,6 @@
 let createError = require('http-errors');
 let express = require('express'); //生成一个express实例 app。
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let log4js = require('log4js');
@@ -82,7 +82,7 @@ app.set('view engine', 'ejs');
 // app.set('view engine', 'html');
 // app.use(flash());
 //设置/public/favicon.ico为favicon图标。
-app.use(favicon(__dirname + '/public/favicon.ico'));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 
 // 加载解析json的中间件。
 app.use(bodyParser.json());
