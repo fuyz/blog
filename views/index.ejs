@@ -179,7 +179,9 @@
             }
 
             getNewArticleList(key) {
+                $('.loading-mask').show();
                 ajaxData('post', '/getNewBlogs-all', {key: key}).then(function (res) {
+                    $('.loading-mask').hide();
                     if (res.success) {
                         let data = {
                             list: res.data,
