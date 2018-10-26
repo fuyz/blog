@@ -164,19 +164,36 @@ User.prototype.update = function (obj, callback) {
         let dbase = db.db("myblog");
         let index = Number(obj.id);
         try {
-            dbase.collection("users").findOneAndUpdate(
-                {id: index},
-                {$set: {password: obj.password, email: obj.email}},
-                {returnNewDocument: true},
-                function (err, result) {
-                    if (err) {
-                        logger.error(err);
-                        db.close();
-                        return callback(err);//失败！返回 err 信息
+            if(obj.password == ''){
+                dbase.collection("users").findOneAndUpdate(
+                    {id: index},
+                    {$set: {email: obj.email}},
+                    {returnNewDocument: true},
+                    function (err, result) {
+                        if (err) {
+                            logger.error(err);
+                            db.close();
+                            return callback(err);//失败！返回 err 信息
+                        }
+                        callback(null, result);//成功！返回查询的用户信息
                     }
-                    callback(null, result);//成功！返回查询的用户信息
-                }
-            );
+                );
+            }else{
+                dbase.collection("users").findOneAndUpdate(
+                    {id: index},
+                    {$set: {password: obj.password, email: obj.email}},
+                    {returnNewDocument: true},
+                    function (err, result) {
+                        if (err) {
+                            logger.error(err);
+                            db.close();
+                            return callback(err);//失败！返回 err 信息
+                        }
+                        callback(null, result);//成功！返回查询的用户信息
+                    }
+                );
+            }
+
         }
         catch (e) {
             db.close();

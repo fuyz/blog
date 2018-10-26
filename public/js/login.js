@@ -79,8 +79,9 @@ $(document).ready(function () {
 
             });
 
+
             // 登录
-            $('.loginBtn').click(function () {
+            function loginFn() {
                 let user = $('#l-user').val().trim();
                 let password = $('#l-p').val().trim();
                 if (user == '') {
@@ -129,7 +130,14 @@ $(document).ready(function () {
                 }, function (err) {
                     console.log(err)
                 });
+            }
+            $('#l-p').keydown(function (e) {
+               let event = window.event || e;
+               if(event.keyCode == 13){
+                   loginFn();
+               }
             });
+            $('.loginBtn').click(loginFn);
 
         }
     }

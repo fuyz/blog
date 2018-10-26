@@ -8,10 +8,11 @@
     <% include ./include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/index.css">-->
     <style>
-        .main-userTab{
+        .main-userTab {
             min-height: 800px;
             position: relative;
         }
+
         .searchWrap {
             margin: 10px 0 40px;
         }
@@ -25,11 +26,11 @@
         .tabWrap table {
             margin: 0;
         }
-        .tabWrap table th{
+
+        .tabWrap table th {
             background: #2e6da4;
             color: white;
         }
-
 
         .pagination {
             position: absolute;
@@ -39,7 +40,7 @@
             float: right;
         }
 
-        .popup{
+        .popup {
             position: fixed;
             z-index: 20;
             top: 50%;
@@ -48,32 +49,37 @@
             width: 500px;
             /*height: 400px;*/
             background: white;
-            padding:  0 40px;
+            padding: 0 40px;
             display: none;
         }
-        .popup-header{
+
+        .popup-header {
             text-align: center;
             border-bottom: 1px solid #ccc;
         }
-        .popup-main{
+
+        .popup-main {
             margin: 40px auto;
         }
-        .popup-row{
+
+        .popup-row {
             padding: 5px 0;
         }
-        .popup-row span{
+
+        .popup-row span {
             display: inline-block;
             width: 100px;
             text-align: right;
             margin-right: 10px;
         }
 
-        .popup-footer{
+        .popup-footer {
             text-align: center;
             border-top: 1px solid #ccc;
             padding: 20px 0;
         }
-        .popup-footer button{
+
+        .popup-footer button {
             margin: 0 20px;
         }
 
@@ -137,13 +143,13 @@
 <script id="user_template" type="text/html">
     {{ if list.length > 0 }}
     {{each list }}
-    <tr >
+    <tr>
         <td>{{ $value.id }}</td>
         <td>{{ $value.name }}</td>
         <td>{{ $value.email }}</td>
         <td data-name="{{ $value.name }}" data-email="{{ $value.email }}" data-id="{{$value.id}}">
             <i class="fa fa-pencil-square-o modify " aria-hidden="true" data-tip="编辑"></i>
-            <i class="fa fa-trash-o delete " aria-hidden="true" data-tip="详情" ></i>
+            <i class="fa fa-trash-o delete " aria-hidden="true" data-tip="详情"></i>
         </td>
 
     </tr>
@@ -191,29 +197,30 @@
                 $('#submitBtn').click(function () {
                     let p1 = $('#pwd1').val().trim();
                     let p2 = $('#pwd2').val().trim();
-                   if (p1 != '' && p1 != p2) {
+                    if (p1 != '' && p1 != p2) {
                         showErrorMsg('两次输入的密码不一致');
                         return;
                     }
                     let email = $('#email').val().trim();
                     ajaxData('post', '/updateUsers', {
-                        id: userManage.data.modifyId ,
+                        id: userManage.data.modifyId,
                         password: p1,
                         email: email
                     }).then(function (res) {
-                        if(res.success){
+                        if (res.success) {
                             $('.popup-close').click();
                             userManage.getUsers({});
                         }
                     })
+
+
                 });
             }
 
             getUsers(obj) {
                 ajaxData('post', '/getUsers', {
                     pagesize: 10,
-                    currentPage: obj.currentPage,
-
+                    currentPage: obj.currentPage
                 }).then(function (res) {
                     if (res.success) {
                         let data = {
@@ -249,7 +256,7 @@
                                             ajaxData('post', '/deleteUsers', {
                                                 id: id
                                             }).then(function (res) {
-                                                if(res.success){
+                                                if (res.success) {
                                                     $(_this).parents('tr').fadeOut(1000, function () {
                                                         userManage.getUsers({});
                                                     })
