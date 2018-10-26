@@ -34,6 +34,10 @@
             cursor: pointer;
             transition: all 0.2s;
         }
+        .nav-item.on{
+            background: #2e6da4;
+            color: white;
+        }
 
         .nav-item:hover {
             background: #2e6da4;
@@ -113,13 +117,12 @@
 <section class="main">
 
     <div class="main-nav">
-        <div class="nav-item">推荐</div>
-        <div class="nav-item">最新文章</div>
-        <div class="nav-item">主题</div>
-        <div class="nav-item">主题</div>
-        <div class="nav-item">主题</div>
-        <div class="nav-item">主题</div>
-        <div class="nav-item">主题</div>
+        <div class="nav-item" data-key="recommend">推荐</div>
+        <div class="nav-item" data-key="comment">热门评论</div>
+        <div class="nav-item" data-key="read">热门阅读</div>
+        <div class="nav-item">暂无</div>
+        <div class="nav-item">暂无</div>
+        <div class="nav-item">暂无</div>
     </div>
     <div class="main-content">
 
@@ -164,12 +167,19 @@
 
             initial() {
 
-                manage.getNewArticleList()
+                $('.nav-item').click(function () {
+                    let key = $(this).data('key');
+                    if(!key)return;
+                    manage.getNewArticleList(key);
+                    $('.nav-item').removeClass('on');
+                    $(this).addClass('on');
+                });
+                $('.nav-item').eq(0).click();
 
             }
 
-            getNewArticleList() {
-                ajaxData('post', '/getNewBlogs-all', {}).then(function (res) {
+            getNewArticleList(key) {
+                ajaxData('post', '/getNewBlogs-all', {key: key}).then(function (res) {
                     if (res.success) {
                         let data = {
                             list: res.data,

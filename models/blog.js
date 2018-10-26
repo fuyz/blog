@@ -286,7 +286,8 @@ Blog.prototype.getNew = function (obj, callback) {
         //连接数据库
         let dbase = db.db("myblog");
         //读取 myblog 集合
-        if (obj) {
+        if (obj.author) {
+            //用户的最新文章
             dbase.collection("blogs").find({
                 'author': obj.author,
                 "deleted": {$ne: true},
@@ -301,12 +302,44 @@ Blog.prototype.getNew = function (obj, callback) {
                 callback(null, data);//成功！返回查询的用户信息
                 db.close();
             });
-        } else {
+        }else if(obj.key == 'comment'){
+            //评论最热
+            dbase.collection("blogs").find({
+                "deleted": {$ne: true},
+                "drafts": {$ne: true},
+                "privated": {$ne: true}
+            }).sort({"commentCount": -1}).limit(15).toArray(function (err, data) {
+                if (err) {
+                    logger.error(err);
+                    db.close();
+                    return callback(err);//错误，返回 err 信息
+                }
+                callback(null, data);//成功！返回查询的用户信息
+                db.close();
+            });
+
+        } else if(obj.key == 'recommend' ){
+            // 首页的最新文章
             dbase.collection("blogs").find({
                 "deleted": {$ne: true},
                 "drafts": {$ne: true},
                 "privated": {$ne: true}
             }).sort({"_id": -1}).limit(15).toArray(function (err, data) {
+                if (err) {
+                    logger.error(err);
+                    db.close();
+                    return callback(err);//错误，返回 err 信息
+                }
+                callback(null, data);//成功！返回查询的用户信息
+                db.close();
+            });
+        } else if(obj.key == 'read' ){
+            // 首页的最新文章
+            dbase.collection("blogs").find({
+                "deleted": {$ne: true},
+                "drafts": {$ne: true},
+                "privated": {$ne: true}
+            }).sort({"PV": -1}).limit(15).toArray(function (err, data) {
                 if (err) {
                     logger.error(err);
                     db.close();

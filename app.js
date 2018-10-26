@@ -536,7 +536,7 @@ app.post('/getNewBlogs', function (req, res) {
 });
 //获取最新博客---首页
 app.post('/getNewBlogs-all', function (req, res) {
-    Blog.prototype.getNew(null, function (err, blogArr) {
+    Blog.prototype.getNew(req.body, function (err, blogArr) {
         if (err) {
             res.json({success: false, status: 200, error: err, data: null});
             return;
