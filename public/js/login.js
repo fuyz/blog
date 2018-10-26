@@ -111,7 +111,7 @@ $(document).ready(function () {
                             setTimeout(function () {
                                 let redirectUrl = location.search.split('=')[1];
                                 if(redirectUrl){
-                                    window.location.href = redirectUrl;
+                                    window.location.href = decodeURIComponent(redirectUrl);
                                 }else {
                                     window.location.href = '/';
                                 }

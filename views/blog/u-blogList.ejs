@@ -322,6 +322,8 @@
     {{each list }}
     <li><a href="{{ '/common/blogDetail/'+ $value.id }}" target="_blank">{{ $value.title }}</a></li>
     {{ /each }}
+    {{ else }}
+    <p class="noData">暂无数据</p>
     {{ /if }}
 </script>
 <!--全部文章列表-->
@@ -368,7 +370,7 @@
     </li>
     {{ /each }}
     {{ else }}
-    <p class="noData">没有符合条件的文章</p>
+    <p class="noData">暂无数据</p>
     {{ /if }}
 </script>
 <!--分页-->

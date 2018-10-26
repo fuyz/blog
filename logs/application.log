@@ -2037,3 +2037,1450 @@
 [2018-10-26T11:32:27.581] [INFO] app.js - GET /lib/pixi.min.js
 [2018-10-26T11:32:27.784] [INFO] app.js - GET /images/logo.jpg
 [2018-10-26T11:32:27.863] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:56:53.922] [INFO] app.js - GET /logout
+[2018-10-26T11:56:53.956] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:56:53.956] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:56:53.958] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:56:53.958] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:56:53.959] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:56:53.960] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:56:53.964] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:56:53.965] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:56:53.969] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:56:53.971] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:56:53.972] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:56:54.263] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:56:54.357] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:56:56.997] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T11:56:57.000] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:56:57.011] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T11:56:57.038] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:56:57.039] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:56:57.039] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:56:57.040] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:56:57.043] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:56:57.043] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:56:57.089] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:56:57.090] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:56:57.090] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:56:57.116] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T11:56:57.168] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:56:57.169] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:56:57.170] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:56:57.172] [INFO] app.js - POST /getBlogs
+[2018-10-26T11:56:57.176] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:56:57.181] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:57:01.973] [INFO] app.js - GET /logout?from=http://localhost:3000/common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T11:57:01.994] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:57:01.994] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:57:01.995] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:57:01.995] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:57:01.999] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:57:01.999] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:57:01.999] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:57:02.001] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:57:02.001] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:57:02.002] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:57:02.004] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:57:02.081] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:57:02.142] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:57:05.259] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:57:05.260] [INFO] app.js - POST /login
+[2018-10-26T11:57:07.273] [INFO] blog.js - url参数对象 : { author: '' }
+[2018-10-26T11:57:07.277] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:57:07.278] [INFO] app.js - GET /common/u-blogList?author
+[2018-10-26T11:57:26.339] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:57:26.340] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:57:26.340] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:57:26.341] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:57:26.385] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:58:35.936] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T11:58:35.939] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:58:35.948] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T11:58:35.988] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:58:35.991] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:58:35.992] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:58:35.992] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:58:35.993] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:58:36.174] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:58:36.174] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:58:36.175] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:58:36.176] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:58:36.651] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T11:58:36.684] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:58:36.750] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:58:36.750] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:58:36.753] [INFO] app.js - POST /getBlogs
+[2018-10-26T11:58:36.753] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:58:36.754] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:58:36.757] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:58:53.915] [INFO] app.js - GET /logout
+[2018-10-26T11:58:53.954] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:58:53.955] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:58:53.959] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:58:53.965] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:58:53.966] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:58:53.968] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:58:53.974] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:58:53.975] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:58:53.980] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:58:53.985] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:58:53.986] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:58:54.215] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:58:54.237] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:58:54.436] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:58:58.581] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T11:58:58.585] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:58:58.591] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T11:58:58.632] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:58:58.633] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:58:58.634] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:58:58.635] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:58:58.636] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:58:58.636] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:58:58.754] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:58:58.755] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:58:58.755] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:58:59.353] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T11:58:59.381] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:58:59.436] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:58:59.436] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:58:59.437] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:58:59.438] [INFO] app.js - POST /getBlogs
+[2018-10-26T11:58:59.439] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:58:59.444] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:59:02.040] [INFO] app.js - GET /logout?from=http%3A%2F%2Flocalhost%3A3000%2Fcommon%2Fu-blogList%3Fauthor%3D%25E4%25BB%2598%25E9%25A2%2596%25E5%25BF%2597%23
+[2018-10-26T11:59:02.070] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:59:02.071] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:59:02.071] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:59:02.073] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:59:02.074] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:59:02.075] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:59:02.090] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:59:02.091] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:59:02.091] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:59:02.096] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:59:02.098] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:59:02.257] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:59:02.278] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:59:02.465] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:59:29.772] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T11:59:29.775] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:29.782] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T11:59:29.817] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:59:29.817] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:59:29.818] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:59:29.820] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:59:29.821] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:59:29.824] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:59:29.973] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:59:29.974] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:59:29.975] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:59:30.756] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T11:59:30.790] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:59:30.853] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:30.855] [INFO] app.js - POST /getBlogs
+[2018-10-26T11:59:30.855] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:30.858] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:59:30.859] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:30.862] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:59:33.033] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T11:59:33.036] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:33.044] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T11:59:33.080] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:59:33.081] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:59:33.081] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:59:33.082] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:59:33.083] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:59:33.085] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:59:33.201] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:59:33.201] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:59:33.202] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:59:34.303] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T11:59:34.331] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:59:34.390] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:34.391] [INFO] app.js - POST /getBlogs
+[2018-10-26T11:59:34.392] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:34.393] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:34.395] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:59:34.397] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:59:34.499] [INFO] app.js - GET /favicon.ico
+[2018-10-26T11:59:35.066] [INFO] app.js - GET /logout?from=http%3A%2F%2Flocalhost%3A3000%2Fcommon%2Fu-blogList%3Fauthor%3D%25E4%25BB%2598%25E9%25A2%2596%25E5%25BF%2597%23
+[2018-10-26T11:59:35.099] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:59:35.099] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:59:35.102] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:59:35.104] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:59:35.104] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:59:35.105] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:59:35.112] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:59:35.112] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:59:35.113] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:59:35.115] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:59:35.118] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:59:35.283] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:59:35.307] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:59:35.569] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:59:41.828] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:41.830] [INFO] app.js - POST /login
+[2018-10-26T11:59:43.859] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T11:59:43.861] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:43.869] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T11:59:43.913] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:59:43.913] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:59:43.915] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:59:43.916] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:59:43.916] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:59:44.027] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:59:44.028] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:59:44.030] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:59:44.030] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:59:44.802] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T11:59:44.804] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:59:44.891] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:44.891] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:44.892] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:59:44.895] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:59:44.895] [INFO] app.js - POST /getBlogs
+[2018-10-26T11:59:44.898] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:59:48.156] [INFO] app.js - GET /logout?from=http%3A%2F%2Flocalhost%3A3000%2Fcommon%2Fu-blogList%3Fauthor%3D%25E4%25BB%2598%25E9%25A2%2596%25E5%25BF%2597%23
+[2018-10-26T11:59:48.188] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:59:48.189] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:59:48.190] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:59:48.192] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:59:48.192] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:59:48.193] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:59:48.200] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:59:48.204] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:59:48.204] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:59:48.206] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:59:48.209] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:59:48.362] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:59:48.384] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T11:59:48.555] [INFO] app.js - GET /images/star.png
+[2018-10-26T12:00:33.943] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T12:00:33.951] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:33.959] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T12:00:33.995] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T12:00:33.998] [INFO] app.js - GET /css/common.css
+[2018-10-26T12:00:33.999] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T12:00:34.006] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T12:00:34.006] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T12:00:34.008] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T12:00:34.162] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T12:00:34.163] [INFO] app.js - GET /js/common.js
+[2018-10-26T12:00:34.163] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T12:00:38.036] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T12:00:38.043] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T12:00:38.118] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:38.119] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:38.120] [INFO] app.js - POST /getBlogs
+[2018-10-26T12:00:38.121] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:38.123] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T12:00:38.124] [INFO] app.js - POST /getTypeCount
+[2018-10-26T12:00:44.954] [INFO] blog.js - url参数对象 : { author: 'f' }
+[2018-10-26T12:00:44.958] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:44.964] [INFO] app.js - GET /common/u-blogList?author=f
+[2018-10-26T12:00:44.999] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T12:00:45.000] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T12:00:45.003] [INFO] app.js - GET /css/common.css
+[2018-10-26T12:00:45.005] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T12:00:45.006] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T12:00:45.008] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T12:00:45.122] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T12:00:45.122] [INFO] app.js - GET /js/common.js
+[2018-10-26T12:00:45.123] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T12:00:47.316] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T12:00:47.320] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T12:00:47.396] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:47.397] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:47.398] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T12:00:47.400] [INFO] app.js - POST /getBlogs
+[2018-10-26T12:00:47.401] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:47.404] [INFO] app.js - POST /getTypeCount
+[2018-10-26T12:00:49.465] [INFO] app.js - GET /logout?from=http%3A%2F%2Flocalhost%3A3000%2Fcommon%2Fu-blogList%3Fauthor%3Df
+[2018-10-26T12:00:49.493] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T12:00:49.494] [INFO] app.js - GET /css/common.css
+[2018-10-26T12:00:49.495] [INFO] app.js - GET /css/login.css
+[2018-10-26T12:00:49.497] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T12:00:49.497] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T12:00:49.498] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T12:00:49.507] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T12:00:49.507] [INFO] app.js - GET /js/common.js
+[2018-10-26T12:00:49.508] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T12:00:49.513] [INFO] app.js - GET /js/login.js
+[2018-10-26T12:00:49.514] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T12:00:49.696] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T12:00:49.719] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T12:00:49.919] [INFO] app.js - GET /images/star.png
+[2018-10-26T12:00:53.540] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:53.541] [INFO] app.js - POST /login
+[2018-10-26T12:00:55.574] [INFO] blog.js - url参数对象 : { author: 'f' }
+[2018-10-26T12:00:55.576] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:55.585] [INFO] app.js - GET /common/u-blogList?author=f
+[2018-10-26T12:00:55.630] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T12:00:55.630] [INFO] app.js - GET /css/common.css
+[2018-10-26T12:00:55.632] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T12:00:55.633] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T12:00:55.634] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T12:00:55.747] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T12:00:55.748] [INFO] app.js - GET /js/common.js
+[2018-10-26T12:00:55.749] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T12:00:55.752] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T12:00:56.512] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T12:00:56.514] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T12:00:56.588] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:56.589] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:56.592] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T12:00:56.593] [INFO] app.js - POST /getBlogs
+[2018-10-26T12:00:56.594] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:00:56.597] [INFO] app.js - POST /getTypeCount
+[2018-10-26T12:01:11.964] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T12:01:11.966] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:11.974] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T12:01:12.017] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T12:01:12.018] [INFO] app.js - GET /css/common.css
+[2018-10-26T12:01:12.022] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T12:01:12.023] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T12:01:12.024] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T12:01:12.146] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T12:01:12.147] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T12:01:12.147] [INFO] app.js - GET /js/common.js
+[2018-10-26T12:01:12.148] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T12:01:12.439] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T12:01:12.442] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T12:01:12.505] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:12.506] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:12.508] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:12.509] [INFO] app.js - POST /getBlogs
+[2018-10-26T12:01:12.510] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T12:01:12.512] [INFO] app.js - POST /getTypeCount
+[2018-10-26T12:01:20.825] [INFO] blog.js - url参数对象 : { blogId: '2018032' }
+[2018-10-26T12:01:20.834] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:20.839] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:20.853] [INFO] app.js - GET /common/blogDetail/2018032
+[2018-10-26T12:01:20.876] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T12:01:20.877] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T12:01:20.877] [INFO] app.js - GET /css/common.css
+[2018-10-26T12:01:20.877] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T12:01:20.878] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T12:01:21.007] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T12:01:21.007] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T12:01:21.008] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T12:01:21.009] [INFO] app.js - GET /js/common.js
+[2018-10-26T12:01:21.044] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T12:01:21.111] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T12:01:21.118] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:21.119] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:21.120] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:21.121] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:21.123] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T12:01:21.124] [INFO] app.js - POST /countPv
+[2018-10-26T12:01:21.125] [INFO] app.js - POST /getComments
+[2018-10-26T12:01:21.127] [INFO] app.js - POST /getTypeCount
+[2018-10-26T12:01:25.249] [INFO] blog.js - url参数对象 : { blogId: '2018041' }
+[2018-10-26T12:01:25.254] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:25.258] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:25.268] [INFO] app.js - GET /common/blogDetail/2018041
+[2018-10-26T12:01:25.291] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T12:01:25.291] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T12:01:25.291] [INFO] app.js - GET /css/common.css
+[2018-10-26T12:01:25.292] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T12:01:25.292] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T12:01:25.420] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T12:01:25.421] [INFO] app.js - GET /uploadImg/0310c424ffa9381349906435de6c48a10aa4dfc3.jpg
+[2018-10-26T12:01:25.421] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T12:01:25.422] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T12:01:25.423] [INFO] app.js - GET /js/common.js
+[2018-10-26T12:01:25.424] [INFO] app.js - GET /uploadImg/c6ef480af8d8ba870d13b3b4daf8bdaa820d90ff.jpg
+[2018-10-26T12:01:25.430] [INFO] app.js - GET /uploadImg/bdcd2ff1c9ceb2f633f5b67a48bdfff817b76b46.jpg
+[2018-10-26T12:01:25.451] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T12:01:25.511] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T12:01:25.522] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:25.524] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:25.526] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:25.527] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T12:01:25.528] [INFO] app.js - POST /countPv
+[2018-10-26T12:01:25.528] [INFO] blog.js - 数据库已连接!
+[2018-10-26T12:01:25.530] [INFO] app.js - POST /getComments
+[2018-10-26T12:01:25.534] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:00:51.022] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:51.023] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:00:51.687] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:51.688] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:00:52.917] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:52.919] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:00:53.998] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:54.000] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:00:55.663] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:55.664] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:00:56.639] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:56.640] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:00:58.380] [INFO] blog.js - url参数对象 : { blogId: '2018032' }
+[2018-10-26T14:00:58.384] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:58.388] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:58.410] [INFO] app.js - GET /common/blogDetail/2018032
+[2018-10-26T14:00:58.429] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:00:58.430] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:00:58.431] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:00:58.433] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:00:58.434] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:00:58.435] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:00:58.565] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:00:58.565] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:00:58.566] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:00:58.609] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:00:58.690] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T14:00:58.693] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:58.694] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:58.695] [INFO] app.js - POST /countPv
+[2018-10-26T14:00:58.696] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:00:58.698] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:58.700] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:00:58.701] [INFO] app.js - POST /getComments
+[2018-10-26T14:00:58.702] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:03:07.772] [INFO] app.js - GET /
+[2018-10-26T14:03:07.786] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:03:07.787] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:03:09.407] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:03:09.408] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:03:09.410] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:03:09.410] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:03:09.411] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:03:09.411] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:03:09.624] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:03:09.773] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:09.776] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-26T14:03:12.966] [INFO] app.js - GET /logout?from=http%3A%2F%2Flocalhost%3A3000%2F
+[2018-10-26T14:03:12.987] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:03:12.988] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:03:12.992] [INFO] app.js - GET /css/login.css
+[2018-10-26T14:03:12.994] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:03:12.994] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:03:12.995] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:03:12.997] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:03:12.998] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:03:12.999] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:03:13.000] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T14:03:13.003] [INFO] app.js - GET /js/login.js
+[2018-10-26T14:03:13.078] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T14:03:13.320] [INFO] app.js - GET /images/star.png
+[2018-10-26T14:03:16.054] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:16.055] [INFO] app.js - POST /login
+[2018-10-26T14:03:21.535] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:21.536] [INFO] app.js - POST /login
+[2018-10-26T14:03:23.554] [INFO] app.js - GET /
+[2018-10-26T14:03:23.592] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:03:23.592] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:03:23.594] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:03:23.595] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:03:23.595] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:03:23.705] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:03:23.705] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:03:23.706] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:03:23.706] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:03:23.741] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:03:23.758] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:23.763] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-26T14:03:25.544] [INFO] blog.js - url参数对象 : { author: '3' }
+[2018-10-26T14:03:25.546] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:25.553] [INFO] app.js - GET /common/u-blogList?author=3
+[2018-10-26T14:03:25.580] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:03:25.580] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:03:25.581] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:03:25.581] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:03:25.582] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:03:25.632] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:03:25.632] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:03:25.633] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:03:25.633] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:03:25.657] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:03:25.711] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:25.712] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:25.714] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:03:25.714] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:25.716] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:03:25.719] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:03:27.569] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:03:27.569] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:03:27.569] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:03:27.620] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:03:29.969] [INFO] blog.js - url参数对象 : { author: '3' }
+[2018-10-26T14:03:29.974] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:29.983] [INFO] app.js - GET /common/u-blogList?author=3
+[2018-10-26T14:03:30.033] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:03:30.033] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:03:30.035] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:03:30.037] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:03:30.038] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:03:30.184] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:03:30.185] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:03:30.185] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:03:30.187] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:03:30.241] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:03:30.281] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:03:30.369] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:30.369] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:30.372] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:03:30.372] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:03:30.373] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:03:30.376] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:03:30.514] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:04:13.706] [INFO] blog.js - url参数对象 : { author: '3' }
+[2018-10-26T14:04:13.708] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:04:13.716] [INFO] app.js - GET /common/u-blogList?author=3
+[2018-10-26T14:04:13.765] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:04:13.767] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:04:13.768] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:04:13.769] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:04:13.769] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:04:13.904] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:04:13.905] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:04:13.905] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:04:13.905] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:04:13.999] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:04:14.042] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:04:14.111] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:04:14.113] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:04:14.114] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:04:14.115] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:04:14.115] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:04:14.119] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:04:14.251] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:04:31.529] [INFO] blog.js - url参数对象 : { author: '3' }
+[2018-10-26T14:04:31.532] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:04:31.537] [INFO] app.js - GET /common/u-blogList?author=3
+[2018-10-26T14:04:31.575] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:04:31.576] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:04:31.577] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:04:31.578] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:04:31.580] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:04:31.711] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:04:31.712] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:04:31.712] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:04:31.713] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:04:31.807] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:04:31.833] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:04:31.924] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:04:31.926] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:04:31.926] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:04:31.928] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:04:31.928] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:04:31.932] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:04:35.860] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:04:35.898] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:04:35.899] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:04:35.901] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:04:35.901] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:04:35.903] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:04:36.024] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:04:36.025] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:04:36.025] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:04:36.027] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:04:36.030] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:04:36.115] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:04:36.146] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:06:13.840] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:06:13.849] [INFO] app.js - POST /blog
+[2018-10-26T14:06:15.133] [INFO] blog.js - url参数对象 : { blogId: '2018043' }
+[2018-10-26T14:06:15.136] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:06:15.140] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:06:15.152] [INFO] app.js - GET /common/blogDetail/2018043
+[2018-10-26T14:06:15.185] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:06:15.185] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:06:15.186] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:06:15.186] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:06:15.189] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:06:15.315] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:06:15.316] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:06:15.316] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:06:15.316] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:06:15.360] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:06:15.557] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T14:06:15.564] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:06:15.564] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:06:15.566] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:06:15.568] [INFO] app.js - POST /countPv
+[2018-10-26T14:06:15.569] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:06:15.570] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:06:15.571] [INFO] app.js - POST /getComments
+[2018-10-26T14:06:15.574] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:07:36.839] [INFO] blog.js - url参数对象 : { author: '3' }
+[2018-10-26T14:07:36.841] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:36.848] [INFO] app.js - GET /common/u-blogList?author=3
+[2018-10-26T14:07:36.872] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:07:36.876] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:07:36.878] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:07:36.879] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:07:36.879] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:07:36.987] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:07:36.988] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:07:36.988] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:07:36.988] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:07:37.024] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:07:37.095] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:37.097] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:37.098] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:07:37.100] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:07:37.100] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:37.103] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:07:41.318] [INFO] blog.js - url参数对象 : { blogId: '2018043' }
+[2018-10-26T14:07:41.321] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:41.325] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:41.336] [INFO] app.js - GET /common/blogDetail/2018043
+[2018-10-26T14:07:41.361] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:07:41.361] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:07:41.362] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:07:41.364] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:07:41.364] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:07:41.430] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:07:41.431] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:07:41.431] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:07:41.431] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:07:41.458] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:07:41.667] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T14:07:41.670] [INFO] app.js - POST /countPv
+[2018-10-26T14:07:41.671] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:41.672] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:41.675] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:07:41.677] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:07:41.678] [INFO] app.js - POST /getComments
+[2018-10-26T14:07:41.680] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:08:01.207] [INFO] blog.js - url参数对象 : { blogId: '2018043' }
+[2018-10-26T14:08:01.210] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:08:01.214] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:08:01.224] [INFO] app.js - GET /common/blogDetail/2018043
+[2018-10-26T14:08:01.244] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:08:01.246] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:08:01.246] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:08:01.247] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:08:01.248] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:08:01.375] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:08:01.375] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:08:01.376] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:08:01.376] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:08:01.421] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:08:01.619] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T14:08:01.622] [INFO] app.js - POST /countPv
+[2018-10-26T14:08:01.627] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:08:01.628] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:08:01.632] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:08:01.632] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:08:01.634] [INFO] app.js - POST /getComments
+[2018-10-26T14:08:01.636] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:08:06.379] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:08:06.414] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:08:06.414] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:08:06.415] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:08:06.416] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:08:06.417] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:08:06.464] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:08:06.465] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:08:06.465] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:08:06.466] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:08:06.467] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:08:06.500] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:08:11.159] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:08:11.159] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:08:11.160] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:08:11.200] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:13:11.754] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:13:11.796] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:13:11.800] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:13:11.802] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:13:11.804] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:13:11.804] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:13:11.935] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:13:11.935] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:13:11.936] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:13:11.937] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:13:11.940] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:13:12.094] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:13:12.925] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:13:13.231] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:16:01.225] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:16:01.249] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:16:01.250] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:16:01.252] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:16:01.252] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:16:01.252] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:16:01.369] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:16:01.370] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:16:01.370] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:16:01.371] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:16:01.371] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:16:01.405] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:16:04.212] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:16:04.213] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:16:04.216] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:16:04.274] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:29:17.874] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:29:17.925] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:29:17.927] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:29:17.927] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:29:17.928] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:29:17.932] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:29:18.060] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:29:18.061] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:29:18.061] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:29:18.062] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:29:18.067] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:29:18.216] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:29:19.598] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:29:19.901] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:30:48.199] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:30:48.261] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:30:48.262] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:30:48.264] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:30:48.264] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:30:48.264] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:30:48.429] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:30:48.430] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:30:48.431] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:30:48.431] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:30:48.442] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:30:48.471] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:30:48.506] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:30:48.737] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:31:07.062] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:31:07.104] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:31:07.105] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:31:07.107] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:31:07.107] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:31:07.108] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:31:07.277] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:31:07.277] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:31:07.278] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:31:07.280] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:31:07.286] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:31:07.356] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:31:07.396] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:31:07.701] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:31:33.744] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:31:33.773] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:31:33.780] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:31:33.781] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:31:33.789] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:31:33.789] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:31:33.996] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:31:33.997] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:31:33.997] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:31:33.998] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:31:34.001] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:31:34.294] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:31:34.322] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:31:34.808] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:31:50.632] [INFO] app.js - GET /manage/blog/index
+[2018-10-26T14:31:50.672] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:31:50.673] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:31:50.675] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:31:50.677] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:31:50.677] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:31:50.805] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:31:50.806] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:31:50.806] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:31:50.807] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:31:50.816] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:31:50.862] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:31:50.902] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:31:51.209] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:32:18.423] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:32:18.428] [INFO] app.js - POST /blog
+[2018-10-26T14:32:19.554] [INFO] blog.js - url参数对象 : { blogId: '2018044' }
+[2018-10-26T14:32:19.556] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:32:19.560] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:32:19.572] [INFO] app.js - GET /common/blogDetail/2018044
+[2018-10-26T14:32:19.623] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:32:19.625] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:32:19.629] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:32:19.629] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:32:19.633] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:32:19.783] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:32:19.784] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:32:19.785] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:32:19.788] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:32:19.883] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:32:19.885] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:32:19.968] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:32:19.970] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T14:32:19.975] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:32:19.977] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:32:19.979] [INFO] app.js - POST /countPv
+[2018-10-26T14:32:19.979] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:32:19.984] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:32:19.984] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:32:19.986] [INFO] app.js - POST /getComments
+[2018-10-26T14:34:22.345] [INFO] blog.js - url参数对象 : { author: '3' }
+[2018-10-26T14:34:22.349] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:34:22.357] [INFO] app.js - GET /common/u-blogList?author=3
+[2018-10-26T14:34:22.403] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:34:22.404] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:34:22.404] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:34:22.407] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:34:22.410] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:34:22.539] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:34:22.540] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:34:22.541] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:34:22.542] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:34:22.596] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:34:22.629] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:34:22.700] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:34:22.703] [INFO] app.js - POST /getBlogs
+[2018-10-26T14:34:22.703] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:34:22.706] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:34:22.707] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:34:22.710] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:34:27.376] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:34:27.385] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:34:27.405] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:34:27.406] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:34:27.406] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:34:27.406] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:34:27.407] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:34:27.547] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:34:27.548] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:34:27.549] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:34:27.550] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:34:27.550] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:34:27.586] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:36:10.461] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:36:10.462] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:36:10.464] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:36:10.514] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:44:58.244] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:44:58.251] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:44:58.299] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:44:58.304] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:44:58.306] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:44:58.306] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:44:58.306] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:44:58.436] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:44:58.436] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:44:58.436] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:44:58.437] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:44:58.453] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:44:58.491] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:44:59.224] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:44:59.566] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:45:01.214] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:45:01.221] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:45:01.265] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:45:01.266] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:45:01.267] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:45:01.267] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:45:01.269] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:45:01.386] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:45:01.388] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:45:01.388] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:45:01.390] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:45:01.398] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:45:01.461] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:45:01.498] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:45:01.871] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:45:07.082] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:45:07.088] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:45:07.146] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:45:07.148] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:45:07.150] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:45:07.151] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:45:07.153] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:45:07.270] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:45:07.271] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:45:07.271] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:45:07.271] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:45:07.278] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:45:07.360] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:45:07.412] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:45:07.726] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:45:14.499] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:45:14.507] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:45:14.560] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:45:14.562] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:45:14.566] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:45:14.572] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:45:14.572] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:45:14.691] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:45:14.692] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:45:14.692] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:45:14.693] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:45:14.696] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:45:14.777] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:45:14.818] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:45:15.093] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:45:19.887] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:45:19.897] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:45:19.939] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:45:19.940] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:45:19.943] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:45:19.945] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:45:19.946] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:45:20.057] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:45:20.058] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:45:20.058] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:45:20.059] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:45:20.069] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:45:20.128] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:45:20.461] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:45:25.340] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:45:25.349] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:45:25.394] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:45:25.395] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:45:25.398] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:45:25.399] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:45:25.399] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:45:25.518] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:45:25.519] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:45:25.519] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:45:25.519] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:45:25.523] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:45:25.598] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:45:27.069] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:45:27.076] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:45:27.109] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:45:27.110] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:45:27.111] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:45:27.111] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:45:27.111] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:45:27.239] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:45:27.240] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:45:27.241] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:45:27.242] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:45:27.250] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:45:27.305] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:45:28.168] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:45:28.451] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:45:50.974] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:45:50.983] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:45:51.019] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:45:51.019] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:45:51.020] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:45:51.030] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:45:51.031] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:45:51.344] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:45:51.344] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:45:51.345] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:45:51.345] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:45:51.348] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:45:51.484] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:45:51.538] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:45:51.882] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:46:23.501] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:46:23.509] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:46:23.602] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:46:23.604] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:46:23.605] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:46:23.606] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:46:23.606] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:46:23.737] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:46:23.738] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:46:23.738] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:46:23.738] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:46:23.740] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:46:23.959] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:46:23.999] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:46:24.331] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:46:35.271] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:46:35.274] [INFO] app.js - POST /blog
+[2018-10-26T14:46:47.393] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:46:47.402] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:46:47.454] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:46:47.454] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:46:47.458] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:46:47.460] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:46:47.461] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:46:47.626] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:46:47.627] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:46:47.627] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:46:47.628] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:46:47.629] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:46:47.709] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:46:47.757] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:46:48.011] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:47:41.148] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:47:41.158] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:47:41.203] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:47:41.204] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:47:41.204] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:47:41.204] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:47:41.205] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:47:41.340] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:47:41.340] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:47:41.341] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:47:41.341] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:47:41.346] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:47:41.410] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:47:41.447] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:47:41.755] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:47:46.501] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:47:46.504] [INFO] app.js - POST /blog
+[2018-10-26T14:47:57.851] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:47:57.881] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:47:57.924] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:47:57.927] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:47:57.927] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:47:57.928] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:47:57.929] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:47:58.083] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:47:58.084] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:47:58.084] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:47:58.085] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:47:58.090] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:47:58.145] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:47:58.193] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:47:58.450] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:49:17.651] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:17.660] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:49:17.678] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:17.680] [INFO] app.js - POST /blog
+[2018-10-26T14:49:17.723] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:49:17.723] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:49:17.725] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:49:17.727] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:49:17.728] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:49:17.896] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:49:17.896] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:49:17.898] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:49:17.898] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:49:17.901] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:49:18.055] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:49:18.133] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:49:18.506] [INFO] app.js - GET /favicon.ico
+[2018-10-26T14:49:31.025] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:31.027] [INFO] app.js - POST /blog
+[2018-10-26T14:49:32.439] [INFO] blog.js - url参数对象 : { blogId: '2018044' }
+[2018-10-26T14:49:32.442] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:32.446] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:32.455] [INFO] app.js - GET /common/blogDetail/2018044
+[2018-10-26T14:49:32.507] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:49:32.508] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:49:32.509] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:49:32.510] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:49:32.512] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:49:32.680] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:49:32.680] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:49:32.682] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:49:32.683] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:49:32.759] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:49:32.798] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T14:49:32.866] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T14:49:32.873] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:32.873] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:32.876] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T14:49:32.877] [INFO] app.js - POST /countPv
+[2018-10-26T14:49:32.877] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:32.878] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:32.880] [INFO] app.js - POST /getComments
+[2018-10-26T14:49:32.881] [INFO] app.js - POST /getTypeCount
+[2018-10-26T14:49:35.739] [INFO] blog.js - 数据库已连接!
+[2018-10-26T14:49:35.749] [INFO] app.js - GET /manage/blog/2018044
+[2018-10-26T14:49:35.785] [INFO] app.js - GET /css/common.css
+[2018-10-26T14:49:35.785] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T14:49:35.786] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T14:49:35.787] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T14:49:35.787] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T14:49:35.906] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T14:49:35.907] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T14:49:35.907] [INFO] app.js - GET /js/common.js
+[2018-10-26T14:49:35.907] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T14:49:35.917] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-26T14:49:35.999] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T14:49:36.038] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map

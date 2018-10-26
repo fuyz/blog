@@ -366,6 +366,15 @@
                     $('.tagName:last').focus();
                     $('.tag i').unbind().click(function () {
                         $(this).parent('.tag').remove();
+                    });
+                    $('.tagName').unbind().keydown(function (e) {
+                        let event = window.event || e;
+                        if(event.keyCode == 13){
+                            event.preventDefault();
+                            let tag = $(this).text().trim();
+                            if (tag == '' ) return;
+                            $('.addTagBtn').click();
+                        }
                     })
                 })
 
@@ -390,7 +399,7 @@
                     let tags = [];
                     $.each($('.tagList .tagName'), function (i, e) {
                         let tag = $(e).text().trim();
-                        if (tag != '') tags.push(tag);
+                        if (tag != '' && tags.indexOf(tag) == -1) tags.push(tag);
                     })
                     if (title == '') {
                         showErrorMsg('请输入文章标题');

@@ -167,11 +167,11 @@
 //                登出
                 $('.link-toLogin').click(function () {
                     let url = location.href;
-                    window.location.href = '/logout?from='+ url +'#login';
+                    window.location.href = '/logout?from='+ encodeURIComponent(url) +'#login';
                 });
                 $('.link-toRegister').click(function () {
                     let url = location.href;
-                    window.location.href = '/logout?from='+ url +'#register';
+                    window.location.href = '/logout?from='+ encodeURIComponent(url) +'#register';
                 })
                 $('.logout').click(function () {
                     swal({
