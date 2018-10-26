@@ -163,13 +163,15 @@
                         headManage.data.showAside = true;
                         $('.user-aside').animate({right: 0});
                     }
-                })
+                });
 //                登出
                 $('.link-toLogin').click(function () {
-                    window.location.href = '/logout#login';
+                    let url = location.href;
+                    window.location.href = '/logout?from='+ url +'#login';
                 });
                 $('.link-toRegister').click(function () {
-                    window.location.href = '/logout#register';
+                    let url = location.href;
+                    window.location.href = '/logout?from='+ url +'#register';
                 })
                 $('.logout').click(function () {
                     swal({

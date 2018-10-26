@@ -1,0 +1,2039 @@
+[2018-10-25T15:17:09.002] [INFO] app.js - GET /
+[2018-10-25T15:17:09.064] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:17:09.067] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:17:09.067] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:17:09.068] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:17:09.069] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:17:09.220] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:17:09.220] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:17:09.221] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:17:09.222] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:17:09.299] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:17:09.341] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:17:09.353] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T15:17:09.476] [INFO] app.js - GET /favicon.ico
+[2018-10-25T15:17:16.356] [INFO] app.js - GET /
+[2018-10-25T15:17:16.390] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:17:16.391] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:17:16.392] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:17:16.393] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:17:16.394] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:17:16.527] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:17:16.528] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:17:16.528] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:17:16.529] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:17:16.579] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:17:16.604] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:17:16.616] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T15:19:42.743] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-25T15:19:42.748] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:19:42.753] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:19:42.771] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-25T15:19:42.801] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:19:42.802] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:19:42.804] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:19:42.805] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:19:42.807] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:19:42.978] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:19:42.979] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:19:42.982] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:19:42.984] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:19:42.991] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-25T15:19:42.992] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-25T15:19:43.015] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-25T15:19:43.017] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-25T15:19:43.018] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-25T15:19:43.018] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-25T15:19:43.031] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:19:43.365] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:19:43.368] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:19:43.374] [INFO] app.js - POST /countPv
+[2018-10-25T15:19:43.376] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:19:43.379] [INFO] app.js - POST /getNewBlogs
+[2018-10-25T15:19:43.381] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:19:43.384] [INFO] app.js - POST /getComments
+[2018-10-25T15:19:43.388] [INFO] app.js - POST /getTypeCount[2018-10-25T15:20:40.029] [INFO] app.js - GET /manage/blogList
+[2018-10-25T15:20:40.058] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:20:40.059] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:20:40.060] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:20:40.061] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:20:40.064] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:20:40.182] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:20:40.182] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:20:40.183] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:20:40.184] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:20:40.184] [INFO] app.js - GET /lib/froala_editor.2.8.5.min.js
+[2018-10-25T15:20:40.213] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:20:40.314] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:20:40.332] [INFO] app.js - POST /getBlogStatus
+[2018-10-25T15:20:40.334] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:20:40.343] [INFO] app.js - POST /getBlogs
+[2018-10-25T15:20:40.395] [INFO] app.js - GET /favicon.ico
+[2018-10-25T15:20:45.239] [INFO] app.js - GET /
+[2018-10-25T15:20:45.270] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:20:45.271] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:20:45.271] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:20:45.272] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:20:45.274] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:20:45.323] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:20:45.324] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:20:45.324] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:20:45.326] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:20:45.363] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:20:45.405] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:20:45.412] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T15:33:53.701] [INFO] app.js - GET /
+[2018-10-25T15:33:53.739] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:33:53.740] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:33:53.741] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:33:53.742] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:33:53.745] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:33:53.860] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:33:53.861] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:33:53.862] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:33:53.862] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:33:53.931] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:33:53.998] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:33:54.013] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T15:33:54.099] [INFO] app.js - GET /favicon.ico
+[2018-10-25T15:33:54.791] [INFO] app.js - GET /
+[2018-10-25T15:33:54.822] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:33:54.825] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:33:54.827] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:33:54.829] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:33:54.830] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:33:54.881] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:33:54.882] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:33:54.882] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:33:54.883] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:33:54.912] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:33:54.931] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:33:54.937] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T15:33:55.451] [INFO] blog.js - url参数对象 : { author: 'f' }
+[2018-10-25T15:33:55.455] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:33:55.465] [INFO] app.js - GET /common/u-blogList?author=f
+[2018-10-25T15:33:55.490] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:33:55.491] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:33:55.493] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:33:55.499] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:33:55.501] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:33:55.557] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:33:55.558] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:33:55.558] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:33:55.559] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:33:55.586] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:33:55.651] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:33:55.659] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:33:55.660] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:33:55.664] [INFO] app.js - POST /getBlogs
+[2018-10-25T15:33:55.669] [INFO] app.js - POST /getNewBlogs
+[2018-10-25T15:33:55.675] [INFO] app.js - POST /getTypeCount
+[2018-10-25T15:34:00.554] [INFO] app.js - GET /
+[2018-10-25T15:34:00.581] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:34:00.584] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:34:00.585] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:34:00.587] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:34:00.587] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:34:00.633] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:34:00.634] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:34:00.635] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:34:00.635] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:34:00.667] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:34:00.690] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:34:00.694] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T15:38:53.165] [INFO] app.js - GET /
+[2018-10-25T15:38:53.190] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:38:53.192] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:38:53.193] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:38:53.193] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:38:53.194] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:38:53.341] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:38:53.342] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:38:53.343] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:38:53.344] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:38:53.407] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:38:53.428] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:38:53.433] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T15:38:53.587] [INFO] app.js - GET /favicon.ico
+[2018-10-25T15:38:55.326] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-25T15:38:55.331] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:38:55.336] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:38:55.360] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-25T15:38:55.392] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:38:55.393] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:38:55.394] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:38:55.396] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:38:55.398] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:38:55.467] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:38:55.468] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-25T15:38:55.468] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:38:55.470] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:38:55.471] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-25T15:38:55.472] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:38:55.482] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-25T15:38:55.483] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-25T15:38:55.483] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-25T15:38:55.485] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-25T15:42:37.236] [ERROR] blog.js - { MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connection 11 to localhost:27017 timed out]
+    at Pool.<anonymous> (/Users/fuyingzhi/Desktop/myBolg/node_modules/_mongodb-core@3.1.7@mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:182:13)
+    at Connection.<anonymous> (/Users/fuyingzhi/Desktop/myBolg/node_modules/_mongodb-core@3.1.7@mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:273:13)
+    at Connection.emit (events.js:182:13)
+    at Socket.<anonymous> (/Users/fuyingzhi/Desktop/myBolg/node_modules/_mongodb-core@3.1.7@mongodb-core/lib/connection/connection.js:257:10)
+    at Object.onceWrapper (events.js:273:13)
+    at Socket.emit (events.js:182:13)
+    at Socket._onTimeout (net.js:449:8)
+    at ontimeout (timers.js:425:11)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[2018-10-25T15:42:39.416] [INFO] app.js - POST /countPv
+[2018-10-25T15:42:39.421] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:42:39.422] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:42:39.426] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:42:39.429] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:42:39.432] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:42:39.434] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:42:39.435] [INFO] app.js - POST /getNewBlogs
+[2018-10-25T15:42:39.438] [INFO] app.js - POST /getComments
+[2018-10-25T15:42:39.441] [INFO] app.js - POST /getTypeCount
+[2018-10-25T15:43:21.693] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-25T15:43:21.697] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:43:21.704] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:43:21.719] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-25T15:43:21.752] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:43:21.753] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:43:21.754] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:43:21.754] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:43:21.756] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:43:21.878] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-25T15:43:21.879] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:43:21.879] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:43:21.880] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-25T15:43:21.881] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:43:21.882] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:43:21.895] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-25T15:43:21.895] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-25T15:43:21.896] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-25T15:43:21.897] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-25T15:43:21.925] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T15:45:10.213] [ERROR] blog.js - { MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connection 22 to localhost:27017 timed out]
+    at Pool.<anonymous> (/Users/fuyingzhi/Desktop/myBolg/node_modules/_mongodb-core@3.1.7@mongodb-core/lib/topologies/server.js:564:11)
+    at Pool.emit (events.js:182:13)
+    at Connection.<anonymous> (/Users/fuyingzhi/Desktop/myBolg/node_modules/_mongodb-core@3.1.7@mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:273:13)
+    at Connection.emit (events.js:182:13)
+    at Socket.<anonymous> (/Users/fuyingzhi/Desktop/myBolg/node_modules/_mongodb-core@3.1.7@mongodb-core/lib/connection/connection.js:257:10)
+    at Object.onceWrapper (events.js:273:13)
+    at Socket.emit (events.js:182:13)
+    at Socket._onTimeout (net.js:449:8)
+    at ontimeout (timers.js:425:11)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[2018-10-25T15:45:10.226] [INFO] app.js - GET /favicon.ico
+[2018-10-25T15:45:10.227] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:45:10.231] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:45:10.232] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:45:10.234] [INFO] app.js - POST /countPv
+[2018-10-25T15:45:10.239] [INFO] app.js - POST /getComments
+[2018-10-25T15:45:10.243] [INFO] app.js - POST /getTypeCount
+[2018-10-25T15:45:13.419] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-25T15:45:13.437] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:45:13.446] [INFO] blog.js - 数据库已连接!
+[2018-10-25T15:45:13.492] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-25T15:45:13.532] [INFO] app.js - GET /css/common.css
+[2018-10-25T15:45:13.533] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T15:45:13.534] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T15:45:13.536] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T15:45:13.536] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T15:45:13.673] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T15:45:13.674] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T15:45:13.675] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-25T15:45:13.677] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T15:45:13.679] [INFO] app.js - GET /js/common.js
+[2018-10-25T15:45:13.679] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-25T15:45:13.702] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-25T15:45:13.703] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-25T15:45:13.704] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-25T15:45:13.704] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-25T15:45:13.728] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T16:10:46.616] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:10:46.618] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:10:46.621] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:10:46.627] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:01.220] [INFO] app.js - GET /
+[2018-10-25T16:11:01.239] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T16:11:01.240] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T16:11:01.872] [INFO] app.js - GET /css/common.css
+[2018-10-25T16:11:01.872] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T16:11:01.885] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T16:11:01.886] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T16:11:01.889] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T16:11:01.890] [INFO] app.js - GET /js/common.js
+[2018-10-25T16:11:02.091] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T16:11:02.271] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:02.283] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T16:11:02.482] [INFO] app.js - GET /favicon.ico
+[2018-10-25T16:11:04.894] [INFO] app.js - GET /
+[2018-10-25T16:11:04.917] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T16:11:04.918] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T16:11:04.918] [INFO] app.js - GET /css/common.css
+[2018-10-25T16:11:04.919] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T16:11:04.920] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T16:11:04.920] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T16:11:04.924] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T16:11:04.925] [INFO] app.js - GET /js/common.js
+[2018-10-25T16:11:05.004] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T16:11:05.020] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:05.024] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-25T16:11:05.832] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-25T16:11:05.837] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:05.844] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:05.861] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-25T16:11:05.884] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-25T16:11:05.884] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-25T16:11:05.885] [INFO] app.js - GET /css/common.css
+[2018-10-25T16:11:05.886] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-25T16:11:05.886] [INFO] app.js - GET /images/head.jpeg
+[2018-10-25T16:11:05.963] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-25T16:11:05.966] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-25T16:11:05.966] [INFO] app.js - GET /lib/template-web.js
+[2018-10-25T16:11:05.967] [INFO] app.js - GET /js/common.js
+[2018-10-25T16:11:05.967] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-25T16:11:05.969] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-25T16:11:05.986] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-25T16:11:05.987] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-25T16:11:05.988] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-25T16:11:05.988] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-25T16:11:05.999] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-25T16:11:06.357] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.195',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.195/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-25T16:11:06.372] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:06.377] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:06.380] [INFO] app.js - POST /getNewBlogs
+[2018-10-25T16:11:06.382] [INFO] app.js - POST /getComments
+[2018-10-25T16:11:06.383] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:06.385] [INFO] blog.js - 数据库已连接!
+[2018-10-25T16:11:06.391] [INFO] app.js - POST /countPv
+[2018-10-25T16:11:06.397] [INFO] app.js - POST /getTypeCount
+[2018-10-26T10:50:03.246] [INFO] app.js - GET /
+[2018-10-26T10:50:03.265] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:50:03.267] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:50:04.111] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:50:04.112] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:50:04.113] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:50:04.114] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:50:04.115] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:50:04.116] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:50:04.298] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:50:04.614] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:04.635] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-26T10:50:05.822] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T10:50:05.829] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:05.837] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:05.894] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T10:50:05.915] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:50:05.915] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:50:05.916] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:50:05.916] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:50:05.917] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T10:50:06.000] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:50:06.001] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:50:06.002] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:50:06.004] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:50:06.008] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T10:50:06.009] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T10:50:06.025] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T10:50:06.026] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T10:50:06.026] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T10:50:06.027] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T10:50:06.108] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:50:06.490] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T10:50:06.498] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:06.502] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:06.507] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:06.510] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:06.513] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T10:50:06.515] [INFO] app.js - POST /getComments
+[2018-10-26T10:50:06.516] [INFO] app.js - POST /countPv
+[2018-10-26T10:50:06.521] [INFO] app.js - POST /getTypeCount
+[2018-10-26T10:50:10.391] [INFO] app.js - GET /logout?from=http://localhost:3000/common/blogDetail/2018042
+[2018-10-26T10:50:10.415] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:50:10.416] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:50:10.416] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:50:10.417] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:50:10.417] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:50:10.418] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:50:10.420] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:50:10.421] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:50:10.422] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:50:10.423] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T10:50:10.428] [INFO] app.js - GET /js/login.js
+[2018-10-26T10:50:10.498] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T10:50:10.718] [INFO] app.js - GET /images/star.png
+[2018-10-26T10:50:16.230] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:50:16.450] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T10:50:16.452] [INFO] app.js - POST /countPv
+[2018-10-26T10:50:16.476] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:16.478] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:16.483] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T10:50:16.485] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:16.489] [INFO] app.js - POST /getComments
+[2018-10-26T10:50:16.491] [INFO] app.js - POST /getTypeCount
+[2018-10-26T10:50:18.062] [INFO] app.js - GET /logout?from=http://localhost:3000/common/blogDetail/2018042
+[2018-10-26T10:50:18.084] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:50:18.089] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:50:18.089] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:50:18.090] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:50:18.090] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:50:18.091] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:50:18.092] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:50:18.094] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:50:18.095] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:50:18.095] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T10:50:18.097] [INFO] app.js - GET /js/login.js
+[2018-10-26T10:50:18.158] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T10:50:18.272] [INFO] app.js - GET /images/star.png
+[2018-10-26T10:50:20.084] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:50:20.341] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T10:50:20.342] [INFO] app.js - POST /countPv
+[2018-10-26T10:50:20.348] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:20.352] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:20.355] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T10:50:20.357] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:50:20.359] [INFO] app.js - POST /getComments
+[2018-10-26T10:50:20.363] [INFO] app.js - POST /getTypeCount
+[2018-10-26T10:50:21.456] [INFO] app.js - GET /logout?from=http://localhost:3000/common/blogDetail/2018042
+[2018-10-26T10:50:21.482] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:50:21.486] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:50:21.488] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:50:21.489] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:50:21.489] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:50:21.490] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:50:21.491] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:50:21.492] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:50:21.494] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:50:21.495] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T10:50:21.496] [INFO] app.js - GET /js/login.js
+[2018-10-26T10:50:21.559] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T10:50:21.644] [INFO] app.js - GET /images/star.png
+[2018-10-26T10:50:25.725] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:50:25.725] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:50:25.726] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:50:25.726] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:50:25.781] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T10:51:59.863] [INFO] app.js - GET /
+[2018-10-26T10:51:59.887] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:51:59.888] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:52:07.522] [INFO] app.js - GET /logout
+[2018-10-26T10:52:07.582] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:52:07.583] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:52:07.583] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:52:07.584] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:52:07.584] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:52:07.585] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:52:07.589] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:52:07.593] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T10:52:07.593] [INFO] app.js - GET /js/login.js
+[2018-10-26T10:52:07.856] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T10:52:08.139] [INFO] app.js - GET /images/star.png
+[2018-10-26T10:52:09.306] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:52:09.307] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:52:09.308] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:52:09.308] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:52:09.362] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T10:53:28.916] [INFO] app.js - GET /logout?from=http://localhost:3000/common/blogDetail/2018042
+[2018-10-26T10:53:28.959] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:53:28.960] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:53:28.961] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:53:28.963] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:53:28.966] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:53:28.971] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:53:28.972] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:53:28.973] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:53:28.975] [INFO] app.js - GET /js/login.js
+[2018-10-26T10:53:28.976] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T10:53:28.986] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:53:29.178] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T10:53:29.205] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T10:53:29.427] [INFO] app.js - GET /images/star.png
+[2018-10-26T10:53:29.460] [INFO] app.js - GET /favicon.ico
+[2018-10-26T10:53:33.001] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:53:33.009] [INFO] app.js - POST /login
+[2018-10-26T10:53:35.045] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T10:53:35.049] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:53:35.054] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:53:35.065] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T10:53:35.102] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:53:35.103] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:53:35.104] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T10:53:35.105] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:53:35.106] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:53:35.250] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:53:35.250] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:53:35.251] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:53:35.252] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T10:53:35.252] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:53:35.253] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T10:53:35.271] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T10:53:35.272] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T10:53:35.273] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T10:53:35.273] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T10:53:35.670] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:53:35.798] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T10:53:35.858] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T10:53:35.864] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:53:35.870] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:53:35.870] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:53:35.871] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:53:35.875] [INFO] app.js - POST /countPv
+[2018-10-26T10:53:35.884] [INFO] app.js - POST /getComments
+[2018-10-26T10:53:35.884] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T10:53:35.893] [INFO] app.js - POST /getTypeCount
+[2018-10-26T10:53:45.649] [INFO] app.js - GET /logout
+[2018-10-26T10:53:45.693] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:53:45.694] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:53:45.695] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:53:45.695] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:53:45.697] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:53:45.698] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:53:45.708] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:53:45.711] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:53:45.718] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:53:45.719] [INFO] app.js - GET /js/login.js
+[2018-10-26T10:53:45.721] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T10:53:45.920] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T10:53:45.949] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T10:53:46.157] [INFO] app.js - GET /images/star.png
+[2018-10-26T10:53:55.114] [INFO] app.js - GET /
+[2018-10-26T10:53:55.151] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:53:55.154] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:53:55.156] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:53:55.156] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:53:55.158] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:53:55.158] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:53:55.171] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:53:55.172] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:53:55.352] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:53:55.370] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T10:53:55.410] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:53:55.413] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-26T10:54:02.853] [INFO] app.js - GET /
+[2018-10-26T10:54:02.886] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:54:02.889] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:54:02.893] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:54:02.895] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:54:02.896] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:54:02.897] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:54:02.902] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:54:02.902] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:54:03.093] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:54:03.107] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css.map
+[2018-10-26T10:54:03.133] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:03.136] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-26T10:54:08.062] [INFO] blog.js - url参数对象 : { blogId: '2018041' }
+[2018-10-26T10:54:08.068] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:08.075] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:08.084] [INFO] app.js - GET /common/blogDetail/2018041
+[2018-10-26T10:54:08.106] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:54:08.107] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:54:08.108] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:54:08.108] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:54:08.109] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T10:54:08.113] [INFO] app.js - GET /uploadImg/c6ef480af8d8ba870d13b3b4daf8bdaa820d90ff.jpg
+[2018-10-26T10:54:08.230] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:54:08.232] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:54:08.233] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:54:08.235] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:54:08.235] [INFO] app.js - GET /uploadImg/bdcd2ff1c9ceb2f633f5b67a48bdfff817b76b46.jpg
+[2018-10-26T10:54:08.236] [INFO] app.js - GET /uploadImg/0310c424ffa9381349906435de6c48a10aa4dfc3.jpg
+[2018-10-26T10:54:08.271] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:54:08.383] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T10:54:08.391] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:08.395] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T10:54:08.398] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:08.399] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:08.407] [INFO] app.js - POST /getComments
+[2018-10-26T10:54:08.409] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:08.411] [INFO] app.js - POST /countPv
+[2018-10-26T10:54:08.412] [INFO] app.js - POST /getTypeCount
+[2018-10-26T10:54:17.878] [INFO] app.js - GET /logout?from=http://localhost:3000/common/blogDetail/2018041
+[2018-10-26T10:54:17.899] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:54:17.900] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:54:17.903] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:54:17.904] [INFO] app.js - GET /css/login.css
+[2018-10-26T10:54:17.904] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:54:17.905] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:54:17.907] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:54:17.910] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:54:17.911] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:54:17.912] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T10:54:17.913] [INFO] app.js - GET /js/login.js
+[2018-10-26T10:54:18.057] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T10:54:18.281] [INFO] app.js - GET /images/star.png
+[2018-10-26T10:54:26.478] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:26.481] [INFO] app.js - POST /login
+[2018-10-26T10:54:28.503] [INFO] blog.js - url参数对象 : { blogId: '2018041' }
+[2018-10-26T10:54:28.507] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:28.513] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:28.525] [INFO] app.js - GET /common/blogDetail/2018041
+[2018-10-26T10:54:28.558] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:54:28.559] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:54:28.560] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:54:28.562] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T10:54:28.564] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:54:28.676] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:54:28.676] [INFO] app.js - GET /uploadImg/0310c424ffa9381349906435de6c48a10aa4dfc3.jpg
+[2018-10-26T10:54:28.678] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:54:28.678] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:54:28.679] [INFO] app.js - GET /uploadImg/c6ef480af8d8ba870d13b3b4daf8bdaa820d90ff.jpg
+[2018-10-26T10:54:28.679] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:54:28.683] [INFO] app.js - GET /uploadImg/bdcd2ff1c9ceb2f633f5b67a48bdfff817b76b46.jpg
+[2018-10-26T10:54:28.710] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T10:54:28.785] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T10:54:28.788] [INFO] app.js - POST /countPv
+[2018-10-26T10:54:28.792] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:28.794] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:28.798] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T10:54:28.798] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:28.800] [INFO] app.js - POST /getComments
+[2018-10-26T10:54:28.803] [INFO] app.js - POST /getTypeCount
+[2018-10-26T10:54:45.756] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:45.771] [INFO] app.js - POST /comment
+[2018-10-26T10:54:45.774] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:45.780] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:45.782] [INFO] app.js - POST /getComments
+[2018-10-26T10:54:48.294] [INFO] blog.js - url参数对象 : { author: '1' }
+[2018-10-26T10:54:48.298] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:48.308] [INFO] app.js - GET /common/u-blogList?author=1
+[2018-10-26T10:54:48.337] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:54:48.338] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:54:48.340] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:54:48.342] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T10:54:48.342] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:54:48.473] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:54:48.474] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:54:48.475] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:54:48.475] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:54:48.543] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:48.544] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:48.548] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T10:54:48.548] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:48.550] [INFO] app.js - POST /getBlogs
+[2018-10-26T10:54:48.553] [INFO] app.js - POST /getTypeCount
+[2018-10-26T10:54:51.812] [INFO] app.js - GET /
+[2018-10-26T10:54:51.843] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T10:54:51.843] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T10:54:51.844] [INFO] app.js - GET /css/common.css
+[2018-10-26T10:54:51.845] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T10:54:51.845] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T10:54:51.947] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T10:54:51.948] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T10:54:51.949] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T10:54:51.949] [INFO] app.js - GET /js/common.js
+[2018-10-26T10:54:51.998] [INFO] blog.js - 数据库已连接!
+[2018-10-26T10:54:52.001] [INFO] app.js - POST /getNewBlogs-all
+[2018-10-26T11:23:59.007] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T11:23:59.011] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:23:59.015] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:23:59.027] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T11:23:59.053] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:23:59.054] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:23:59.055] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:23:59.055] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:23:59.056] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:23:59.209] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:23:59.209] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T11:23:59.210] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:23:59.210] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T11:23:59.211] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:23:59.211] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:23:59.223] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T11:23:59.224] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T11:23:59.224] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T11:23:59.225] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T11:23:59.267] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T11:23:59.576] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:23:59.582] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:23:59.584] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:23:59.584] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:23:59.585] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:23:59.590] [INFO] app.js - POST /countPv
+[2018-10-26T11:23:59.591] [INFO] app.js - POST /getComments
+[2018-10-26T11:23:59.591] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:23:59.593] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:24:07.308] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T11:24:07.312] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:07.320] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:07.330] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T11:24:07.359] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:24:07.359] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:24:07.360] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:24:07.361] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:24:07.361] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:24:07.555] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T11:24:07.555] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T11:24:07.557] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T11:24:07.557] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T11:24:07.558] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T11:24:07.558] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T11:24:07.578] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:24:07.578] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:24:07.579] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:24:07.579] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:24:07.749] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:24:07.753] [INFO] app.js - POST /countPv
+[2018-10-26T11:24:07.757] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:07.760] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:07.762] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:24:07.762] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:07.765] [INFO] app.js - POST /getComments
+[2018-10-26T11:24:07.767] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:24:10.132] [INFO] app.js - GET /logout
+[2018-10-26T11:24:10.157] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:24:10.157] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:24:10.164] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:24:10.164] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:24:10.165] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:24:10.165] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:24:10.166] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:24:10.167] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:24:10.175] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:24:10.176] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:24:10.176] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:24:10.398] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:24:10.469] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:24:16.496] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T11:24:16.499] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:16.503] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:16.510] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T11:24:16.534] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:24:16.535] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:24:16.535] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:24:16.536] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:24:16.536] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:24:16.537] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T11:24:16.645] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:24:16.645] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:24:16.646] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:24:16.646] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:24:16.646] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T11:24:16.647] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T11:24:16.657] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T11:24:16.657] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T11:24:16.659] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T11:24:16.810] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:24:16.811] [INFO] app.js - POST /countPv
+[2018-10-26T11:24:16.818] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:16.822] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:24:16.822] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:16.824] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:24:16.826] [INFO] app.js - POST /getComments
+[2018-10-26T11:24:16.829] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:24:16.909] [INFO] app.js - GET /favicon.ico
+[2018-10-26T11:30:32.803] [INFO] app.js - GET /logout?from=http://localhost:3000/common/blogDetail/2018042
+[2018-10-26T11:30:32.829] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:30:32.830] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:30:32.830] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:30:32.831] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:30:32.831] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:30:32.835] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:30:32.835] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:30:32.838] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:30:32.839] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:30:32.839] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:30:32.840] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:30:33.082] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:30:33.157] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:30:41.774] [INFO] app.js - GET /font-awesome-4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0
+[2018-10-26T11:30:42.009] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:30:42.014] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:42.017] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:30:42.017] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:42.019] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:42.020] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:42.022] [INFO] app.js - POST /countPv
+[2018-10-26T11:30:42.024] [INFO] app.js - POST /getComments
+[2018-10-26T11:30:42.026] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:30:44.785] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T11:30:44.787] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:44.790] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:44.798] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T11:30:44.823] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:30:44.824] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:30:44.824] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:30:44.825] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:30:44.829] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:30:44.830] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T11:30:44.874] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:30:44.877] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:30:44.877] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:30:44.877] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:30:44.878] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T11:30:44.878] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T11:30:44.879] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T11:30:44.882] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T11:30:44.884] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T11:30:45.043] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:30:45.044] [INFO] app.js - POST /countPv
+[2018-10-26T11:30:45.048] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:45.049] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:45.051] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:30:45.051] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:45.053] [INFO] app.js - POST /getComments
+[2018-10-26T11:30:45.054] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:30:45.090] [INFO] app.js - GET /favicon.ico
+[2018-10-26T11:30:47.971] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T11:30:47.974] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:47.978] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:47.988] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T11:30:48.017] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:30:48.020] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:30:48.021] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:30:48.021] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:30:48.022] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:30:48.023] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T11:30:48.074] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:30:48.074] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:30:48.075] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:30:48.075] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:30:48.076] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T11:30:48.076] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T11:30:48.080] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T11:30:48.081] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T11:30:48.081] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T11:30:48.214] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:30:48.215] [INFO] app.js - POST /countPv
+[2018-10-26T11:30:48.219] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:48.222] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:48.222] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:48.226] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:30:48.228] [INFO] app.js - POST /getComments
+[2018-10-26T11:30:48.233] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:30:49.516] [INFO] app.js - GET /logout?from=http://localhost:3000/common/blogDetail/2018042
+[2018-10-26T11:30:49.538] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:30:49.539] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:30:49.541] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:30:49.541] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:30:49.542] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:30:49.542] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:30:49.544] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:30:49.544] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:30:49.547] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:30:49.548] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:30:49.549] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:30:49.663] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:30:49.746] [INFO] app.js - GET /images/star.png
+[2018-10-26T11:30:54.721] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:54.723] [INFO] app.js - POST /login
+[2018-10-26T11:30:56.752] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T11:30:56.755] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:56.758] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:56.769] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T11:30:56.807] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:30:56.808] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:30:56.809] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:30:56.810] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:30:56.810] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:30:56.858] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:30:56.859] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T11:30:56.860] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:30:56.861] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:30:56.861] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T11:30:56.862] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:30:56.874] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T11:30:56.876] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T11:30:56.876] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T11:30:56.877] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T11:30:56.997] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:30:57.000] [INFO] app.js - POST /countPv
+[2018-10-26T11:30:57.004] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:57.005] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:57.008] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:30:57.009] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:30:57.011] [INFO] app.js - POST /getComments
+[2018-10-26T11:30:57.014] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:31:02.602] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T11:31:02.604] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:02.609] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:02.619] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T11:31:02.650] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:31:02.651] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:31:02.652] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:31:02.653] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:31:02.653] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:31:02.699] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:31:02.701] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:31:02.701] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:31:02.702] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T11:31:02.705] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:31:02.707] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T11:31:02.712] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T11:31:02.715] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T11:31:02.716] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T11:31:02.717] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T11:31:02.840] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:31:02.844] [INFO] app.js - POST /countPv
+[2018-10-26T11:31:02.847] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:02.848] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:02.852] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:02.854] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:31:02.856] [INFO] app.js - POST /getComments
+[2018-10-26T11:31:02.858] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:31:04.419] [INFO] blog.js - url参数对象 : { blogId: '2018031' }
+[2018-10-26T11:31:04.423] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:04.425] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:04.434] [INFO] app.js - GET /common/blogDetail/2018031
+[2018-10-26T11:31:04.454] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:31:04.465] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:31:04.466] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:31:04.466] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:31:04.467] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:31:04.513] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:31:04.513] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:31:04.514] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:31:04.517] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:31:04.567] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:31:04.572] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:04.573] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:04.576] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:31:04.577] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:04.577] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:04.580] [INFO] app.js - POST /countPv
+[2018-10-26T11:31:04.582] [INFO] app.js - POST /getComments
+[2018-10-26T11:31:04.591] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:31:05.999] [INFO] blog.js - url参数对象 : { blogId: '2018030' }
+[2018-10-26T11:31:06.001] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:06.005] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:06.012] [INFO] app.js - GET /common/blogDetail/2018030
+[2018-10-26T11:31:06.038] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:31:06.039] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:31:06.039] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:31:06.040] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:31:06.041] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:31:06.083] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:31:06.084] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:31:06.084] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:31:06.085] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:31:06.142] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:31:06.147] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:06.148] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:06.150] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:06.153] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:31:06.154] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:06.154] [INFO] app.js - POST /countPv
+[2018-10-26T11:31:06.156] [INFO] app.js - POST /getComments
+[2018-10-26T11:31:06.158] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:31:08.009] [INFO] blog.js - url参数对象 : { blogId: '2018031' }
+[2018-10-26T11:31:08.011] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:08.014] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:08.022] [INFO] app.js - GET /common/blogDetail/2018031
+[2018-10-26T11:31:08.047] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:31:08.047] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:31:08.049] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:31:08.049] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:31:08.050] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:31:08.101] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:31:08.102] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:31:08.102] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:31:08.103] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:31:08.153] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:31:08.160] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:08.161] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:08.162] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:08.164] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:08.165] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:31:08.167] [INFO] app.js - POST /countPv
+[2018-10-26T11:31:08.168] [INFO] app.js - POST /getComments
+[2018-10-26T11:31:08.170] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:31:09.689] [INFO] blog.js - url参数对象 : { blogId: '2018042' }
+[2018-10-26T11:31:09.691] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:09.694] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:09.701] [INFO] app.js - GET /common/blogDetail/2018042
+[2018-10-26T11:31:09.730] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:31:09.730] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:31:09.730] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:31:09.731] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:31:09.732] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:31:09.784] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:31:09.785] [INFO] app.js - GET /uploadImg/3c09545922d2824695f8253a2043384a045cf281.png
+[2018-10-26T11:31:09.785] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:31:09.786] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:31:09.787] [INFO] app.js - GET /uploadImg/d29fddac58ade4370d49ab12bd8b4ecc69c372e2.png
+[2018-10-26T11:31:09.787] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:31:09.796] [INFO] app.js - GET /uploadImg/a3b4c64da109759ba0941b1ee79f2981bbf421d9.png
+[2018-10-26T11:31:09.796] [INFO] app.js - GET /uploadImg/64d94c59754a3babc93437471a975d8a7f030075.png
+[2018-10-26T11:31:09.796] [INFO] app.js - GET /uploadImg/389cd1fbc8cfedd619cb75b11969a7b093655a5a.png
+[2018-10-26T11:31:09.797] [INFO] app.js - GET /uploadImg/d3574cd9fea3d14ece762839cf35307c69d4bf27.gif
+[2018-10-26T11:31:09.938] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:31:09.943] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:09.946] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:09.947] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:09.948] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:31:09.950] [INFO] app.js - POST /countPv
+[2018-10-26T11:31:09.951] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:09.954] [INFO] app.js - POST /getComments
+[2018-10-26T11:31:09.955] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:31:21.769] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:21.773] [INFO] app.js - POST /comment
+[2018-10-26T11:31:21.775] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:21.781] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:31:21.784] [INFO] app.js - POST /getComments
+[2018-10-26T11:32:13.053] [INFO] blog.js - url参数对象 : { author: '付颖志' }
+[2018-10-26T11:32:13.056] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:13.064] [INFO] app.js - GET /common/u-blogList?author=%E4%BB%98%E9%A2%96%E5%BF%97
+[2018-10-26T11:32:13.097] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:32:13.097] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:32:13.098] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:32:13.098] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:32:13.099] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:32:13.221] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:32:13.221] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:32:13.222] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:32:13.222] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:32:13.289] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:13.289] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:13.293] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:32:13.294] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:13.295] [INFO] app.js - POST /getBlogs
+[2018-10-26T11:32:13.297] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:32:14.803] [INFO] blog.js - url参数对象 : { blogId: '2018041' }
+[2018-10-26T11:32:14.809] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:14.812] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:14.820] [INFO] app.js - GET /common/blogDetail/2018041
+[2018-10-26T11:32:14.846] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:32:14.846] [INFO] app.js - GET /images/head.jpeg
+[2018-10-26T11:32:14.847] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:32:14.848] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:32:14.848] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:32:14.912] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:32:14.914] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:32:14.914] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:32:14.915] [INFO] app.js - GET /uploadImg/c6ef480af8d8ba870d13b3b4daf8bdaa820d90ff.jpg
+[2018-10-26T11:32:14.916] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:32:14.917] [INFO] app.js - GET /uploadImg/0310c424ffa9381349906435de6c48a10aa4dfc3.jpg
+[2018-10-26T11:32:14.925] [INFO] app.js - GET /uploadImg/bdcd2ff1c9ceb2f633f5b67a48bdfff817b76b46.jpg
+[2018-10-26T11:32:14.973] [WARN] app.js - { lo0:
+   [ { address: '127.0.0.1',
+       netmask: '255.0.0.0',
+       family: 'IPv4',
+       mac: '00:00:00:00:00:00',
+       internal: true,
+       cidr: '127.0.0.1/8' },
+     { address: '::1',
+       netmask: 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 0,
+       internal: true,
+       cidr: '::1/128' },
+     { address: 'fe80::1',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 1,
+       internal: true,
+       cidr: 'fe80::1/64' } ],
+  en0:
+   [ { address: 'fe80::10e4:b975:2dfc:3ffb',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '8c:85:90:4b:c7:08',
+       scopeid: 6,
+       internal: false,
+       cidr: 'fe80::10e4:b975:2dfc:3ffb/64' },
+     { address: '192.168.1.192',
+       netmask: '255.255.255.0',
+       family: 'IPv4',
+       mac: '8c:85:90:4b:c7:08',
+       internal: false,
+       cidr: '192.168.1.192/24' } ],
+  awdl0:
+   [ { address: 'fe80::acd1:5ff:fef9:c2ae',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: 'ae:d1:05:f9:c2:ae',
+       scopeid: 8,
+       internal: false,
+       cidr: 'fe80::acd1:5ff:fef9:c2ae/64' } ],
+  utun0:
+   [ { address: 'fe80::e7f9:d702:2dae:4417',
+       netmask: 'ffff:ffff:ffff:ffff::',
+       family: 'IPv6',
+       mac: '00:00:00:00:00:00',
+       scopeid: 12,
+       internal: false,
+       cidr: 'fe80::e7f9:d702:2dae:4417/64' } ] }
+[2018-10-26T11:32:14.984] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:14.988] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:14.993] [INFO] app.js - POST /getNewBlogs
+[2018-10-26T11:32:14.997] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:15.002] [INFO] blog.js - 数据库已连接!
+[2018-10-26T11:32:15.003] [INFO] app.js - POST /countPv
+[2018-10-26T11:32:15.010] [INFO] app.js - POST /getTypeCount
+[2018-10-26T11:32:15.012] [INFO] app.js - POST /getComments
+[2018-10-26T11:32:27.526] [INFO] app.js - GET /logout
+[2018-10-26T11:32:27.552] [INFO] app.js - GET /bootstrap-3.3.7-dist/css/bootstrap.css
+[2018-10-26T11:32:27.555] [INFO] app.js - GET /font-awesome-4.7.0/css/font-awesome.css
+[2018-10-26T11:32:27.556] [INFO] app.js - GET /css/common.css
+[2018-10-26T11:32:27.557] [INFO] app.js - GET /css/login.css
+[2018-10-26T11:32:27.557] [INFO] app.js - GET /lib/jquery-3.1.0.min.js
+[2018-10-26T11:32:27.558] [INFO] app.js - GET /bootstrap-3.3.7-dist/js/bootstrap.js
+[2018-10-26T11:32:27.571] [INFO] app.js - GET /lib/sweetalert.min.js
+[2018-10-26T11:32:27.573] [INFO] app.js - GET /lib/template-web.js
+[2018-10-26T11:32:27.580] [INFO] app.js - GET /js/common.js
+[2018-10-26T11:32:27.581] [INFO] app.js - GET /js/login.js
+[2018-10-26T11:32:27.581] [INFO] app.js - GET /lib/pixi.min.js
+[2018-10-26T11:32:27.784] [INFO] app.js - GET /images/logo.jpg
+[2018-10-26T11:32:27.863] [INFO] app.js - GET /images/star.png

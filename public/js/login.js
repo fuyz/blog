@@ -109,7 +109,12 @@ $(document).ready(function () {
                         $('.loginBtn').val('Loading...').animate({width: '100px'}, 1000, function () {
                             $('.login_main').slideUp(300);
                             setTimeout(function () {
-                                window.location.href = '/';
+                                let redirectUrl = location.search.split('=')[1];
+                                if(redirectUrl){
+                                    window.location.href = redirectUrl;
+                                }else {
+                                    window.location.href = '/';
+                                }
                             }, 1000);
                         });
                         // });
