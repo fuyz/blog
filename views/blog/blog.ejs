@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title><%= title %></title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
     <% include ../include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/index.css">-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_editor.pkgd.min.css"
+          rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet"
+          type="text/css"/>
 
     <style>
+        @media (max-width: 970px) {
+            .main {
+                padding: 0 15px;
+            }
+        }
 
         .main {
             background: white;
@@ -138,7 +144,7 @@
     <div class="row">
         <% include m-blogAside.ejs %>
 
-        <div class="blogWrap col-6 col-md-10">
+        <div class="blogWrap col-xs-12 col-6 col-md-10">
             <div class="titleWrap">
                 <input id="title" type="text" placeholder="请输入文章标题" value="<%= blogObj.title %>">
             </div>
@@ -369,10 +375,10 @@
                     });
                     $('.tagName').unbind().keydown(function (e) {
                         let event = window.event || e;
-                        if(event.keyCode == 13){
+                        if (event.keyCode == 13) {
                             event.preventDefault();
                             let tag = $(this).text().trim();
-                            if (tag == '' ) return;
+                            if (tag == '') return;
                             $('.addTagBtn').click();
                         }
                     })
@@ -383,9 +389,9 @@
                 if ('<%- blogObj.id %>') {
                     $('#editor').froalaEditor('html.set', `<%- blogObj.content %>`);
                     $('#blogType').val('<%- blogObj.type %>');
-                    if('<%- blogObj.privated %>' == 'false'){
+                    if ('<%- blogObj.privated %>' == 'false') {
                         $('#privateSwitch').prop({checked: false});
-                    }else {
+                    } else {
                         $('#privateSwitch').prop({checked: true});
                     }
                 }

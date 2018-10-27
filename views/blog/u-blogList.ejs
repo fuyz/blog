@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title><%= title %></title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
     <% include ../include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/common.css">-->
@@ -12,15 +11,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.5/css/froala_style.min.css" rel="stylesheet"
           type="text/css"/>
     <style>
-        .main {
-            width: 1300px;
-            background: none;
-            /*padding-bottom: 100px;*/
+        @media (min-width: 970px) {
+            .main {
+                width: 1300px;
+                background: none;
+                /*padding-bottom: 100px;*/
+            }
+            .main .authorWrap{
+                padding-right: 0;
+            }
+
         }
 
-        .main .authorWrap{
-            padding-right: 0;
-        }
 
         .article-list-filter {
             border-bottom: 1px solid #eee;
@@ -72,7 +74,7 @@
         }
 
         .asideNewArticle {
-            margin-top: 10px;
+            margin: 10px 0;
             padding: 10px;
         }
 
@@ -241,7 +243,7 @@
 <% include ../include/header.ejs %>
 
 <section class="main row">
-    <div class="col-lg-3 authorWrap">
+    <div class="col-lg-3 col-xs-12 authorWrap">
         <div class="user-aside-info ">
             <div class="userWrap">
                 <div class="headWrap">
@@ -291,7 +293,7 @@
             </ul>
         </div>
     </div>
-    <div class="col-lg-9">
+    <div class="col-lg-9 col-xs-12">
         <div class="article-list-wrap">
             <div class="article-list-filter">
                 <label class="typeSwitchWrap"><input type="checkbox" id="typeSwitch">只看原创</label>

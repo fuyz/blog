@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title><%= title %></title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
     <% include ./include/header-res.ejs %>
     <link rel="stylesheet" href="/css/login.css">
@@ -17,6 +16,41 @@
             /*z-index: -1;*/
             width: 100%;
             height: 100%;
+        }
+
+        @media (max-width: 970px) {
+            .login_main {
+                width: 90%;
+                height: 80vh;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                margin: 0;
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .login_L, .login_R {
+                width: 100%;
+            }
+
+            .login_L {
+                height: 50%;
+            }
+
+            .login_R {
+                height: 100%;
+                margin-top: -50px;
+            }
+
+            .login_R h2 {
+                font-size: 0.9rem;
+            }
+            .form{
+                margin-top: 0;
+            }
         }
     </style>
 

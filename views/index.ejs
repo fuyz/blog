@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title><%= title %></title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <!-- 引入样式 -->
     <% include ./include/header-res.ejs %>
     <!--<link rel="stylesheet" href="/css/common.css">-->
@@ -13,17 +12,28 @@
             font-size: 0;
         }
 
+        @media (min-width: 970px) {
+            .main-nav {
+                width: 100px;
+                margin-right: 10px;
+            }
+
+            .main-content {
+                width: 1000px;
+                height: 800px;
+            }
+
+        }
+
         .main-nav, .main-content {
             font-size: 14px;
             background: white;
             display: inline-block;
             vertical-align: top;
+            margin-bottom: 10px;
+
         }
 
-        .main-nav {
-            width: 100px;
-            margin-right: 10px;
-        }
 
         .nav-item {
             height: 32px;
@@ -34,7 +44,8 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .nav-item.on{
+
+        .nav-item.on {
             background: #2e6da4;
             color: white;
         }
@@ -44,31 +55,30 @@
             color: white;
         }
 
-        .main-content {
-            width: 1000px;
-            height: 800px;
-        }
 
-        .article-item{
-            padding: 18px 24px;
+        .article-item {
+            padding: 0.2rem 0.3rem;
+            /*padding: 18px 24px;*/
             background: #fff;
             border-bottom: 1px solid #f4f4f4;
             position: relative;
-            -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
-            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+            -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
         }
-        .article-title a{
+
+        .article-title a {
             font-size: 18px;
             line-height: 28px;
             color: #333;
             font-weight: bold;
             margin-bottom: 5px;
         }
-        .article-title a:hover{
+
+        .article-title a:hover {
             color: #2e6da4;
         }
 
-        .article-abstract{
+        .article-abstract {
             margin-bottom: 4px;
             color: #8a8a8a;
             font-size: 14px;
@@ -77,28 +87,30 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        .article-author{
+
+        .article-author {
             color: #333;
             /*margin-right: 50px;*/
         }
 
-
-        .article-time, .article-comment, .article-pv{
+        .article-time, .article-comment, .article-pv {
             color: #999;
             /*margin-right: 50px;*/
         }
-        .article-author:hover, .article-comment:hover, .article-pv:hover{
+
+        .article-author:hover, .article-comment:hover, .article-pv:hover {
             color: #3399ea;
             cursor: pointer;
         }
 
-        .article-comment i, .article-pv i{
+        .article-comment i, .article-pv i {
             color: #3399ea;
             margin-right: 1px;
             padding: 2px 5px;
 
         }
-        .interval{
+
+        .interval {
             width: 2px;
             height: 2px;
             border-radius: 50%;
@@ -109,14 +121,15 @@
             vertical-align: 4px;
             display: inline-block;
         }
+
     </style>
 </head>
-<body>
+<body class="container-fluid">
 <% include ./include/header.ejs %>
 
-<section class="main">
+<section class="main row">
 
-    <div class="main-nav">
+    <div class="main-nav col-xs-12">
         <div class="nav-item" data-key="recommend">推荐</div>
         <div class="nav-item" data-key="comment">热门评论</div>
         <div class="nav-item" data-key="read">热门阅读</div>
@@ -124,10 +137,10 @@
         <div class="nav-item">暂无</div>
         <div class="nav-item">暂无</div>
     </div>
-    <div class="main-content">
+    <div class="main-content col-xs-12">
 
         <div class="articleListWrap">
-          <!---->
+            <!---->
         </div>
 
     </div>
@@ -141,8 +154,10 @@
     {{ if list.length > 0 }}
     {{each list }}
     <div class="article-item">
-        <div class="article-title"><a href="{{ '/common/blogDetail/'+ $value.id }}" target="_blank">{{ $value.title }}</a></div>
-        <p class="article-abstract">{{ $value.content.replace(/(<\/?.+?\/?>|&nbsp;|&ldquo;|&rdquo;|&quot;)/g, "").slice(0, 200) }}</p>
+        <div class="article-title"><a href="{{ '/common/blogDetail/'+ $value.id }}" target="_blank">{{ $value.title
+                }}</a></div>
+        <p class="article-abstract">{{ $value.content.replace(/(<\/?.+?\/?>|&nbsp;|&ldquo;|&rdquo;|&quot;)/g,
+            "").slice(0, 200) }}</p>
         <span class="article-author">{{ $value.author }}</span>
         <div class="interval"></div>
         <span class="article-time">{{ $value.createTime | dateFormat }}</span>
@@ -169,7 +184,7 @@
 
                 $('.nav-item').click(function () {
                     let key = $(this).data('key');
-                    if(!key)return;
+                    if (!key) return;
                     manage.getNewArticleList(key);
                     $('.nav-item').removeClass('on');
                     $(this).addClass('on');
