@@ -265,6 +265,21 @@
     </style>
 
 </head>
+
+<style>
+    .bsBox {
+        width: auto !important;
+        height: auto !important;
+    }
+
+    .bFind-wrapper-top {
+        height: 25px;
+    }
+</style>
+<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#9C3&amp;text=分享到"></script>
+
+
 <%
 function dateFormat(val) {
     return new Date(Number(val)).toLocaleDateString();
@@ -394,7 +409,7 @@ function dateFormat(val) {
     <li id="toPageTop">
         <i class="fa fa-chevron-up" aria-hidden="true"></i>
     </li>
-    <li id="shareContent">
+    <li id="shareContent" class="bshare-weixin">
         <i class="fa fa-share-alt" aria-hidden="true"></i>
     </li>
 

@@ -81,7 +81,6 @@
         </a>
     </header>
 </div>
-
 <aside class="user-aside">
     <ul class="user-aside-list">
         <li class="userWrap">
@@ -128,7 +127,6 @@
 
     </ul>
 </aside>
-
 <script src="/lib/jquery-3.1.0.min.js"></script>
 <script>
 
@@ -167,11 +165,11 @@
 //                登出
                 $('.link-toLogin').click(function () {
                     let url = location.href;
-                    window.location.href = '/logout?from='+ encodeURIComponent(url) +'#login';
+                    window.location.href = '/logout?from=' + encodeURIComponent(url) + '#login';
                 });
                 $('.link-toRegister').click(function () {
                     let url = location.href;
-                    window.location.href = '/logout?from='+ encodeURIComponent(url) +'#register';
+                    window.location.href = '/logout?from=' + encodeURIComponent(url) + '#register';
                 })
                 $('.logout').click(function () {
                     swal({
@@ -196,9 +194,9 @@
 //                返回顶部
                 $(window).scroll(function (e) {
                     let i = $(window).scrollTop();
-                    if(i > 700){
+                    if (i > 700) {
                         $('#toPageTop').slideDown();
-                    }else {
+                    } else {
                         $('#toPageTop').slideUp();
                     }
                 })
@@ -206,7 +204,7 @@
                     let i = $(window).scrollTop();
                     let setInt = setInterval(function () {
                         i -= 30;
-                        if(i < 0){
+                        if (i < 0) {
                             clearInterval(setInt);
                         }
                         $(window).scrollTop(i);
