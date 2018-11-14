@@ -197,7 +197,7 @@
             line-height: 25px;
         }
 
-        .comment-item:hover .opt-box {
+        .comment-item:hover>.opt-box, .sec-comment-item:hover>.opt-box {
             display: block;
         }
 
@@ -241,6 +241,7 @@
         .reply-box {
             margin-top: 10px;
             display: none;
+            padding-bottom: 5px;
         }
 
         .input-reply {
@@ -260,7 +261,7 @@
 
         .sec-comment-item {
             border: 1px solid #ddd;
-            padding: 1px 0 0 10px;
+            padding: 1px 1px 0 10px;
         }
 
 
@@ -278,9 +279,9 @@
         height: 25px;
     }
 </style>
-<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a>
-<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#9C3&amp;text=分享到"></script>
-
+<!--<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a>-->
+<!--<script type="text/javascript" charset="utf-8"-->
+        <!--src="http://static.bshare.cn/b/buttonLite.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#9C3&amp;text=分享到"></script>-->
 
 <%
 function dateFormat(val) {
@@ -542,6 +543,15 @@ function dateFormat(val) {
                         let commentArr = res.data;
                         let commentStr = '';
                         for (let i = 0; i < commentArr.length; i++) {
+//                            判断是否被回复过
+                            let filterArr = commentArr.filter(function (e, index) {
+                                if(e.replyList && (e.replyList[0] == commentArr[i].commentId + '') ){
+                                    return true;
+                                }
+                            })
+//                            如果被回复过则不单独展示该条回复记录
+                            if(filterArr.length != 0)continue;
+
                             let replyList = commentArr[i].replyList;
 //                            每次初始化回复字符串
                             let renderReplyStr = '';
@@ -563,10 +573,9 @@ function dateFormat(val) {
                                             ${ renderReplyStr }
                                         <b class="c-name">${ commentArr[i].userName }：</b>
                                         <span class="c-content">${ commentArr[i].content }</span>
-                                        <span class="c-time">(${ new Date(Number(commentArr[i].createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ commentArr.length - i }楼</b>)</span>
+                                        <span class="c-time">(${ new Date(Number(commentArr[i].createTime)).toLocaleString() }<b style="margin-left: 10px;color: #999">#${ commentArr.length - i }楼</b>)</span>
                                         <div class="right opt-box">
-                                            ${ '<%= user.id %>' == commentArr[i].userId ? '' : '<span class="btn-report">举报</span>' }
-                                            ${ '<%= user.id %>' == commentArr[i].userId ? '<span class="btn-delete">删除</span>' : '' }
+                                            ${ '<%= user.id %>' == commentArr[i].userId ? '<span class="btn-delete">删除</span>' : '<span class="btn-report">举报</span>' }
                                             <span class="btn-reply">回复</span>
                                         </div>
                                         <div class="reply-box clear">
@@ -584,6 +593,7 @@ function dateFormat(val) {
 //                            拼接评论
                             commentStr += commentStrItem;
                         }
+
 //                        查询该评论
                         function findEle(replyId) {
                             let ele = {};
@@ -596,6 +606,7 @@ function dateFormat(val) {
                             });
                             return ele;
                         }
+
 //                        拼接回复字符串方法
                         function renderReplyList(eleAndI) {
                             let obj, str;
@@ -610,24 +621,47 @@ function dateFormat(val) {
                             if (obj.replyList && obj.replyList.length != 0) {
 //                                有回复中有回复，调用递归
                                 let secStr = renderReplyList(findEle(obj.replyList[0]));
-                                str = `<div class="sec-comment-item">
+                                str = `<div class="sec-comment-item" data-id="${ obj.commentId }">
                                                 ${ secStr }
                                                 <b class="c-name">${ obj.userName }：</b>
                                                 <p class="c-content">${ obj.content }</p>
                                                 <span class="c-time">(${ new Date(Number(obj.createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ eleAndI.length - eleAndI.i }楼</b>)</span>
+                                                <div class="right opt-box">
+                                                    ${ '<%= user.id %>' == obj.userId ? '<span class="btn-delete">删除</span>' : '<span class="btn-report">举报</span>' }
+                                                    <span class="btn-reply">回复</span>
+                                                </div>
+                                                <div class="reply-box clear">
+                                                    <textarea class="input-reply" placeholder="请输入回复内容..."></textarea>
+                                                    <div class="right">
+                                                        <input type="submit" class="btn-cancel btn-small" value="取消">
+                                                        <input type="submit" class="btn-sec-comment  btn-small" value="回复">
+                                                    </div>
+                                                </div>
                                             </div>`;
                                 return str;
                             } else {
 //                                有回复没有有回复，直接拼接
-                                str = `<div class="sec-comment-item">
+                                str = `<div class="sec-comment-item" data-id="${ obj.commentId }">
                                             <b class="c-name">${ obj.userName }：</b>
                                             <span class="c-content">${ obj.content }</span>
                                             <span class="c-time">(${ new Date(Number(obj.createTime)).toLocaleString() }   <b style="margin-left: 10px;color: #999">#${ eleAndI.length - eleAndI.i }楼</b>)</span>
+                                            <div class="right opt-box">
+                                                ${ '<%= user.id %>' == obj.userId ? '<span class="btn-delete">删除</span>' : '<span class="btn-report">举报</span>' }
+                                                <span class="btn-reply">回复</span>
+                                            </div>
+                                            <div class="reply-box clear">
+                                                <textarea class="input-reply" placeholder="请输入回复内容..."></textarea>
+                                                <div class="right">
+                                                    <input type="submit" class="btn-cancel btn-small" value="取消">
+                                                    <input type="submit" class="btn-sec-comment  btn-small" value="回复">
+                                                </div>
+                                            </div>
                                         </div>`;
                                 return str;
                             }
 
                         }
+
 //                        渲染
                         $('.comment-list-box').html(commentStr);
 
@@ -660,7 +694,7 @@ function dateFormat(val) {
                                 $textarea.focus();
                                 return;
                             }
-                            let id = $(this).parents('.comment-item').data('id');
+                            let id = $(this).parents('.sec-comment-item').data('id') || $(this).parents('.comment-item').data('id');
                             manage.setComment({comment: comment, commentId: id});
                         });
 //                        删除评论
@@ -677,7 +711,7 @@ function dateFormat(val) {
                             }).then(value => {
                                 switch (value) {
                                     case "default":
-                                        let commentId = $(this).parents('.comment-item').data('id');
+                                        let commentId = $(this).parents('.sec-comment-item').data('id') || $(this).parents('.comment-item').data('id');
                                         ajaxData('post', '/deleteComment', {
                                             commentId: commentId,
                                             articleId: '<%= blogObj.id %>'
@@ -694,7 +728,7 @@ function dateFormat(val) {
                                 }
                             })
                         });
-                        
+
 
                     }
                 })
