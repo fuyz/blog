@@ -766,5 +766,16 @@ module.exports = app;
 
 
 
-
-
+// console.warn('警告');
+// // console.log(new Error('错误信息'));
+//
+// const out = getStreamSomehow();
+// const err = getStreamSomehow();
+// const myConsole = new console.Console(out, err);
+//
+// myConsole.log('你好世界');
+// // 打印: '你好世界'到 out。
+// myConsole.log('你好%s', '世界');
+// // 打印: '你好世界'到 out。
+// myConsole.error(new Error('错误信息'));
+// // 打印: [Error: 错误信息]到 err。

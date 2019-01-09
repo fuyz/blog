@@ -10,7 +10,7 @@ module.exports = function (app) {
         try {
             let userInfo = sessionConfig.getUser(req, res);
             res.render('index', {title: '首页-Blog', user: userInfo ? userInfo : {}});
-        }catch (err){
+        } catch (err) {
             logger.error(err);
         }
 
@@ -20,18 +20,19 @@ module.exports = function (app) {
     });
     app.get('/logout', function (req, res) {
         try {
-            req.session.destroy(function(err) {
-                if(err){
+            req.session.destroy(function (err) {
+                if (err) {
                     logger.error(err);
-                    res.json({success: false, error:'退出登录失败', data: null, status: 200});
+                    res.json({success: false, error: '退出登录失败', data: null, status: 200});
                     return;
                 }
                 // req.session.loginUser = null;
                 res.clearCookie('skey');
-                res.render('login', {title: '登录注册-Blog'});
-
+                // res.render('login', {title: '登录注册-Blog'});
+                // res.render('index', {title: '首页-Blog', user: {}});
+                res.redirect('/');
             });
-        }catch (err){
+        } catch (err) {
             logger.error(err);
         }
 
@@ -100,7 +101,12 @@ module.exports = function (app) {
                     return;
                 }
 
-                res.render('blog/blogView', {title: blog.title+'-'+ blog.author/*'博客详情-Blog'*/, blogObj: blog, authorInfo: user, user: userInfo ? userInfo : {} });
+                res.render('blog/blogView', {
+                    title: blog.title + '-' + blog.author/*'博客详情-Blog'*/,
+                    blogObj: blog,
+                    authorInfo: user,
+                    user: userInfo ? userInfo : {}
+                });
 
             });
 
@@ -123,7 +129,7 @@ module.exports = function (app) {
                 return;
             }
 
-            res.render('blog/u-blogList', {title: '博客列表-Blog', authorInfo: user, user: userInfo ? userInfo : {} });
+            res.render('blog/u-blogList', {title: '博客列表-Blog', authorInfo: user, user: userInfo ? userInfo : {}});
 
         });
 
