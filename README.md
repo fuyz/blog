@@ -21,4 +21,4 @@ Express 提供精简的基本 Web 应用程序功能，而不会隐藏您了解�
 4.框架
 许多 流行的开发框架 都基于 Express 构建。
 
-项目网址：http://www.fuyingzhi.com:3000/
+项目网址：http://blog.fuyingzhi.com
